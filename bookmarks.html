@@ -46,6 +46,12 @@ summary { cursor: pointer; font-weight: 600; padding: 4px 0; }
 .bookmark-btn { background: none; border: none; cursor: pointer; font-size: 18px; line-height: 1; padding: 0 2px; opacity: 0.5; float: right; }
 .bookmark-btn:hover { opacity: 0.9; }
 .bookmark-btn.saved { opacity: 1; }
+.share-btn { background: none; border: none; cursor: pointer; font-size: 16px; line-height: 1; padding: 0 2px; opacity: 0.5; float: right; margin-right: 6px; }
+.share-btn:hover { opacity: 0.9; }
+.freshness { display: inline-block; font-size: 12px; padding: 3px 10px; border-radius: 999px; margin-bottom: 10px; }
+.freshness.fresh { background: color-mix(in srgb, #2fa84f 15%, transparent); color: #1c6b31; }
+.freshness.stale { background: color-mix(in srgb, currentColor 12%, transparent); opacity: 0.75; }
+@media (prefers-color-scheme: dark) { .freshness.fresh { color: #6fe08f; } }
 </style>
 </head>
 <body data-page="bookmarks">
@@ -55,30 +61,35 @@ summary { cursor: pointer; font-weight: 600; padding: 4px 0; }
 <p class="empty" id="noBookmarks">ยังไม่มีข่าวที่บันทึกไว้ — ลองกด ☆ ที่ข่าวหน้าอื่นดูก่อนครับ</p>
 <div class="card major" data-category="model_release" data-importance="major" data-url="https://openai.com/index/previewing-gpt-5-6-sol/">
   <button class="bookmark-btn" data-url="https://openai.com/index/previewing-gpt-5-6-sol/" title="บันทึกไว้อ่านทีหลัง" aria-label="บันทึกไว้อ่านทีหลัง">☆</button>
+  <button class="share-btn" data-url="https://openai.com/index/previewing-gpt-5-6-sol/" data-title="OpenAI เปิดตัวโมเดลตระกูล GPT-5.6 (Sol, Terra, Luna) ให้ใช้งานทั่วไป" title="แชร์ข่าวนี้" aria-label="แชร์ข่าวนี้">🔗</button>
   <span class="badge major">🔥 ข่าวใหญ่</span><span class="badge">เปิดตัวโมเดล/ฟีเจอร์ใหม่</span>
   <h3><a href="https://openai.com/index/previewing-gpt-5-6-sol/" target="_blank" rel="noopener">OpenAI เปิดตัวโมเดลตระกูล GPT-5.6 (Sol, Terra, Luna) ให้ใช้งานทั่วไป</a></h3>
   <p>OpenAI เปิดให้ใช้งานโมเดลตระกูลใหม่ GPT-5.6 แบ่งเป็น 3 รุ่นคือ Sol (เรือธง), Terra (รุ่นกลาง) และ Luna (ประหยัดสุด) ผ่าน ChatGPT, Codex และ API แล้ว โดย Sol จะขับเคลื่อนโหมดคิดวิเคราะห์ขั้นสูงสำหรับผู้ใช้แผนระดับสูง ถือเป็นการอัปเกรดฐานโมเดลครั้งใหญ่ที่สุดของ OpenAI ในรอบหลายเดือน</p>
   <div class="meta">OpenAI · 11 กรกฎาคม 2569</div>
 </div><div class="card major" data-category="policy" data-importance="major" data-url="https://futureoflife.org/ai-safety-index-summer-2026/">
   <button class="bookmark-btn" data-url="https://futureoflife.org/ai-safety-index-summer-2026/" title="บันทึกไว้อ่านทีหลัง" aria-label="บันทึกไว้อ่านทีหลัง">☆</button>
+  <button class="share-btn" data-url="https://futureoflife.org/ai-safety-index-summer-2026/" data-title="รายงาน AI Safety Index ชี้บริษัท AI รายใหญ่ถอยห่างจากคำมั่นด้านความปลอดภัย" title="แชร์ข่าวนี้" aria-label="แชร์ข่าวนี้">🔗</button>
   <span class="badge major">🔥 ข่าวใหญ่</span><span class="badge">นโยบาย/กฎหมาย</span>
   <h3><a href="https://futureoflife.org/ai-safety-index-summer-2026/" target="_blank" rel="noopener">รายงาน AI Safety Index ชี้บริษัท AI รายใหญ่ถอยห่างจากคำมั่นด้านความปลอดภัย</a></h3>
   <p>Future of Life Institute เผยแพร่รายงาน AI Safety Index ฉบับกลางปี 2026 ประเมิน 9 บริษัท AI รายใหญ่ทั่วโลก พบว่าไม่มีบริษัทไหนได้เกรด A หรือ B โดย Anthropic ได้คะแนนสูงสุดแต่ยังอยู่แค่ C+ ตามด้วย OpenAI และ Google DeepMind ที่ได้ C ส่วน xAI, DeepSeek และ Mistral สอบตกเกรด F รายงานระบุว่าหลายบริษัทเริ่มถอยห่างจากคำมั่นเดิมที่จะหยุดพัฒนาโมเดลหากเข้าใกล้ระดับความเสี่ยงที่กำหนดไว้</p>
   <div class="meta">Future of Life Institute · 11 กรกฎาคม 2569</div>
 </div><div class="card" data-category="model_release" data-importance="normal" data-url="https://www.axios.com/2026/07/08/spacexai-grok-new-model">
   <button class="bookmark-btn" data-url="https://www.axios.com/2026/07/08/spacexai-grok-new-model" title="บันทึกไว้อ่านทีหลัง" aria-label="บันทึกไว้อ่านทีหลัง">☆</button>
+  <button class="share-btn" data-url="https://www.axios.com/2026/07/08/spacexai-grok-new-model" data-title="xAI เปิดตัว Grok 4.5 เจาะกลุ่มงานเขียนโค้ดและ agent" title="แชร์ข่าวนี้" aria-label="แชร์ข่าวนี้">🔗</button>
   <span class="badge">เปิดตัวโมเดล/ฟีเจอร์ใหม่</span>
   <h3><a href="https://www.axios.com/2026/07/08/spacexai-grok-new-model" target="_blank" rel="noopener">xAI เปิดตัว Grok 4.5 เจาะกลุ่มงานเขียนโค้ดและ agent</a></h3>
   <p>xAI เปิดตัว Grok 4.5 โมเดลตัวแรกที่ออกแบบมาเฉพาะงานเขียนโค้ดและงานแบบ agent ฝึกจากข้อมูลการใช้งานจริงใน Cursor อีลอน มัสก์ระบุว่าเทียบชั้น Claude Opus 4.8 แต่เร็วกว่าและราคาถูกกว่า ราคาต่อ 1 ล้านโทเคนอยู่ที่ 2 ดอลลาร์ (input) และ 6 ดอลลาร์ (output) ยังไม่เปิดให้ใช้ในสหภาพยุโรปตอนนี้</p>
   <div class="meta">xAI (SpaceXAI) · 11 กรกฎาคม 2569</div>
 </div><div class="card" data-category="product" data-importance="normal" data-url="https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/">
   <button class="bookmark-btn" data-url="https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/" title="บันทึกไว้อ่านทีหลัง" aria-label="บันทึกไว้อ่านทีหลัง">☆</button>
+  <button class="share-btn" data-url="https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/" data-title="Meta เปิดขาย API โมเดล Muse Spark 1.1 ครั้งแรก ราคาถูกกว่าคู่แข่งราว 4 เท่า" title="แชร์ข่าวนี้" aria-label="แชร์ข่าวนี้">🔗</button>
   <span class="badge">ผลิตภัณฑ์</span>
   <h3><a href="https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/" target="_blank" rel="noopener">Meta เปิดขาย API โมเดล Muse Spark 1.1 ครั้งแรก ราคาถูกกว่าคู่แข่งราว 4 เท่า</a></h3>
   <p>Meta เริ่มเก็บเงินค่าใช้งาน AI เป็นครั้งแรกผ่านโมเดล Muse Spark 1.1 ราคาประมาณ 1 ใน 4 ของ Claude Opus 4.8 และ GPT-5.5 เปิดให้ใช้แบบพรีวิวเฉพาะในสหรัฐฯ ก่อน ถือเป็นการเข้าสู่ธุรกิจขาย API แข่งกับ Anthropic และ OpenAI อย่างเป็นทางการ</p>
   <div class="meta">Meta AI · 11 กรกฎาคม 2569</div>
 </div><div class="card" data-category="other" data-importance="normal" data-url="https://www.anthropic.com/news/ben-bernanke">
   <button class="bookmark-btn" data-url="https://www.anthropic.com/news/ben-bernanke" title="บันทึกไว้อ่านทีหลัง" aria-label="บันทึกไว้อ่านทีหลัง">☆</button>
+  <button class="share-btn" data-url="https://www.anthropic.com/news/ben-bernanke" data-title="Anthropic แต่งตั้งเบน เบอร์นันกี อดีตประธานเฟด นั่งบอร์ดกำกับดูแลระยะยาว" title="แชร์ข่าวนี้" aria-label="แชร์ข่าวนี้">🔗</button>
   <span class="badge">อื่นๆ</span>
   <h3><a href="https://www.anthropic.com/news/ben-bernanke" target="_blank" rel="noopener">Anthropic แต่งตั้งเบน เบอร์นันกี อดีตประธานเฟด นั่งบอร์ดกำกับดูแลระยะยาว</a></h3>
   <p>Anthropic แต่งตั้ง ดร.เบน เบอร์นันกี อดีตประธานธนาคารกลางสหรัฐฯ (เฟด) และเจ้าของรางวัลโนเบลเศรษฐศาสตร์ปี 2022 เข้าร่วม Long-Term Benefit Trust ซึ่งเป็นคณะกรรมการอิสระที่ให้คำแนะนำบอร์ดบริษัทเรื่องความเสี่ยงและผลกระทบต่อสังคมจากการพัฒนา AI โดยกรรมการกลุ่มนี้ไม่ถือหุ้นและไม่มีส่วนแบ่งกำไรจากบริษัท</p>
@@ -139,6 +150,23 @@ document.querySelectorAll('.bookmark-btn').forEach(btn => btn.addEventListener('
   refreshBookmarkButtons();
 }));
 refreshBookmarkButtons();
+</script>
+<script>
+document.querySelectorAll('.share-btn').forEach(btn => btn.addEventListener('click', async () => {
+  const url = btn.dataset.url;
+  const title = btn.dataset.title;
+  if (navigator.share) {
+    try { await navigator.share({ title, url }); return; } catch (e) { /* user cancelled or failed, fall through */ }
+  }
+  try {
+    await navigator.clipboard.writeText(url);
+    const original = btn.textContent;
+    btn.textContent = '✅';
+    setTimeout(() => { btn.textContent = original; }, 1500);
+  } catch (e) {
+    prompt('คัดลอกลิงก์นี้ไปแชร์ได้เลย:', url);
+  }
+}));
 </script>
 </body>
 </html>

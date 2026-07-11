@@ -46,6 +46,12 @@ summary { cursor: pointer; font-weight: 600; padding: 4px 0; }
 .bookmark-btn { background: none; border: none; cursor: pointer; font-size: 18px; line-height: 1; padding: 0 2px; opacity: 0.5; float: right; }
 .bookmark-btn:hover { opacity: 0.9; }
 .bookmark-btn.saved { opacity: 1; }
+.share-btn { background: none; border: none; cursor: pointer; font-size: 16px; line-height: 1; padding: 0 2px; opacity: 0.5; float: right; margin-right: 6px; }
+.share-btn:hover { opacity: 0.9; }
+.freshness { display: inline-block; font-size: 12px; padding: 3px 10px; border-radius: 999px; margin-bottom: 10px; }
+.freshness.fresh { background: color-mix(in srgb, #2fa84f 15%, transparent); color: #1c6b31; }
+.freshness.stale { background: color-mix(in srgb, currentColor 12%, transparent); opacity: 0.75; }
+@media (prefers-color-scheme: dark) { .freshness.fresh { color: #6fe08f; } }
 </style>
 </head>
 <body data-page="weekly">
@@ -106,6 +112,23 @@ document.querySelectorAll('.bookmark-btn').forEach(btn => btn.addEventListener('
   refreshBookmarkButtons();
 }));
 refreshBookmarkButtons();
+</script>
+<script>
+document.querySelectorAll('.share-btn').forEach(btn => btn.addEventListener('click', async () => {
+  const url = btn.dataset.url;
+  const title = btn.dataset.title;
+  if (navigator.share) {
+    try { await navigator.share({ title, url }); return; } catch (e) { /* user cancelled or failed, fall through */ }
+  }
+  try {
+    await navigator.clipboard.writeText(url);
+    const original = btn.textContent;
+    btn.textContent = '✅';
+    setTimeout(() => { btn.textContent = original; }, 1500);
+  } catch (e) {
+    prompt('คัดลอกลิงก์นี้ไปแชร์ได้เลย:', url);
+  }
+}));
 </script>
 </body>
 </html>

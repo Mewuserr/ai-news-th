@@ -6,8 +6,10 @@ Run manually or from engine-prompt.md after data/ is updated.
 import json
 import glob
 import os
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 from collections import defaultdict, Counter
+
+BANGKOK = timezone(timedelta(hours=7))
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_NEWS_DIR = os.path.join(ROOT, "data", "news")
@@ -96,6 +98,12 @@ summary { cursor: pointer; font-weight: 600; padding: 4px 0; }
 .bookmark-btn { background: none; border: none; cursor: pointer; font-size: 18px; line-height: 1; padding: 0 2px; opacity: 0.5; float: right; }
 .bookmark-btn:hover { opacity: 0.9; }
 .bookmark-btn.saved { opacity: 1; }
+.share-btn { background: none; border: none; cursor: pointer; font-size: 16px; line-height: 1; padding: 0 2px; opacity: 0.5; float: right; margin-right: 6px; }
+.share-btn:hover { opacity: 0.9; }
+.freshness { display: inline-block; font-size: 12px; padding: 3px 10px; border-radius: 999px; margin-bottom: 10px; }
+.freshness.fresh { background: color-mix(in srgb, #2fa84f 15%, transparent); color: #1c6b31; }
+.freshness.stale { background: color-mix(in srgb, currentColor 12%, transparent); opacity: 0.75; }
+@media (prefers-color-scheme: dark) { .freshness.fresh { color: #6fe08f; } }
 """
 
 FILTER_SCRIPT = """
@@ -156,6 +164,24 @@ document.querySelectorAll('.bookmark-btn').forEach(btn => btn.addEventListener('
 refreshBookmarkButtons();
 """
 
+SHARE_SCRIPT = """
+document.querySelectorAll('.share-btn').forEach(btn => btn.addEventListener('click', async () => {
+  const url = btn.dataset.url;
+  const title = btn.dataset.title;
+  if (navigator.share) {
+    try { await navigator.share({ title, url }); return; } catch (e) { /* user cancelled or failed, fall through */ }
+  }
+  try {
+    await navigator.clipboard.writeText(url);
+    const original = btn.textContent;
+    btn.textContent = '✅';
+    setTimeout(() => { btn.textContent = original; }, 1500);
+  } catch (e) {
+    prompt('คัดลอกลิงก์นี้ไปแชร์ได้เลย:', url);
+  }
+}));
+"""
+
 
 def nav_html(active: str) -> str:
     links = [
@@ -191,6 +217,7 @@ def page_shell(title: str, active: str, body: str) -> str:
 {body}
 <script>{FILTER_SCRIPT}</script>
 <script>{BOOKMARK_SCRIPT}</script>
+<script>{SHARE_SCRIPT}</script>
 </body>
 </html>
 """
@@ -216,8 +243,10 @@ def card_html(item: dict, group: str = "") -> str:
     major_class = " major" if is_major else ""
     major_badge = '<span class="badge major">🔥 ข่าวใหญ่</span>' if is_major else ""
     url = esc(item.get("url", "#"))
+    share_title = esc(item.get("title_th", ""))
     return f"""<div class="card{major_class}" data-category="{esc(cat)}" data-importance="{esc(importance)}" data-url="{url}"{group_attr}>
   <button class="bookmark-btn" data-url="{url}" title="บันทึกไว้อ่านทีหลัง" aria-label="บันทึกไว้อ่านทีหลัง">☆</button>
+  <button class="share-btn" data-url="{url}" data-title="{share_title}" title="แชร์ข่าวนี้" aria-label="แชร์ข่าวนี้">🔗</button>
   {major_badge}<span class="badge">{esc(label)}</span>
   <h3><a href="{url}" target="_blank" rel="noopener">{esc(item.get('title_th', ''))}</a></h3>
   <p>{esc(item.get('summary_th', ''))}</p>
@@ -245,7 +274,15 @@ def build_index(all_items):
             sections.append(f'<div class="group-heading" data-group="normal">{heading}</div>')
         sections.append("".join(card_html(i, group="normal") for i in normal_items))
 
+    today_bkk = datetime.now(BANGKOK).strftime("%Y-%m-%d")
+    is_fresh = latest_date == today_bkk
+    freshness = (
+        '<div class="freshness fresh">✓ เป็นข่าวล่าสุดของวันนี้</div>' if is_fresh
+        else '<div class="freshness stale">ยังไม่มีข่าวใหม่ของวันนี้ — นี่คือข่าวล่าสุดที่มี</div>'
+    )
+
     body = f"""<h1>ข่าว AI ประจำวันที่ {thai_date(latest_date)}</h1>
+{freshness}
 <div class="sub">{len(today_items)} ข่าว{f" · ข่าวใหญ่ {len(major_items)} ข่าว" if major_items else ""}</div>
 {filters_html(cats_present, show_major_toggle=bool(major_items))}
 {''.join(sections)}"""
