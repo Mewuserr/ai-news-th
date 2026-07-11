@@ -1,0 +1,23 @@
+[
+  {
+    "source": "OpenAI",
+    "title_th": "OpenAI เปิดตัวโมเดลใหม่ที่เก่งขึ้นด้านการเขียนโค้ด",
+    "summary_th": "OpenAI ประกาศโมเดลรุ่นใหม่ที่พัฒนาความสามารถด้านการเขียนและแก้โค้ดให้แม่นยำขึ้น พร้อมรองรับบริบทที่ยาวขึ้นกว่าเดิม บริษัทระบุว่าจะทยอยเปิดให้ใช้งานผ่าน API ในสัปดาห์นี้",
+    "category": "model_release",
+    "url": "https://example.com/openai-new-model"
+  },
+  {
+    "source": "Anthropic",
+    "title_th": "Anthropic เพิ่มฟีเจอร์ใหม่ให้ Claude ใช้เครื่องมือภายนอกได้ดีขึ้น",
+    "summary_th": "Anthropic อัปเดตความสามารถของ Claude ในการเรียกใช้เครื่องมือและ API ภายนอกอย่างแม่นยำมากขึ้น ลดอัตราการเรียกผิดพลาด และรองรับงานที่ซับซ้อนหลายขั้นตอนได้ดีขึ้น",
+    "category": "product",
+    "url": "https://example.com/anthropic-tool-use"
+  },
+  {
+    "source": "Mistral AI",
+    "title_th": "Mistral AI ระดมทุนรอบใหม่มูลค่าหลายร้อยล้านดอลลาร์",
+    "summary_th": "บริษัท AI สัญชาติฝรั่งเศส Mistral AI ปิดดีลระดมทุนรอบใหม่ นำโดยนักลงทุนรายใหญ่ในยุโรป เพื่อขยายทีมวิจัยและโครงสร้างพื้นฐานด้านการประมวลผล",
+    "category": "funding",
+    "url": "https://example.com/mistral-funding"
+  }
+]

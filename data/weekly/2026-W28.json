@@ -1,0 +1,44 @@
+{
+  "week": "2026-W28",
+  "start_date": "2026-07-06",
+  "end_date": "2026-07-12",
+  "highlights": [
+    "OpenAI และ xAI ต่างเปิดตัวโมเดลใหม่ในสัปดาห์เดียวกัน เน้นแข่งกันด้านความเร็วและการเขียนโค้ด",
+    "Mistral AI ปิดดีลระดมทุนรอบใหญ่ ตอกย้ำการแข่งขันด้าน AI ในยุโรป",
+    "สหภาพยุโรปเดินหน้าออกแนวปฏิบัติเพิ่มเติมสำหรับ AI Act ก่อนบังคับใช้เต็มรูปแบบ"
+  ],
+  "items": [
+    {
+      "date": "2026-07-10",
+      "source": "OpenAI",
+      "title_th": "OpenAI เปิดตัวโมเดลใหม่ที่เก่งขึ้นด้านการเขียนโค้ด",
+      "summary_th": "OpenAI ประกาศโมเดลรุ่นใหม่ที่พัฒนาความสามารถด้านการเขียนและแก้โค้ดให้แม่นยำขึ้น พร้อมรองรับบริบทที่ยาวขึ้นกว่าเดิม",
+      "category": "model_release",
+      "url": "https://example.com/openai-new-model"
+    },
+    {
+      "date": "2026-07-11",
+      "source": "xAI",
+      "title_th": "xAI เปิดตัว Grok เวอร์ชันใหม่เน้นความเร็วในการตอบ",
+      "summary_th": "xAI ประกาศ Grok รุ่นใหม่ที่เน้นลดเวลาในการตอบสนองและต้นทุนการประมวลผล",
+      "category": "model_release",
+      "url": "https://example.com/xai-grok-update"
+    },
+    {
+      "date": "2026-07-10",
+      "source": "Mistral AI",
+      "title_th": "Mistral AI ระดมทุนรอบใหม่มูลค่าหลายร้อยล้านดอลลาร์",
+      "summary_th": "บริษัท AI สัญชาติฝรั่งเศส Mistral AI ปิดดีลระดมทุนรอบใหม่ นำโดยนักลงทุนรายใหญ่ในยุโรป",
+      "category": "funding",
+      "url": "https://example.com/mistral-funding"
+    },
+    {
+      "date": "2026-07-11",
+      "source": "EU Commission",
+      "title_th": "สหภาพยุโรปออกแนวปฏิบัติเพิ่มเติมสำหรับกฎหมาย AI Act",
+      "summary_th": "คณะกรรมาธิการยุโรปเผยแพร่แนวปฏิบัติฉบับใหม่เพื่อช่วยบริษัทตีความข้อกำหนดของ AI Act",
+      "category": "policy",
+      "url": "https://example.com/eu-ai-act-guidance"
+    }
+  ]
+}

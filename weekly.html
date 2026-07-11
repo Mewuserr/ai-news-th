@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>สรุปข่าว AI รายสัปดาห์</title>
+<style>
+:root { color-scheme: light dark; }
+body { font-family: -apple-system, "Segoe UI", "Noto Sans Thai", sans-serif; max-width: 880px; margin: 0 auto; padding: 24px 16px 64px; line-height: 1.6; }
+nav { display: flex; gap: 16px; margin-bottom: 24px; font-size: 15px; }
+nav a { text-decoration: none; padding: 6px 12px; border-radius: 8px; opacity: 0.75; }
+nav a.active { background: color-mix(in srgb, currentColor 12%, transparent); opacity: 1; font-weight: 600; }
+h1 { font-size: 22px; margin-bottom: 4px; }
+.sub { opacity: 0.6; font-size: 14px; margin-bottom: 20px; }
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+.filters button { border: 1px solid color-mix(in srgb, currentColor 25%, transparent); background: transparent; color: inherit; border-radius: 999px; padding: 5px 12px; font-size: 13px; cursor: pointer; }
+.filters button.active { background: color-mix(in srgb, currentColor 15%, transparent); font-weight: 600; }
+.card { border: 1px solid color-mix(in srgb, currentColor 15%, transparent); border-radius: 12px; padding: 16px; margin-bottom: 14px; }
+.badge { display: inline-block; font-size: 12px; padding: 2px 9px; border-radius: 999px; background: color-mix(in srgb, currentColor 12%, transparent); margin-bottom: 8px; }
+.card h3 { margin: 0 0 8px; font-size: 17px; }
+.card h3 a { color: inherit; text-decoration: none; }
+.card h3 a:hover { text-decoration: underline; }
+.card p { margin: 0 0 8px; }
+.meta { font-size: 13px; opacity: 0.55; }
+.group-heading { margin-top: 32px; font-size: 16px; opacity: 0.8; }
+details { margin-bottom: 10px; }
+summary { cursor: pointer; font-weight: 600; padding: 4px 0; }
+.empty { opacity: 0.6; padding: 20px 0; }
+</style>
+</head>
+<body>
+<nav><a href="index.html" class="">วันนี้</a><a href="weekly.html" class="active">รายสัปดาห์</a><a href="archive.html" class="">คลังข่าวย้อนหลัง</a></nav>
+<h1>สรุปข่าว AI รายสัปดาห์</h1><h2>สัปดาห์ 2026-W28 (2026-07-06 – 2026-07-12)</h2>
+<ul><li>OpenAI และ xAI ต่างเปิดตัวโมเดลใหม่ในสัปดาห์เดียวกัน เน้นแข่งกันด้านความเร็วและการเขียนโค้ด</li><li>Mistral AI ปิดดีลระดมทุนรอบใหญ่ ตอกย้ำการแข่งขันด้าน AI ในยุโรป</li><li>สหภาพยุโรปเดินหน้าออกแนวปฏิบัติเพิ่มเติมสำหรับ AI Act ก่อนบังคับใช้เต็มรูปแบบ</li></ul>
+<div class="filters"><button data-cat="all" class="active">ทั้งหมด</button><button data-cat="model_release">เปิดตัวโมเดล/ฟีเจอร์ใหม่</button><button data-cat="funding">ทุน/ธุรกิจ</button><button data-cat="policy">นโยบาย/กฎหมาย</button></div>
+<div class="card" data-category="model_release">
+  <span class="badge">เปิดตัวโมเดล/ฟีเจอร์ใหม่</span>
+  <h3><a href="https://example.com/openai-new-model" target="_blank" rel="noopener">OpenAI เปิดตัวโมเดลใหม่ที่เก่งขึ้นด้านการเขียนโค้ด</a></h3>
+  <p>OpenAI ประกาศโมเดลรุ่นใหม่ที่พัฒนาความสามารถด้านการเขียนและแก้โค้ดให้แม่นยำขึ้น พร้อมรองรับบริบทที่ยาวขึ้นกว่าเดิม</p>
+  <div class="meta">OpenAI · 10 กรกฎาคม 2569</div>
+</div><div class="card" data-category="model_release">
+  <span class="badge">เปิดตัวโมเดล/ฟีเจอร์ใหม่</span>
+  <h3><a href="https://example.com/xai-grok-update" target="_blank" rel="noopener">xAI เปิดตัว Grok เวอร์ชันใหม่เน้นความเร็วในการตอบ</a></h3>
+  <p>xAI ประกาศ Grok รุ่นใหม่ที่เน้นลดเวลาในการตอบสนองและต้นทุนการประมวลผล</p>
+  <div class="meta">xAI · 11 กรกฎาคม 2569</div>
+</div><div class="card" data-category="funding">
+  <span class="badge">ทุน/ธุรกิจ</span>
+  <h3><a href="https://example.com/mistral-funding" target="_blank" rel="noopener">Mistral AI ระดมทุนรอบใหม่มูลค่าหลายร้อยล้านดอลลาร์</a></h3>
+  <p>บริษัท AI สัญชาติฝรั่งเศส Mistral AI ปิดดีลระดมทุนรอบใหม่ นำโดยนักลงทุนรายใหญ่ในยุโรป</p>
+  <div class="meta">Mistral AI · 10 กรกฎาคม 2569</div>
+</div><div class="card" data-category="policy">
+  <span class="badge">นโยบาย/กฎหมาย</span>
+  <h3><a href="https://example.com/eu-ai-act-guidance" target="_blank" rel="noopener">สหภาพยุโรปออกแนวปฏิบัติเพิ่มเติมสำหรับกฎหมาย AI Act</a></h3>
+  <p>คณะกรรมาธิการยุโรปเผยแพร่แนวปฏิบัติฉบับใหม่เพื่อช่วยบริษัทตีความข้อกำหนดของ AI Act</p>
+  <div class="meta">EU Commission · 11 กรกฎาคม 2569</div>
+</div>
+<script>
+function applyFilter(cat) {
+  document.querySelectorAll('.filters button').forEach(b => b.classList.toggle('active', b.dataset.cat === cat));
+  document.querySelectorAll('.card').forEach(c => {
+    c.style.display = (cat === 'all' || c.dataset.category === cat) ? '' : 'none';
+  });
+}
+document.querySelectorAll('.filters button').forEach(b => b.addEventListener('click', () => applyFilter(b.dataset.cat)));
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+[
+  {
+    "source": "Google DeepMind",
+    "title_th": "Google DeepMind เผยงานวิจัยใหม่ด้านการให้เหตุผลของโมเดล AI",
+    "summary_th": "ทีมวิจัยของ Google DeepMind เผยแพร่งานวิจัยที่ช่วยให้โมเดลภาษาให้เหตุผลเป็นขั้นตอนได้แม่นยำขึ้นในโจทย์คณิตศาสตร์และตรรกะ โดยเทคนิคนี้อาจถูกนำไปใช้ในผลิตภัณฑ์ Gemini รุ่นถัดไป",
+    "category": "research",
+    "url": "https://example.com/deepmind-reasoning-research"
+  },
+  {
+    "source": "Meta AI",
+    "title_th": "Meta เปิดตัวฟีเจอร์ AI ผู้ช่วยเวอร์ชันใหม่ในแอปตระกูล Meta",
+    "summary_th": "Meta อัปเดตผู้ช่วย AI ในแอป WhatsApp, Instagram และ Facebook ให้ตอบคำถามและสร้างภาพได้เร็วขึ้น พร้อมรองรับภาษาเพิ่มเติมกว่า 10 ภาษา",
+    "category": "product",
+    "url": "https://example.com/meta-ai-assistant-update"
+  },
+  {
+    "source": "EU Commission",
+    "title_th": "สหภาพยุโรปออกแนวปฏิบัติเพิ่มเติมสำหรับกฎหมาย AI Act",
+    "summary_th": "คณะกรรมาธิการยุโรปเผยแพร่แนวปฏิบัติฉบับใหม่เพื่อช่วยบริษัทตีความข้อกำหนดของ AI Act โดยเฉพาะส่วนที่เกี่ยวกับโมเดล AI ความเสี่ยงสูง ซึ่งจะเริ่มบังคับใช้เต็มรูปแบบในปีหน้า",
+    "category": "policy",
+    "url": "https://example.com/eu-ai-act-guidance"
+  },
+  {
+    "source": "xAI",
+    "title_th": "xAI เปิดตัว Grok เวอร์ชันใหม่เน้นความเร็วในการตอบ",
+    "summary_th": "xAI ประกาศ Grok รุ่นใหม่ที่เน้นลดเวลาในการตอบสนองและต้นทุนการประมวลผล พร้อมเปิดให้ผู้ใช้ทั่วไปทดลองใช้งานฟรีในสัปดาห์นี้",
+    "category": "model_release",
+    "url": "https://example.com/xai-grok-update"
+  }
+]
