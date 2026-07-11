@@ -26,6 +26,16 @@ CATEGORY_LABELS_TH = {
     "other": "ข่าวทั่วไป",
 }
 
+THAI_MONTHS = [
+    "", "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน",
+    "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม",
+]
+
+
+def spoken_thai_date(date_str: str) -> str:
+    d = datetime.strptime(date_str, "%Y-%m-%d")
+    return f"{d.day} {THAI_MONTHS[d.month]} {d.year + 543}"
+
 
 def today_str() -> str:
     return datetime.now(BANGKOK).strftime("%Y-%m-%d")
@@ -37,11 +47,16 @@ def fetch_latest_items():
         return json.loads(resp.read().decode("utf-8"))
 
 
-def build_script(today_items: list, date_str: str) -> str:
-    major = [i for i in today_items if i.get("importance") == "major"]
-    normal = [i for i in today_items if i.get("importance") != "major"]
+def build_script(items: list, date_str: str, is_stale: bool) -> str:
+    major = [i for i in items if i.get("importance") == "major"]
+    normal = [i for i in items if i.get("importance") != "major"]
 
-    lines = [f"สวัสดีครับ นี่คือสรุปข่าว AI ประจำวันที่ {date_str} มีข่าวทั้งหมด {len(today_items)} ข่าว"]
+    spoken_date = spoken_thai_date(date_str)
+    if is_stale:
+        intro = f"สวัสดีครับ ตอนนี้ยังไม่มีข่าวของวันนี้ นี่คือข่าวล่าสุดที่มี ประจำวันที่ {spoken_date} มีข่าวทั้งหมด {len(items)} ข่าว"
+    else:
+        intro = f"สวัสดีครับ นี่คือสรุปข่าว AI ประจำวันที่ {spoken_date} มีข่าวทั้งหมด {len(items)} ข่าว"
+    lines = [intro]
 
     if major:
         lines.append(f"เริ่มจากข่าวใหญ่ {len(major)} ข่าวก่อน")
@@ -54,22 +69,31 @@ def build_script(today_items: list, date_str: str) -> str:
             label = CATEGORY_LABELS_TH.get(item.get("category", "other"), "ข่าวทั่วไป")
             lines.append(f"ข่าว{label}: {item.get('title_th', '')}. {item.get('summary_th', '')}")
 
-    lines.append("จบสรุปข่าว AI วันนี้ครับ")
+    lines.append("จบสรุปข่าวครับ")
     return " ".join(lines)
 
 
 def generate_and_play(play: bool = True) -> str:
-    """Returns the path to the generated mp3, or '' if there's nothing to say today."""
+    """Returns the path to the generated mp3, or '' if there's no news at all yet."""
     today = today_str()
     items = fetch_latest_items()
-    today_items = [i for i in items if i.get("date") == today]
-    if not today_items:
-        print(f"no published items for {today} yet, skipping audio briefing")
+    if not items:
+        print("no published items at all yet, skipping audio briefing")
         return ""
 
-    script_text = build_script(today_items, today)
+    today_items = [i for i in items if i.get("date") == today]
+    if today_items:
+        use_date, use_items, is_stale = today, today_items, False
+    else:
+        latest_date = max(i["date"] for i in items)
+        use_date = latest_date
+        use_items = [i for i in items if i["date"] == latest_date]
+        is_stale = True
+        print(f"no items for {today} yet, falling back to latest available date {latest_date}")
+
+    script_text = build_script(use_items, use_date, is_stale)
     os.makedirs(AUDIO_DIR, exist_ok=True)
-    mp3_path = os.path.join(AUDIO_DIR, f"{today}.mp3")
+    mp3_path = os.path.join(AUDIO_DIR, f"{use_date}.mp3")
 
     gTTS(text=script_text, lang="th").save(mp3_path)
     print(f"saved audio briefing: {mp3_path}")

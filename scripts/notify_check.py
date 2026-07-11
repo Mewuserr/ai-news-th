@@ -46,9 +46,6 @@ def fetch_latest_items():
 
 def main():
     today = today_str()
-    if load_last_notified_date() == today:
-        print(f"already notified for {today}, skipping")
-        return
 
     try:
         items = fetch_latest_items()
@@ -56,25 +53,39 @@ def main():
         print(f"could not fetch site data: {e}")
         return
 
-    today_items = [i for i in items if i.get("date") == today]
-    if not today_items:
-        print(f"no published items for {today} yet, skipping")
+    if not items:
+        print("no published items at all yet, skipping")
         return
 
-    major = [i for i in today_items if i.get("importance") == "major"]
-    ranked = major + [i for i in today_items if i.get("importance") != "major"]
+    today_items = [i for i in items if i.get("date") == today]
+    if today_items:
+        use_date, use_items, is_stale = today, today_items, False
+    else:
+        latest_date = max(i["date"] for i in items)
+        use_date = latest_date
+        use_items = [i for i in items if i["date"] == latest_date]
+        is_stale = True
+
+    if load_last_notified_date() == use_date:
+        print(f"already notified for {use_date}, skipping")
+        return
+
+    major = [i for i in use_items if i.get("importance") == "major"]
+    ranked = major + [i for i in use_items if i.get("importance") != "major"]
     titles = [("🔥 " if i.get("importance") == "major" else "• ") + i.get("title_th", "") for i in ranked[:TOP_N]]
     body = "\n".join(titles)
-    if len(today_items) > TOP_N:
-        body += f"\n…และอีก {len(today_items) - TOP_N} ข่าว"
+    if len(use_items) > TOP_N:
+        body += f"\n…และอีก {len(use_items) - TOP_N} ข่าว"
 
-    title = f"ข่าว AI วันที่ {today} ({len(today_items)} ข่าว)"
+    title = f"ข่าว AI วันที่ {use_date} ({len(use_items)} ข่าว)"
+    if is_stale:
+        title = "(ยังไม่มีข่าวใหม่วันนี้) " + title
     if major:
         title = "🔥 มีข่าวใหญ่! " + title
 
     Notification(app_id="ข่าว AI รายวัน", title=title, msg=body, launch=INDEX_URL).show()
-    save_last_notified_date(today)
-    print(f"notification sent for {today} ({len(today_items)} items)")
+    save_last_notified_date(use_date)
+    print(f"notification sent for {use_date} ({len(use_items)} items, stale={is_stale})")
 
 
 if __name__ == "__main__":
