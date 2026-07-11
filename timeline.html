@@ -116,6 +116,18 @@ summary { cursor: pointer; font-weight: 700; padding: 4px 0; color: var(--text);
 .narrative-section { border: 1px solid var(--border); border-radius: 12px; padding: 18px; margin-bottom: 20px; background: color-mix(in srgb, var(--major) 6%, var(--card-bg)); line-height: 1.85; font-size: 15px; }
 .narrative-section h2 { font-size: 15.5px; margin: 0 0 10px; color: var(--major); }
 .ics-btn { display: inline-block; }
+.champ-section { margin-bottom: 28px; }
+.champ-section h2 { font-size: 17px; margin: 0 0 4px; }
+.champ-disclaimer { font-size: 12px; color: var(--text-dim); opacity: 0.75; margin-bottom: 14px; }
+.champ-row { display: flex; gap: 14px; flex-wrap: wrap; }
+.champ-card { flex: 1; min-width: 150px; max-width: 220px; border: 1px solid var(--border); border-radius: 16px; padding: 18px 14px; text-align: center; background: linear-gradient(160deg, color-mix(in srgb, var(--accent) 10%, var(--card-bg)), var(--card-bg)); }
+.champ-rank { font-size: 22px; margin-bottom: 6px; }
+.champ-avatar { width: 56px; height: 56px; border-radius: 50%; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 800; color: #05060f; }
+.champ-name { font-weight: 700; font-size: 14.5px; margin-bottom: 4px; word-break: break-word; }
+.champ-class { font-size: 12.5px; color: var(--text-dim); margin-bottom: 10px; }
+.champ-power { font-size: 22px; font-weight: 800; color: var(--major); }
+.champ-power span { font-variant-numeric: tabular-nums; }
+.champ-detail { font-size: 11.5px; color: var(--text-dim); margin-top: 6px; }
 .timeline { display: flex; gap: 0; overflow-x: auto; padding: 20px 0 30px; }
 .tl-point { flex: 0 0 220px; position: relative; padding: 0 16px; border-top: 2px solid var(--border); padding-top: 16px; }
 .tl-dot { position: absolute; top: -6px; left: 16px; width: 10px; height: 10px; border-radius: 50%; background: var(--major); box-shadow: 0 0 8px color-mix(in srgb, var(--major) 60%, transparent); }
@@ -362,6 +374,73 @@ document.getElementById('speakBookmarks')?.addEventListener('click', () => {
     return;
   }
   speakBookmarked();
+});
+</script>
+<script>
+const CO_HOST_REACTIONS = ['โอ้โห น่าสนใจมากครับ', 'ว้าว ข่าวนี้เด็ดเลย', 'น่าติดตามจริงๆ', 'อันนี้ห้ามพลาดเลยนะ'];
+
+function playJingle() {
+  return new Promise(resolve => {
+    try {
+      const ctx = new (window.AudioContext || window.webkitAudioContext)();
+      const notes = [523, 659, 784];
+      notes.forEach((freq, i) => {
+        const o = ctx.createOscillator();
+        const g = ctx.createGain();
+        o.type = 'sine'; o.frequency.value = freq;
+        const start = ctx.currentTime + i * 0.18;
+        g.gain.setValueAtTime(0.001, start);
+        g.gain.linearRampToValueAtTime(0.15, start + 0.02);
+        g.gain.exponentialRampToValueAtTime(0.001, start + 0.16);
+        o.connect(g); g.connect(ctx.destination);
+        o.start(start); o.stop(start + 0.17);
+      });
+      setTimeout(resolve, notes.length * 180 + 200);
+    } catch (e) { resolve(); }
+  });
+}
+
+function speakQueue(lines) {
+  return new Promise(resolve => {
+    let i = 0;
+    function next() {
+      if (i >= lines.length) { resolve(); return; }
+      const [text, pitch] = lines[i++];
+      const utter = new SpeechSynthesisUtterance(text);
+      utter.lang = 'th-TH';
+      utter.pitch = pitch;
+      const thaiVoice = pickThaiVoice();
+      if (thaiVoice) utter.voice = thaiVoice;
+      utter.onend = next;
+      utter.onerror = next;
+      window.speechSynthesis.speak(utter);
+    }
+    next();
+  });
+}
+
+document.getElementById('dialogueListen')?.addEventListener('click', async (e) => {
+  const btn = e.currentTarget;
+  if (!('speechSynthesis' in window)) { alert('เบราว์เซอร์นี้ไม่รองรับการอ่านออกเสียง'); return; }
+  window.speechSynthesis.cancel();
+  const items = [...document.querySelectorAll('.card')].filter(c => c.style.display !== 'none');
+  if (!items.length) { alert('ไม่มีข่าววันนี้ให้ฟัง'); return; }
+  btn.textContent = '⏸ กำลังฟัง... (รอสักครู่)';
+  const lines = [];
+  const title0 = document.querySelector('h1')?.textContent || '';
+  lines.push([`สวัสดีครับ ผมพิธีกรจาก MEW Station ${title0}`, 1.0]);
+  lines.push([`มีข่าวทั้งหมด ${items.length} ข่าววันนี้ค่ะ`, 1.25]);
+  items.forEach((card, idx) => {
+    const t = card.querySelector('h3 a')?.textContent || '';
+    const s = card.querySelector('p')?.textContent || '';
+    lines.push([`${t}. ${s}`, 1.0]);
+    lines.push([CO_HOST_REACTIONS[idx % CO_HOST_REACTIONS.length], 1.25]);
+  });
+  lines.push(['วันนี้ก็จบสรุปข่าวแค่นี้ครับ แล้วเจอกันใหม่', 1.0]);
+  lines.push(['บ๊ายบายค่ะ', 1.25]);
+  await playJingle();
+  await speakQueue(lines);
+  btn.textContent = '🎙️ ฟังแบบ 2 พิธีกร';
 });
 </script>
 <script>

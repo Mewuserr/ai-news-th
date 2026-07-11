@@ -187,6 +187,18 @@ summary { cursor: pointer; font-weight: 700; padding: 4px 0; color: var(--text);
 .narrative-section { border: 1px solid var(--border); border-radius: 12px; padding: 18px; margin-bottom: 20px; background: color-mix(in srgb, var(--major) 6%, var(--card-bg)); line-height: 1.85; font-size: 15px; }
 .narrative-section h2 { font-size: 15.5px; margin: 0 0 10px; color: var(--major); }
 .ics-btn { display: inline-block; }
+.champ-section { margin-bottom: 28px; }
+.champ-section h2 { font-size: 17px; margin: 0 0 4px; }
+.champ-disclaimer { font-size: 12px; color: var(--text-dim); opacity: 0.75; margin-bottom: 14px; }
+.champ-row { display: flex; gap: 14px; flex-wrap: wrap; }
+.champ-card { flex: 1; min-width: 150px; max-width: 220px; border: 1px solid var(--border); border-radius: 16px; padding: 18px 14px; text-align: center; background: linear-gradient(160deg, color-mix(in srgb, var(--accent) 10%, var(--card-bg)), var(--card-bg)); }
+.champ-rank { font-size: 22px; margin-bottom: 6px; }
+.champ-avatar { width: 56px; height: 56px; border-radius: 50%; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 800; color: #05060f; }
+.champ-name { font-weight: 700; font-size: 14.5px; margin-bottom: 4px; word-break: break-word; }
+.champ-class { font-size: 12.5px; color: var(--text-dim); margin-bottom: 10px; }
+.champ-power { font-size: 22px; font-weight: 800; color: var(--major); }
+.champ-power span { font-variant-numeric: tabular-nums; }
+.champ-detail { font-size: 11.5px; color: var(--text-dim); margin-top: 6px; }
 .timeline { display: flex; gap: 0; overflow-x: auto; padding: 20px 0 30px; }
 .tl-point { flex: 0 0 220px; position: relative; padding: 0 16px; border-top: 2px solid var(--border); padding-top: 16px; }
 .tl-dot { position: absolute; top: -6px; left: 16px; width: 10px; height: 10px; border-radius: 50%; background: var(--major); box-shadow: 0 0 8px color-mix(in srgb, var(--major) 60%, transparent); }
@@ -409,6 +421,74 @@ document.getElementById('speakBookmarks')?.addEventListener('click', () => {
     return;
   }
   speakBookmarked();
+});
+"""
+
+DIALOGUE_SCRIPT = """
+const CO_HOST_REACTIONS = ['โอ้โห น่าสนใจมากครับ', 'ว้าว ข่าวนี้เด็ดเลย', 'น่าติดตามจริงๆ', 'อันนี้ห้ามพลาดเลยนะ'];
+
+function playJingle() {
+  return new Promise(resolve => {
+    try {
+      const ctx = new (window.AudioContext || window.webkitAudioContext)();
+      const notes = [523, 659, 784];
+      notes.forEach((freq, i) => {
+        const o = ctx.createOscillator();
+        const g = ctx.createGain();
+        o.type = 'sine'; o.frequency.value = freq;
+        const start = ctx.currentTime + i * 0.18;
+        g.gain.setValueAtTime(0.001, start);
+        g.gain.linearRampToValueAtTime(0.15, start + 0.02);
+        g.gain.exponentialRampToValueAtTime(0.001, start + 0.16);
+        o.connect(g); g.connect(ctx.destination);
+        o.start(start); o.stop(start + 0.17);
+      });
+      setTimeout(resolve, notes.length * 180 + 200);
+    } catch (e) { resolve(); }
+  });
+}
+
+function speakQueue(lines) {
+  return new Promise(resolve => {
+    let i = 0;
+    function next() {
+      if (i >= lines.length) { resolve(); return; }
+      const [text, pitch] = lines[i++];
+      const utter = new SpeechSynthesisUtterance(text);
+      utter.lang = 'th-TH';
+      utter.pitch = pitch;
+      const thaiVoice = pickThaiVoice();
+      if (thaiVoice) utter.voice = thaiVoice;
+      utter.onend = next;
+      utter.onerror = next;
+      window.speechSynthesis.speak(utter);
+    }
+    next();
+  });
+}
+
+document.getElementById('dialogueListen')?.addEventListener('click', async (e) => {
+  const btn = e.currentTarget;
+  if (!('speechSynthesis' in window)) { alert('เบราว์เซอร์นี้ไม่รองรับการอ่านออกเสียง'); return; }
+  window.speechSynthesis.cancel();
+  const items = [...document.querySelectorAll('.card')].filter(c => c.style.display !== 'none');
+  if (!items.length) { alert('ไม่มีข่าววันนี้ให้ฟัง'); return; }
+  btn.textContent = '⏸ กำลังฟัง... (รอสักครู่)';
+  const lines = [];
+  const title0 = document.querySelector('h1')?.textContent || '';
+  lines.push([`สวัสดีครับ ผมพิธีกรจาก MEW Station ${title0}`, 1.0]);
+  lines.push([`มีข่าวทั้งหมด ${items.length} ข่าววันนี้ค่ะ`, 1.25]);
+  items.forEach((card, idx) => {
+    const t = card.querySelector('h3 a')?.textContent || '';
+    const s = card.querySelector('p')?.textContent || '';
+    lines.push([`${t}. ${s}`, 1.0]);
+    lines.push([CO_HOST_REACTIONS[idx % CO_HOST_REACTIONS.length], 1.25]);
+  });
+  lines.push(['วันนี้ก็จบสรุปข่าวแค่นี้ครับ แล้วเจอกันใหม่', 1.0]);
+  lines.push(['บ๊ายบายค่ะ', 1.25]);
+  await playJingle();
+  await speakQueue(lines);
+  btn.textContent = '🎙️ ฟังแบบ 2 พิธีกร';
 });
 """
 
@@ -740,6 +820,7 @@ def page_shell(title: str, active: str, body: str, random_urls: list = None) -> 
 <script>{READ_SCRIPT}</script>
 <script>{RANDOM_SCRIPT}</script>
 <script>{SPEAK_SCRIPT}</script>
+<script>{DIALOGUE_SCRIPT}</script>
 <script>{LISTEN_SCRIPT}</script>
 <script>{LIKE_SCRIPT}</script>
 <script>{SEARCH_SCRIPT}</script>
@@ -876,13 +957,17 @@ def build_index(all_items):
     tool_row = f"""<div class="tool-row">
 <button id="randomOldNews" class="tool-btn">🎲 สุ่มข่าวเก่า</button>
 <button id="quickReadToggle" class="tool-btn">⚡ อ่านเร็ว 60 วิ</button>
+<button id="dialogueListen" class="tool-btn">🎙️ ฟังแบบ 2 พิธีกร</button>
 <button id="qrToggle" class="tool-btn">📱 สแกนเปิดมือถือ</button>
 <a href="mew-station-major-news.ics" class="tool-btn ics-btn" download>📅 บันทึกข่าวใหญ่ลงปฏิทิน</a>
 </div>
 {quick_read_html}
 <div id="qrBox" class="quick-read" hidden><img src="assets/qr.png" alt="QR code เปิดเว็บบนมือถือ" style="display:block;max-width:180px;border-radius:8px;"></div>"""
 
-    body = f"""<h1>ข่าว AI ประจำวันที่ {thai_date(latest_date)}</h1>
+    champ_html = champion_cards_html(compute_champions(all_items))
+
+    body = f"""{champ_html}
+<h1>ข่าว AI ประจำวันที่ {thai_date(latest_date)}</h1>
 {freshness}
 <div class="sub">{len(today_items)} ข่าว{f" · ข่าวใหญ่ {len(major_items)} ข่าว" if major_items else ""}</div>
 {tool_row}
@@ -983,6 +1068,57 @@ COMPANY_REGION = {
 
 def region_for(source: str) -> str:
     return COMPANY_REGION.get(source, "🌐 อื่นๆ/ไม่ทราบ")
+
+
+CATEGORY_CLASS = {
+    "model_release": ("⚔️", "นักบุกเบิก"),
+    "product": ("🛠️", "นักสร้างสรรค์"),
+    "funding": ("💰", "นักธุรกิจ"),
+    "research": ("🔬", "นักปราชญ์"),
+    "policy": ("⚖️", "ผู้พิทักษ์"),
+    "other": ("🌌", "นักผจญภัย"),
+}
+AVATAR_COLORS = ["#4fd1ff", "#ff4fd8", "#35ffb0", "#ffb020"]
+RANK_MEDALS = ["🥇", "🥈", "🥉"]
+
+
+def compute_champions(all_items: list, top_n: int = 3) -> list:
+    sources = sorted({i.get("source", "") for i in all_items if i.get("source")})
+    champions = []
+    for src in sources:
+        items = [i for i in all_items if i.get("source") == src]
+        major = len([i for i in items if i.get("importance") == "major"])
+        total = len(items)
+        cat_counts = Counter(i.get("category", "other") for i in items)
+        top_cat = cat_counts.most_common(1)[0][0] if cat_counts else "other"
+        icon, class_name = CATEGORY_CLASS.get(top_cat, CATEGORY_CLASS["other"])
+        power = major * 5 + total
+        champions.append({"name": src, "major": major, "total": total, "power": power, "icon": icon, "class_name": class_name})
+    champions.sort(key=lambda c: c["power"], reverse=True)
+    return champions[:top_n]
+
+
+def champion_cards_html(champions: list) -> str:
+    if not champions:
+        return ""
+    cards = []
+    for idx, c in enumerate(champions):
+        color = AVATAR_COLORS[idx % len(AVATAR_COLORS)]
+        medal = RANK_MEDALS[idx] if idx < len(RANK_MEDALS) else "🎖️"
+        initial = c["name"][:1].upper() if c["name"] else "?"
+        cards.append(f"""<div class="champ-card">
+  <div class="champ-rank">{medal}</div>
+  <div class="champ-avatar" style="background:{color}">{esc(initial)}</div>
+  <div class="champ-name">{esc(c['name'])}</div>
+  <div class="champ-class">{c['icon']} {esc(c['class_name'])}</div>
+  <div class="champ-power"><span>{c['power']}</span> พลัง</div>
+  <div class="champ-detail">🔥 {c['major']} ข่าวใหญ่ · {c['total']} ข่าวรวม</div>
+</div>""")
+    return f"""<div class="champ-section">
+  <h2>🏆 แชมป์ตลอดช่วงที่เก็บข้อมูล</h2>
+  <div class="champ-disclaimer">จัดอันดับจากความถี่ข่าวในสื่อเท่านั้น ไม่ใช่การตัดสินความเก่งทางเทคนิคจริง</div>
+  <div class="champ-row">{''.join(cards)}</div>
+</div>"""
 
 
 def compute_word_cloud(items: list, top_n: int = 25):
