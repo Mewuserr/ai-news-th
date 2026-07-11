@@ -63,47 +63,90 @@ def esc(s: str) -> str:
 
 
 SHARED_STYLE = """
-:root { color-scheme: light dark; }
-body { font-family: -apple-system, "Segoe UI", "Noto Sans Thai", sans-serif; max-width: 880px; margin: 0 auto; padding: 24px 16px 64px; line-height: 1.6; }
-nav { display: flex; gap: 16px; margin-bottom: 24px; font-size: 15px; }
-nav a { text-decoration: none; padding: 6px 12px; border-radius: 8px; opacity: 0.75; }
-nav a.active { background: color-mix(in srgb, currentColor 12%, transparent); opacity: 1; font-weight: 600; }
-h1 { font-size: 22px; margin-bottom: 4px; }
-.sub { opacity: 0.6; font-size: 14px; margin-bottom: 20px; }
+:root {
+  color-scheme: dark;
+  --bg: #0a0e27;
+  --text: #e8e6f5;
+  --text-dim: #9b96c4;
+  --accent: #8b6fff;
+  --accent2: #4fd1ff;
+  --major: #e0912f;
+  --border: rgba(139, 111, 255, 0.28);
+  --card-bg: rgba(255, 255, 255, 0.035);
+}
+html, body { background: var(--bg); }
+body { font-family: -apple-system, "Segoe UI", "Noto Sans Thai", sans-serif; max-width: 880px; margin: 0 auto; padding: 24px 16px 64px; line-height: 1.6; color: var(--text); position: relative; }
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: -2; background: var(--bg);
+}
+body::after {
+  content: ""; position: fixed; inset: -10%; z-index: -1; pointer-events: none;
+  background-image:
+    radial-gradient(1.6px 1.6px at 8% 12%, #fff, transparent),
+    radial-gradient(1.2px 1.2px at 22% 38%, #fff, transparent),
+    radial-gradient(1.8px 1.8px at 35% 6%, #fff, transparent),
+    radial-gradient(1.2px 1.2px at 48% 55%, #fff, transparent),
+    radial-gradient(1.6px 1.6px at 62% 22%, #fff, transparent),
+    radial-gradient(1.2px 1.2px at 75% 68%, #fff, transparent),
+    radial-gradient(2px 2px at 88% 15%, #fff, transparent),
+    radial-gradient(1.2px 1.2px at 15% 78%, #fff, transparent),
+    radial-gradient(1.6px 1.6px at 55% 85%, #fff, transparent),
+    radial-gradient(1.2px 1.2px at 92% 48%, #fff, transparent),
+    radial-gradient(600px 600px at 15% 10%, color-mix(in srgb, var(--accent) 12%, transparent), transparent 70%),
+    radial-gradient(500px 500px at 85% 80%, color-mix(in srgb, var(--accent2) 10%, transparent), transparent 70%);
+  animation: twinkle 5s ease-in-out infinite alternate;
+}
+@keyframes twinkle { from { opacity: 0.55; } to { opacity: 0.95; } }
+.brand { font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent2); opacity: 0.85; margin-bottom: 10px; font-weight: 600; }
+.site-footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--border); font-size: 12px; color: var(--text-dim); opacity: 0.75; text-align: center; }
+nav { display: flex; gap: 16px; margin-bottom: 24px; font-size: 15px; flex-wrap: wrap; }
+nav a { text-decoration: none; padding: 6px 12px; border-radius: 8px; opacity: 0.7; color: var(--text-dim); }
+nav a.active { background: color-mix(in srgb, var(--accent) 20%, transparent); opacity: 1; font-weight: 600; color: var(--text); box-shadow: 0 0 12px color-mix(in srgb, var(--accent) 35%, transparent); }
+h1 { font-size: 22px; margin-bottom: 4px; color: var(--text); }
+h2 { color: var(--text); }
+.sub { opacity: 0.65; font-size: 14px; margin-bottom: 20px; color: var(--text-dim); }
 .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
-.filters button { border: 1px solid color-mix(in srgb, currentColor 25%, transparent); background: transparent; color: inherit; border-radius: 999px; padding: 5px 12px; font-size: 13px; cursor: pointer; }
-.filters button.active { background: color-mix(in srgb, currentColor 15%, transparent); font-weight: 600; }
-.card { border: 1px solid color-mix(in srgb, currentColor 15%, transparent); border-radius: 12px; padding: 16px; margin-bottom: 14px; }
-.card.major { border: 1.5px solid #e0912f; background: color-mix(in srgb, #e0912f 8%, transparent); }
-.badge { display: inline-block; font-size: 12px; padding: 2px 9px; border-radius: 999px; background: color-mix(in srgb, currentColor 12%, transparent); margin-bottom: 8px; margin-right: 6px; }
-.badge.major { background: #e0912f; color: #1a1300; font-weight: 700; }
+.filters button { border: 1px solid var(--border); background: color-mix(in srgb, var(--accent) 6%, transparent); color: var(--text-dim); border-radius: 999px; padding: 5px 12px; font-size: 13px; cursor: pointer; }
+.filters button.active { background: color-mix(in srgb, var(--accent) 25%, transparent); color: var(--text); font-weight: 600; border-color: var(--accent); }
+.card { border: 1px solid var(--border); border-radius: 12px; padding: 16px; margin-bottom: 14px; background: var(--card-bg); backdrop-filter: blur(2px); }
+.card.major { border: 1.5px solid var(--major); background: color-mix(in srgb, var(--major) 10%, var(--card-bg)); box-shadow: 0 0 18px color-mix(in srgb, var(--major) 25%, transparent); }
+.badge { display: inline-block; font-size: 12px; padding: 2px 9px; border-radius: 999px; background: color-mix(in srgb, var(--accent) 18%, transparent); color: var(--text-dim); margin-bottom: 8px; margin-right: 6px; }
+.badge.major { background: var(--major); color: #1a1300; font-weight: 700; }
 .card h3 { margin: 0 0 8px; font-size: 17px; }
-.card h3 a { color: inherit; text-decoration: none; }
-.card h3 a:hover { text-decoration: underline; }
-.card p { margin: 0 0 8px; }
-.meta { font-size: 13px; opacity: 0.55; }
-.group-heading { margin-top: 32px; margin-bottom: 12px; font-size: 16px; opacity: 0.85; font-weight: 700; }
-.major-toggle { display: flex; align-items: center; gap: 6px; font-size: 13px; margin-bottom: 16px; opacity: 0.85; cursor: pointer; }
+.card h3 a { color: var(--text); text-decoration: none; }
+.card h3 a:hover { color: var(--accent2); text-decoration: underline; }
+.card p { margin: 0 0 8px; color: var(--text); opacity: 0.9; }
+.card p.context { font-size: 13px; font-style: italic; color: var(--accent2); opacity: 0.85; border-left: 2px solid var(--accent2); padding-left: 8px; }
+.meta { font-size: 13px; opacity: 0.55; color: var(--text-dim); }
+.group-heading { margin-top: 32px; margin-bottom: 12px; font-size: 16px; opacity: 0.9; font-weight: 700; color: var(--accent2); }
+.major-toggle { display: flex; align-items: center; gap: 6px; font-size: 13px; margin-bottom: 16px; opacity: 0.85; cursor: pointer; color: var(--text-dim); }
 details { margin-bottom: 10px; }
-summary { cursor: pointer; font-weight: 600; padding: 4px 0; }
-.empty { opacity: 0.6; padding: 20px 0; }
+summary { cursor: pointer; font-weight: 600; padding: 4px 0; color: var(--text); }
+.empty { opacity: 0.6; padding: 20px 0; color: var(--text-dim); }
 .stat-section { margin-bottom: 36px; }
 .stat-section h2 { font-size: 16px; margin-bottom: 14px; }
 .stat-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
-.stat-label { width: 130px; flex-shrink: 0; font-size: 13px; text-align: right; opacity: 0.85; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.stat-label { width: 130px; flex-shrink: 0; font-size: 13px; text-align: right; opacity: 0.85; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--text-dim); }
 .stat-track { flex: 1; position: relative; height: 20px; }
-.stat-bar { height: 20px; max-height: 20px; background: #e0912f; border-radius: 4px; min-width: 4px; }
-.stat-value { font-size: 12px; opacity: 0.7; margin-left: 8px; font-variant-numeric: tabular-nums; }
+.stat-bar { height: 20px; max-height: 20px; background: var(--major); border-radius: 4px; min-width: 4px; box-shadow: 0 0 8px color-mix(in srgb, var(--major) 50%, transparent); }
+.stat-value { font-size: 12px; opacity: 0.7; margin-left: 8px; font-variant-numeric: tabular-nums; color: var(--text-dim); }
 .stat-bar-wrap { display: flex; align-items: center; flex: 1; }
-.bookmark-btn { background: none; border: none; cursor: pointer; font-size: 18px; line-height: 1; padding: 0 2px; opacity: 0.5; float: right; }
-.bookmark-btn:hover { opacity: 0.9; }
+.bookmark-btn { background: none; border: none; cursor: pointer; font-size: 18px; line-height: 1; padding: 0 2px; opacity: 0.6; float: right; color: var(--accent2); }
+.bookmark-btn:hover { opacity: 1; }
 .bookmark-btn.saved { opacity: 1; }
-.share-btn { background: none; border: none; cursor: pointer; font-size: 16px; line-height: 1; padding: 0 2px; opacity: 0.5; float: right; margin-right: 6px; }
-.share-btn:hover { opacity: 0.9; }
+.share-btn { background: none; border: none; cursor: pointer; font-size: 16px; line-height: 1; padding: 0 2px; opacity: 0.6; float: right; margin-right: 6px; }
+.share-btn:hover { opacity: 1; }
 .freshness { display: inline-block; font-size: 12px; padding: 3px 10px; border-radius: 999px; margin-bottom: 10px; }
-.freshness.fresh { background: color-mix(in srgb, #2fa84f 15%, transparent); color: #1c6b31; }
-.freshness.stale { background: color-mix(in srgb, currentColor 12%, transparent); opacity: 0.75; }
-@media (prefers-color-scheme: dark) { .freshness.fresh { color: #6fe08f; } }
+.freshness.fresh { background: color-mix(in srgb, #3ddc84 18%, transparent); color: #6fe08f; box-shadow: 0 0 10px color-mix(in srgb, #3ddc84 30%, transparent); }
+.freshness.stale { background: color-mix(in srgb, var(--text-dim) 15%, transparent); color: var(--text-dim); }
+.card.is-read { opacity: 0.5; }
+.read-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--accent2); margin-right: 6px; vertical-align: middle; }
+.card.is-read .read-dot { display: none; }
+.tool-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
+.tool-btn { border: 1px solid var(--border); background: color-mix(in srgb, var(--accent) 6%, transparent); color: var(--text-dim); border-radius: 8px; padding: 7px 14px; font-size: 13px; cursor: pointer; text-decoration: none; display: inline-block; }
+.tool-btn:hover { background: color-mix(in srgb, var(--accent) 18%, transparent); color: var(--text); }
+.memory-section { border: 1px solid var(--border); border-radius: 12px; padding: 16px; margin-bottom: 24px; background: color-mix(in srgb, var(--accent2) 6%, var(--card-bg)); }
+.memory-section h2 { font-size: 15px; margin: 0 0 10px; color: var(--accent2); }
 """
 
 FILTER_SCRIPT = """
@@ -182,6 +225,78 @@ document.querySelectorAll('.share-btn').forEach(btn => btn.addEventListener('cli
 }));
 """
 
+READ_SCRIPT = """
+function getReadSet() {
+  try { return new Set(JSON.parse(localStorage.getItem('ai_news_read') || '[]')); }
+  catch (e) { return new Set(); }
+}
+function markRead(url) {
+  const read = getReadSet();
+  if (read.has(url)) return;
+  read.add(url);
+  localStorage.setItem('ai_news_read', JSON.stringify([...read]));
+}
+function refreshReadMarks() {
+  const read = getReadSet();
+  document.querySelectorAll('.card').forEach(c => {
+    c.classList.toggle('is-read', read.has(c.dataset.url));
+  });
+}
+document.querySelectorAll('.card h3 a').forEach(a => a.addEventListener('click', () => {
+  const card = a.closest('.card');
+  if (card) { markRead(card.dataset.url); card.classList.add('is-read'); }
+}));
+refreshReadMarks();
+"""
+
+RANDOM_SCRIPT = """
+document.getElementById('randomOldNews')?.addEventListener('click', () => {
+  const data = document.getElementById('all-urls');
+  if (!data) return;
+  const urls = JSON.parse(data.textContent);
+  if (!urls.length) return;
+  const pick = urls[Math.floor(Math.random() * urls.length)];
+  window.open(pick, '_blank', 'noopener');
+});
+"""
+
+SPEAK_SCRIPT = """
+function pickThaiVoice() {
+  const voices = window.speechSynthesis.getVoices();
+  return voices.find(v => v.lang && v.lang.toLowerCase().startsWith('th')) || null;
+}
+function speakBookmarked() {
+  if (!('speechSynthesis' in window)) {
+    alert('เบราว์เซอร์นี้ไม่รองรับการอ่านออกเสียง ลองเปิดจาก Chrome หรือ Safari บนมือถือดูครับ');
+    return;
+  }
+  const cards = [...document.querySelectorAll('.card')].filter(c => c.style.display !== 'none');
+  if (!cards.length) { alert('ยังไม่มีข่าวที่บันทึกไว้ให้ฟัง'); return; }
+  window.speechSynthesis.cancel();
+  const thaiVoice = pickThaiVoice();
+  const btn = document.getElementById('speakBookmarks');
+  cards.forEach((card, idx) => {
+    const title = card.querySelector('h3 a')?.textContent || '';
+    const summary = card.querySelector('p')?.textContent || '';
+    const utter = new SpeechSynthesisUtterance(`${title}. ${summary}`);
+    utter.lang = 'th-TH';
+    if (thaiVoice) utter.voice = thaiVoice;
+    if (idx === 0 && btn) utter.onstart = () => { btn.textContent = '⏸ กำลังอ่าน... (กดเพื่อหยุด)'; };
+    if (idx === cards.length - 1 && btn) utter.onend = () => { btn.textContent = '🔊 ฟังข่าวที่บันทึกไว้ทั้งหมด'; };
+    window.speechSynthesis.speak(utter);
+  });
+}
+document.getElementById('speakBookmarks')?.addEventListener('click', () => {
+  if (window.speechSynthesis.speaking) {
+    window.speechSynthesis.cancel();
+    const btn = document.getElementById('speakBookmarks');
+    if (btn) btn.textContent = '🔊 ฟังข่าวที่บันทึกไว้ทั้งหมด';
+    return;
+  }
+  speakBookmarked();
+});
+"""
+
 
 def nav_html(active: str) -> str:
     links = [
@@ -197,27 +312,39 @@ def nav_html(active: str) -> str:
     ) + "</nav>"
 
 
-def page_shell(title: str, active: str, body: str) -> str:
+SITE_NAME = "MEW Station"
+
+
+def page_shell(title: str, active: str, body: str, random_urls: list = None) -> str:
+    urls_script = ""
+    if random_urls is not None:
+        urls_script = f'<script type="application/json" id="all-urls">{json.dumps(random_urls, ensure_ascii=False)}</script>'
     return f"""<!doctype html>
 <html lang="th">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{esc(title)}</title>
+<title>{esc(SITE_NAME)} — {esc(title)}</title>
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="icon" href="icon-192.png">
-<meta name="theme-color" content="#e0912f">
+<meta name="theme-color" content="#8b6fff">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="ข่าว AI">
+<meta name="apple-mobile-web-app-title" content="{esc(SITE_NAME)}">
 <style>{SHARED_STYLE}</style>
 </head>
 <body data-page="{active}">
+<div class="brand">🛰️ {esc(SITE_NAME)}</div>
 {nav_html(active)}
 {body}
+<footer class="site-footer">🛰️ {esc(SITE_NAME)} · ดูแลและคัดสรรข่าวโดย MEW · อัปเดตอัตโนมัติทุกวัน</footer>
+{urls_script}
 <script>{FILTER_SCRIPT}</script>
 <script>{BOOKMARK_SCRIPT}</script>
 <script>{SHARE_SCRIPT}</script>
+<script>{READ_SCRIPT}</script>
+<script>{RANDOM_SCRIPT}</script>
+<script>{SPEAK_SCRIPT}</script>
 </body>
 </html>
 """
@@ -244,12 +371,15 @@ def card_html(item: dict, group: str = "") -> str:
     major_badge = '<span class="badge major">🔥 ข่าวใหญ่</span>' if is_major else ""
     url = esc(item.get("url", "#"))
     share_title = esc(item.get("title_th", ""))
+    context = item.get("context_th", "").strip()
+    context_html = f'<p class="context">🔗 {esc(context)}</p>' if context else ""
     return f"""<div class="card{major_class}" data-category="{esc(cat)}" data-importance="{esc(importance)}" data-url="{url}"{group_attr}>
   <button class="bookmark-btn" data-url="{url}" title="บันทึกไว้อ่านทีหลัง" aria-label="บันทึกไว้อ่านทีหลัง">☆</button>
   <button class="share-btn" data-url="{url}" data-title="{share_title}" title="แชร์ข่าวนี้" aria-label="แชร์ข่าวนี้">🔗</button>
   {major_badge}<span class="badge">{esc(label)}</span>
   <h3><a href="{url}" target="_blank" rel="noopener">{esc(item.get('title_th', ''))}</a></h3>
   <p>{esc(item.get('summary_th', ''))}</p>
+  {context_html}
   <div class="meta">{esc(item.get('source', ''))} · {thai_date(item['date'])}</div>
 </div>"""
 
@@ -274,19 +404,36 @@ def build_index(all_items):
             sections.append(f'<div class="group-heading" data-group="normal">{heading}</div>')
         sections.append("".join(card_html(i, group="normal") for i in normal_items))
 
-    today_bkk = datetime.now(BANGKOK).strftime("%Y-%m-%d")
+    today_bkk_dt = datetime.now(BANGKOK)
+    today_bkk = today_bkk_dt.strftime("%Y-%m-%d")
     is_fresh = latest_date == today_bkk
     freshness = (
         '<div class="freshness fresh">✓ เป็นข่าวล่าสุดของวันนี้</div>' if is_fresh
         else '<div class="freshness stale">ยังไม่มีข่าวใหม่ของวันนี้ — นี่คือข่าวล่าสุดที่มี</div>'
     )
 
+    memory_html = ""
+    try:
+        one_year_ago = today_bkk_dt.replace(year=today_bkk_dt.year - 1).strftime("%Y-%m-%d")
+    except ValueError:
+        one_year_ago = today_bkk_dt.replace(year=today_bkk_dt.year - 1, day=28).strftime("%Y-%m-%d")
+    memory_items = [i for i in all_items if i["date"] == one_year_ago]
+    if memory_items:
+        memory_html = f"""<div class="memory-section">
+<h2>🪐 1 ปีที่แล้ววันนี้ ({thai_date(one_year_ago)})</h2>
+{''.join(card_html(i) for i in memory_items)}
+</div>"""
+
+    tool_row = '<div class="tool-row"><button id="randomOldNews" class="tool-btn">🎲 สุ่มข่าวเก่า</button></div>'
+
     body = f"""<h1>ข่าว AI ประจำวันที่ {thai_date(latest_date)}</h1>
 {freshness}
 <div class="sub">{len(today_items)} ข่าว{f" · ข่าวใหญ่ {len(major_items)} ข่าว" if major_items else ""}</div>
+{tool_row}
+{memory_html}
 {filters_html(cats_present, show_major_toggle=bool(major_items))}
 {''.join(sections)}"""
-    write("index.html", page_shell(f"ข่าว AI {thai_date(latest_date)}", "index", body))
+    write("index.html", page_shell(f"ข่าว AI {thai_date(latest_date)}", "index", body, random_urls=[i["url"] for i in all_items]))
 
 
 def build_weekly(weeks):
@@ -298,8 +445,20 @@ def build_weekly(weeks):
         items = w.get("items", [])
         cats_present = {i.get("category", "other") for i in items}
         highlights = "".join(f"<li>{esc(h)}</li>" for h in w.get("highlights", []))
+        directions = w.get("directions", {})
+        directions_html = ""
+        if directions:
+            rows = "".join(
+                f"<li><strong>{esc(company)}:</strong> {esc(desc)}</li>"
+                for company, desc in directions.items()
+            )
+            directions_html = f"""<div class="memory-section">
+<h2>🧭 ทิศทางแต่ละบริษัทสัปดาห์นี้</h2>
+<ul>{rows}</ul>
+</div>"""
         sections.append(f"""<h2>สัปดาห์ {esc(w.get('week', ''))} ({esc(w.get('start_date', ''))} – {esc(w.get('end_date', ''))})</h2>
 <ul>{highlights}</ul>
+{directions_html}
 {filters_html(cats_present)}
 {''.join(card_html(i) for i in items)}""")
     body = "<h1>สรุปข่าว AI รายสัปดาห์</h1>" + "<hr>".join(sections)
@@ -314,7 +473,10 @@ def build_archive(all_items):
     for item in all_items:
         ym = item["date"][:7]  # YYYY-MM
         by_month[ym].append(item)
-    body_parts = ["<h1>คลังข่าว AI ย้อนหลัง</h1>"]
+    body_parts = [
+        "<h1>คลังข่าว AI ย้อนหลัง</h1>",
+        '<div class="tool-row"><button id="randomOldNews" class="tool-btn">🎲 สุ่มข่าวเก่า</button></div>',
+    ]
     for ym in sorted(by_month.keys(), reverse=True):
         d = datetime.strptime(ym, "%Y-%m")
         month_label = f"{THAI_MONTHS[d.month]} {d.year + 543}"
@@ -324,7 +486,7 @@ def build_archive(all_items):
 <summary>{month_label} ({len(month_items)} ข่าว)</summary>
 {cards}
 </details>""")
-    write("archive.html", page_shell("คลังข่าว AI ย้อนหลัง", "archive", "\n".join(body_parts)))
+    write("archive.html", page_shell("คลังข่าว AI ย้อนหลัง", "archive", "\n".join(body_parts), random_urls=[i["url"] for i in all_items]))
 
 
 def bar_rows(counts: list, max_items: int = 12) -> str:
@@ -377,6 +539,7 @@ def build_bookmarks(all_items):
     cards = "".join(card_html(i) for i in all_items)
     body = f"""<h1>ข่าวที่บันทึกไว้อ่าน</h1>
 <div class="sub">กดดาวค้าง ☆ ที่มุมข่าวไหนก็ได้เพื่อบันทึกไว้ที่นี่ (บันทึกไว้ในเบราว์เซอร์นี้เท่านั้น)</div>
+<div class="tool-row"><button id="speakBookmarks" class="tool-btn">🔊 ฟังข่าวที่บันทึกไว้ทั้งหมด</button></div>
 <p class="empty" id="noBookmarks">ยังไม่มีข่าวที่บันทึกไว้ — ลองกด ☆ ที่ข่าวหน้าอื่นดูก่อนครับ</p>
 {cards}"""
     write("bookmarks.html", page_shell("ข่าวที่บันทึกไว้อ่าน", "bookmarks", body))

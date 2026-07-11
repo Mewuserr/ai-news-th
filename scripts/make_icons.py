@@ -1,14 +1,17 @@
 """Generate simple app icons for the PWA "Add to Home Screen" manifest.
 
-One-off/rerunnable generator - no external assets, just PIL drawing a flat
-accent-color square with "AI" text, matching the site's existing orange accent.
+One-off/rerunnable generator - no external assets, just PIL drawing a
+space-themed icon: deep navy background, a few star dots, bold "M" (MEW
+Station) in the site's purple accent.
 """
 import os
+import random
 from PIL import Image, ImageDraw, ImageFont
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-ACCENT = (224, 145, 47)  # #e0912f, same as site's major-news accent
-TEXT_COLOR = (26, 19, 0)  # #1a1300, same dark ink used on the accent badge
+BG = (10, 14, 39)       # #0a0e27, site background
+ACCENT = (139, 111, 255)  # #8b6fff, site accent purple
+STAR = (255, 255, 255)
 
 SIZES = {
     "icon-192.png": 192,
@@ -29,13 +32,21 @@ def find_bold_font(size):
 
 
 def make_icon(size: int, out_path: str):
-    img = Image.new("RGB", (size, size), ACCENT)
+    img = Image.new("RGB", (size, size), BG)
     draw = ImageDraw.Draw(img)
-    font = find_bold_font(int(size * 0.42))
-    text = "AI"
+
+    rng = random.Random(42)  # deterministic star placement across sizes
+    for _ in range(int(size * 0.12)):
+        x, y = rng.uniform(0, size), rng.uniform(0, size)
+        r = rng.uniform(size * 0.003, size * 0.01)
+        draw.ellipse([x - r, y - r, x + r, y + r], fill=STAR)
+
+    font = find_bold_font(int(size * 0.5))
+    text = "M"
     bbox = draw.textbbox((0, 0), text, font=font)
     w, h = bbox[2] - bbox[0], bbox[3] - bbox[1]
-    draw.text(((size - w) / 2 - bbox[0], (size - h) / 2 - bbox[1]), text, fill=TEXT_COLOR, font=font)
+    draw.text(((size - w) / 2 - bbox[0], (size - h) / 2 - bbox[1]), text, fill=ACCENT, font=font)
+
     img.save(out_path)
     print(f"wrote {out_path}")
 
