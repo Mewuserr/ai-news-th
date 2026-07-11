@@ -4,6 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ข่าว AI 11 กรกฎาคม 2569</title>
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" href="icon-192.png">
+<meta name="theme-color" content="#e0912f">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="ข่าว AI">
 <style>
 :root { color-scheme: light dark; }
 body { font-family: -apple-system, "Segoe UI", "Noto Sans Thai", sans-serif; max-width: 880px; margin: 0 auto; padding: 24px 16px 64px; line-height: 1.6; }
@@ -29,34 +35,50 @@ h1 { font-size: 22px; margin-bottom: 4px; }
 details { margin-bottom: 10px; }
 summary { cursor: pointer; font-weight: 600; padding: 4px 0; }
 .empty { opacity: 0.6; padding: 20px 0; }
+.stat-section { margin-bottom: 36px; }
+.stat-section h2 { font-size: 16px; margin-bottom: 14px; }
+.stat-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+.stat-label { width: 130px; flex-shrink: 0; font-size: 13px; text-align: right; opacity: 0.85; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.stat-track { flex: 1; position: relative; height: 20px; }
+.stat-bar { height: 20px; max-height: 20px; background: #e0912f; border-radius: 4px; min-width: 4px; }
+.stat-value { font-size: 12px; opacity: 0.7; margin-left: 8px; font-variant-numeric: tabular-nums; }
+.stat-bar-wrap { display: flex; align-items: center; flex: 1; }
+.bookmark-btn { background: none; border: none; cursor: pointer; font-size: 18px; line-height: 1; padding: 0 2px; opacity: 0.5; float: right; }
+.bookmark-btn:hover { opacity: 0.9; }
+.bookmark-btn.saved { opacity: 1; }
 </style>
 </head>
-<body>
-<nav><a href="index.html" class="active">วันนี้</a><a href="weekly.html" class="">รายสัปดาห์</a><a href="archive.html" class="">คลังข่าวย้อนหลัง</a></nav>
+<body data-page="index">
+<nav><a href="index.html" class="active">วันนี้</a><a href="weekly.html" class="">รายสัปดาห์</a><a href="archive.html" class="">คลังข่าวย้อนหลัง</a><a href="stats.html" class="">สถิติ</a><a href="bookmarks.html" class="">บันทึกไว้อ่าน</a></nav>
 <h1>ข่าว AI ประจำวันที่ 11 กรกฎาคม 2569</h1>
 <div class="sub">5 ข่าว · ข่าวใหญ่ 2 ข่าว</div>
 <div class="filters"><button data-cat="all" class="active">ทั้งหมด</button><button data-cat="model_release">เปิดตัวโมเดล/ฟีเจอร์ใหม่</button><button data-cat="product">ผลิตภัณฑ์</button><button data-cat="policy">นโยบาย/กฎหมาย</button><button data-cat="other">อื่นๆ</button></div><label class="major-toggle"><input type="checkbox" id="majorOnly"> แสดงเฉพาะข่าวใหญ่ 🔥</label>
-<div class="group-heading" data-group="major">🔥 ข่าวใหญ่วันนี้</div><div class="card major" data-category="model_release" data-importance="major" data-group="major">
+<div class="group-heading" data-group="major">🔥 ข่าวใหญ่วันนี้</div><div class="card major" data-category="model_release" data-importance="major" data-url="https://openai.com/index/previewing-gpt-5-6-sol/" data-group="major">
+  <button class="bookmark-btn" data-url="https://openai.com/index/previewing-gpt-5-6-sol/" title="บันทึกไว้อ่านทีหลัง" aria-label="บันทึกไว้อ่านทีหลัง">☆</button>
   <span class="badge major">🔥 ข่าวใหญ่</span><span class="badge">เปิดตัวโมเดล/ฟีเจอร์ใหม่</span>
   <h3><a href="https://openai.com/index/previewing-gpt-5-6-sol/" target="_blank" rel="noopener">OpenAI เปิดตัวโมเดลตระกูล GPT-5.6 (Sol, Terra, Luna) ให้ใช้งานทั่วไป</a></h3>
   <p>OpenAI เปิดให้ใช้งานโมเดลตระกูลใหม่ GPT-5.6 แบ่งเป็น 3 รุ่นคือ Sol (เรือธง), Terra (รุ่นกลาง) และ Luna (ประหยัดสุด) ผ่าน ChatGPT, Codex และ API แล้ว โดย Sol จะขับเคลื่อนโหมดคิดวิเคราะห์ขั้นสูงสำหรับผู้ใช้แผนระดับสูง ถือเป็นการอัปเกรดฐานโมเดลครั้งใหญ่ที่สุดของ OpenAI ในรอบหลายเดือน</p>
   <div class="meta">OpenAI · 11 กรกฎาคม 2569</div>
-</div><div class="card major" data-category="policy" data-importance="major" data-group="major">
+</div><div class="card major" data-category="policy" data-importance="major" data-url="https://futureoflife.org/ai-safety-index-summer-2026/" data-group="major">
+  <button class="bookmark-btn" data-url="https://futureoflife.org/ai-safety-index-summer-2026/" title="บันทึกไว้อ่านทีหลัง" aria-label="บันทึกไว้อ่านทีหลัง">☆</button>
   <span class="badge major">🔥 ข่าวใหญ่</span><span class="badge">นโยบาย/กฎหมาย</span>
   <h3><a href="https://futureoflife.org/ai-safety-index-summer-2026/" target="_blank" rel="noopener">รายงาน AI Safety Index ชี้บริษัท AI รายใหญ่ถอยห่างจากคำมั่นด้านความปลอดภัย</a></h3>
   <p>Future of Life Institute เผยแพร่รายงาน AI Safety Index ฉบับกลางปี 2026 ประเมิน 9 บริษัท AI รายใหญ่ทั่วโลก พบว่าไม่มีบริษัทไหนได้เกรด A หรือ B โดย Anthropic ได้คะแนนสูงสุดแต่ยังอยู่แค่ C+ ตามด้วย OpenAI และ Google DeepMind ที่ได้ C ส่วน xAI, DeepSeek และ Mistral สอบตกเกรด F รายงานระบุว่าหลายบริษัทเริ่มถอยห่างจากคำมั่นเดิมที่จะหยุดพัฒนาโมเดลหากเข้าใกล้ระดับความเสี่ยงที่กำหนดไว้</p>
   <div class="meta">Future of Life Institute · 11 กรกฎาคม 2569</div>
-</div><div class="group-heading" data-group="normal">ข่าวอื่นๆ วันนี้</div><div class="card" data-category="model_release" data-importance="normal" data-group="normal">
+</div><div class="group-heading" data-group="normal">ข่าวอื่นๆ วันนี้</div><div class="card" data-category="model_release" data-importance="normal" data-url="https://www.axios.com/2026/07/08/spacexai-grok-new-model" data-group="normal">
+  <button class="bookmark-btn" data-url="https://www.axios.com/2026/07/08/spacexai-grok-new-model" title="บันทึกไว้อ่านทีหลัง" aria-label="บันทึกไว้อ่านทีหลัง">☆</button>
   <span class="badge">เปิดตัวโมเดล/ฟีเจอร์ใหม่</span>
   <h3><a href="https://www.axios.com/2026/07/08/spacexai-grok-new-model" target="_blank" rel="noopener">xAI เปิดตัว Grok 4.5 เจาะกลุ่มงานเขียนโค้ดและ agent</a></h3>
   <p>xAI เปิดตัว Grok 4.5 โมเดลตัวแรกที่ออกแบบมาเฉพาะงานเขียนโค้ดและงานแบบ agent ฝึกจากข้อมูลการใช้งานจริงใน Cursor อีลอน มัสก์ระบุว่าเทียบชั้น Claude Opus 4.8 แต่เร็วกว่าและราคาถูกกว่า ราคาต่อ 1 ล้านโทเคนอยู่ที่ 2 ดอลลาร์ (input) และ 6 ดอลลาร์ (output) ยังไม่เปิดให้ใช้ในสหภาพยุโรปตอนนี้</p>
   <div class="meta">xAI (SpaceXAI) · 11 กรกฎาคม 2569</div>
-</div><div class="card" data-category="product" data-importance="normal" data-group="normal">
+</div><div class="card" data-category="product" data-importance="normal" data-url="https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/" data-group="normal">
+  <button class="bookmark-btn" data-url="https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/" title="บันทึกไว้อ่านทีหลัง" aria-label="บันทึกไว้อ่านทีหลัง">☆</button>
   <span class="badge">ผลิตภัณฑ์</span>
   <h3><a href="https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/" target="_blank" rel="noopener">Meta เปิดขาย API โมเดล Muse Spark 1.1 ครั้งแรก ราคาถูกกว่าคู่แข่งราว 4 เท่า</a></h3>
   <p>Meta เริ่มเก็บเงินค่าใช้งาน AI เป็นครั้งแรกผ่านโมเดล Muse Spark 1.1 ราคาประมาณ 1 ใน 4 ของ Claude Opus 4.8 และ GPT-5.5 เปิดให้ใช้แบบพรีวิวเฉพาะในสหรัฐฯ ก่อน ถือเป็นการเข้าสู่ธุรกิจขาย API แข่งกับ Anthropic และ OpenAI อย่างเป็นทางการ</p>
   <div class="meta">Meta AI · 11 กรกฎาคม 2569</div>
-</div><div class="card" data-category="other" data-importance="normal" data-group="normal">
+</div><div class="card" data-category="other" data-importance="normal" data-url="https://www.anthropic.com/news/ben-bernanke" data-group="normal">
+  <button class="bookmark-btn" data-url="https://www.anthropic.com/news/ben-bernanke" title="บันทึกไว้อ่านทีหลัง" aria-label="บันทึกไว้อ่านทีหลัง">☆</button>
   <span class="badge">อื่นๆ</span>
   <h3><a href="https://www.anthropic.com/news/ben-bernanke" target="_blank" rel="noopener">Anthropic แต่งตั้งเบน เบอร์นันกี อดีตประธานเฟด นั่งบอร์ดกำกับดูแลระยะยาว</a></h3>
   <p>Anthropic แต่งตั้ง ดร.เบน เบอร์นันกี อดีตประธานธนาคารกลางสหรัฐฯ (เฟด) และเจ้าของรางวัลโนเบลเศรษฐศาสตร์ปี 2022 เข้าร่วม Long-Term Benefit Trust ซึ่งเป็นคณะกรรมการอิสระที่ให้คำแนะนำบอร์ดบริษัทเรื่องความเสี่ยงและผลกระทบต่อสังคมจากการพัฒนา AI โดยกรรมการกลุ่มนี้ไม่ถือหุ้นและไม่มีส่วนแบ่งกำไรจากบริษัท</p>
@@ -83,6 +105,40 @@ document.querySelectorAll('.filters button').forEach(b => b.addEventListener('cl
   applyFilter();
 }));
 document.getElementById('majorOnly')?.addEventListener('change', applyFilter);
+</script>
+<script>
+function getBookmarks() {
+  try { return new Set(JSON.parse(localStorage.getItem('ai_news_bookmarks') || '[]')); }
+  catch (e) { return new Set(); }
+}
+function saveBookmarks(set) {
+  localStorage.setItem('ai_news_bookmarks', JSON.stringify([...set]));
+}
+function refreshBookmarkButtons() {
+  const bookmarks = getBookmarks();
+  document.querySelectorAll('.bookmark-btn').forEach(btn => {
+    const saved = bookmarks.has(btn.dataset.url);
+    btn.classList.toggle('saved', saved);
+    btn.textContent = saved ? '★' : '☆';
+  });
+  if (document.body.dataset.page === 'bookmarks') {
+    document.querySelectorAll('.card').forEach(c => {
+      c.style.display = bookmarks.has(c.dataset.url) ? '' : 'none';
+    });
+    const anySaved = document.querySelectorAll('.card').length > 0 &&
+      [...document.querySelectorAll('.card')].some(c => c.style.display !== 'none');
+    const emptyMsg = document.getElementById('noBookmarks');
+    if (emptyMsg) emptyMsg.style.display = anySaved ? 'none' : '';
+  }
+}
+document.querySelectorAll('.bookmark-btn').forEach(btn => btn.addEventListener('click', () => {
+  const bookmarks = getBookmarks();
+  const url = btn.dataset.url;
+  if (bookmarks.has(url)) bookmarks.delete(url); else bookmarks.add(url);
+  saveBookmarks(bookmarks);
+  refreshBookmarkButtons();
+}));
+refreshBookmarkButtons();
 </script>
 </body>
 </html>

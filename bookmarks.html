@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>คลังข่าว AI ย้อนหลัง</title>
+<title>ข่าวที่บันทึกไว้อ่าน</title>
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="icon" href="icon-192.png">
@@ -48,11 +48,11 @@ summary { cursor: pointer; font-weight: 600; padding: 4px 0; }
 .bookmark-btn.saved { opacity: 1; }
 </style>
 </head>
-<body data-page="archive">
-<nav><a href="index.html" class="">วันนี้</a><a href="weekly.html" class="">รายสัปดาห์</a><a href="archive.html" class="active">คลังข่าวย้อนหลัง</a><a href="stats.html" class="">สถิติ</a><a href="bookmarks.html" class="">บันทึกไว้อ่าน</a></nav>
-<h1>คลังข่าว AI ย้อนหลัง</h1>
-<details>
-<summary>กรกฎาคม 2569 (5 ข่าว)</summary>
+<body data-page="bookmarks">
+<nav><a href="index.html" class="">วันนี้</a><a href="weekly.html" class="">รายสัปดาห์</a><a href="archive.html" class="">คลังข่าวย้อนหลัง</a><a href="stats.html" class="">สถิติ</a><a href="bookmarks.html" class="active">บันทึกไว้อ่าน</a></nav>
+<h1>ข่าวที่บันทึกไว้อ่าน</h1>
+<div class="sub">กดดาวค้าง ☆ ที่มุมข่าวไหนก็ได้เพื่อบันทึกไว้ที่นี่ (บันทึกไว้ในเบราว์เซอร์นี้เท่านั้น)</div>
+<p class="empty" id="noBookmarks">ยังไม่มีข่าวที่บันทึกไว้ — ลองกด ☆ ที่ข่าวหน้าอื่นดูก่อนครับ</p>
 <div class="card major" data-category="model_release" data-importance="major" data-url="https://openai.com/index/previewing-gpt-5-6-sol/">
   <button class="bookmark-btn" data-url="https://openai.com/index/previewing-gpt-5-6-sol/" title="บันทึกไว้อ่านทีหลัง" aria-label="บันทึกไว้อ่านทีหลัง">☆</button>
   <span class="badge major">🔥 ข่าวใหญ่</span><span class="badge">เปิดตัวโมเดล/ฟีเจอร์ใหม่</span>
@@ -84,7 +84,6 @@ summary { cursor: pointer; font-weight: 600; padding: 4px 0; }
   <p>Anthropic แต่งตั้ง ดร.เบน เบอร์นันกี อดีตประธานธนาคารกลางสหรัฐฯ (เฟด) และเจ้าของรางวัลโนเบลเศรษฐศาสตร์ปี 2022 เข้าร่วม Long-Term Benefit Trust ซึ่งเป็นคณะกรรมการอิสระที่ให้คำแนะนำบอร์ดบริษัทเรื่องความเสี่ยงและผลกระทบต่อสังคมจากการพัฒนา AI โดยกรรมการกลุ่มนี้ไม่ถือหุ้นและไม่มีส่วนแบ่งกำไรจากบริษัท</p>
   <div class="meta">Anthropic · 11 กรกฎาคม 2569</div>
 </div>
-</details>
 <script>
 let currentCat = 'all';
 function applyFilter() {

@@ -7,7 +7,7 @@ import json
 import glob
 import os
 from datetime import datetime
-from collections import defaultdict
+from collections import defaultdict, Counter
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_NEWS_DIR = os.path.join(ROOT, "data", "news")
@@ -85,6 +85,17 @@ h1 { font-size: 22px; margin-bottom: 4px; }
 details { margin-bottom: 10px; }
 summary { cursor: pointer; font-weight: 600; padding: 4px 0; }
 .empty { opacity: 0.6; padding: 20px 0; }
+.stat-section { margin-bottom: 36px; }
+.stat-section h2 { font-size: 16px; margin-bottom: 14px; }
+.stat-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+.stat-label { width: 130px; flex-shrink: 0; font-size: 13px; text-align: right; opacity: 0.85; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.stat-track { flex: 1; position: relative; height: 20px; }
+.stat-bar { height: 20px; max-height: 20px; background: #e0912f; border-radius: 4px; min-width: 4px; }
+.stat-value { font-size: 12px; opacity: 0.7; margin-left: 8px; font-variant-numeric: tabular-nums; }
+.stat-bar-wrap { display: flex; align-items: center; flex: 1; }
+.bookmark-btn { background: none; border: none; cursor: pointer; font-size: 18px; line-height: 1; padding: 0 2px; opacity: 0.5; float: right; }
+.bookmark-btn:hover { opacity: 0.9; }
+.bookmark-btn.saved { opacity: 1; }
 """
 
 FILTER_SCRIPT = """
@@ -110,12 +121,49 @@ document.querySelectorAll('.filters button').forEach(b => b.addEventListener('cl
 document.getElementById('majorOnly')?.addEventListener('change', applyFilter);
 """
 
+BOOKMARK_SCRIPT = """
+function getBookmarks() {
+  try { return new Set(JSON.parse(localStorage.getItem('ai_news_bookmarks') || '[]')); }
+  catch (e) { return new Set(); }
+}
+function saveBookmarks(set) {
+  localStorage.setItem('ai_news_bookmarks', JSON.stringify([...set]));
+}
+function refreshBookmarkButtons() {
+  const bookmarks = getBookmarks();
+  document.querySelectorAll('.bookmark-btn').forEach(btn => {
+    const saved = bookmarks.has(btn.dataset.url);
+    btn.classList.toggle('saved', saved);
+    btn.textContent = saved ? '★' : '☆';
+  });
+  if (document.body.dataset.page === 'bookmarks') {
+    document.querySelectorAll('.card').forEach(c => {
+      c.style.display = bookmarks.has(c.dataset.url) ? '' : 'none';
+    });
+    const anySaved = document.querySelectorAll('.card').length > 0 &&
+      [...document.querySelectorAll('.card')].some(c => c.style.display !== 'none');
+    const emptyMsg = document.getElementById('noBookmarks');
+    if (emptyMsg) emptyMsg.style.display = anySaved ? 'none' : '';
+  }
+}
+document.querySelectorAll('.bookmark-btn').forEach(btn => btn.addEventListener('click', () => {
+  const bookmarks = getBookmarks();
+  const url = btn.dataset.url;
+  if (bookmarks.has(url)) bookmarks.delete(url); else bookmarks.add(url);
+  saveBookmarks(bookmarks);
+  refreshBookmarkButtons();
+}));
+refreshBookmarkButtons();
+"""
+
 
 def nav_html(active: str) -> str:
     links = [
         ("index.html", "วันนี้", "index"),
         ("weekly.html", "รายสัปดาห์", "weekly"),
         ("archive.html", "คลังข่าวย้อนหลัง", "archive"),
+        ("stats.html", "สถิติ", "stats"),
+        ("bookmarks.html", "บันทึกไว้อ่าน", "bookmarks"),
     ]
     return "<nav>" + "".join(
         f'<a href="{href}" class="{"active" if key == active else ""}">{label}</a>'
@@ -130,12 +178,19 @@ def page_shell(title: str, active: str, body: str) -> str:
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{esc(title)}</title>
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" href="icon-192.png">
+<meta name="theme-color" content="#e0912f">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="ข่าว AI">
 <style>{SHARED_STYLE}</style>
 </head>
-<body>
+<body data-page="{active}">
 {nav_html(active)}
 {body}
 <script>{FILTER_SCRIPT}</script>
+<script>{BOOKMARK_SCRIPT}</script>
 </body>
 </html>
 """
@@ -160,9 +215,11 @@ def card_html(item: dict, group: str = "") -> str:
     group_attr = f' data-group="{esc(group)}"' if group else ""
     major_class = " major" if is_major else ""
     major_badge = '<span class="badge major">🔥 ข่าวใหญ่</span>' if is_major else ""
-    return f"""<div class="card{major_class}" data-category="{esc(cat)}" data-importance="{esc(importance)}"{group_attr}>
+    url = esc(item.get("url", "#"))
+    return f"""<div class="card{major_class}" data-category="{esc(cat)}" data-importance="{esc(importance)}" data-url="{url}"{group_attr}>
+  <button class="bookmark-btn" data-url="{url}" title="บันทึกไว้อ่านทีหลัง" aria-label="บันทึกไว้อ่านทีหลัง">☆</button>
   {major_badge}<span class="badge">{esc(label)}</span>
-  <h3><a href="{esc(item.get('url', '#'))}" target="_blank" rel="noopener">{esc(item.get('title_th', ''))}</a></h3>
+  <h3><a href="{url}" target="_blank" rel="noopener">{esc(item.get('title_th', ''))}</a></h3>
   <p>{esc(item.get('summary_th', ''))}</p>
   <div class="meta">{esc(item.get('source', ''))} · {thai_date(item['date'])}</div>
 </div>"""
@@ -233,6 +290,61 @@ def build_archive(all_items):
     write("archive.html", page_shell("คลังข่าว AI ย้อนหลัง", "archive", "\n".join(body_parts)))
 
 
+def bar_rows(counts: list, max_items: int = 12) -> str:
+    """counts: list of (label, count) already sorted descending."""
+    counts = counts[:max_items]
+    if not counts:
+        return '<p class="empty">ยังไม่มีข้อมูล</p>'
+    max_count = counts[0][1]
+    rows = []
+    for label, count in counts:
+        pct = max(4, round(count / max_count * 100))
+        rows.append(f"""<div class="stat-row">
+  <div class="stat-label" title="{esc(label)}">{esc(label)}</div>
+  <div class="stat-bar-wrap"><div class="stat-track"><div class="stat-bar" style="width:{pct}%" title="{esc(label)}: {count} ข่าว"></div></div><span class="stat-value">{count}</span></div>
+</div>""")
+    return "\n".join(rows)
+
+
+def build_stats(all_items):
+    if not all_items:
+        write("stats.html", page_shell("สถิติข่าว AI", "stats", '<h1>สถิติข่าว AI</h1><p class="empty">ยังไม่มีข้อมูล</p>'))
+        return
+
+    source_counts = Counter(i.get("source", "ไม่ทราบแหล่งที่มา") for i in all_items)
+    category_counts = Counter(i.get("category", "other") for i in all_items)
+    category_labeled = Counter()
+    for cat, n in category_counts.items():
+        category_labeled[CATEGORY_LABELS.get(cat, "อื่นๆ")] = n
+
+    date_range = f"{thai_date(min(i['date'] for i in all_items))} – {thai_date(max(i['date'] for i in all_items))}"
+
+    body = f"""<h1>สถิติข่าว AI</h1>
+<div class="sub">รวมข่าวทั้งหมด {len(all_items)} ข่าว ({date_range})</div>
+<div class="stat-section">
+  <h2>บริษัท/แหล่งข่าวที่ถูกพูดถึงบ่อยที่สุด</h2>
+  {bar_rows(source_counts.most_common())}
+</div>
+<div class="stat-section">
+  <h2>หมวดข่าวที่มีมากที่สุด</h2>
+  {bar_rows(category_labeled.most_common())}
+</div>"""
+    write("stats.html", page_shell("สถิติข่าว AI", "stats", body))
+
+
+def build_bookmarks(all_items):
+    if not all_items:
+        body = '<h1>ข่าวที่บันทึกไว้อ่าน</h1><p class="empty">ยังไม่มีข้อมูล</p>'
+        write("bookmarks.html", page_shell("ข่าวที่บันทึกไว้อ่าน", "bookmarks", body))
+        return
+    cards = "".join(card_html(i) for i in all_items)
+    body = f"""<h1>ข่าวที่บันทึกไว้อ่าน</h1>
+<div class="sub">กดดาวค้าง ☆ ที่มุมข่าวไหนก็ได้เพื่อบันทึกไว้ที่นี่ (บันทึกไว้ในเบราว์เซอร์นี้เท่านั้น)</div>
+<p class="empty" id="noBookmarks">ยังไม่มีข่าวที่บันทึกไว้ — ลองกด ☆ ที่ข่าวหน้าอื่นดูก่อนครับ</p>
+{cards}"""
+    write("bookmarks.html", page_shell("ข่าวที่บันทึกไว้อ่าน", "bookmarks", body))
+
+
 def write(filename: str, content: str):
     path = os.path.join(ROOT, filename)
     with open(path, "w", encoding="utf-8") as f:
@@ -254,6 +366,8 @@ def main():
     build_index(all_items)
     build_weekly(weeks)
     build_archive(all_items)
+    build_stats(all_items)
+    build_bookmarks(all_items)
     update_latest_cache(all_items)
 
 

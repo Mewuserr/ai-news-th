@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>สรุปข่าว AI รายสัปดาห์</title>
+<title>สถิติข่าว AI</title>
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="icon" href="icon-192.png">
@@ -48,9 +48,52 @@ summary { cursor: pointer; font-weight: 600; padding: 4px 0; }
 .bookmark-btn.saved { opacity: 1; }
 </style>
 </head>
-<body data-page="weekly">
-<nav><a href="index.html" class="">วันนี้</a><a href="weekly.html" class="active">รายสัปดาห์</a><a href="archive.html" class="">คลังข่าวย้อนหลัง</a><a href="stats.html" class="">สถิติ</a><a href="bookmarks.html" class="">บันทึกไว้อ่าน</a></nav>
-<h1>สรุปข่าว AI รายสัปดาห์</h1><p class="empty">ยังไม่มีสรุปรายสัปดาห์ — จะสร้างให้ทุกวันอาทิตย์</p>
+<body data-page="stats">
+<nav><a href="index.html" class="">วันนี้</a><a href="weekly.html" class="">รายสัปดาห์</a><a href="archive.html" class="">คลังข่าวย้อนหลัง</a><a href="stats.html" class="active">สถิติ</a><a href="bookmarks.html" class="">บันทึกไว้อ่าน</a></nav>
+<h1>สถิติข่าว AI</h1>
+<div class="sub">รวมข่าวทั้งหมด 5 ข่าว (11 กรกฎาคม 2569 – 11 กรกฎาคม 2569)</div>
+<div class="stat-section">
+  <h2>บริษัท/แหล่งข่าวที่ถูกพูดถึงบ่อยที่สุด</h2>
+  <div class="stat-row">
+  <div class="stat-label" title="OpenAI">OpenAI</div>
+  <div class="stat-bar-wrap"><div class="stat-track"><div class="stat-bar" style="width:100%" title="OpenAI: 1 ข่าว"></div></div><span class="stat-value">1</span></div>
+</div>
+<div class="stat-row">
+  <div class="stat-label" title="Future of Life Institute">Future of Life Institute</div>
+  <div class="stat-bar-wrap"><div class="stat-track"><div class="stat-bar" style="width:100%" title="Future of Life Institute: 1 ข่าว"></div></div><span class="stat-value">1</span></div>
+</div>
+<div class="stat-row">
+  <div class="stat-label" title="xAI (SpaceXAI)">xAI (SpaceXAI)</div>
+  <div class="stat-bar-wrap"><div class="stat-track"><div class="stat-bar" style="width:100%" title="xAI (SpaceXAI): 1 ข่าว"></div></div><span class="stat-value">1</span></div>
+</div>
+<div class="stat-row">
+  <div class="stat-label" title="Meta AI">Meta AI</div>
+  <div class="stat-bar-wrap"><div class="stat-track"><div class="stat-bar" style="width:100%" title="Meta AI: 1 ข่าว"></div></div><span class="stat-value">1</span></div>
+</div>
+<div class="stat-row">
+  <div class="stat-label" title="Anthropic">Anthropic</div>
+  <div class="stat-bar-wrap"><div class="stat-track"><div class="stat-bar" style="width:100%" title="Anthropic: 1 ข่าว"></div></div><span class="stat-value">1</span></div>
+</div>
+</div>
+<div class="stat-section">
+  <h2>หมวดข่าวที่มีมากที่สุด</h2>
+  <div class="stat-row">
+  <div class="stat-label" title="เปิดตัวโมเดล/ฟีเจอร์ใหม่">เปิดตัวโมเดล/ฟีเจอร์ใหม่</div>
+  <div class="stat-bar-wrap"><div class="stat-track"><div class="stat-bar" style="width:100%" title="เปิดตัวโมเดล/ฟีเจอร์ใหม่: 2 ข่าว"></div></div><span class="stat-value">2</span></div>
+</div>
+<div class="stat-row">
+  <div class="stat-label" title="นโยบาย/กฎหมาย">นโยบาย/กฎหมาย</div>
+  <div class="stat-bar-wrap"><div class="stat-track"><div class="stat-bar" style="width:50%" title="นโยบาย/กฎหมาย: 1 ข่าว"></div></div><span class="stat-value">1</span></div>
+</div>
+<div class="stat-row">
+  <div class="stat-label" title="ผลิตภัณฑ์">ผลิตภัณฑ์</div>
+  <div class="stat-bar-wrap"><div class="stat-track"><div class="stat-bar" style="width:50%" title="ผลิตภัณฑ์: 1 ข่าว"></div></div><span class="stat-value">1</span></div>
+</div>
+<div class="stat-row">
+  <div class="stat-label" title="อื่นๆ">อื่นๆ</div>
+  <div class="stat-bar-wrap"><div class="stat-track"><div class="stat-bar" style="width:50%" title="อื่นๆ: 1 ข่าว"></div></div><span class="stat-value">1</span></div>
+</div>
+</div>
 <script>
 let currentCat = 'all';
 function applyFilter() {
