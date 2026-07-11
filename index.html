@@ -112,6 +112,25 @@ summary { cursor: pointer; font-weight: 700; padding: 4px 0; color: var(--text);
 .wrap-emoji { font-size: 40px; }
 .wrap-big { font-size: 34px; font-weight: 800; color: var(--text); word-break: break-word; }
 .wrap-label { font-size: 14px; color: var(--text-dim); }
+.battle-picker { display: flex; align-items: center; gap: 14px; margin: 20px 0 28px; flex-wrap: wrap; }
+.battle-picker select { flex: 1; min-width: 140px; padding: 10px 12px; border-radius: 8px; border: 1px solid var(--border); background: var(--card-bg); color: var(--text); font-size: 15px; font-family: inherit; }
+.battle-vs-label { font-weight: 800; color: var(--major); font-size: 18px; text-shadow: 0 0 10px color-mix(in srgb, var(--major) 50%, transparent); }
+.battle-fighters { display: flex; gap: 20px; align-items: stretch; flex-wrap: wrap; }
+.fighter { flex: 1; min-width: 240px; border: 1px solid var(--border); border-radius: 14px; padding: 20px; background: var(--card-bg); }
+.fighter h3 { margin: 0 0 14px; font-size: 19px; }
+.fighter .fbar-row { margin-bottom: 12px; }
+.fighter .fbar-label { font-size: 12.5px; color: var(--text-dim); margin-bottom: 4px; display: flex; justify-content: space-between; }
+.fighter .fbar-track { height: 14px; border-radius: 999px; background: color-mix(in srgb, var(--text) 8%, transparent); overflow: hidden; }
+.fighter .fbar-fill { height: 100%; border-radius: 999px; }
+.fighter .fbar-fill.major { background: var(--major); box-shadow: 0 0 10px color-mix(in srgb, var(--major) 50%, transparent); }
+.fighter .fbar-fill.total { background: var(--accent); box-shadow: 0 0 10px color-mix(in srgb, var(--accent) 50%, transparent); }
+.battle-verdict { text-align: center; font-size: 16px; font-weight: 700; margin-top: 20px; padding: 14px; border-radius: 10px; border: 1px solid var(--border); background: color-mix(in srgb, var(--major) 8%, var(--card-bg)); }
+.warp-overlay { position: fixed; inset: 0; z-index: 9999; pointer-events: none; opacity: 0; background: radial-gradient(circle at center, #fff 0%, color-mix(in srgb, var(--accent) 60%, #fff) 15%, transparent 70%); }
+.warp-overlay.active { animation: warpFlash 0.4s ease-out; }
+@keyframes warpFlash { 0% { opacity: 0; transform: scale(0.3); } 40% { opacity: 0.9; transform: scale(1.6); } 100% { opacity: 0; transform: scale(2.6); } }
+.moon-peek { position: fixed; bottom: -40px; left: -40px; width: 90px; height: 90px; border-radius: 50%; z-index: -2; pointer-events: none; opacity: 0.3; filter: blur(0.5px); background: radial-gradient(circle at 35% 30%, color-mix(in srgb, var(--text) 40%, transparent), transparent 75%); animation: floatMoon 13s ease-in-out infinite; }
+@keyframes floatMoon { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(10px); } }
+@media (prefers-reduced-motion: reduce) { .moon-peek { animation: none; } .warp-overlay.active { animation: none; } }
 @media print {
   canvas#starfield, .earth-peek, nav, .brand, .site-footer, .card-actions, .tool-row, .filters, .major-toggle, .search-box, .accent-picker { display: none !important; }
   body { background: #fff; color: #000; }
@@ -135,10 +154,11 @@ summary { cursor: pointer; font-weight: 700; padding: 4px 0; color: var(--text);
 <body data-page="index">
 <canvas id="starfield"></canvas>
 <div class="earth-peek"></div>
+<div class="moon-peek"></div>
 <div class="brand">🛰️ MEW Station <span id="mascot" title=""></span></div>
 <div class="streak-badge" id="streakBadge"></div>
 <div class="accent-picker" id="accentPicker"></div>
-<nav><a href="index.html" class="active">วันนี้</a><a href="weekly.html" class="">รายสัปดาห์</a><a href="archive.html" class="">คลังข่าวย้อนหลัง</a><a href="stats.html" class="">สถิติ</a><a href="timeline.html" class="">ไทม์ไลน์</a><a href="wrapped.html" class="">สรุปประจำเดือน</a><a href="bookmarks.html" class="">บันทึกไว้อ่าน</a></nav>
+<nav><a href="index.html" class="active">วันนี้</a><a href="weekly.html" class="">รายสัปดาห์</a><a href="archive.html" class="">คลังข่าวย้อนหลัง</a><a href="stats.html" class="">สถิติ</a><a href="timeline.html" class="">ไทม์ไลน์</a><a href="wrapped.html" class="">สรุปประจำเดือน</a><a href="battle.html" class="">ปะทะ</a><a href="bookmarks.html" class="">บันทึกไว้อ่าน</a></nav>
 <h1>ข่าว AI ประจำวันที่ 11 กรกฎาคม 2569</h1>
 <div class="freshness stale">ยังไม่มีข่าวใหม่ของวันนี้ — นี่คือข่าวล่าสุดที่มี</div>
 <div class="sub">5 ข่าว · ข่าวใหญ่ 2 ข่าว</div>
@@ -566,6 +586,71 @@ document.getElementById('printPdf')?.addEventListener('click', () => {
       o.start(); o.stop(ctx.currentTime + 0.5);
     } catch (e) {}
   }
+})();
+</script>
+<script>
+(function() {
+  const dataEl = document.getElementById('battle-data');
+  const arena = document.getElementById('battleArena');
+  if (!dataEl || !arena) return;
+  const data = JSON.parse(dataEl.textContent);
+  const f1 = document.getElementById('fighter1');
+  const f2 = document.getElementById('fighter2');
+  if (f1 && f2 && f1.options.length > 1) f2.selectedIndex = 1;
+
+  function fighterHtml(name, stats, maxMajor, maxTotal) {
+    const majorPct = maxMajor ? Math.max(6, Math.round(stats.major / maxMajor * 100)) : 6;
+    const totalPct = maxTotal ? Math.max(6, Math.round(stats.total / maxTotal * 100)) : 6;
+    return `<div class="fighter">
+      <h3>${name}</h3>
+      <div class="fbar-row">
+        <div class="fbar-label"><span>🔥 ข่าวใหญ่</span><span>${stats.major}</span></div>
+        <div class="fbar-track"><div class="fbar-fill major" style="width:${majorPct}%"></div></div>
+      </div>
+      <div class="fbar-row">
+        <div class="fbar-label"><span>ข่าวรวมทั้งหมด</span><span>${stats.total}</span></div>
+        <div class="fbar-track"><div class="fbar-fill total" style="width:${totalPct}%"></div></div>
+      </div>
+      <div class="fbar-label"><span>ถนัดหมวด</span><span>${stats.top_category}</span></div>
+    </div>`;
+  }
+
+  function render() {
+    const nameA = f1.value, nameB = f2.value;
+    const a = data[nameA], b = data[nameB];
+    if (!a || !b) return;
+    const maxMajor = Math.max(a.major, b.major);
+    const maxTotal = Math.max(a.total, b.total);
+    let verdict;
+    if (a.major === b.major) {
+      verdict = `🤝 เสมอกันที่ข่าวใหญ่ ${a.major} ข่าวทั้งคู่`;
+    } else {
+      const winner = a.major > b.major ? nameA : nameB;
+      const hi = Math.max(a.major, b.major), lo = Math.min(a.major, b.major);
+      verdict = `🏆 ${winner} นำอยู่ ${hi} ต่อ ${lo} ข่าวใหญ่`;
+    }
+    arena.innerHTML = `<div class="battle-fighters">${fighterHtml(nameA, a, maxMajor, maxTotal)}${fighterHtml(nameB, b, maxMajor, maxTotal)}</div>
+      <div class="battle-verdict">${verdict}</div>`;
+  }
+  f1?.addEventListener('change', render);
+  f2?.addEventListener('change', render);
+  render();
+})();
+</script>
+<script>
+(function() {
+  const overlay = document.createElement('div');
+  overlay.className = 'warp-overlay';
+  document.body.appendChild(overlay);
+  document.querySelectorAll('nav a').forEach(a => {
+    a.addEventListener('click', (e) => {
+      if (a.classList.contains('active')) return;
+      e.preventDefault();
+      const href = a.getAttribute('href');
+      overlay.classList.add('active');
+      setTimeout(() => { window.location.href = href; }, 260);
+    });
+  });
 })();
 </script>
 </body>

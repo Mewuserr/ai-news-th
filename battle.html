@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>MEW Station — สรุปประจำเดือน</title>
+<title>MEW Station — ปะทะ</title>
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="icon" href="icon-192.png">
@@ -151,17 +151,23 @@ summary { cursor: pointer; font-weight: 700; padding: 4px 0; color: var(--text);
 .speak-hint { font-size: 12.5px; color: var(--text-dim); opacity: 0.8; margin: -8px 0 16px; }
 </style>
 </head>
-<body data-page="wrapped">
+<body data-page="battle">
 <canvas id="starfield"></canvas>
 <div class="earth-peek"></div>
 <div class="moon-peek"></div>
 <div class="brand">🛰️ MEW Station <span id="mascot" title=""></span></div>
 <div class="streak-badge" id="streakBadge"></div>
 <div class="accent-picker" id="accentPicker"></div>
-<nav><a href="index.html" class="">วันนี้</a><a href="weekly.html" class="">รายสัปดาห์</a><a href="archive.html" class="">คลังข่าวย้อนหลัง</a><a href="stats.html" class="">สถิติ</a><a href="timeline.html" class="">ไทม์ไลน์</a><a href="wrapped.html" class="active">สรุปประจำเดือน</a><a href="battle.html" class="">ปะทะ</a><a href="bookmarks.html" class="">บันทึกไว้อ่าน</a></nav>
-<h1>✨ สรุปประจำเดือน กรกฎาคม 2569</h1>
-<div class="sub">ลากดูทีละใบ เหมือน Spotify Wrapped ของวงการ AI</div>
-<div class="wrap-carousel"><div class="wrap-card"><div class="wrap-emoji">🛰️</div><div class="wrap-big">5</div><div class="wrap-label">ข่าว AI เดือน กรกฎาคม 2569</div></div><div class="wrap-card"><div class="wrap-emoji">🏆</div><div class="wrap-big">OpenAI</div><div class="wrap-label">บริษัทที่ถูกพูดถึงบ่อยสุด (1 ข่าว)</div></div><div class="wrap-card"><div class="wrap-emoji">📂</div><div class="wrap-big">เปิดตัวโมเดล/ฟีเจอร์ใหม่</div><div class="wrap-label">หมวดข่าวที่แข่งขันดุที่สุด (2 ข่าว)</div></div><div class="wrap-card"><div class="wrap-emoji">🔥</div><div class="wrap-big" style="font-size:20px">OpenAI เปิดตัวโมเดลตระกูล GPT-5.6 (Sol, Terra, Luna) ให้ใช้งานทั่วไป</div><div class="wrap-label">ข่าวใหญ่ประจำเดือน · OpenAI</div></div><div class="wrap-card"><div class="wrap-emoji">🚀</div><div class="wrap-big" style="font-size:18px">แล้วเจอกันเดือนหน้า</div><div class="wrap-label">MEW Station</div></div></div>
+<nav><a href="index.html" class="">วันนี้</a><a href="weekly.html" class="">รายสัปดาห์</a><a href="archive.html" class="">คลังข่าวย้อนหลัง</a><a href="stats.html" class="">สถิติ</a><a href="timeline.html" class="">ไทม์ไลน์</a><a href="wrapped.html" class="">สรุปประจำเดือน</a><a href="battle.html" class="active">ปะทะ</a><a href="bookmarks.html" class="">บันทึกไว้อ่าน</a></nav>
+<h1>⚔️ ปะทะ — เทียบข่าวสองบริษัท</h1>
+<div class="sub">วัดจาก "ความถี่ข่าวในสื่อ" เท่านั้น ไม่ใช่การตัดสินว่าใครเก่งกว่าทางเทคนิคจริง</div>
+<div class="battle-picker">
+  <select id="fighter1"><option value="Anthropic">Anthropic</option><option value="Future of Life Institute">Future of Life Institute</option><option value="Meta AI">Meta AI</option><option value="OpenAI">OpenAI</option><option value="xAI (SpaceXAI)">xAI (SpaceXAI)</option></select>
+  <span class="battle-vs-label">VS</span>
+  <select id="fighter2"><option value="Anthropic">Anthropic</option><option value="Future of Life Institute">Future of Life Institute</option><option value="Meta AI">Meta AI</option><option value="OpenAI">OpenAI</option><option value="xAI (SpaceXAI)">xAI (SpaceXAI)</option></select>
+</div>
+<div id="battleArena"></div>
+<script type="application/json" id="battle-data">{"Anthropic": {"total": 1, "major": 0, "top_category": "อื่นๆ"}, "Future of Life Institute": {"total": 1, "major": 1, "top_category": "นโยบาย/กฎหมาย"}, "Meta AI": {"total": 1, "major": 0, "top_category": "ผลิตภัณฑ์"}, "OpenAI": {"total": 1, "major": 1, "top_category": "เปิดตัวโมเดล/ฟีเจอร์ใหม่"}, "xAI (SpaceXAI)": {"total": 1, "major": 0, "top_category": "เปิดตัวโมเดล/ฟีเจอร์ใหม่"}}</script>
 <footer class="site-footer">🛰️ MEW Station · ดูแลและคัดสรรข่าวโดย MEW · อัปเดตอัตโนมัติทุกวัน</footer>
 
 <script>
