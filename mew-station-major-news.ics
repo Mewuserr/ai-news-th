@@ -1,0 +1,23 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//MEW Station//AI News TH//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:20260711-0@mewuserr.github.io
+DTSTAMP:20260711T214414Z
+DTSTART;VALUE=DATE:20260711
+DTEND;VALUE=DATE:20260712
+SUMMARY:🔥 OpenAI เปิดตัวโมเดลตระกูล GPT-5.6 (Sol\, Terra\, Luna) ให้ใช้งานทั่วไป
+DESCRIPTION:OpenAI เปิดให้ใช้งานโมเดลตระกูลใหม่ GPT-5.6 แบ่งเป็น 3 รุ่นคือ Sol (เรือธง)\, Terra (รุ่นกลาง) และ Luna (ประหยัดสุด) ผ่าน ChatGPT\, Codex และ API แล้ว โดย Sol จะขับเคลื่อนโหมดคิดวิเคราะห์ขั้นสูงสำหรับผู้ใช้แผนระดับสูง ถือเป็นการอัปเกรดฐานโมเดลครั้งใหญ่ที่สุดของ OpenAI ในรอบหลายเดือน
+URL:https://openai.com/index/previewing-gpt-5-6-sol/
+END:VEVENT
+BEGIN:VEVENT
+UID:20260711-1@mewuserr.github.io
+DTSTAMP:20260711T214414Z
+DTSTART;VALUE=DATE:20260711
+DTEND;VALUE=DATE:20260712
+SUMMARY:🔥 รายงาน AI Safety Index ชี้บริษัท AI รายใหญ่ถอยห่างจากคำมั่นด้านความปลอดภัย
+DESCRIPTION:Future of Life Institute เผยแพร่รายงาน AI Safety Index ฉบับกลางปี 2026 ประเมิน 9 บริษัท AI รายใหญ่ทั่วโลก พบว่าไม่มีบริษัทไหนได้เกรด A หรือ B โดย Anthropic ได้คะแนนสูงสุดแต่ยังอยู่แค่ C+ ตามด้วย OpenAI และ Google DeepMind ที่ได้ C ส่วน xAI\, DeepSeek และ Mistral สอบตกเกรด F รายงานระบุว่าหลายบริษัทเริ่มถอยห่างจากคำมั่นเดิมที่จะหยุดพัฒนาโมเดลหากเข้าใกล้ระดับความเสี่ยงที่กำหนดไว้
+URL:https://futureoflife.org/ai-safety-index-summer-2026/
+END:VEVENT
+END:VCALENDAR

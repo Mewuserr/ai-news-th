@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>MEW Station — ปะทะ</title>
+<title>MEW Station — ควิซข่าว AI</title>
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="icon" href="icon-192.png">
@@ -99,6 +99,23 @@ summary { cursor: pointer; font-weight: 700; padding: 4px 0; color: var(--text);
 .accent-picker { display: flex; gap: 8px; align-items: center; margin-bottom: 16px; }
 .accent-picker button { width: 22px; height: 22px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; }
 .accent-picker button.active { border-color: var(--text); }
+.follow-toggle { background: none; border: 1px solid var(--border); color: var(--text-dim); border-radius: 8px; padding: 5px 12px; font-size: 12.5px; cursor: pointer; margin-bottom: 12px; }
+.follow-toggle:hover { color: var(--text); }
+.follow-panel { display: none; border: 1px solid var(--border); border-radius: 10px; padding: 14px; margin-bottom: 16px; background: var(--card-bg); }
+.follow-panel.open { display: block; }
+.follow-panel label { display: inline-flex; align-items: center; gap: 6px; margin: 0 14px 8px 0; font-size: 13.5px; color: var(--text-dim); }
+.follow-panel .fp-actions { margin-top: 6px; }
+.follow-panel .fp-actions button { font-size: 12px; margin-right: 10px; background: none; border: none; color: var(--accent); cursor: pointer; text-decoration: underline; padding: 0; }
+.quiz-q { border: 1px solid var(--border); border-radius: 12px; padding: 16px; margin-bottom: 14px; background: var(--card-bg); }
+.quiz-q h3 { font-size: 15.5px; margin: 0 0 12px; }
+.quiz-q .quiz-opt { display: block; width: 100%; text-align: left; padding: 10px 14px; margin-bottom: 8px; border-radius: 8px; border: 1px solid var(--border); background: transparent; color: var(--text); cursor: pointer; font-size: 14.5px; font-family: inherit; }
+.quiz-q .quiz-opt:hover { background: color-mix(in srgb, var(--accent) 10%, transparent); }
+.quiz-q .quiz-opt.correct { border-color: #3ddc84; background: color-mix(in srgb, #3ddc84 15%, transparent); }
+.quiz-q .quiz-opt.wrong { border-color: var(--major); background: color-mix(in srgb, var(--major) 15%, transparent); }
+.quiz-score { text-align: center; font-size: 20px; font-weight: 800; padding: 20px; border: 1px solid var(--border); border-radius: 12px; background: color-mix(in srgb, var(--accent) 8%, var(--card-bg)); }
+.narrative-section { border: 1px solid var(--border); border-radius: 12px; padding: 18px; margin-bottom: 20px; background: color-mix(in srgb, var(--major) 6%, var(--card-bg)); line-height: 1.85; font-size: 15px; }
+.narrative-section h2 { font-size: 15.5px; margin: 0 0 10px; color: var(--major); }
+.ics-btn { display: inline-block; }
 .timeline { display: flex; gap: 0; overflow-x: auto; padding: 20px 0 30px; }
 .tl-point { flex: 0 0 220px; position: relative; padding: 0 16px; border-top: 2px solid var(--border); padding-top: 16px; }
 .tl-dot { position: absolute; top: -6px; left: 16px; width: 10px; height: 10px; border-radius: 50%; background: var(--major); box-shadow: 0 0 8px color-mix(in srgb, var(--major) 60%, transparent); }
@@ -112,19 +129,6 @@ summary { cursor: pointer; font-weight: 700; padding: 4px 0; color: var(--text);
 .wrap-emoji { font-size: 40px; }
 .wrap-big { font-size: 34px; font-weight: 800; color: var(--text); word-break: break-word; }
 .wrap-label { font-size: 14px; color: var(--text-dim); }
-.battle-picker { display: flex; align-items: center; gap: 14px; margin: 20px 0 28px; flex-wrap: wrap; }
-.battle-picker select { flex: 1; min-width: 140px; padding: 10px 12px; border-radius: 8px; border: 1px solid var(--border); background: var(--card-bg); color: var(--text); font-size: 15px; font-family: inherit; }
-.battle-vs-label { font-weight: 800; color: var(--major); font-size: 18px; text-shadow: 0 0 10px color-mix(in srgb, var(--major) 50%, transparent); }
-.battle-fighters { display: flex; gap: 20px; align-items: stretch; flex-wrap: wrap; }
-.fighter { flex: 1; min-width: 240px; border: 1px solid var(--border); border-radius: 14px; padding: 20px; background: var(--card-bg); }
-.fighter h3 { margin: 0 0 14px; font-size: 19px; }
-.fighter .fbar-row { margin-bottom: 12px; }
-.fighter .fbar-label { font-size: 12.5px; color: var(--text-dim); margin-bottom: 4px; display: flex; justify-content: space-between; }
-.fighter .fbar-track { height: 14px; border-radius: 999px; background: color-mix(in srgb, var(--text) 8%, transparent); overflow: hidden; }
-.fighter .fbar-fill { height: 100%; border-radius: 999px; }
-.fighter .fbar-fill.major { background: var(--major); box-shadow: 0 0 10px color-mix(in srgb, var(--major) 50%, transparent); }
-.fighter .fbar-fill.total { background: var(--accent); box-shadow: 0 0 10px color-mix(in srgb, var(--accent) 50%, transparent); }
-.battle-verdict { text-align: center; font-size: 16px; font-weight: 700; margin-top: 20px; padding: 14px; border-radius: 10px; border: 1px solid var(--border); background: color-mix(in srgb, var(--major) 8%, var(--card-bg)); }
 .warp-overlay { position: fixed; inset: 0; z-index: 9999; pointer-events: none; opacity: 0; background: radial-gradient(circle at center, #fff 0%, color-mix(in srgb, var(--accent) 60%, #fff) 15%, transparent 70%); }
 .warp-overlay.active { animation: warpFlash 0.4s ease-out; }
 @keyframes warpFlash { 0% { opacity: 0; transform: scale(0.3); } 40% { opacity: 0.9; transform: scale(1.6); } 100% { opacity: 0; transform: scale(2.6); } }
@@ -151,25 +155,23 @@ summary { cursor: pointer; font-weight: 700; padding: 4px 0; color: var(--text);
 .speak-hint { font-size: 12.5px; color: var(--text-dim); opacity: 0.8; margin: -8px 0 16px; }
 </style>
 </head>
-<body data-page="battle">
+<body data-page="quiz">
 <canvas id="starfield"></canvas>
 <div class="earth-peek"></div>
 <div class="moon-peek"></div>
 <div class="brand">🛰️ MEW Station <span id="mascot" title=""></span></div>
 <div class="streak-badge" id="streakBadge"></div>
 <div class="accent-picker" id="accentPicker"></div>
-<nav><a href="index.html" class="">วันนี้</a><a href="weekly.html" class="">รายสัปดาห์</a><a href="archive.html" class="">คลังข่าวย้อนหลัง</a><a href="stats.html" class="">สถิติ</a><a href="timeline.html" class="">ไทม์ไลน์</a><a href="wrapped.html" class="">สรุปประจำเดือน</a><a href="battle.html" class="active">ปะทะ</a><a href="bookmarks.html" class="">บันทึกไว้อ่าน</a></nav>
-<h1>⚔️ ปะทะ — เทียบข่าวสองบริษัท</h1>
-<div class="sub">วัดจาก "ความถี่ข่าวในสื่อ" เท่านั้น ไม่ใช่การตัดสินว่าใครเก่งกว่าทางเทคนิคจริง</div>
-<div class="battle-picker">
-  <select id="fighter1"><option value="Anthropic">Anthropic</option><option value="Future of Life Institute">Future of Life Institute</option><option value="Meta AI">Meta AI</option><option value="OpenAI">OpenAI</option><option value="xAI (SpaceXAI)">xAI (SpaceXAI)</option></select>
-  <span class="battle-vs-label">VS</span>
-  <select id="fighter2"><option value="Anthropic">Anthropic</option><option value="Future of Life Institute">Future of Life Institute</option><option value="Meta AI">Meta AI</option><option value="OpenAI">OpenAI</option><option value="xAI (SpaceXAI)">xAI (SpaceXAI)</option></select>
-</div>
-<div id="battleArena"></div>
-<script type="application/json" id="battle-data">{"Anthropic": {"total": 1, "major": 0, "top_category": "อื่นๆ"}, "Future of Life Institute": {"total": 1, "major": 1, "top_category": "นโยบาย/กฎหมาย"}, "Meta AI": {"total": 1, "major": 0, "top_category": "ผลิตภัณฑ์"}, "OpenAI": {"total": 1, "major": 1, "top_category": "เปิดตัวโมเดล/ฟีเจอร์ใหม่"}, "xAI (SpaceXAI)": {"total": 1, "major": 0, "top_category": "เปิดตัวโมเดล/ฟีเจอร์ใหม่"}}</script>
+<button id="followToggle" class="follow-toggle">⚙️ ติดตามเฉพาะบริษัท</button>
+<div id="followPanel" class="follow-panel"></div>
+<nav><a href="index.html" class="">วันนี้</a><a href="weekly.html" class="">รายสัปดาห์</a><a href="archive.html" class="">คลังข่าวย้อนหลัง</a><a href="stats.html" class="">สถิติ</a><a href="timeline.html" class="">ไทม์ไลน์</a><a href="wrapped.html" class="">สรุปประจำเดือน</a><a href="quiz.html" class="active">ควิซ</a><a href="bookmarks.html" class="">บันทึกไว้อ่าน</a></nav>
+<h1>🧠 ควิซข่าว AI</h1>
+<div class="sub">ทายว่าแต่ละข่าวเป็นของบริษัทไหน วัดความแม่นของคุณ</div>
+<div id="quizArena"></div>
+<script type="application/json" id="quiz-data">[{"q": "รายงาน AI Safety Index ชี้บริษัท AI รายใหญ่ถอยห่างจากคำมั่นด้านความปลอดภัย", "options": ["Meta AI", "Anthropic", "Future of Life Institute", "xAI (SpaceXAI)"], "answer": "Future of Life Institute"}, {"q": "Meta เปิดขาย API โมเดล Muse Spark 1.1 ครั้งแรก ราคาถูกกว่าคู่แข่งราว 4 เท่า", "options": ["xAI (SpaceXAI)", "Anthropic", "Future of Life Institute", "Meta AI"], "answer": "Meta AI"}, {"q": "Anthropic แต่งตั้งเบน เบอร์นันกี อดีตประธานเฟด นั่งบอร์ดกำกับดูแลระยะยาว", "options": ["OpenAI", "Anthropic", "Meta AI", "Future of Life Institute"], "answer": "Anthropic"}, {"q": "OpenAI เปิดตัวโมเดลตระกูล GPT-5.6 (Sol, Terra, Luna) ให้ใช้งานทั่วไป", "options": ["xAI (SpaceXAI)", "OpenAI", "Future of Life Institute", "Anthropic"], "answer": "OpenAI"}, {"q": "xAI เปิดตัว Grok 4.5 เจาะกลุ่มงานเขียนโค้ดและ agent", "options": ["OpenAI", "xAI (SpaceXAI)", "Anthropic", "Future of Life Institute"], "answer": "xAI (SpaceXAI)"}]</script>
 <footer class="site-footer">🛰️ MEW Station · ดูแลและคัดสรรข่าวโดย MEW · อัปเดตอัตโนมัติทุกวัน</footer>
 
+<script type="application/json" id="all-sources">["Anthropic", "Future of Life Institute", "Meta AI", "OpenAI", "xAI (SpaceXAI)"]</script>
 <script>
 (function() {
   const canvas = document.getElementById('starfield');
@@ -509,51 +511,84 @@ document.getElementById('printPdf')?.addEventListener('click', () => {
 </script>
 <script>
 (function() {
-  const dataEl = document.getElementById('battle-data');
-  const arena = document.getElementById('battleArena');
+  const dataEl = document.getElementById('all-sources');
+  const panel = document.getElementById('followPanel');
+  const toggleBtn = document.getElementById('followToggle');
+  if (!dataEl || !panel || !toggleBtn) return;
+  const sources = JSON.parse(dataEl.textContent);
+  if (!sources.length) { toggleBtn.hidden = true; return; }
+
+  function getFollowed() {
+    try { return JSON.parse(localStorage.getItem('ai_news_follow') || '[]'); }
+    catch (e) { return []; }
+  }
+  function saveFollowed(list) { localStorage.setItem('ai_news_follow', JSON.stringify(list)); }
+
+  const followed = new Set(getFollowed());
+  const checks = sources.map(s => `<label><input type="checkbox" value="${s}" ${followed.has(s) ? 'checked' : ''}> ${s}</label>`).join('');
+  panel.innerHTML = `<div>${checks}</div><div class="fp-actions"><button id="fpAll">เลือกทั้งหมด</button><button id="fpNone">ล้างทั้งหมด (แสดงทุกบริษัท)</button></div>`;
+
+  function applyFilter() {
+    const current = new Set(getFollowed());
+    document.querySelectorAll('.card[data-source]').forEach(card => {
+      const show = current.size === 0 || current.has(card.dataset.source);
+      if (!show) card.style.display = 'none';
+    });
+  }
+  panel.querySelectorAll('input[type=checkbox]').forEach(cb => cb.addEventListener('change', () => {
+    const list = [...panel.querySelectorAll('input[type=checkbox]:checked')].map(c => c.value);
+    saveFollowed(list);
+    document.querySelectorAll('.card[data-source]').forEach(c => { c.style.display = ''; });
+    applyFilter();
+  }));
+  document.getElementById('fpAll')?.addEventListener('click', () => {
+    panel.querySelectorAll('input[type=checkbox]').forEach(cb => cb.checked = true);
+    saveFollowed(sources);
+    applyFilter();
+  });
+  document.getElementById('fpNone')?.addEventListener('click', () => {
+    panel.querySelectorAll('input[type=checkbox]').forEach(cb => cb.checked = false);
+    saveFollowed([]);
+    document.querySelectorAll('.card[data-source]').forEach(c => { c.style.display = ''; });
+  });
+  toggleBtn.addEventListener('click', () => panel.classList.toggle('open'));
+  applyFilter();
+})();
+</script>
+<script>
+(function() {
+  const dataEl = document.getElementById('quiz-data');
+  const arena = document.getElementById('quizArena');
   if (!dataEl || !arena) return;
-  const data = JSON.parse(dataEl.textContent);
-  const f1 = document.getElementById('fighter1');
-  const f2 = document.getElementById('fighter2');
-  if (f1 && f2 && f1.options.length > 1) f2.selectedIndex = 1;
+  const questions = JSON.parse(dataEl.textContent);
+  let score = 0, answered = 0;
 
-  function fighterHtml(name, stats, maxMajor, maxTotal) {
-    const majorPct = maxMajor ? Math.max(6, Math.round(stats.major / maxMajor * 100)) : 6;
-    const totalPct = maxTotal ? Math.max(6, Math.round(stats.total / maxTotal * 100)) : 6;
-    return `<div class="fighter">
-      <h3>${name}</h3>
-      <div class="fbar-row">
-        <div class="fbar-label"><span>🔥 ข่าวใหญ่</span><span>${stats.major}</span></div>
-        <div class="fbar-track"><div class="fbar-fill major" style="width:${majorPct}%"></div></div>
-      </div>
-      <div class="fbar-row">
-        <div class="fbar-label"><span>ข่าวรวมทั้งหมด</span><span>${stats.total}</span></div>
-        <div class="fbar-track"><div class="fbar-fill total" style="width:${totalPct}%"></div></div>
-      </div>
-      <div class="fbar-label"><span>ถนัดหมวด</span><span>${stats.top_category}</span></div>
-    </div>`;
+  function renderQuestion(q, idx) {
+    const div = document.createElement('div');
+    div.className = 'quiz-q';
+    div.innerHTML = `<h3>${idx + 1}. ${q.q}</h3>` + q.options.map(opt =>
+      `<button class="quiz-opt" data-opt="${opt}">${opt}</button>`
+    ).join('');
+    div.querySelectorAll('.quiz-opt').forEach(btn => btn.addEventListener('click', () => {
+      if (div.dataset.done) return;
+      div.dataset.done = '1';
+      answered++;
+      const correct = btn.dataset.opt === q.answer;
+      if (correct) score++;
+      div.querySelectorAll('.quiz-opt').forEach(b => {
+        if (b.dataset.opt === q.answer) b.classList.add('correct');
+        else if (b === btn) b.classList.add('wrong');
+      });
+      if (answered === questions.length) {
+        const scoreDiv = document.createElement('div');
+        scoreDiv.className = 'quiz-score';
+        scoreDiv.textContent = `คะแนนของคุณ: ${score} / ${questions.length}`;
+        arena.appendChild(scoreDiv);
+      }
+    }));
+    return div;
   }
-
-  function render() {
-    const nameA = f1.value, nameB = f2.value;
-    const a = data[nameA], b = data[nameB];
-    if (!a || !b) return;
-    const maxMajor = Math.max(a.major, b.major);
-    const maxTotal = Math.max(a.total, b.total);
-    let verdict;
-    if (a.major === b.major) {
-      verdict = `🤝 เสมอกันที่ข่าวใหญ่ ${a.major} ข่าวทั้งคู่`;
-    } else {
-      const winner = a.major > b.major ? nameA : nameB;
-      const hi = Math.max(a.major, b.major), lo = Math.min(a.major, b.major);
-      verdict = `🏆 ${winner} นำอยู่ ${hi} ต่อ ${lo} ข่าวใหญ่`;
-    }
-    arena.innerHTML = `<div class="battle-fighters">${fighterHtml(nameA, a, maxMajor, maxTotal)}${fighterHtml(nameB, b, maxMajor, maxTotal)}</div>
-      <div class="battle-verdict">${verdict}</div>`;
-  }
-  f1?.addEventListener('change', render);
-  f2?.addEventListener('change', render);
-  render();
+  questions.forEach((q, idx) => arena.appendChild(renderQuestion(q, idx)));
 })();
 </script>
 <script>

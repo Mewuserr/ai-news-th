@@ -7,6 +7,7 @@ import json
 import glob
 import os
 import re
+import random
 from datetime import datetime, timezone, timedelta
 from collections import defaultdict, Counter
 from urllib.parse import quote
@@ -19,6 +20,7 @@ except ImportError:
     THAI_NLP_AVAILABLE = False
 
 BANGKOK = timezone(timedelta(hours=7))
+ALL_SOURCES = []
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_NEWS_DIR = os.path.join(ROOT, "data", "news")
@@ -65,6 +67,14 @@ def load_weekly():
         with open(path, encoding="utf-8") as f:
             weeks.append(json.load(f))
     return weeks
+
+
+def load_narrative(date_str: str) -> str:
+    path = os.path.join(ROOT, "data", "narrative", f"{date_str}.json")
+    if not os.path.exists(path):
+        return ""
+    with open(path, encoding="utf-8") as f:
+        return json.load(f).get("narrative_th", "")
 
 
 def esc(s: str) -> str:
@@ -160,6 +170,23 @@ summary { cursor: pointer; font-weight: 700; padding: 4px 0; color: var(--text);
 .accent-picker { display: flex; gap: 8px; align-items: center; margin-bottom: 16px; }
 .accent-picker button { width: 22px; height: 22px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; }
 .accent-picker button.active { border-color: var(--text); }
+.follow-toggle { background: none; border: 1px solid var(--border); color: var(--text-dim); border-radius: 8px; padding: 5px 12px; font-size: 12.5px; cursor: pointer; margin-bottom: 12px; }
+.follow-toggle:hover { color: var(--text); }
+.follow-panel { display: none; border: 1px solid var(--border); border-radius: 10px; padding: 14px; margin-bottom: 16px; background: var(--card-bg); }
+.follow-panel.open { display: block; }
+.follow-panel label { display: inline-flex; align-items: center; gap: 6px; margin: 0 14px 8px 0; font-size: 13.5px; color: var(--text-dim); }
+.follow-panel .fp-actions { margin-top: 6px; }
+.follow-panel .fp-actions button { font-size: 12px; margin-right: 10px; background: none; border: none; color: var(--accent); cursor: pointer; text-decoration: underline; padding: 0; }
+.quiz-q { border: 1px solid var(--border); border-radius: 12px; padding: 16px; margin-bottom: 14px; background: var(--card-bg); }
+.quiz-q h3 { font-size: 15.5px; margin: 0 0 12px; }
+.quiz-q .quiz-opt { display: block; width: 100%; text-align: left; padding: 10px 14px; margin-bottom: 8px; border-radius: 8px; border: 1px solid var(--border); background: transparent; color: var(--text); cursor: pointer; font-size: 14.5px; font-family: inherit; }
+.quiz-q .quiz-opt:hover { background: color-mix(in srgb, var(--accent) 10%, transparent); }
+.quiz-q .quiz-opt.correct { border-color: #3ddc84; background: color-mix(in srgb, #3ddc84 15%, transparent); }
+.quiz-q .quiz-opt.wrong { border-color: var(--major); background: color-mix(in srgb, var(--major) 15%, transparent); }
+.quiz-score { text-align: center; font-size: 20px; font-weight: 800; padding: 20px; border: 1px solid var(--border); border-radius: 12px; background: color-mix(in srgb, var(--accent) 8%, var(--card-bg)); }
+.narrative-section { border: 1px solid var(--border); border-radius: 12px; padding: 18px; margin-bottom: 20px; background: color-mix(in srgb, var(--major) 6%, var(--card-bg)); line-height: 1.85; font-size: 15px; }
+.narrative-section h2 { font-size: 15.5px; margin: 0 0 10px; color: var(--major); }
+.ics-btn { display: inline-block; }
 .timeline { display: flex; gap: 0; overflow-x: auto; padding: 20px 0 30px; }
 .tl-point { flex: 0 0 220px; position: relative; padding: 0 16px; border-top: 2px solid var(--border); padding-top: 16px; }
 .tl-dot { position: absolute; top: -6px; left: 16px; width: 10px; height: 10px; border-radius: 50%; background: var(--major); box-shadow: 0 0 8px color-mix(in srgb, var(--major) 60%, transparent); }
@@ -173,19 +200,6 @@ summary { cursor: pointer; font-weight: 700; padding: 4px 0; color: var(--text);
 .wrap-emoji { font-size: 40px; }
 .wrap-big { font-size: 34px; font-weight: 800; color: var(--text); word-break: break-word; }
 .wrap-label { font-size: 14px; color: var(--text-dim); }
-.battle-picker { display: flex; align-items: center; gap: 14px; margin: 20px 0 28px; flex-wrap: wrap; }
-.battle-picker select { flex: 1; min-width: 140px; padding: 10px 12px; border-radius: 8px; border: 1px solid var(--border); background: var(--card-bg); color: var(--text); font-size: 15px; font-family: inherit; }
-.battle-vs-label { font-weight: 800; color: var(--major); font-size: 18px; text-shadow: 0 0 10px color-mix(in srgb, var(--major) 50%, transparent); }
-.battle-fighters { display: flex; gap: 20px; align-items: stretch; flex-wrap: wrap; }
-.fighter { flex: 1; min-width: 240px; border: 1px solid var(--border); border-radius: 14px; padding: 20px; background: var(--card-bg); }
-.fighter h3 { margin: 0 0 14px; font-size: 19px; }
-.fighter .fbar-row { margin-bottom: 12px; }
-.fighter .fbar-label { font-size: 12.5px; color: var(--text-dim); margin-bottom: 4px; display: flex; justify-content: space-between; }
-.fighter .fbar-track { height: 14px; border-radius: 999px; background: color-mix(in srgb, var(--text) 8%, transparent); overflow: hidden; }
-.fighter .fbar-fill { height: 100%; border-radius: 999px; }
-.fighter .fbar-fill.major { background: var(--major); box-shadow: 0 0 10px color-mix(in srgb, var(--major) 50%, transparent); }
-.fighter .fbar-fill.total { background: var(--accent); box-shadow: 0 0 10px color-mix(in srgb, var(--accent) 50%, transparent); }
-.battle-verdict { text-align: center; font-size: 16px; font-weight: 700; margin-top: 20px; padding: 14px; border-radius: 10px; border: 1px solid var(--border); background: color-mix(in srgb, var(--major) 8%, var(--card-bg)); }
 .warp-overlay { position: fixed; inset: 0; z-index: 9999; pointer-events: none; opacity: 0; background: radial-gradient(circle at center, #fff 0%, color-mix(in srgb, var(--accent) 60%, #fff) 15%, transparent 70%); }
 .warp-overlay.active { animation: warpFlash 0.4s ease-out; }
 @keyframes warpFlash { 0% { opacity: 0; transform: scale(0.3); } 40% { opacity: 0.9; transform: scale(1.6); } 100% { opacity: 0; transform: scale(2.6); } }
@@ -541,53 +555,87 @@ ACCENT_SCRIPT = """
 })();
 """
 
-BATTLE_SCRIPT = """
+FOLLOW_SCRIPT = """
 (function() {
-  const dataEl = document.getElementById('battle-data');
-  const arena = document.getElementById('battleArena');
+  const dataEl = document.getElementById('all-sources');
+  const panel = document.getElementById('followPanel');
+  const toggleBtn = document.getElementById('followToggle');
+  if (!dataEl || !panel || !toggleBtn) return;
+  const sources = JSON.parse(dataEl.textContent);
+  if (!sources.length) { toggleBtn.hidden = true; return; }
+
+  function getFollowed() {
+    try { return JSON.parse(localStorage.getItem('ai_news_follow') || '[]'); }
+    catch (e) { return []; }
+  }
+  function saveFollowed(list) { localStorage.setItem('ai_news_follow', JSON.stringify(list)); }
+
+  const followed = new Set(getFollowed());
+  const checks = sources.map(s => `<label><input type="checkbox" value="${s}" ${followed.has(s) ? 'checked' : ''}> ${s}</label>`).join('');
+  panel.innerHTML = `<div>${checks}</div><div class="fp-actions"><button id="fpAll">เลือกทั้งหมด</button><button id="fpNone">ล้างทั้งหมด (แสดงทุกบริษัท)</button></div>`;
+
+  function applyFilter() {
+    const current = new Set(getFollowed());
+    document.querySelectorAll('.card[data-source]').forEach(card => {
+      const show = current.size === 0 || current.has(card.dataset.source);
+      if (!show) card.style.display = 'none';
+    });
+  }
+  panel.querySelectorAll('input[type=checkbox]').forEach(cb => cb.addEventListener('change', () => {
+    const list = [...panel.querySelectorAll('input[type=checkbox]:checked')].map(c => c.value);
+    saveFollowed(list);
+    document.querySelectorAll('.card[data-source]').forEach(c => { c.style.display = ''; });
+    applyFilter();
+  }));
+  document.getElementById('fpAll')?.addEventListener('click', () => {
+    panel.querySelectorAll('input[type=checkbox]').forEach(cb => cb.checked = true);
+    saveFollowed(sources);
+    applyFilter();
+  });
+  document.getElementById('fpNone')?.addEventListener('click', () => {
+    panel.querySelectorAll('input[type=checkbox]').forEach(cb => cb.checked = false);
+    saveFollowed([]);
+    document.querySelectorAll('.card[data-source]').forEach(c => { c.style.display = ''; });
+  });
+  toggleBtn.addEventListener('click', () => panel.classList.toggle('open'));
+  applyFilter();
+})();
+"""
+
+QUIZ_SCRIPT = """
+(function() {
+  const dataEl = document.getElementById('quiz-data');
+  const arena = document.getElementById('quizArena');
   if (!dataEl || !arena) return;
-  const data = JSON.parse(dataEl.textContent);
-  const f1 = document.getElementById('fighter1');
-  const f2 = document.getElementById('fighter2');
-  if (f1 && f2 && f1.options.length > 1) f2.selectedIndex = 1;
+  const questions = JSON.parse(dataEl.textContent);
+  let score = 0, answered = 0;
 
-  function fighterHtml(name, stats, maxMajor, maxTotal) {
-    const majorPct = maxMajor ? Math.max(6, Math.round(stats.major / maxMajor * 100)) : 6;
-    const totalPct = maxTotal ? Math.max(6, Math.round(stats.total / maxTotal * 100)) : 6;
-    return `<div class="fighter">
-      <h3>${name}</h3>
-      <div class="fbar-row">
-        <div class="fbar-label"><span>🔥 ข่าวใหญ่</span><span>${stats.major}</span></div>
-        <div class="fbar-track"><div class="fbar-fill major" style="width:${majorPct}%"></div></div>
-      </div>
-      <div class="fbar-row">
-        <div class="fbar-label"><span>ข่าวรวมทั้งหมด</span><span>${stats.total}</span></div>
-        <div class="fbar-track"><div class="fbar-fill total" style="width:${totalPct}%"></div></div>
-      </div>
-      <div class="fbar-label"><span>ถนัดหมวด</span><span>${stats.top_category}</span></div>
-    </div>`;
+  function renderQuestion(q, idx) {
+    const div = document.createElement('div');
+    div.className = 'quiz-q';
+    div.innerHTML = `<h3>${idx + 1}. ${q.q}</h3>` + q.options.map(opt =>
+      `<button class="quiz-opt" data-opt="${opt}">${opt}</button>`
+    ).join('');
+    div.querySelectorAll('.quiz-opt').forEach(btn => btn.addEventListener('click', () => {
+      if (div.dataset.done) return;
+      div.dataset.done = '1';
+      answered++;
+      const correct = btn.dataset.opt === q.answer;
+      if (correct) score++;
+      div.querySelectorAll('.quiz-opt').forEach(b => {
+        if (b.dataset.opt === q.answer) b.classList.add('correct');
+        else if (b === btn) b.classList.add('wrong');
+      });
+      if (answered === questions.length) {
+        const scoreDiv = document.createElement('div');
+        scoreDiv.className = 'quiz-score';
+        scoreDiv.textContent = `คะแนนของคุณ: ${score} / ${questions.length}`;
+        arena.appendChild(scoreDiv);
+      }
+    }));
+    return div;
   }
-
-  function render() {
-    const nameA = f1.value, nameB = f2.value;
-    const a = data[nameA], b = data[nameB];
-    if (!a || !b) return;
-    const maxMajor = Math.max(a.major, b.major);
-    const maxTotal = Math.max(a.total, b.total);
-    let verdict;
-    if (a.major === b.major) {
-      verdict = `🤝 เสมอกันที่ข่าวใหญ่ ${a.major} ข่าวทั้งคู่`;
-    } else {
-      const winner = a.major > b.major ? nameA : nameB;
-      const hi = Math.max(a.major, b.major), lo = Math.min(a.major, b.major);
-      verdict = `🏆 ${winner} นำอยู่ ${hi} ต่อ ${lo} ข่าวใหญ่`;
-    }
-    arena.innerHTML = `<div class="battle-fighters">${fighterHtml(nameA, a, maxMajor, maxTotal)}${fighterHtml(nameB, b, maxMajor, maxTotal)}</div>
-      <div class="battle-verdict">${verdict}</div>`;
-  }
-  f1?.addEventListener('change', render);
-  f2?.addEventListener('change', render);
-  render();
+  questions.forEach((q, idx) => arena.appendChild(renderQuestion(q, idx)));
 })();
 """
 
@@ -640,7 +688,7 @@ def nav_html(active: str) -> str:
         ("stats.html", "สถิติ", "stats"),
         ("timeline.html", "ไทม์ไลน์", "timeline"),
         ("wrapped.html", "สรุปประจำเดือน", "wrapped"),
-        ("battle.html", "ปะทะ", "battle"),
+        ("quiz.html", "ควิซ", "quiz"),
         ("bookmarks.html", "บันทึกไว้อ่าน", "bookmarks"),
     ]
     return "<nav>" + "".join(
@@ -656,6 +704,7 @@ def page_shell(title: str, active: str, body: str, random_urls: list = None) -> 
     urls_script = ""
     if random_urls is not None:
         urls_script = f'<script type="application/json" id="all-urls">{json.dumps(random_urls, ensure_ascii=False)}</script>'
+    sources_script = f'<script type="application/json" id="all-sources">{json.dumps(ALL_SOURCES, ensure_ascii=False)}</script>'
     return f"""<!doctype html>
 <html lang="th">
 <head>
@@ -677,10 +726,13 @@ def page_shell(title: str, active: str, body: str, random_urls: list = None) -> 
 <div class="brand">🛰️ {esc(SITE_NAME)} <span id="mascot" title=""></span></div>
 <div class="streak-badge" id="streakBadge"></div>
 <div class="accent-picker" id="accentPicker"></div>
+<button id="followToggle" class="follow-toggle">⚙️ ติดตามเฉพาะบริษัท</button>
+<div id="followPanel" class="follow-panel"></div>
 {nav_html(active)}
 {body}
 <footer class="site-footer">🛰️ {esc(SITE_NAME)} · ดูแลและคัดสรรข่าวโดย MEW · อัปเดตอัตโนมัติทุกวัน</footer>
 {urls_script}
+{sources_script}
 <script>{STARFIELD_SCRIPT}</script>
 <script>{FILTER_SCRIPT}</script>
 <script>{BOOKMARK_SCRIPT}</script>
@@ -696,7 +748,8 @@ def page_shell(title: str, active: str, body: str, random_urls: list = None) -> 
 <script>{STREAK_SCRIPT}</script>
 <script>{ACCENT_SCRIPT}</script>
 <script>{MASCOT_SCRIPT}</script>
-<script>{BATTLE_SCRIPT}</script>
+<script>{FOLLOW_SCRIPT}</script>
+<script>{QUIZ_SCRIPT}</script>
 <script>{WARP_SCRIPT}</script>
 </body>
 </html>
@@ -751,7 +804,7 @@ def card_html(item: dict, group: str = "", all_items: list = None) -> str:
             )
             related_html = f'<div class="related"><span>ข่าวใกล้เคียง:</span><ul>{links}</ul></div>'
 
-    return f"""<div class="card{major_class}" data-category="{esc(cat)}" data-importance="{esc(importance)}" data-url="{url}"{group_attr}>
+    return f"""<div class="card{major_class}" data-category="{esc(cat)}" data-importance="{esc(importance)}" data-url="{url}" data-source="{esc(item.get('source',''))}"{group_attr}>
   <div class="card-actions">
     <button class="bookmark-btn" data-url="{url}" title="บันทึกไว้อ่านทีหลัง" aria-label="บันทึกไว้อ่านทีหลัง">☆</button>
     <button class="like-btn" data-url="{url}" data-v="up" title="ชอบข่าวนี้" aria-label="ชอบข่าวนี้">👍</button>
@@ -814,10 +867,17 @@ def build_index(all_items):
 <p>{esc(quick_read_text)}</p>
 </div>"""
 
+    narrative_text = load_narrative(latest_date)
+    narrative_html = f"""<div class="narrative-section">
+<h2>📖 เล่าเป็นเรื่องราว</h2>
+<p>{esc(narrative_text)}</p>
+</div>""" if narrative_text else ""
+
     tool_row = f"""<div class="tool-row">
 <button id="randomOldNews" class="tool-btn">🎲 สุ่มข่าวเก่า</button>
 <button id="quickReadToggle" class="tool-btn">⚡ อ่านเร็ว 60 วิ</button>
 <button id="qrToggle" class="tool-btn">📱 สแกนเปิดมือถือ</button>
+<a href="mew-station-major-news.ics" class="tool-btn ics-btn" download>📅 บันทึกข่าวใหญ่ลงปฏิทิน</a>
 </div>
 {quick_read_html}
 <div id="qrBox" class="quick-read" hidden><img src="assets/qr.png" alt="QR code เปิดเว็บบนมือถือ" style="display:block;max-width:180px;border-radius:8px;"></div>"""
@@ -826,6 +886,7 @@ def build_index(all_items):
 {freshness}
 <div class="sub">{len(today_items)} ข่าว{f" · ข่าวใหญ่ {len(major_items)} ข่าว" if major_items else ""}</div>
 {tool_row}
+{narrative_html}
 {memory_html}
 {filters_html(cats_present, show_major_toggle=bool(major_items))}
 {''.join(sections)}"""
@@ -904,6 +965,24 @@ def bar_rows(counts: list, max_items: int = 12) -> str:
 
 
 STOP_EXTRA = {"ai", "การ", "ความ", "ได้", "ให้", "แล้ว", "จะ", "ที่", "เป็น", "มี", "ใน", "และ", "ของ", "กับ", "ว่า", "ไป", "มา", "ก็", "ยัง", "อยู่", "นี้"}
+
+COMPANY_REGION = {
+    "OpenAI": "🇺🇸 สหรัฐฯ", "Anthropic": "🇺🇸 สหรัฐฯ", "Google DeepMind": "🇺🇸 สหรัฐฯ",
+    "Google": "🇺🇸 สหรัฐฯ", "Meta AI": "🇺🇸 สหรัฐฯ", "Meta": "🇺🇸 สหรัฐฯ",
+    "Microsoft AI": "🇺🇸 สหรัฐฯ", "Microsoft": "🇺🇸 สหรัฐฯ", "xAI": "🇺🇸 สหรัฐฯ",
+    "xAI (SpaceXAI)": "🇺🇸 สหรัฐฯ", "Hugging Face": "🇺🇸 สหรัฐฯ", "Nvidia": "🇺🇸 สหรัฐฯ",
+    "Amazon": "🇺🇸 สหรัฐฯ", "Apple": "🇺🇸 สหรัฐฯ", "TechCrunch": "🇺🇸 สหรัฐฯ (สื่อ)",
+    "The Verge": "🇺🇸 สหรัฐฯ (สื่อ)", "VentureBeat": "🇺🇸 สหรัฐฯ (สื่อ)", "Ars Technica": "🇺🇸 สหรัฐฯ (สื่อ)",
+    "Future of Life Institute": "🇺🇸 สหรัฐฯ (องค์กร)",
+    "Mistral AI": "🇫🇷 ฝรั่งเศส", "Mistral": "🇫🇷 ฝรั่งเศส",
+    "DeepSeek": "🇨🇳 จีน", "Alibaba": "🇨🇳 จีน", "Alibaba Cloud": "🇨🇳 จีน",
+    "Baidu": "🇨🇳 จีน", "Tencent": "🇨🇳 จีน", "ByteDance": "🇨🇳 จีน", "Z.ai": "🇨🇳 จีน",
+    "EU Commission": "🇪🇺 ยุโรป (นโยบาย)",
+}
+
+
+def region_for(source: str) -> str:
+    return COMPANY_REGION.get(source, "🌐 อื่นๆ/ไม่ทราบ")
 
 
 def compute_word_cloud(items: list, top_n: int = 25):
@@ -992,6 +1071,8 @@ def build_stats(all_items):
   {word_cloud if word_cloud else '<p class="empty">ยังไม่มีข้อมูลพอ</p>'}
 </div>""" if THAI_NLP_AVAILABLE else ""
 
+    region_counts = Counter(region_for(i.get("source", "")) for i in all_items)
+
     body = f"""<h1>สถิติข่าว AI</h1>
 <div class="sub">รวมข่าวทั้งหมด {len(all_items)} ข่าว ({date_range})</div>
 {leaderboard_html}
@@ -1000,6 +1081,10 @@ def build_stats(all_items):
 <div class="stat-section">
   <h2>บริษัท/แหล่งข่าวที่ถูกพูดถึงบ่อยที่สุด</h2>
   {bar_rows(source_counts.most_common())}
+</div>
+<div class="stat-section">
+  <h2>🌍 แหล่งกำเนิดข่าวตามภูมิภาค</h2>
+  {bar_rows(region_counts.most_common())}
 </div>
 <div class="stat-section">
   <h2>หมวดข่าวที่มีมากที่สุด</h2>
@@ -1027,37 +1112,33 @@ def build_timeline(all_items):
     write("timeline.html", page_shell("ไทม์ไลน์ข่าวใหญ่", "timeline", body))
 
 
-def build_battle(all_items):
-    if not all_items:
-        write("battle.html", page_shell("ปะทะ", "battle", '<h1>⚔️ ปะทะ</h1><p class="empty">ยังไม่มีข้อมูลพอให้เทียบ</p>'))
-        return
-    stats_by_source = {}
-    sources = sorted({i.get("source", "") for i in all_items if i.get("source")})
-    for src in sources:
-        items = [i for i in all_items if i.get("source") == src]
-        major = len([i for i in items if i.get("importance") == "major"])
-        cat_counts = Counter(CATEGORY_LABELS.get(i.get("category", "other"), "อื่นๆ") for i in items)
-        top_cat = cat_counts.most_common(1)[0][0] if cat_counts else "-"
-        stats_by_source[src] = {"total": len(items), "major": major, "top_category": top_cat}
-
-    if len(sources) < 2:
-        body = '<h1>⚔️ ปะทะ</h1><p class="empty">ต้องมีอย่างน้อย 2 บริษัทถึงจะเทียบกันได้ — รอสะสมข้อมูลเพิ่มก่อนครับ</p>'
-        write("battle.html", page_shell("ปะทะ", "battle", body))
+def build_quiz(all_items):
+    if len(all_items) < 2 or len({i.get("source", "") for i in all_items}) < 2:
+        write("quiz.html", page_shell("ควิซข่าว AI", "quiz", '<h1>🧠 ควิซข่าว AI</h1><p class="empty">ต้องมีข่าวจากอย่างน้อย 2 บริษัทถึงจะเล่นได้ — รอสะสมข้อมูลเพิ่มก่อนครับ</p>'))
         return
 
-    options_html = "".join(f'<option value="{esc(s)}">{esc(s)}</option>' for s in sources)
-    data_script = f'<script type="application/json" id="battle-data">{json.dumps(stats_by_source, ensure_ascii=False)}</script>'
+    all_sources = sorted({i.get("source", "") for i in all_items if i.get("source")})
+    today_bkk = datetime.now(BANGKOK)
+    this_month = today_bkk.strftime("%Y-%m")
+    pool = [i for i in all_items if i["date"].startswith(this_month)] or all_items
+    rng = random.Random(today_bkk.strftime("%Y-%m-%d"))  # stable per day
+    sample = rng.sample(pool, min(5, len(pool)))
 
-    body = f"""<h1>⚔️ ปะทะ — เทียบข่าวสองบริษัท</h1>
-<div class="sub">วัดจาก "ความถี่ข่าวในสื่อ" เท่านั้น ไม่ใช่การตัดสินว่าใครเก่งกว่าทางเทคนิคจริง</div>
-<div class="battle-picker">
-  <select id="fighter1">{options_html}</select>
-  <span class="battle-vs-label">VS</span>
-  <select id="fighter2">{options_html}</select>
-</div>
-<div id="battleArena"></div>
+    questions = []
+    for item in sample:
+        correct = item.get("source", "")
+        distractors = [s for s in all_sources if s != correct]
+        rng.shuffle(distractors)
+        options = [correct] + distractors[:3]
+        rng.shuffle(options)
+        questions.append({"q": item.get("title_th", ""), "options": options, "answer": correct})
+
+    data_script = f'<script type="application/json" id="quiz-data">{json.dumps(questions, ensure_ascii=False)}</script>'
+    body = f"""<h1>🧠 ควิซข่าว AI</h1>
+<div class="sub">ทายว่าแต่ละข่าวเป็นของบริษัทไหน วัดความแม่นของคุณ</div>
+<div id="quizArena"></div>
 {data_script}"""
-    write("battle.html", page_shell("ปะทะ", "battle", body))
+    write("quiz.html", page_shell("ควิซข่าว AI", "quiz", body))
 
 
 def build_wrapped(all_items):
@@ -1118,6 +1199,32 @@ def write(filename: str, content: str):
     print(f"wrote {path}")
 
 
+def ics_escape(text: str) -> str:
+    return text.replace("\\", "\\\\").replace(",", "\\,").replace(";", "\\;").replace("\n", "\\n")
+
+
+def build_ics(all_items):
+    major_items = [i for i in all_items if i.get("importance") == "major"]
+    lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//MEW Station//AI News TH//EN", "CALSCALE:GREGORIAN"]
+    for idx, item in enumerate(major_items):
+        date_compact = item["date"].replace("-", "")
+        next_day = (datetime.strptime(item["date"], "%Y-%m-%d") + timedelta(days=1)).strftime("%Y%m%d")
+        uid = f"{date_compact}-{idx}@mewuserr.github.io"
+        lines += [
+            "BEGIN:VEVENT",
+            f"UID:{uid}",
+            f"DTSTAMP:{datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')}",
+            f"DTSTART;VALUE=DATE:{date_compact}",
+            f"DTEND;VALUE=DATE:{next_day}",
+            f"SUMMARY:🔥 {ics_escape(item.get('title_th', ''))}",
+            f"DESCRIPTION:{ics_escape(item.get('summary_th', ''))}",
+            f"URL:{item.get('url', '')}",
+            "END:VEVENT",
+        ]
+    lines.append("END:VCALENDAR")
+    write("mew-station-major-news.ics", "\r\n".join(lines) + "\r\n")
+
+
 def update_latest_cache(all_items, keep_days: int = 14):
     dates = sorted({i["date"] for i in all_items}, reverse=True)[:keep_days]
     recent = [i for i in all_items if i["date"] in dates]
@@ -1127,16 +1234,19 @@ def update_latest_cache(all_items, keep_days: int = 14):
 
 
 def main():
+    global ALL_SOURCES
     all_items = load_all_news()
     weeks = load_weekly()
+    ALL_SOURCES = sorted({i.get("source", "") for i in all_items if i.get("source")})
     build_index(all_items)
     build_weekly(weeks)
     build_archive(all_items)
     build_stats(all_items)
     build_timeline(all_items)
-    build_battle(all_items)
+    build_quiz(all_items)
     build_wrapped(all_items)
     build_bookmarks(all_items)
+    build_ics(all_items)
     update_latest_cache(all_items)
 
 

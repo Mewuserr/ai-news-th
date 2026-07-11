@@ -99,6 +99,23 @@ summary { cursor: pointer; font-weight: 700; padding: 4px 0; color: var(--text);
 .accent-picker { display: flex; gap: 8px; align-items: center; margin-bottom: 16px; }
 .accent-picker button { width: 22px; height: 22px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; }
 .accent-picker button.active { border-color: var(--text); }
+.follow-toggle { background: none; border: 1px solid var(--border); color: var(--text-dim); border-radius: 8px; padding: 5px 12px; font-size: 12.5px; cursor: pointer; margin-bottom: 12px; }
+.follow-toggle:hover { color: var(--text); }
+.follow-panel { display: none; border: 1px solid var(--border); border-radius: 10px; padding: 14px; margin-bottom: 16px; background: var(--card-bg); }
+.follow-panel.open { display: block; }
+.follow-panel label { display: inline-flex; align-items: center; gap: 6px; margin: 0 14px 8px 0; font-size: 13.5px; color: var(--text-dim); }
+.follow-panel .fp-actions { margin-top: 6px; }
+.follow-panel .fp-actions button { font-size: 12px; margin-right: 10px; background: none; border: none; color: var(--accent); cursor: pointer; text-decoration: underline; padding: 0; }
+.quiz-q { border: 1px solid var(--border); border-radius: 12px; padding: 16px; margin-bottom: 14px; background: var(--card-bg); }
+.quiz-q h3 { font-size: 15.5px; margin: 0 0 12px; }
+.quiz-q .quiz-opt { display: block; width: 100%; text-align: left; padding: 10px 14px; margin-bottom: 8px; border-radius: 8px; border: 1px solid var(--border); background: transparent; color: var(--text); cursor: pointer; font-size: 14.5px; font-family: inherit; }
+.quiz-q .quiz-opt:hover { background: color-mix(in srgb, var(--accent) 10%, transparent); }
+.quiz-q .quiz-opt.correct { border-color: #3ddc84; background: color-mix(in srgb, #3ddc84 15%, transparent); }
+.quiz-q .quiz-opt.wrong { border-color: var(--major); background: color-mix(in srgb, var(--major) 15%, transparent); }
+.quiz-score { text-align: center; font-size: 20px; font-weight: 800; padding: 20px; border: 1px solid var(--border); border-radius: 12px; background: color-mix(in srgb, var(--accent) 8%, var(--card-bg)); }
+.narrative-section { border: 1px solid var(--border); border-radius: 12px; padding: 18px; margin-bottom: 20px; background: color-mix(in srgb, var(--major) 6%, var(--card-bg)); line-height: 1.85; font-size: 15px; }
+.narrative-section h2 { font-size: 15.5px; margin: 0 0 10px; color: var(--major); }
+.ics-btn { display: inline-block; }
 .timeline { display: flex; gap: 0; overflow-x: auto; padding: 20px 0 30px; }
 .tl-point { flex: 0 0 220px; position: relative; padding: 0 16px; border-top: 2px solid var(--border); padding-top: 16px; }
 .tl-dot { position: absolute; top: -6px; left: 16px; width: 10px; height: 10px; border-radius: 50%; background: var(--major); box-shadow: 0 0 8px color-mix(in srgb, var(--major) 60%, transparent); }
@@ -112,19 +129,6 @@ summary { cursor: pointer; font-weight: 700; padding: 4px 0; color: var(--text);
 .wrap-emoji { font-size: 40px; }
 .wrap-big { font-size: 34px; font-weight: 800; color: var(--text); word-break: break-word; }
 .wrap-label { font-size: 14px; color: var(--text-dim); }
-.battle-picker { display: flex; align-items: center; gap: 14px; margin: 20px 0 28px; flex-wrap: wrap; }
-.battle-picker select { flex: 1; min-width: 140px; padding: 10px 12px; border-radius: 8px; border: 1px solid var(--border); background: var(--card-bg); color: var(--text); font-size: 15px; font-family: inherit; }
-.battle-vs-label { font-weight: 800; color: var(--major); font-size: 18px; text-shadow: 0 0 10px color-mix(in srgb, var(--major) 50%, transparent); }
-.battle-fighters { display: flex; gap: 20px; align-items: stretch; flex-wrap: wrap; }
-.fighter { flex: 1; min-width: 240px; border: 1px solid var(--border); border-radius: 14px; padding: 20px; background: var(--card-bg); }
-.fighter h3 { margin: 0 0 14px; font-size: 19px; }
-.fighter .fbar-row { margin-bottom: 12px; }
-.fighter .fbar-label { font-size: 12.5px; color: var(--text-dim); margin-bottom: 4px; display: flex; justify-content: space-between; }
-.fighter .fbar-track { height: 14px; border-radius: 999px; background: color-mix(in srgb, var(--text) 8%, transparent); overflow: hidden; }
-.fighter .fbar-fill { height: 100%; border-radius: 999px; }
-.fighter .fbar-fill.major { background: var(--major); box-shadow: 0 0 10px color-mix(in srgb, var(--major) 50%, transparent); }
-.fighter .fbar-fill.total { background: var(--accent); box-shadow: 0 0 10px color-mix(in srgb, var(--accent) 50%, transparent); }
-.battle-verdict { text-align: center; font-size: 16px; font-weight: 700; margin-top: 20px; padding: 14px; border-radius: 10px; border: 1px solid var(--border); background: color-mix(in srgb, var(--major) 8%, var(--card-bg)); }
 .warp-overlay { position: fixed; inset: 0; z-index: 9999; pointer-events: none; opacity: 0; background: radial-gradient(circle at center, #fff 0%, color-mix(in srgb, var(--accent) 60%, #fff) 15%, transparent 70%); }
 .warp-overlay.active { animation: warpFlash 0.4s ease-out; }
 @keyframes warpFlash { 0% { opacity: 0; transform: scale(0.3); } 40% { opacity: 0.9; transform: scale(1.6); } 100% { opacity: 0; transform: scale(2.6); } }
@@ -158,7 +162,9 @@ summary { cursor: pointer; font-weight: 700; padding: 4px 0; color: var(--text);
 <div class="brand">🛰️ MEW Station <span id="mascot" title=""></span></div>
 <div class="streak-badge" id="streakBadge"></div>
 <div class="accent-picker" id="accentPicker"></div>
-<nav><a href="index.html" class="active">วันนี้</a><a href="weekly.html" class="">รายสัปดาห์</a><a href="archive.html" class="">คลังข่าวย้อนหลัง</a><a href="stats.html" class="">สถิติ</a><a href="timeline.html" class="">ไทม์ไลน์</a><a href="wrapped.html" class="">สรุปประจำเดือน</a><a href="battle.html" class="">ปะทะ</a><a href="bookmarks.html" class="">บันทึกไว้อ่าน</a></nav>
+<button id="followToggle" class="follow-toggle">⚙️ ติดตามเฉพาะบริษัท</button>
+<div id="followPanel" class="follow-panel"></div>
+<nav><a href="index.html" class="active">วันนี้</a><a href="weekly.html" class="">รายสัปดาห์</a><a href="archive.html" class="">คลังข่าวย้อนหลัง</a><a href="stats.html" class="">สถิติ</a><a href="timeline.html" class="">ไทม์ไลน์</a><a href="wrapped.html" class="">สรุปประจำเดือน</a><a href="quiz.html" class="">ควิซ</a><a href="bookmarks.html" class="">บันทึกไว้อ่าน</a></nav>
 <h1>ข่าว AI ประจำวันที่ 11 กรกฎาคม 2569</h1>
 <div class="freshness stale">ยังไม่มีข่าวใหม่ของวันนี้ — นี่คือข่าวล่าสุดที่มี</div>
 <div class="sub">5 ข่าว · ข่าวใหญ่ 2 ข่าว</div>
@@ -166,14 +172,16 @@ summary { cursor: pointer; font-weight: 700; padding: 4px 0; color: var(--text);
 <button id="randomOldNews" class="tool-btn">🎲 สุ่มข่าวเก่า</button>
 <button id="quickReadToggle" class="tool-btn">⚡ อ่านเร็ว 60 วิ</button>
 <button id="qrToggle" class="tool-btn">📱 สแกนเปิดมือถือ</button>
+<a href="mew-station-major-news.ics" class="tool-btn ics-btn" download>📅 บันทึกข่าวใหญ่ลงปฏิทิน</a>
 </div>
 <div id="quickRead" class="quick-read" hidden>
 <p>OpenAI: OpenAI เปิดให้ใช้งานโมเดลตระกูลใหม่ GPT-5.6 แบ่งเป็น 3 รุ่นคือ Sol (เรือธง), Terra (รุ่นกลาง) และ Luna (ประหยัดสุด) ผ่าน ChatGPT, Codex และ API แล้ว โดย Sol จะขับเคลื่อนโหมดคิดวิเคราะห์ขั้นสูงสำหรับผู้ใช้แผนระดับสูง ถือเป็นการอัปเกรดฐานโมเดลครั้งใหญ่ที่สุดของ OpenAI ในรอบหลายเดือน Future of Life Institute: Future of Life Institute เผยแพร่รายงาน AI Safety Index ฉบับกลางปี 2026 ประเมิน 9 บริษัท AI รายใหญ่ทั่วโลก พบว่าไม่มีบริษัทไหนได้เกรด A หรือ B โดย Anthropic ได้คะแนนสูงสุดแต่ยังอยู่แค่ C+ ตามด้วย OpenAI และ Google DeepMind ที่ได้ C ส่วน xAI, DeepSeek และ Mistral สอบตกเกรด F รายงานระบุว่าหลายบริษัทเริ่มถอยห่างจากคำมั่นเดิมที่จะหยุดพัฒนาโมเดลหากเข้าใกล้ระดับความเสี่ยงที่กำหนดไว้ xAI (SpaceXAI): xAI เปิดตัว Grok 4.5 โมเดลตัวแรกที่ออกแบบมาเฉพาะงานเขียนโค้ดและงานแบบ agent ฝึกจากข้อมูลการใช้งานจริงใน Cursor อีลอน มัสก์ระบุว่าเทียบชั้น Claude Opus 4.8 แต่เร็วกว่าและราคาถูกกว่า ราคาต่อ 1 ล้านโทเคนอยู่ที่ 2 ดอลลาร์ (input) และ 6 ดอลลาร์ (output) ยังไม่เปิดให้ใช้ในสหภาพยุโรปตอนนี้ Meta AI: Meta เริ่มเก็บเงินค่าใช้งาน AI เป็นครั้งแรกผ่านโมเดล Muse Spark 1.1 ราคาประมาณ 1 ใน 4 ของ Claude Opus 4.8 และ GPT-5.5 เปิดให้ใช้แบบพรีวิวเฉพาะในสหรัฐฯ ก่อน ถือเป็นการเข้าสู่ธุรกิจขาย API แข่งกับ Anthropic และ OpenAI อย่างเป็นทางการ Anthropic: Anthropic แต่งตั้ง ดร.เบน เบอร์นันกี อดีตประธานธนาคารกลางสหรัฐฯ (เฟด) และเจ้าของรางวัลโนเบลเศรษฐศาสตร์ปี 2022 เข้าร่วม Long-Term Benefit Trust ซึ่งเป็นคณะกรรมการอิสระที่ให้คำแนะนำบอร์ดบริษัทเรื่องความเสี่ยงและผลกระทบต่อสังคมจากการพัฒนา AI โดยกรรมการกลุ่มนี้ไม่ถือหุ้นและไม่มีส่วนแบ่งกำไรจากบริษัท</p>
 </div>
 <div id="qrBox" class="quick-read" hidden><img src="assets/qr.png" alt="QR code เปิดเว็บบนมือถือ" style="display:block;max-width:180px;border-radius:8px;"></div>
 
+
 <div class="filters"><button data-cat="all" class="active">ทั้งหมด</button><button data-cat="model_release">เปิดตัวโมเดล/ฟีเจอร์ใหม่</button><button data-cat="product">ผลิตภัณฑ์</button><button data-cat="policy">นโยบาย/กฎหมาย</button><button data-cat="other">อื่นๆ</button></div><label class="major-toggle"><input type="checkbox" id="majorOnly"> แสดงเฉพาะข่าวใหญ่ 🔥</label>
-<div class="group-heading" data-group="major">🔥 ข่าวใหญ่วันนี้</div><div class="card major" data-category="model_release" data-importance="major" data-url="https://openai.com/index/previewing-gpt-5-6-sol/" data-group="major">
+<div class="group-heading" data-group="major">🔥 ข่าวใหญ่วันนี้</div><div class="card major" data-category="model_release" data-importance="major" data-url="https://openai.com/index/previewing-gpt-5-6-sol/" data-source="OpenAI" data-group="major">
   <div class="card-actions">
     <button class="bookmark-btn" data-url="https://openai.com/index/previewing-gpt-5-6-sol/" title="บันทึกไว้อ่านทีหลัง" aria-label="บันทึกไว้อ่านทีหลัง">☆</button>
     <button class="like-btn" data-url="https://openai.com/index/previewing-gpt-5-6-sol/" data-v="up" title="ชอบข่าวนี้" aria-label="ชอบข่าวนี้">👍</button>
@@ -188,7 +196,7 @@ summary { cursor: pointer; font-weight: 700; padding: 4px 0; color: var(--text);
   
   <div class="meta">OpenAI · 11 กรกฎาคม 2569</div>
   <div class="related"><span>ข่าวใกล้เคียง:</span><ul><li><a href="https://www.axios.com/2026/07/08/spacexai-grok-new-model" target="_blank" rel="noopener">xAI เปิดตัว Grok 4.5 เจาะกลุ่มงานเขียนโค้ดและ agent</a></li></ul></div>
-</div><div class="card major" data-category="policy" data-importance="major" data-url="https://futureoflife.org/ai-safety-index-summer-2026/" data-group="major">
+</div><div class="card major" data-category="policy" data-importance="major" data-url="https://futureoflife.org/ai-safety-index-summer-2026/" data-source="Future of Life Institute" data-group="major">
   <div class="card-actions">
     <button class="bookmark-btn" data-url="https://futureoflife.org/ai-safety-index-summer-2026/" title="บันทึกไว้อ่านทีหลัง" aria-label="บันทึกไว้อ่านทีหลัง">☆</button>
     <button class="like-btn" data-url="https://futureoflife.org/ai-safety-index-summer-2026/" data-v="up" title="ชอบข่าวนี้" aria-label="ชอบข่าวนี้">👍</button>
@@ -203,7 +211,7 @@ summary { cursor: pointer; font-weight: 700; padding: 4px 0; color: var(--text);
   
   <div class="meta">Future of Life Institute · 11 กรกฎาคม 2569</div>
   
-</div><div class="group-heading" data-group="normal">ข่าวอื่นๆ วันนี้</div><div class="card" data-category="model_release" data-importance="normal" data-url="https://www.axios.com/2026/07/08/spacexai-grok-new-model" data-group="normal">
+</div><div class="group-heading" data-group="normal">ข่าวอื่นๆ วันนี้</div><div class="card" data-category="model_release" data-importance="normal" data-url="https://www.axios.com/2026/07/08/spacexai-grok-new-model" data-source="xAI (SpaceXAI)" data-group="normal">
   <div class="card-actions">
     <button class="bookmark-btn" data-url="https://www.axios.com/2026/07/08/spacexai-grok-new-model" title="บันทึกไว้อ่านทีหลัง" aria-label="บันทึกไว้อ่านทีหลัง">☆</button>
     <button class="like-btn" data-url="https://www.axios.com/2026/07/08/spacexai-grok-new-model" data-v="up" title="ชอบข่าวนี้" aria-label="ชอบข่าวนี้">👍</button>
@@ -218,7 +226,7 @@ summary { cursor: pointer; font-weight: 700; padding: 4px 0; color: var(--text);
   
   <div class="meta">xAI (SpaceXAI) · 11 กรกฎาคม 2569</div>
   <div class="related"><span>ข่าวใกล้เคียง:</span><ul><li><a href="https://openai.com/index/previewing-gpt-5-6-sol/" target="_blank" rel="noopener">OpenAI เปิดตัวโมเดลตระกูล GPT-5.6 (Sol, Terra, Luna) ให้ใช้งานทั่วไป</a></li></ul></div>
-</div><div class="card" data-category="product" data-importance="normal" data-url="https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/" data-group="normal">
+</div><div class="card" data-category="product" data-importance="normal" data-url="https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/" data-source="Meta AI" data-group="normal">
   <div class="card-actions">
     <button class="bookmark-btn" data-url="https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/" title="บันทึกไว้อ่านทีหลัง" aria-label="บันทึกไว้อ่านทีหลัง">☆</button>
     <button class="like-btn" data-url="https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/" data-v="up" title="ชอบข่าวนี้" aria-label="ชอบข่าวนี้">👍</button>
@@ -233,7 +241,7 @@ summary { cursor: pointer; font-weight: 700; padding: 4px 0; color: var(--text);
   
   <div class="meta">Meta AI · 11 กรกฎาคม 2569</div>
   
-</div><div class="card" data-category="other" data-importance="normal" data-url="https://www.anthropic.com/news/ben-bernanke" data-group="normal">
+</div><div class="card" data-category="other" data-importance="normal" data-url="https://www.anthropic.com/news/ben-bernanke" data-source="Anthropic" data-group="normal">
   <div class="card-actions">
     <button class="bookmark-btn" data-url="https://www.anthropic.com/news/ben-bernanke" title="บันทึกไว้อ่านทีหลัง" aria-label="บันทึกไว้อ่านทีหลัง">☆</button>
     <button class="like-btn" data-url="https://www.anthropic.com/news/ben-bernanke" data-v="up" title="ชอบข่าวนี้" aria-label="ชอบข่าวนี้">👍</button>
@@ -251,6 +259,7 @@ summary { cursor: pointer; font-weight: 700; padding: 4px 0; color: var(--text);
 </div>
 <footer class="site-footer">🛰️ MEW Station · ดูแลและคัดสรรข่าวโดย MEW · อัปเดตอัตโนมัติทุกวัน</footer>
 <script type="application/json" id="all-urls">["https://openai.com/index/previewing-gpt-5-6-sol/", "https://futureoflife.org/ai-safety-index-summer-2026/", "https://www.axios.com/2026/07/08/spacexai-grok-new-model", "https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/", "https://www.anthropic.com/news/ben-bernanke"]</script>
+<script type="application/json" id="all-sources">["Anthropic", "Future of Life Institute", "Meta AI", "OpenAI", "xAI (SpaceXAI)"]</script>
 <script>
 (function() {
   const canvas = document.getElementById('starfield');
@@ -590,51 +599,84 @@ document.getElementById('printPdf')?.addEventListener('click', () => {
 </script>
 <script>
 (function() {
-  const dataEl = document.getElementById('battle-data');
-  const arena = document.getElementById('battleArena');
+  const dataEl = document.getElementById('all-sources');
+  const panel = document.getElementById('followPanel');
+  const toggleBtn = document.getElementById('followToggle');
+  if (!dataEl || !panel || !toggleBtn) return;
+  const sources = JSON.parse(dataEl.textContent);
+  if (!sources.length) { toggleBtn.hidden = true; return; }
+
+  function getFollowed() {
+    try { return JSON.parse(localStorage.getItem('ai_news_follow') || '[]'); }
+    catch (e) { return []; }
+  }
+  function saveFollowed(list) { localStorage.setItem('ai_news_follow', JSON.stringify(list)); }
+
+  const followed = new Set(getFollowed());
+  const checks = sources.map(s => `<label><input type="checkbox" value="${s}" ${followed.has(s) ? 'checked' : ''}> ${s}</label>`).join('');
+  panel.innerHTML = `<div>${checks}</div><div class="fp-actions"><button id="fpAll">เลือกทั้งหมด</button><button id="fpNone">ล้างทั้งหมด (แสดงทุกบริษัท)</button></div>`;
+
+  function applyFilter() {
+    const current = new Set(getFollowed());
+    document.querySelectorAll('.card[data-source]').forEach(card => {
+      const show = current.size === 0 || current.has(card.dataset.source);
+      if (!show) card.style.display = 'none';
+    });
+  }
+  panel.querySelectorAll('input[type=checkbox]').forEach(cb => cb.addEventListener('change', () => {
+    const list = [...panel.querySelectorAll('input[type=checkbox]:checked')].map(c => c.value);
+    saveFollowed(list);
+    document.querySelectorAll('.card[data-source]').forEach(c => { c.style.display = ''; });
+    applyFilter();
+  }));
+  document.getElementById('fpAll')?.addEventListener('click', () => {
+    panel.querySelectorAll('input[type=checkbox]').forEach(cb => cb.checked = true);
+    saveFollowed(sources);
+    applyFilter();
+  });
+  document.getElementById('fpNone')?.addEventListener('click', () => {
+    panel.querySelectorAll('input[type=checkbox]').forEach(cb => cb.checked = false);
+    saveFollowed([]);
+    document.querySelectorAll('.card[data-source]').forEach(c => { c.style.display = ''; });
+  });
+  toggleBtn.addEventListener('click', () => panel.classList.toggle('open'));
+  applyFilter();
+})();
+</script>
+<script>
+(function() {
+  const dataEl = document.getElementById('quiz-data');
+  const arena = document.getElementById('quizArena');
   if (!dataEl || !arena) return;
-  const data = JSON.parse(dataEl.textContent);
-  const f1 = document.getElementById('fighter1');
-  const f2 = document.getElementById('fighter2');
-  if (f1 && f2 && f1.options.length > 1) f2.selectedIndex = 1;
+  const questions = JSON.parse(dataEl.textContent);
+  let score = 0, answered = 0;
 
-  function fighterHtml(name, stats, maxMajor, maxTotal) {
-    const majorPct = maxMajor ? Math.max(6, Math.round(stats.major / maxMajor * 100)) : 6;
-    const totalPct = maxTotal ? Math.max(6, Math.round(stats.total / maxTotal * 100)) : 6;
-    return `<div class="fighter">
-      <h3>${name}</h3>
-      <div class="fbar-row">
-        <div class="fbar-label"><span>🔥 ข่าวใหญ่</span><span>${stats.major}</span></div>
-        <div class="fbar-track"><div class="fbar-fill major" style="width:${majorPct}%"></div></div>
-      </div>
-      <div class="fbar-row">
-        <div class="fbar-label"><span>ข่าวรวมทั้งหมด</span><span>${stats.total}</span></div>
-        <div class="fbar-track"><div class="fbar-fill total" style="width:${totalPct}%"></div></div>
-      </div>
-      <div class="fbar-label"><span>ถนัดหมวด</span><span>${stats.top_category}</span></div>
-    </div>`;
+  function renderQuestion(q, idx) {
+    const div = document.createElement('div');
+    div.className = 'quiz-q';
+    div.innerHTML = `<h3>${idx + 1}. ${q.q}</h3>` + q.options.map(opt =>
+      `<button class="quiz-opt" data-opt="${opt}">${opt}</button>`
+    ).join('');
+    div.querySelectorAll('.quiz-opt').forEach(btn => btn.addEventListener('click', () => {
+      if (div.dataset.done) return;
+      div.dataset.done = '1';
+      answered++;
+      const correct = btn.dataset.opt === q.answer;
+      if (correct) score++;
+      div.querySelectorAll('.quiz-opt').forEach(b => {
+        if (b.dataset.opt === q.answer) b.classList.add('correct');
+        else if (b === btn) b.classList.add('wrong');
+      });
+      if (answered === questions.length) {
+        const scoreDiv = document.createElement('div');
+        scoreDiv.className = 'quiz-score';
+        scoreDiv.textContent = `คะแนนของคุณ: ${score} / ${questions.length}`;
+        arena.appendChild(scoreDiv);
+      }
+    }));
+    return div;
   }
-
-  function render() {
-    const nameA = f1.value, nameB = f2.value;
-    const a = data[nameA], b = data[nameB];
-    if (!a || !b) return;
-    const maxMajor = Math.max(a.major, b.major);
-    const maxTotal = Math.max(a.total, b.total);
-    let verdict;
-    if (a.major === b.major) {
-      verdict = `🤝 เสมอกันที่ข่าวใหญ่ ${a.major} ข่าวทั้งคู่`;
-    } else {
-      const winner = a.major > b.major ? nameA : nameB;
-      const hi = Math.max(a.major, b.major), lo = Math.min(a.major, b.major);
-      verdict = `🏆 ${winner} นำอยู่ ${hi} ต่อ ${lo} ข่าวใหญ่`;
-    }
-    arena.innerHTML = `<div class="battle-fighters">${fighterHtml(nameA, a, maxMajor, maxTotal)}${fighterHtml(nameB, b, maxMajor, maxTotal)}</div>
-      <div class="battle-verdict">${verdict}</div>`;
-  }
-  f1?.addEventListener('change', render);
-  f2?.addEventListener('change', render);
-  render();
+  questions.forEach((q, idx) => arena.appendChild(renderQuestion(q, idx)));
 })();
 </script>
 <script>
