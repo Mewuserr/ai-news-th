@@ -6,8 +6,17 @@ Run manually or from engine-prompt.md after data/ is updated.
 import json
 import glob
 import os
+import re
 from datetime import datetime, timezone, timedelta
 from collections import defaultdict, Counter
+from urllib.parse import quote
+
+try:
+    from pythainlp.tokenize import word_tokenize as _thai_word_tokenize
+    from pythainlp.corpus import thai_stopwords as _thai_stopwords
+    THAI_NLP_AVAILABLE = True
+except ImportError:
+    THAI_NLP_AVAILABLE = False
 
 BANGKOK = timezone(timedelta(hours=7))
 
@@ -122,11 +131,54 @@ summary { cursor: pointer; font-weight: 700; padding: 4px 0; color: var(--text);
 .stat-bar { height: 20px; max-height: 20px; background: var(--accent); border-radius: 4px; min-width: 4px; box-shadow: 0 0 8px color-mix(in srgb, var(--accent) 50%, transparent); }
 .stat-value { font-size: 12.5px; opacity: 0.7; margin-left: 8px; font-variant-numeric: tabular-nums; color: var(--text-dim); }
 .stat-bar-wrap { display: flex; align-items: center; flex: 1; }
-.bookmark-btn { background: none; border: none; cursor: pointer; font-size: 19px; line-height: 1; padding: 0 2px; opacity: 0.65; float: right; color: var(--major); }
-.bookmark-btn:hover { opacity: 1; }
+.card-actions { display: flex; gap: 4px; float: right; align-items: center; }
+.card-actions button, .card-actions a.translate-btn { background: none; border: none; cursor: pointer; font-size: 16px; line-height: 1; padding: 4px 5px; opacity: 0.6; color: var(--text-dim); text-decoration: none; border-radius: 6px; }
+.card-actions button:hover, .card-actions a.translate-btn:hover { opacity: 1; background: color-mix(in srgb, var(--accent) 12%, transparent); }
+.bookmark-btn { color: var(--major); font-size: 18px; }
 .bookmark-btn.saved { opacity: 1; }
-.share-btn { background: none; border: none; cursor: pointer; font-size: 17px; line-height: 1; padding: 0 2px; opacity: 0.65; float: right; margin-right: 6px; color: var(--accent); }
-.share-btn:hover { opacity: 1; }
+.share-btn { color: var(--accent); }
+.listen-btn.speaking { opacity: 1; color: var(--accent); }
+.like-btn.active[data-v="up"] { opacity: 1; color: #6fe08f; }
+.like-btn.active[data-v="down"] { opacity: 1; color: var(--text-dim); }
+.translate-btn { font-size: 12px; font-weight: 700; border: 1px solid var(--border); }
+.related { clear: both; margin-top: 10px; padding-top: 8px; border-top: 1px dashed var(--border); font-size: 12.5px; color: var(--text-dim); }
+.related span { opacity: 0.8; }
+.related ul { margin: 4px 0 0; padding-left: 18px; }
+.related a { color: var(--accent); text-decoration: none; }
+.related a:hover { text-decoration: underline; }
+.search-box { width: 100%; box-sizing: border-box; padding: 10px 14px; margin-bottom: 16px; border-radius: 8px; border: 1px solid var(--border); background: var(--card-bg); color: var(--text); font-size: 15px; font-family: inherit; }
+.search-box::placeholder { color: var(--text-dim); }
+.quick-read { border: 1px solid var(--border); border-radius: 12px; padding: 16px; margin-bottom: 20px; background: color-mix(in srgb, var(--accent) 8%, var(--card-bg)); font-size: 15px; line-height: 1.8; }
+.word-cloud { display: flex; flex-wrap: wrap; gap: 10px; align-items: baseline; margin-bottom: 30px; }
+.word-cloud span { color: var(--accent); opacity: 0.85; }
+.leaderboard { list-style: none; padding: 0; margin: 0 0 30px; counter-reset: rank; }
+.leaderboard li { counter-increment: rank; display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--border); }
+.leaderboard li::before { content: counter(rank); font-weight: 700; color: var(--major); width: 22px; font-size: 15px; }
+.leaderboard .lb-name { flex: 1; }
+.leaderboard .lb-count { color: var(--text-dim); font-variant-numeric: tabular-nums; font-size: 13.5px; }
+.streak-badge { font-size: 12.5px; color: var(--major); opacity: 0.9; margin-bottom: 8px; }
+.accent-picker { display: flex; gap: 8px; align-items: center; margin-bottom: 16px; }
+.accent-picker button { width: 22px; height: 22px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; }
+.accent-picker button.active { border-color: var(--text); }
+.timeline { display: flex; gap: 0; overflow-x: auto; padding: 20px 0 30px; }
+.tl-point { flex: 0 0 220px; position: relative; padding: 0 16px; border-top: 2px solid var(--border); padding-top: 16px; }
+.tl-dot { position: absolute; top: -6px; left: 16px; width: 10px; height: 10px; border-radius: 50%; background: var(--major); box-shadow: 0 0 8px color-mix(in srgb, var(--major) 60%, transparent); }
+.tl-date { font-size: 12.5px; color: var(--text-dim); margin-bottom: 8px; }
+.tl-card { border: 1px solid var(--border); border-radius: 10px; padding: 12px; background: var(--card-bg); }
+.tl-source { font-size: 12px; color: var(--accent); margin-bottom: 6px; font-weight: 700; }
+.tl-card a { color: var(--text); text-decoration: none; font-size: 14.5px; line-height: 1.5; }
+.tl-card a:hover { color: var(--accent); text-decoration: underline; }
+.wrap-carousel { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 20px; }
+.wrap-card { flex: 0 0 85%; max-width: 360px; scroll-snap-align: center; border-radius: 20px; border: 1px solid var(--border); background: linear-gradient(160deg, color-mix(in srgb, var(--accent) 12%, var(--card-bg)), color-mix(in srgb, var(--major) 10%, var(--card-bg))); padding: 40px 24px; text-align: center; min-height: 260px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; }
+.wrap-emoji { font-size: 40px; }
+.wrap-big { font-size: 34px; font-weight: 800; color: var(--text); word-break: break-word; }
+.wrap-label { font-size: 14px; color: var(--text-dim); }
+@media print {
+  canvas#starfield, .earth-peek, nav, .brand, .site-footer, .card-actions, .tool-row, .filters, .major-toggle, .search-box, .accent-picker { display: none !important; }
+  body { background: #fff; color: #000; }
+  .card { background: #fff; border: 1px solid #ccc; break-inside: avoid; }
+  details { open: true; }
+}
 .freshness { display: inline-block; font-size: 12.5px; padding: 3px 10px; border-radius: 999px; margin-bottom: 10px; }
 .freshness.fresh { background: color-mix(in srgb, #3ddc84 18%, transparent); color: #6fe08f; box-shadow: 0 0 10px color-mix(in srgb, #3ddc84 30%, transparent); }
 .freshness.stale { background: color-mix(in srgb, var(--text-dim) 15%, transparent); color: var(--text-dim); }
@@ -327,6 +379,172 @@ document.getElementById('speakBookmarks')?.addEventListener('click', () => {
 });
 """
 
+LISTEN_SCRIPT = """
+document.querySelectorAll('.listen-btn').forEach(btn => btn.addEventListener('click', () => {
+  if (!('speechSynthesis' in window)) {
+    alert('เบราว์เซอร์นี้ไม่รองรับการอ่านออกเสียง');
+    return;
+  }
+  if (btn.classList.contains('speaking')) {
+    window.speechSynthesis.cancel();
+    btn.classList.remove('speaking');
+    return;
+  }
+  window.speechSynthesis.cancel();
+  document.querySelectorAll('.listen-btn.speaking').forEach(b => b.classList.remove('speaking'));
+  const utter = new SpeechSynthesisUtterance(btn.dataset.text);
+  utter.lang = 'th-TH';
+  const voices = window.speechSynthesis.getVoices();
+  const thaiVoice = voices.find(v => v.lang && v.lang.toLowerCase().startsWith('th'));
+  if (thaiVoice) utter.voice = thaiVoice;
+  utter.onstart = () => btn.classList.add('speaking');
+  utter.onend = () => btn.classList.remove('speaking');
+  window.speechSynthesis.speak(utter);
+}));
+"""
+
+LIKE_SCRIPT = """
+function getLikes() {
+  try { return JSON.parse(localStorage.getItem('ai_news_likes') || '{}'); }
+  catch (e) { return {}; }
+}
+function saveLikes(obj) { localStorage.setItem('ai_news_likes', JSON.stringify(obj)); }
+function refreshLikeButtons() {
+  const likes = getLikes();
+  document.querySelectorAll('.like-btn').forEach(btn => {
+    const current = likes[btn.dataset.url];
+    btn.classList.toggle('active', current === btn.dataset.v);
+  });
+}
+document.querySelectorAll('.like-btn').forEach(btn => btn.addEventListener('click', () => {
+  const likes = getLikes();
+  const url = btn.dataset.url;
+  likes[url] = likes[url] === btn.dataset.v ? undefined : btn.dataset.v;
+  if (likes[url] === undefined) delete likes[url];
+  saveLikes(likes);
+  refreshLikeButtons();
+}));
+refreshLikeButtons();
+"""
+
+SEARCH_SCRIPT = """
+const searchBox = document.getElementById('searchBox');
+searchBox?.addEventListener('input', () => {
+  const q = searchBox.value.trim().toLowerCase();
+  let anyVisible = false;
+  document.querySelectorAll('.month-group').forEach(group => {
+    let groupHasMatch = false;
+    group.querySelectorAll('.card').forEach(card => {
+      const text = card.textContent.toLowerCase();
+      const match = !q || text.includes(q);
+      card.style.display = match ? '' : 'none';
+      if (match) groupHasMatch = true;
+    });
+    group.style.display = groupHasMatch ? '' : 'none';
+    if (q && groupHasMatch) group.open = true;
+    if (groupHasMatch) anyVisible = true;
+  });
+  const emptyMsg = document.getElementById('searchEmpty');
+  if (emptyMsg) emptyMsg.hidden = anyVisible || !q;
+});
+"""
+
+QUICKREAD_SCRIPT = """
+document.getElementById('quickReadToggle')?.addEventListener('click', () => {
+  const el = document.getElementById('quickRead');
+  if (!el) return;
+  el.hidden = !el.hidden;
+});
+document.getElementById('qrToggle')?.addEventListener('click', () => {
+  const el = document.getElementById('qrBox');
+  if (!el) return;
+  el.hidden = !el.hidden;
+});
+"""
+
+PRINT_SCRIPT = """
+document.getElementById('printPdf')?.addEventListener('click', () => {
+  document.querySelectorAll('details.month-group').forEach(d => d.open = true);
+  window.print();
+});
+"""
+
+STREAK_SCRIPT = """
+(function() {
+  const KEY = 'ai_news_visit_streak';
+  const today = new Date().toISOString().slice(0, 10);
+  let data;
+  try { data = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { data = {}; }
+  if (data.lastVisit !== today) {
+    const y = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
+    data.streak = data.lastVisit === y ? (data.streak || 0) + 1 : 1;
+    data.lastVisit = today;
+    localStorage.setItem(KEY, JSON.stringify(data));
+  }
+  const streak = data.streak || 1;
+  const ranks = [
+    [1, 'นักบินฝึกหัด 🧑‍🚀'], [3, 'นักบินสำรวจ 🛸'], [7, 'นักบินอาวุโส 🚀'],
+    [14, 'ผู้บังคับการยาน 🪐'], [30, 'กัปตันยานข่าว AI 👨‍🚀✨']
+  ];
+  let rank = ranks[0][1];
+  ranks.forEach(([days, name]) => { if (streak >= days) rank = name; });
+  const el = document.getElementById('streakBadge');
+  if (el) el.textContent = `${rank} · เข้าดูข่าวติดต่อกัน ${streak} วัน`;
+})();
+"""
+
+ACCENT_SCRIPT = """
+(function() {
+  const options = [
+    { name: 'ฟ้า', accent: '#4fd1ff' },
+    { name: 'ชมพู', accent: '#ff4fd8' },
+    { name: 'เขียวมรกต', accent: '#35ffb0' },
+    { name: 'เหลืองอำพัน', accent: '#ffb020' }
+  ];
+  const saved = localStorage.getItem('ai_news_accent');
+  if (saved) document.documentElement.style.setProperty('--accent', saved);
+  const picker = document.getElementById('accentPicker');
+  if (!picker) return;
+  options.forEach(opt => {
+    const btn = document.createElement('button');
+    btn.style.background = opt.accent;
+    btn.title = opt.name;
+    btn.setAttribute('aria-label', 'เปลี่ยนสีธีมเป็น' + opt.name);
+    if (saved === opt.accent || (!saved && opt.accent === '#4fd1ff')) btn.classList.add('active');
+    btn.addEventListener('click', () => {
+      document.documentElement.style.setProperty('--accent', opt.accent);
+      localStorage.setItem('ai_news_accent', opt.accent);
+      picker.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+    picker.appendChild(btn);
+  });
+})();
+"""
+
+MASCOT_SCRIPT = """
+(function() {
+  const hasMajor = document.querySelector('.card.major');
+  const el = document.getElementById('mascot');
+  if (!el) return;
+  el.textContent = hasMajor ? '🧑‍🚀✨' : '🧑‍🚀';
+  el.title = hasMajor ? 'มีข่าวใหญ่วันนี้!' : 'วันนี้ข่าวปกติ';
+  if (hasMajor && !sessionStorage.getItem('ai_news_beeped')) {
+    sessionStorage.setItem('ai_news_beeped', '1');
+    try {
+      const ctx = new (window.AudioContext || window.webkitAudioContext)();
+      const o = ctx.createOscillator();
+      const g = ctx.createGain();
+      o.type = 'sine'; o.frequency.value = 880;
+      g.gain.setValueAtTime(0.06, ctx.currentTime);
+      g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.5);
+      o.connect(g); g.connect(ctx.destination);
+      o.start(); o.stop(ctx.currentTime + 0.5);
+    } catch (e) {}
+  }
+})();
+"""
+
 
 def nav_html(active: str) -> str:
     links = [
@@ -334,6 +552,8 @@ def nav_html(active: str) -> str:
         ("weekly.html", "รายสัปดาห์", "weekly"),
         ("archive.html", "คลังข่าวย้อนหลัง", "archive"),
         ("stats.html", "สถิติ", "stats"),
+        ("timeline.html", "ไทม์ไลน์", "timeline"),
+        ("wrapped.html", "สรุปประจำเดือน", "wrapped"),
         ("bookmarks.html", "บันทึกไว้อ่าน", "bookmarks"),
     ]
     return "<nav>" + "".join(
@@ -366,7 +586,9 @@ def page_shell(title: str, active: str, body: str, random_urls: list = None) -> 
 <body data-page="{active}">
 <canvas id="starfield"></canvas>
 <div class="earth-peek"></div>
-<div class="brand">🛰️ {esc(SITE_NAME)}</div>
+<div class="brand">🛰️ {esc(SITE_NAME)} <span id="mascot" title=""></span></div>
+<div class="streak-badge" id="streakBadge"></div>
+<div class="accent-picker" id="accentPicker"></div>
 {nav_html(active)}
 {body}
 <footer class="site-footer">🛰️ {esc(SITE_NAME)} · ดูแลและคัดสรรข่าวโดย MEW · อัปเดตอัตโนมัติทุกวัน</footer>
@@ -378,6 +600,14 @@ def page_shell(title: str, active: str, body: str, random_urls: list = None) -> 
 <script>{READ_SCRIPT}</script>
 <script>{RANDOM_SCRIPT}</script>
 <script>{SPEAK_SCRIPT}</script>
+<script>{LISTEN_SCRIPT}</script>
+<script>{LIKE_SCRIPT}</script>
+<script>{SEARCH_SCRIPT}</script>
+<script>{QUICKREAD_SCRIPT}</script>
+<script>{PRINT_SCRIPT}</script>
+<script>{STREAK_SCRIPT}</script>
+<script>{ACCENT_SCRIPT}</script>
+<script>{MASCOT_SCRIPT}</script>
 </body>
 </html>
 """
@@ -394,7 +624,17 @@ def filters_html(categories_present: set, show_major_toggle: bool = False) -> st
     return html
 
 
-def card_html(item: dict, group: str = "") -> str:
+def compute_related(item: dict, all_items: list, limit: int = 2) -> list:
+    same_cat_source = [
+        i for i in all_items
+        if i is not item and i.get("url") != item.get("url")
+        and (i.get("category") == item.get("category") or i.get("source") == item.get("source"))
+    ]
+    same_cat_source.sort(key=lambda i: i["date"], reverse=True)
+    return same_cat_source[:limit]
+
+
+def card_html(item: dict, group: str = "", all_items: list = None) -> str:
     cat = item.get("category", "other")
     label = CATEGORY_LABELS.get(cat, "อื่นๆ")
     importance = item.get("importance", "normal")
@@ -403,17 +643,39 @@ def card_html(item: dict, group: str = "") -> str:
     major_class = " major" if is_major else ""
     major_badge = '<span class="badge major">🔥 ข่าวใหญ่</span>' if is_major else ""
     url = esc(item.get("url", "#"))
-    share_title = esc(item.get("title_th", ""))
+    title_th = item.get("title_th", "")
+    summary_th = item.get("summary_th", "")
+    share_title = esc(title_th)
+    speak_text = esc(f"{title_th}. {summary_th}")
+    translate_url = esc(f"https://translate.google.com/?sl=th&tl=en&text={quote(f'{title_th}. {summary_th}')}&op=translate")
     context = item.get("context_th", "").strip()
     context_html = f'<p class="context">🔗 {esc(context)}</p>' if context else ""
+
+    related_html = ""
+    if all_items is not None:
+        related = compute_related(item, all_items)
+        if related:
+            links = "".join(
+                f'<li><a href="{esc(r.get("url","#"))}" target="_blank" rel="noopener">{esc(r.get("title_th",""))}</a></li>'
+                for r in related
+            )
+            related_html = f'<div class="related"><span>ข่าวใกล้เคียง:</span><ul>{links}</ul></div>'
+
     return f"""<div class="card{major_class}" data-category="{esc(cat)}" data-importance="{esc(importance)}" data-url="{url}"{group_attr}>
-  <button class="bookmark-btn" data-url="{url}" title="บันทึกไว้อ่านทีหลัง" aria-label="บันทึกไว้อ่านทีหลัง">☆</button>
-  <button class="share-btn" data-url="{url}" data-title="{share_title}" title="แชร์ข่าวนี้" aria-label="แชร์ข่าวนี้">🔗</button>
+  <div class="card-actions">
+    <button class="bookmark-btn" data-url="{url}" title="บันทึกไว้อ่านทีหลัง" aria-label="บันทึกไว้อ่านทีหลัง">☆</button>
+    <button class="like-btn" data-url="{url}" data-v="up" title="ชอบข่าวนี้" aria-label="ชอบข่าวนี้">👍</button>
+    <button class="like-btn" data-url="{url}" data-v="down" title="ไม่สนใจข่าวแบบนี้" aria-label="ไม่สนใจข่าวแบบนี้">👎</button>
+    <button class="listen-btn" data-text="{speak_text}" title="ฟังข่าวนี้" aria-label="ฟังข่าวนี้">🔈</button>
+    <a class="translate-btn" href="{translate_url}" target="_blank" rel="noopener" title="แปลเป็นอังกฤษ" aria-label="แปลเป็นอังกฤษ">EN</a>
+    <button class="share-btn" data-url="{url}" data-title="{share_title}" title="แชร์ข่าวนี้" aria-label="แชร์ข่าวนี้">🔗</button>
+  </div>
   {major_badge}<span class="badge">{esc(label)}</span>
-  <h3><a href="{url}" target="_blank" rel="noopener">{esc(item.get('title_th', ''))}</a></h3>
-  <p>{esc(item.get('summary_th', ''))}</p>
+  <h3><a href="{url}" target="_blank" rel="noopener">{esc(title_th)}</a></h3>
+  <p>{esc(summary_th)}</p>
   {context_html}
   <div class="meta">{esc(item.get('source', ''))} · {thai_date(item['date'])}</div>
+  {related_html}
 </div>"""
 
 
@@ -430,12 +692,12 @@ def build_index(all_items):
     sections = []
     if major_items:
         sections.append('<div class="group-heading" data-group="major">🔥 ข่าวใหญ่วันนี้</div>')
-        sections.append("".join(card_html(i, group="major") for i in major_items))
+        sections.append("".join(card_html(i, group="major", all_items=all_items) for i in major_items))
     if normal_items:
         heading = "ข่าวอื่นๆ วันนี้" if major_items else ""
         if heading:
             sections.append(f'<div class="group-heading" data-group="normal">{heading}</div>')
-        sections.append("".join(card_html(i, group="normal") for i in normal_items))
+        sections.append("".join(card_html(i, group="normal", all_items=all_items) for i in normal_items))
 
     today_bkk_dt = datetime.now(BANGKOK)
     today_bkk = today_bkk_dt.strftime("%Y-%m-%d")
@@ -454,10 +716,21 @@ def build_index(all_items):
     if memory_items:
         memory_html = f"""<div class="memory-section">
 <h2>🪐 1 ปีที่แล้ววันนี้ ({thai_date(one_year_ago)})</h2>
-{''.join(card_html(i) for i in memory_items)}
+{''.join(card_html(i, all_items=all_items) for i in memory_items)}
 </div>"""
 
-    tool_row = '<div class="tool-row"><button id="randomOldNews" class="tool-btn">🎲 สุ่มข่าวเก่า</button></div>'
+    quick_read_text = " ".join(f"{i.get('source','')}: {i.get('summary_th','')}" for i in today_items)
+    quick_read_html = f"""<div id="quickRead" class="quick-read" hidden>
+<p>{esc(quick_read_text)}</p>
+</div>"""
+
+    tool_row = f"""<div class="tool-row">
+<button id="randomOldNews" class="tool-btn">🎲 สุ่มข่าวเก่า</button>
+<button id="quickReadToggle" class="tool-btn">⚡ อ่านเร็ว 60 วิ</button>
+<button id="qrToggle" class="tool-btn">📱 สแกนเปิดมือถือ</button>
+</div>
+{quick_read_html}
+<div id="qrBox" class="quick-read" hidden><img src="assets/qr.png" alt="QR code เปิดเว็บบนมือถือ" style="display:block;max-width:180px;border-radius:8px;"></div>"""
 
     body = f"""<h1>ข่าว AI ประจำวันที่ {thai_date(latest_date)}</h1>
 {freshness}
@@ -493,7 +766,7 @@ def build_weekly(weeks):
 <ul>{highlights}</ul>
 {directions_html}
 {filters_html(cats_present)}
-{''.join(card_html(i) for i in items)}""")
+{''.join(card_html(i, all_items=items) for i in items)}""")
     body = "<h1>สรุปข่าว AI รายสัปดาห์</h1>" + "<hr>".join(sections)
     write("weekly.html", page_shell("สรุปข่าว AI รายสัปดาห์", "weekly", body))
 
@@ -508,14 +781,16 @@ def build_archive(all_items):
         by_month[ym].append(item)
     body_parts = [
         "<h1>คลังข่าว AI ย้อนหลัง</h1>",
-        '<div class="tool-row"><button id="randomOldNews" class="tool-btn">🎲 สุ่มข่าวเก่า</button></div>',
+        '<input type="text" id="searchBox" class="search-box" placeholder="🔎 ค้นหาข่าวเก่า... (หัวข้อ/สรุป/บริษัท)">',
+        '<div id="searchEmpty" class="empty" hidden>ไม่พบข่าวที่ตรงกับคำค้นหา</div>',
+        '<div class="tool-row"><button id="randomOldNews" class="tool-btn">🎲 สุ่มข่าวเก่า</button><button id="printPdf" class="tool-btn">🖨️ บันทึกเป็น PDF</button></div>',
     ]
     for ym in sorted(by_month.keys(), reverse=True):
         d = datetime.strptime(ym, "%Y-%m")
         month_label = f"{THAI_MONTHS[d.month]} {d.year + 543}"
         month_items = by_month[ym]
-        cards = "".join(card_html(i) for i in month_items)
-        body_parts.append(f"""<details>
+        cards = "".join(card_html(i, all_items=all_items) for i in month_items)
+        body_parts.append(f"""<details class="month-group" data-month="{ym}">
 <summary>{month_label} ({len(month_items)} ข่าว)</summary>
 {cards}
 </details>""")
@@ -538,6 +813,45 @@ def bar_rows(counts: list, max_items: int = 12) -> str:
     return "\n".join(rows)
 
 
+STOP_EXTRA = {"ai", "การ", "ความ", "ได้", "ให้", "แล้ว", "จะ", "ที่", "เป็น", "มี", "ใน", "และ", "ของ", "กับ", "ว่า", "ไป", "มา", "ก็", "ยัง", "อยู่", "นี้"}
+
+
+def compute_word_cloud(items: list, top_n: int = 25):
+    if not THAI_NLP_AVAILABLE:
+        return []
+    stopwords = _thai_stopwords()
+    counts = Counter()
+    for item in items:
+        text = f"{item.get('title_th', '')} {item.get('summary_th', '')}"
+        for tok in _thai_word_tokenize(text, engine="newmm"):
+            tok_clean = tok.strip()
+            tok_lower = tok_clean.lower()
+            if len(tok_clean) < 2:
+                continue
+            if tok_lower in stopwords or tok_lower in STOP_EXTRA:
+                continue
+            if re.fullmatch(r"[\s\W\d]+", tok_clean):
+                continue
+            counts[tok_clean] += 1
+    return counts.most_common(top_n)
+
+
+def word_cloud_html(word_counts: list) -> str:
+    if not word_counts:
+        return ""
+    max_count = word_counts[0][1]
+    min_count = word_counts[-1][1]
+    spans = []
+    for word, count in word_counts:
+        if max_count == min_count:
+            scale = 1.0
+        else:
+            scale = (count - min_count) / (max_count - min_count)
+        size = 13 + round(scale * 20)
+        spans.append(f'<span style="font-size:{size}px" title="{count} ครั้ง">{esc(word)}</span>')
+    return f'<div class="word-cloud">{"".join(spans)}</div>'
+
+
 def build_stats(all_items):
     if not all_items:
         write("stats.html", page_shell("สถิติข่าว AI", "stats", '<h1>สถิติข่าว AI</h1><p class="empty">ยังไม่มีข้อมูล</p>'))
@@ -551,8 +865,48 @@ def build_stats(all_items):
 
     date_range = f"{thai_date(min(i['date'] for i in all_items))} – {thai_date(max(i['date'] for i in all_items))}"
 
+    # AI Wars leaderboard: rank companies by MAJOR-news count (this month)
+    today_bkk = datetime.now(BANGKOK)
+    this_month = today_bkk.strftime("%Y-%m")
+    month_items = [i for i in all_items if i["date"].startswith(this_month)]
+    major_counts = Counter(i.get("source", "ไม่ทราบ") for i in month_items if i.get("importance") == "major")
+    leaderboard_html = ""
+    if major_counts:
+        rows = "".join(
+            f'<li><span class="lb-name">{esc(name)}</span><span class="lb-count">{n} ข่าวใหญ่</span></li>'
+            for name, n in major_counts.most_common(10)
+        )
+        leaderboard_html = f"""<div class="stat-section">
+  <h2>🏆 AI Wars — กระดานคะแนนข่าวใหญ่เดือนนี้</h2>
+  <ul class="leaderboard">{rows}</ul>
+</div>"""
+
+    # Week-over-week comparison
+    week_ago_start = (today_bkk - timedelta(days=7)).strftime("%Y-%m-%d")
+    two_weeks_ago_start = (today_bkk - timedelta(days=14)).strftime("%Y-%m-%d")
+    this_week_count = len([i for i in all_items if week_ago_start <= i["date"] <= today_bkk.strftime("%Y-%m-%d")])
+    last_week_count = len([i for i in all_items if two_weeks_ago_start <= i["date"] < week_ago_start])
+    wow_html = ""
+    if last_week_count > 0:
+        delta_pct = round((this_week_count - last_week_count) / last_week_count * 100)
+        arrow = "📈" if delta_pct > 0 else ("📉" if delta_pct < 0 else "➡️")
+        sign = "+" if delta_pct > 0 else ""
+        wow_html = f"""<div class="stat-section">
+  <h2>เทียบกับสัปดาห์ก่อน</h2>
+  <p>{arrow} สัปดาห์นี้มีข่าว {this_week_count} ข่าว เทียบกับสัปดาห์ก่อน {last_week_count} ข่าว ({sign}{delta_pct}%)</p>
+</div>"""
+
+    word_cloud = word_cloud_html(compute_word_cloud(all_items))
+    word_cloud_section = f"""<div class="stat-section">
+  <h2>คำที่ถูกพูดถึงบ่อยที่สุด</h2>
+  {word_cloud if word_cloud else '<p class="empty">ยังไม่มีข้อมูลพอ</p>'}
+</div>""" if THAI_NLP_AVAILABLE else ""
+
     body = f"""<h1>สถิติข่าว AI</h1>
 <div class="sub">รวมข่าวทั้งหมด {len(all_items)} ข่าว ({date_range})</div>
+{leaderboard_html}
+{wow_html}
+{word_cloud_section}
 <div class="stat-section">
   <h2>บริษัท/แหล่งข่าวที่ถูกพูดถึงบ่อยที่สุด</h2>
   {bar_rows(source_counts.most_common())}
@@ -564,12 +918,67 @@ def build_stats(all_items):
     write("stats.html", page_shell("สถิติข่าว AI", "stats", body))
 
 
+def build_timeline(all_items):
+    major_items = sorted([i for i in all_items if i.get("importance") == "major"], key=lambda i: i["date"])
+    if not major_items:
+        write("timeline.html", page_shell("ไทม์ไลน์ข่าวใหญ่", "timeline", '<h1>ไทม์ไลน์ข่าวใหญ่</h1><p class="empty">ยังไม่มีข่าวใหญ่ให้แสดงไทม์ไลน์</p>'))
+        return
+    points = "".join(f"""<div class="tl-point">
+  <div class="tl-dot"></div>
+  <div class="tl-date">{thai_date(item['date'])}</div>
+  <div class="tl-card">
+    <div class="tl-source">{esc(item.get('source',''))}</div>
+    <a href="{esc(item.get('url','#'))}" target="_blank" rel="noopener">{esc(item.get('title_th',''))}</a>
+  </div>
+</div>""" for item in major_items)
+    body = f"""<h1>🔥 ไทม์ไลน์ข่าวใหญ่</h1>
+<div class="sub">ลากดูข่าวใหญ่ทั้งหมด {len(major_items)} ข่าว เรียงตามเวลา</div>
+<div class="timeline">{points}</div>"""
+    write("timeline.html", page_shell("ไทม์ไลน์ข่าวใหญ่", "timeline", body))
+
+
+def build_wrapped(all_items):
+    if not all_items:
+        write("wrapped.html", page_shell("สรุปประจำเดือน", "wrapped", '<h1>สรุปประจำเดือน</h1><p class="empty">ยังไม่มีข้อมูล</p>'))
+        return
+    today_bkk = datetime.now(BANGKOK)
+    this_month = today_bkk.strftime("%Y-%m")
+    month_items = [i for i in all_items if i["date"].startswith(this_month)]
+    if not month_items:
+        write("wrapped.html", page_shell("สรุปประจำเดือน", "wrapped", '<h1>สรุปประจำเดือน</h1><p class="empty">เดือนนี้ยังไม่มีข่าว</p>'))
+        return
+
+    month_label = f"{THAI_MONTHS[today_bkk.month]} {today_bkk.year + 543}"
+    source_counts = Counter(i.get("source", "") for i in month_items)
+    category_counts = Counter(CATEGORY_LABELS.get(i.get("category", "other"), "อื่นๆ") for i in month_items)
+    major_items = [i for i in month_items if i.get("importance") == "major"]
+    top_source = source_counts.most_common(1)[0] if source_counts else ("-", 0)
+    top_category = category_counts.most_common(1)[0] if category_counts else ("-", 0)
+
+    cards = [
+        f'<div class="wrap-card"><div class="wrap-emoji">🛰️</div><div class="wrap-big">{len(month_items)}</div><div class="wrap-label">ข่าว AI เดือน {esc(month_label)}</div></div>',
+        f'<div class="wrap-card"><div class="wrap-emoji">🏆</div><div class="wrap-big">{esc(top_source[0])}</div><div class="wrap-label">บริษัทที่ถูกพูดถึงบ่อยสุด ({top_source[1]} ข่าว)</div></div>',
+        f'<div class="wrap-card"><div class="wrap-emoji">📂</div><div class="wrap-big">{esc(top_category[0])}</div><div class="wrap-label">หมวดข่าวที่แข่งขันดุที่สุด ({top_category[1]} ข่าว)</div></div>',
+    ]
+    if major_items:
+        biggest = major_items[0]
+        cards.append(
+            f'<div class="wrap-card"><div class="wrap-emoji">🔥</div><div class="wrap-big" style="font-size:20px">{esc(biggest.get("title_th",""))}</div><div class="wrap-label">ข่าวใหญ่ประจำเดือน · {esc(biggest.get("source",""))}</div></div>'
+        )
+    cards.append('<div class="wrap-card"><div class="wrap-emoji">🚀</div><div class="wrap-big" style="font-size:18px">แล้วเจอกันเดือนหน้า</div><div class="wrap-label">MEW Station</div></div>')
+
+    body = f"""<h1>✨ สรุปประจำเดือน {esc(month_label)}</h1>
+<div class="sub">ลากดูทีละใบ เหมือน Spotify Wrapped ของวงการ AI</div>
+<div class="wrap-carousel">{''.join(cards)}</div>"""
+    write("wrapped.html", page_shell("สรุปประจำเดือน", "wrapped", body))
+
+
 def build_bookmarks(all_items):
     if not all_items:
         body = '<h1>ข่าวที่บันทึกไว้อ่าน</h1><p class="empty">ยังไม่มีข้อมูล</p>'
         write("bookmarks.html", page_shell("ข่าวที่บันทึกไว้อ่าน", "bookmarks", body))
         return
-    cards = "".join(card_html(i) for i in all_items)
+    cards = "".join(card_html(i, all_items=all_items) for i in all_items)
     body = f"""<h1>ข่าวที่บันทึกไว้อ่าน</h1>
 <div class="sub">กดดาวค้าง ☆ ที่มุมข่าวไหนก็ได้เพื่อบันทึกไว้ที่นี่ (บันทึกไว้ในเบราว์เซอร์นี้เท่านั้น)</div>
 <div class="tool-row"><button id="speakBookmarks" class="tool-btn">🔊 ฟังข่าวที่บันทึกไว้ทั้งหมด</button></div>
@@ -601,6 +1010,8 @@ def main():
     build_weekly(weeks)
     build_archive(all_items)
     build_stats(all_items)
+    build_timeline(all_items)
+    build_wrapped(all_items)
     build_bookmarks(all_items)
     update_latest_cache(all_items)
 

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>MEW Station — สถิติข่าว AI</title>
+<title>MEW Station — สรุปประจำเดือน</title>
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="icon" href="icon-192.png">
@@ -132,66 +132,16 @@ summary { cursor: pointer; font-weight: 700; padding: 4px 0; color: var(--text);
 .speak-hint { font-size: 12.5px; color: var(--text-dim); opacity: 0.8; margin: -8px 0 16px; }
 </style>
 </head>
-<body data-page="stats">
+<body data-page="wrapped">
 <canvas id="starfield"></canvas>
 <div class="earth-peek"></div>
 <div class="brand">🛰️ MEW Station <span id="mascot" title=""></span></div>
 <div class="streak-badge" id="streakBadge"></div>
 <div class="accent-picker" id="accentPicker"></div>
-<nav><a href="index.html" class="">วันนี้</a><a href="weekly.html" class="">รายสัปดาห์</a><a href="archive.html" class="">คลังข่าวย้อนหลัง</a><a href="stats.html" class="active">สถิติ</a><a href="timeline.html" class="">ไทม์ไลน์</a><a href="wrapped.html" class="">สรุปประจำเดือน</a><a href="bookmarks.html" class="">บันทึกไว้อ่าน</a></nav>
-<h1>สถิติข่าว AI</h1>
-<div class="sub">รวมข่าวทั้งหมด 5 ข่าว (11 กรกฎาคม 2569 – 11 กรกฎาคม 2569)</div>
-<div class="stat-section">
-  <h2>🏆 AI Wars — กระดานคะแนนข่าวใหญ่เดือนนี้</h2>
-  <ul class="leaderboard"><li><span class="lb-name">OpenAI</span><span class="lb-count">1 ข่าวใหญ่</span></li><li><span class="lb-name">Future of Life Institute</span><span class="lb-count">1 ข่าวใหญ่</span></li></ul>
-</div>
-
-<div class="stat-section">
-  <h2>คำที่ถูกพูดถึงบ่อยที่สุด</h2>
-  <div class="word-cloud"><span style="font-size:33px" title="7 ครั้ง">โมเดล</span><span style="font-size:29px" title="6 ครั้ง">บริษัท</span><span style="font-size:25px" title="5 ครั้ง">OpenAI</span><span style="font-size:21px" title="4 ครั้ง">Anthropic</span><span style="font-size:21px" title="4 ครั้ง">ราคา</span><span style="font-size:17px" title="3 ครั้ง">เปิดตัว</span><span style="font-size:17px" title="3 ครั้ง">GPT-</span><span style="font-size:17px" title="3 ครั้ง">ใช้งาน</span><span style="font-size:17px" title="3 ครั้ง">API</span><span style="font-size:17px" title="3 ครั้ง">รายงาน</span><span style="font-size:17px" title="3 ครั้ง">xAI</span><span style="font-size:13px" title="2 ครั้ง">ตระกูล</span><span style="font-size:13px" title="2 ครั้ง">Terra</span><span style="font-size:13px" title="2 ครั้ง">Luna</span><span style="font-size:13px" title="2 ครั้ง">รุ่น</span><span style="font-size:13px" title="2 ครั้ง">Sol</span><span style="font-size:13px" title="2 ครั้ง">Safety</span><span style="font-size:13px" title="2 ครั้ง">Index</span><span style="font-size:13px" title="2 ครั้ง">รายใหญ่</span><span style="font-size:13px" title="2 ครั้ง">ถอยห่าง</span><span style="font-size:13px" title="2 ครั้ง">คำมั่น</span><span style="font-size:13px" title="2 ครั้ง">เกรด</span><span style="font-size:13px" title="2 ครั้ง">ระบุ</span><span style="font-size:13px" title="2 ครั้ง">ความเสี่ยง</span><span style="font-size:13px" title="2 ครั้ง">Grok</span></div>
-</div>
-<div class="stat-section">
-  <h2>บริษัท/แหล่งข่าวที่ถูกพูดถึงบ่อยที่สุด</h2>
-  <div class="stat-row">
-  <div class="stat-label" title="OpenAI">OpenAI</div>
-  <div class="stat-bar-wrap"><div class="stat-track"><div class="stat-bar" style="width:100%" title="OpenAI: 1 ข่าว"></div></div><span class="stat-value">1</span></div>
-</div>
-<div class="stat-row">
-  <div class="stat-label" title="Future of Life Institute">Future of Life Institute</div>
-  <div class="stat-bar-wrap"><div class="stat-track"><div class="stat-bar" style="width:100%" title="Future of Life Institute: 1 ข่าว"></div></div><span class="stat-value">1</span></div>
-</div>
-<div class="stat-row">
-  <div class="stat-label" title="xAI (SpaceXAI)">xAI (SpaceXAI)</div>
-  <div class="stat-bar-wrap"><div class="stat-track"><div class="stat-bar" style="width:100%" title="xAI (SpaceXAI): 1 ข่าว"></div></div><span class="stat-value">1</span></div>
-</div>
-<div class="stat-row">
-  <div class="stat-label" title="Meta AI">Meta AI</div>
-  <div class="stat-bar-wrap"><div class="stat-track"><div class="stat-bar" style="width:100%" title="Meta AI: 1 ข่าว"></div></div><span class="stat-value">1</span></div>
-</div>
-<div class="stat-row">
-  <div class="stat-label" title="Anthropic">Anthropic</div>
-  <div class="stat-bar-wrap"><div class="stat-track"><div class="stat-bar" style="width:100%" title="Anthropic: 1 ข่าว"></div></div><span class="stat-value">1</span></div>
-</div>
-</div>
-<div class="stat-section">
-  <h2>หมวดข่าวที่มีมากที่สุด</h2>
-  <div class="stat-row">
-  <div class="stat-label" title="เปิดตัวโมเดล/ฟีเจอร์ใหม่">เปิดตัวโมเดล/ฟีเจอร์ใหม่</div>
-  <div class="stat-bar-wrap"><div class="stat-track"><div class="stat-bar" style="width:100%" title="เปิดตัวโมเดล/ฟีเจอร์ใหม่: 2 ข่าว"></div></div><span class="stat-value">2</span></div>
-</div>
-<div class="stat-row">
-  <div class="stat-label" title="นโยบาย/กฎหมาย">นโยบาย/กฎหมาย</div>
-  <div class="stat-bar-wrap"><div class="stat-track"><div class="stat-bar" style="width:50%" title="นโยบาย/กฎหมาย: 1 ข่าว"></div></div><span class="stat-value">1</span></div>
-</div>
-<div class="stat-row">
-  <div class="stat-label" title="ผลิตภัณฑ์">ผลิตภัณฑ์</div>
-  <div class="stat-bar-wrap"><div class="stat-track"><div class="stat-bar" style="width:50%" title="ผลิตภัณฑ์: 1 ข่าว"></div></div><span class="stat-value">1</span></div>
-</div>
-<div class="stat-row">
-  <div class="stat-label" title="อื่นๆ">อื่นๆ</div>
-  <div class="stat-bar-wrap"><div class="stat-track"><div class="stat-bar" style="width:50%" title="อื่นๆ: 1 ข่าว"></div></div><span class="stat-value">1</span></div>
-</div>
-</div>
+<nav><a href="index.html" class="">วันนี้</a><a href="weekly.html" class="">รายสัปดาห์</a><a href="archive.html" class="">คลังข่าวย้อนหลัง</a><a href="stats.html" class="">สถิติ</a><a href="timeline.html" class="">ไทม์ไลน์</a><a href="wrapped.html" class="active">สรุปประจำเดือน</a><a href="bookmarks.html" class="">บันทึกไว้อ่าน</a></nav>
+<h1>✨ สรุปประจำเดือน กรกฎาคม 2569</h1>
+<div class="sub">ลากดูทีละใบ เหมือน Spotify Wrapped ของวงการ AI</div>
+<div class="wrap-carousel"><div class="wrap-card"><div class="wrap-emoji">🛰️</div><div class="wrap-big">5</div><div class="wrap-label">ข่าว AI เดือน กรกฎาคม 2569</div></div><div class="wrap-card"><div class="wrap-emoji">🏆</div><div class="wrap-big">OpenAI</div><div class="wrap-label">บริษัทที่ถูกพูดถึงบ่อยสุด (1 ข่าว)</div></div><div class="wrap-card"><div class="wrap-emoji">📂</div><div class="wrap-big">เปิดตัวโมเดล/ฟีเจอร์ใหม่</div><div class="wrap-label">หมวดข่าวที่แข่งขันดุที่สุด (2 ข่าว)</div></div><div class="wrap-card"><div class="wrap-emoji">🔥</div><div class="wrap-big" style="font-size:20px">OpenAI เปิดตัวโมเดลตระกูล GPT-5.6 (Sol, Terra, Luna) ให้ใช้งานทั่วไป</div><div class="wrap-label">ข่าวใหญ่ประจำเดือน · OpenAI</div></div><div class="wrap-card"><div class="wrap-emoji">🚀</div><div class="wrap-big" style="font-size:18px">แล้วเจอกันเดือนหน้า</div><div class="wrap-label">MEW Station</div></div></div>
 <footer class="site-footer">🛰️ MEW Station · ดูแลและคัดสรรข่าวโดย MEW · อัปเดตอัตโนมัติทุกวัน</footer>
 
 <script>
