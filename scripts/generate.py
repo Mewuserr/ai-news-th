@@ -193,34 +193,16 @@ summary { cursor: pointer; font-weight: 700; padding: 4px 0; color: var(--text);
 .champ-section h2 { font-size: 17px; margin: 0 0 4px; }
 .champ-disclaimer { font-size: 12px; color: var(--text-dim); opacity: 0.75; margin-bottom: 14px; }
 .champ-row { display: flex; gap: 14px; flex-wrap: wrap; }
-.champ-card { flex: 1; min-width: 150px; max-width: 220px; border: 1px solid var(--border); border-radius: 16px; padding: 18px 14px; text-align: center; background: linear-gradient(160deg, color-mix(in srgb, var(--accent) 10%, var(--card-bg)), var(--card-bg)); }
-.champ-rank { font-size: 22px; margin-bottom: 6px; }
-.champ-avatar { width: 56px; height: 56px; border-radius: 50%; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 800; color: #05060f; }
+.champ-card { flex: 1; min-width: 150px; max-width: 220px; border: 1px solid var(--border); border-radius: 16px; padding: 16px 14px; text-align: center; background: linear-gradient(160deg, color-mix(in srgb, var(--accent) 10%, var(--card-bg)), var(--card-bg)); }
+.champ-rank { font-size: 20px; margin-bottom: 2px; }
 .champ-name { font-weight: 700; font-size: 14.5px; margin-bottom: 4px; word-break: break-word; }
 .champ-class { font-size: 12.5px; color: var(--text-dim); margin-bottom: 10px; }
 .champ-power { font-size: 22px; font-weight: 800; color: var(--major); }
 .champ-power span { font-variant-numeric: tabular-nums; }
 .champ-detail { font-size: 11.5px; color: var(--text-dim); margin-top: 6px; }
-.battle-intro { position: fixed; inset: 0; z-index: 9998; background: rgba(0,0,0,0.55); pointer-events: none; overflow: hidden; }
-.battle-ship { position: absolute; top: 50%; margin-top: -18px; width: 60px; height: 36px; }
-.ship-a { left: -15%; animation: shipInA 0.75s ease-in forwards, shipOut 0.35s ease-in 1.05s forwards; }
-.ship-b { right: -15%; animation: shipInB 0.75s ease-in forwards, shipOut 0.35s ease-in 1.05s forwards; }
-.ship-a .ship-body { width: 0; height: 0; border-style: solid; border-width: 18px 0 18px 44px; border-color: transparent transparent transparent #4fd1ff; filter: drop-shadow(0 0 8px #4fd1ff); }
-.ship-b .ship-body { width: 0; height: 0; border-style: solid; border-width: 18px 44px 18px 0; border-color: transparent #ff4fd8 transparent transparent; filter: drop-shadow(0 0 8px #ff4fd8); }
-.ship-a .ship-trail { position: absolute; top: 50%; right: 100%; width: 70px; height: 4px; margin-top: -2px; background: linear-gradient(90deg, transparent, #4fd1ff); opacity: 0.7; }
-.ship-b .ship-trail { position: absolute; top: 50%; left: 100%; width: 70px; height: 4px; margin-top: -2px; background: linear-gradient(270deg, transparent, #ff4fd8); opacity: 0.7; }
-.ship-label { position: absolute; top: -22px; left: 50%; transform: translateX(-50%); font-size: 12px; font-weight: 700; white-space: nowrap; color: #fff; text-shadow: 0 0 6px rgba(0,0,0,0.8); }
-@keyframes shipInA { from { left: -15%; } to { left: 42%; } }
-@keyframes shipInB { from { right: -15%; } to { right: 42%; } }
-@keyframes shipOut { to { opacity: 0; } }
-.laser { position: absolute; top: 50%; height: 3px; opacity: 0; border-radius: 2px; }
-.laser-a { left: 45%; width: 8%; background: #4fd1ff; box-shadow: 0 0 8px #4fd1ff; animation: laserFireA 0.25s linear 0.55s; }
-.laser-b { right: 45%; width: 8%; background: #ff4fd8; box-shadow: 0 0 8px #ff4fd8; animation: laserFireB 0.25s linear 0.55s; }
-@keyframes laserFireA { 0% { opacity: 0; transform: scaleX(0.3); } 40% { opacity: 1; transform: scaleX(1); } 100% { opacity: 0; transform: scaleX(1); } }
-@keyframes laserFireB { 0% { opacity: 0; transform: scaleX(0.3); } 40% { opacity: 1; transform: scaleX(1); } 100% { opacity: 0; transform: scaleX(1); } }
-.battle-flash { position: absolute; top: 50%; left: 50%; width: 40px; height: 40px; margin: -20px 0 0 -20px; border-radius: 50%; background: radial-gradient(circle, #fff 0%, #bdeaff 30%, transparent 70%); opacity: 0; animation: battleFlash 0.4s ease-out 0.72s; }
-@keyframes battleFlash { 0% { opacity: 0; transform: scale(0.2); } 45% { opacity: 1; transform: scale(3.5); } 100% { opacity: 0; transform: scale(5); } }
-@media (prefers-reduced-motion: reduce) { .battle-intro { display: none; } }
+.dogfight-wrap { border: 1px solid var(--border); border-radius: 20px; padding: 8px; margin-bottom: 14px; background: radial-gradient(ellipse at center, color-mix(in srgb, var(--accent) 5%, transparent), transparent 70%); }
+.dogfight-wrap canvas { display: block; width: 100%; height: 190px; border-radius: 14px; }
+@media (max-width: 520px) { .dogfight-wrap canvas { height: 150px; } }
 .timeline { display: flex; gap: 0; overflow-x: auto; padding: 20px 0 30px; }
 .tl-point { flex: 0 0 220px; position: relative; padding: 0 16px; border-top: 2px solid var(--border); padding-top: 16px; }
 .tl-dot { position: absolute; top: -6px; left: 16px; width: 10px; height: 10px; border-radius: 50%; background: var(--major); box-shadow: 0 0 8px color-mix(in srgb, var(--major) 60%, transparent); }
@@ -800,11 +782,192 @@ WARP_SCRIPT = """
 })();
 """
 
-BATTLE_INTRO_SCRIPT = """
+DOGFIGHT_SCRIPT = """
 (function() {
-  const el = document.getElementById('battleIntro');
-  if (!el) return;
-  setTimeout(() => { el.remove(); }, 1550);
+  const dataEl = document.getElementById('dogfight-data');
+  const canvas = document.getElementById('dogfightCanvas');
+  if (!dataEl || !canvas) return;
+  const champs = JSON.parse(dataEl.textContent);
+  if (champs.length < 2) return;
+
+  const ctx = canvas.getContext('2d');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let W = 0, H = 0;
+
+  function resize() {
+    const rect = canvas.getBoundingClientRect();
+    const dpr = Math.min(2, window.devicePixelRatio || 1);
+    W = rect.width; H = rect.height;
+    canvas.width = W * dpr; canvas.height = H * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    layout();
+  }
+
+  const homePositions3 = [[0.24,0.62],[0.76,0.62],[0.5,0.24]];
+  const homePositions2 = [[0.3,0.5],[0.7,0.5]];
+  let ships = [];
+
+  function layout() {
+    const positions = champs.length >= 3 ? homePositions3 : homePositions2;
+    const maxPower = Math.max(...champs.map(c => c.power)) || 1;
+    ships = champs.map((c, i) => {
+      const [hx, hy] = positions[i];
+      const scale = 0.75 + (c.power / maxPower) * 0.55;
+      return {
+        name: c.name, medal: c.medal, power: c.power, color: c.color, dark: shade(c.color),
+        homeX: W*hx, homeY: H*hy, x: W*hx, y: H*hy,
+        dir: i % 2 === 0 ? 1 : -1, t: i*2, tSpeed: 0.65+Math.random()*0.25, bank: 0,
+        scale, fireGap: 1700 - (c.power/maxPower)*1000, nextFire: 300 + i*400,
+      };
+    });
+  }
+
+  function shade(hex) {
+    const map = {'#4fd1ff':'#0a2a38','#ff4fd8':'#380a2e','#35ffb0':'#0a3826','#ffb020':'#3a2405'};
+    return map[hex] || '#101018';
+  }
+
+  const stars = Array.from({length: 60}, () => ({x: Math.random(), y: Math.random(), r: Math.random()*1.1+0.3, a: Math.random()*0.5+0.2}));
+  let bolts = [], sparks = [];
+
+  function drawShip(s) {
+    ctx.save();
+    ctx.translate(s.x, s.y);
+    ctx.rotate(s.bank * 0.3 * s.dir);
+    ctx.scale(s.dir * s.scale, s.scale);
+
+    const flicker = 2.5 + Math.sin(performance.now()*0.02 + s.t) * 1.2;
+    const flameGrad = ctx.createRadialGradient(-30,0,1,-30,0,9+flicker);
+    flameGrad.addColorStop(0, '#fff');
+    flameGrad.addColorStop(0.3, s.color);
+    flameGrad.addColorStop(1, 'transparent');
+    ctx.fillStyle = flameGrad;
+    ctx.beginPath();
+    ctx.ellipse(-30, 0, 8+flicker, 4+flicker*0.4, 0, 0, Math.PI*2);
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.moveTo(34, 0);
+    ctx.lineTo(10, -3); ctx.lineTo(2, -6); ctx.lineTo(-22, -24); ctx.lineTo(-14, -8);
+    ctx.lineTo(-30, -4); ctx.lineTo(-34, 0); ctx.lineTo(-30, 4);
+    ctx.lineTo(-14, 8); ctx.lineTo(-22, 24); ctx.lineTo(2, 6); ctx.lineTo(10, 3);
+    ctx.closePath();
+    const hullGrad = ctx.createLinearGradient(-20,0,34,0);
+    hullGrad.addColorStop(0, s.dark);
+    hullGrad.addColorStop(0.6, s.color);
+    hullGrad.addColorStop(1, '#f5feff');
+    ctx.fillStyle = hullGrad;
+    ctx.fill();
+    ctx.strokeStyle = s.color;
+    ctx.lineWidth = 1.3;
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(30,0); ctx.lineTo(-28,0);
+    ctx.strokeStyle = 'rgba(255,255,255,0.35)';
+    ctx.lineWidth = 0.8;
+    ctx.stroke();
+
+    const glassGrad = ctx.createLinearGradient(10,-4,24,4);
+    glassGrad.addColorStop(0, 'rgba(190,245,255,0.95)');
+    glassGrad.addColorStop(1, 'rgba(255,255,255,0.55)');
+    ctx.beginPath();
+    ctx.ellipse(18, 0, 7, 3, 0, 0, Math.PI*2);
+    ctx.fillStyle = glassGrad;
+    ctx.fill();
+    ctx.strokeStyle = 'rgba(255,255,255,0.5)';
+    ctx.lineWidth = 0.6;
+    ctx.stroke();
+    ctx.restore();
+
+    ctx.save();
+    ctx.font = '600 11px "Leelawadee UI", sans-serif';
+    ctx.textAlign = 'center';
+    const labelY = s.y - 34*s.scale - 6;
+    const label = `${s.medal} ${s.name} · ${s.power}`;
+    const textW = ctx.measureText(label).width;
+    ctx.fillStyle = 'rgba(0,0,0,0.55)';
+    ctx.fillRect(s.x - textW/2 - 6, labelY - 12, textW + 12, 16);
+    ctx.fillStyle = s.color;
+    ctx.fillText(label, s.x, labelY);
+    ctx.restore();
+  }
+
+  function weightedTarget(from) {
+    const others = ships.filter(s => s !== from);
+    const stronger = others.filter(s => s.power > from.power);
+    const pool = stronger.length ? stronger : others;
+    return pool[Math.floor(Math.random()*pool.length)];
+  }
+
+  function fire(from) {
+    const to = weightedTarget(from);
+    if (!to) return;
+    const dx = to.x - from.x, dy = to.y - from.y;
+    const dist = Math.hypot(dx, dy) || 1;
+    bolts.push({ x: from.x + (dx/dist)*32*from.dir, y: from.y, vx: (dx/dist)*7.5, vy: (dy/dist)*7.5, color: from.color, target: to });
+  }
+
+  function addSpark(x, y, color) {
+    for (let i=0;i<10;i++) {
+      const ang = Math.random()*Math.PI*2, spd = 1+Math.random()*2.2;
+      sparks.push({x,y,vx:Math.cos(ang)*spd,vy:Math.sin(ang)*spd,life:1,color});
+    }
+  }
+
+  function update(dt, now) {
+    ships.forEach(s => {
+      s.t += dt*s.tSpeed;
+      s.x = s.homeX + Math.sin(s.t*0.6)*Math.min(34, W*0.06) + Math.sin(s.t*1.9)*8;
+      s.y = s.homeY + Math.sin(s.t*1.05+1)*Math.min(22, H*0.18);
+      s.bank = Math.cos(s.t*1.05+1);
+      if (now > s.nextFire) { fire(s); s.nextFire = now + s.fireGap + Math.random()*300; }
+    });
+    bolts.forEach(b => { b.x += b.vx; b.y += b.vy; });
+    bolts = bolts.filter(b => {
+      const d = Math.hypot(b.x - b.target.x, b.y - b.target.y);
+      if (d < 18) { addSpark(b.target.x, b.target.y, b.color); return false; }
+      return b.x > -20 && b.x < W+20 && b.y > -20 && b.y < H+20;
+    });
+    sparks.forEach(s => { s.x += s.vx; s.y += s.vy; s.life -= 0.045; });
+    sparks = sparks.filter(s => s.life > 0);
+  }
+
+  function draw(now) {
+    ctx.clearRect(0,0,W,H);
+    ctx.fillStyle = '#000';
+    ctx.fillRect(0,0,W,H);
+    stars.forEach(s => {
+      ctx.globalAlpha = s.a + Math.sin(now*0.001+s.x*10)*0.15;
+      ctx.fillStyle = '#fff';
+      ctx.beginPath(); ctx.arc(s.x*W, s.y*H, s.r, 0, Math.PI*2); ctx.fill();
+    });
+    ctx.globalAlpha = 1;
+    bolts.forEach(b => {
+      ctx.save(); ctx.translate(b.x,b.y); ctx.rotate(Math.atan2(b.vy,b.vx));
+      ctx.fillStyle = b.color; ctx.shadowColor = b.color; ctx.shadowBlur = 9;
+      ctx.fillRect(-9,-1.5,18,3); ctx.restore();
+    });
+    ctx.shadowBlur = 0;
+    sparks.forEach(s => {
+      ctx.globalAlpha = Math.max(0,s.life); ctx.fillStyle = s.color;
+      ctx.beginPath(); ctx.arc(s.x,s.y,2,0,Math.PI*2); ctx.fill();
+    });
+    ctx.globalAlpha = 1;
+    ships.forEach(drawShip);
+  }
+
+  resize();
+  window.addEventListener('resize', resize);
+  let last = performance.now();
+  function frame(now) {
+    const dt = Math.min(0.05, (now-last)/1000);
+    last = now;
+    if (!reduceMotion) update(dt, now);
+    draw(now);
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
 })();
 """
 
@@ -905,7 +1068,7 @@ def page_shell(title: str, active: str, body: str, random_urls: list = None) -> 
 <script>{STREAK_SCRIPT}</script>
 <script>{ACCENT_SCRIPT}</script>
 <script>{MASCOT_SCRIPT}</script>
-<script>{BATTLE_INTRO_SCRIPT}</script>
+<script>{DOGFIGHT_SCRIPT}</script>
 <script>{FOLLOW_SCRIPT}</script>
 <script>{QUIZ_SCRIPT}</script>
 <script>{WARP_SCRIPT}</script>
@@ -1043,9 +1206,9 @@ def build_index(all_items):
 
     champions = compute_champions(all_items)
     champ_html = champion_cards_html(champions)
-    battle_html = battle_intro_html(champions)
+    dogfight = dogfight_html(champions)
 
-    body = f"""{battle_html}
+    body = f"""{dogfight}
 {champ_html}
 <h1>ข่าว AI ประจำวันที่ {thai_date(latest_date)}</h1>
 {freshness}
@@ -1183,12 +1346,9 @@ def champion_cards_html(champions: list) -> str:
         return ""
     cards = []
     for idx, c in enumerate(champions):
-        color = AVATAR_COLORS[idx % len(AVATAR_COLORS)]
         medal = RANK_MEDALS[idx] if idx < len(RANK_MEDALS) else "🎖️"
-        initial = c["name"][:1].upper() if c["name"] else "?"
         cards.append(f"""<div class="champ-card">
   <div class="champ-rank">{medal}</div>
-  <div class="champ-avatar" style="background:{color}">{esc(initial)}</div>
   <div class="champ-name">{esc(c['name'])}</div>
   <div class="champ-class">{c['icon']} {esc(c['class_name'])}</div>
   <div class="champ-power"><span>{c['power']}</span> พลัง</div>
@@ -1201,25 +1361,22 @@ def champion_cards_html(champions: list) -> str:
 </div>"""
 
 
-def battle_intro_html(champions: list) -> str:
+def dogfight_html(champions: list) -> str:
     if len(champions) < 2:
         return ""
-    a, b = champions[0], champions[1]
-    return f"""<div class="battle-intro" id="battleIntro">
-  <div class="battle-ship ship-a">
-    <div class="ship-trail"></div>
-    <div class="ship-body"></div>
-    <div class="ship-label">{esc(a['name'])}</div>
-  </div>
-  <div class="battle-ship ship-b">
-    <div class="ship-trail"></div>
-    <div class="ship-body"></div>
-    <div class="ship-label">{esc(b['name'])}</div>
-  </div>
-  <div class="laser laser-a"></div>
-  <div class="laser laser-b"></div>
-  <div class="battle-flash"></div>
-</div>"""
+    ships = []
+    for idx, c in enumerate(champions[:3]):
+        ships.append({
+            "medal": RANK_MEDALS[idx] if idx < len(RANK_MEDALS) else "🎖️",
+            "name": c["name"],
+            "power": c["power"],
+            "color": AVATAR_COLORS[idx % len(AVATAR_COLORS)],
+        })
+    data_script = f'<script type="application/json" id="dogfight-data">{json.dumps(ships, ensure_ascii=False)}</script>'
+    return f"""<div class="dogfight-wrap">
+  <canvas id="dogfightCanvas"></canvas>
+</div>
+{data_script}"""
 
 
 def compute_word_cloud(items: list, top_n: int = 25):
