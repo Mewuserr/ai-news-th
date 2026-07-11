@@ -29,13 +29,15 @@ body {
   color: var(--text); position: relative;
 }
 canvas#starfield { position: fixed; inset: 0; z-index: -3; }
-.earth-peek {
-  position: fixed; top: -130px; right: -130px; width: 340px; height: 340px; z-index: -2;
-  background-image: url('assets/earth.webp'); background-size: cover; pointer-events: none;
-  opacity: 0.92; animation: floatPlanet 9s ease-in-out infinite;
-}
+.celestial-body { position: fixed; z-index: -2; pointer-events: none; background-size: contain; background-repeat: no-repeat; background-position: center; animation: floatPlanet ease-in-out infinite; }
+.body-earth { top: -130px; right: -130px; width: 340px; height: 340px; background-image: url('assets/earth.webp'); opacity: 0.92; animation-duration: 9s; }
+.body-moon { bottom: -30px; left: -30px; width: 100px; height: 100px; background-image: url('assets/moon.webp'); opacity: 0.5; animation-duration: 13s; animation-delay: -3s; }
+.body-sun { top: -55px; left: -60px; width: 150px; height: 150px; background-image: url('assets/sun.webp'); opacity: 0.38; animation-duration: 17s; animation-delay: -6s; }
+.body-saturn { bottom: -14px; right: -55px; width: 190px; height: 75px; background-image: url('assets/saturn.webp'); opacity: 0.5; animation-duration: 15s; animation-delay: -9s; }
+.body-uranus { top: 42%; left: -35px; width: 78px; height: 78px; background-image: url('assets/uranus.webp'); opacity: 0.4; animation-duration: 11s; animation-delay: -1s; }
+.body-mars { top: 58%; right: -28px; width: 62px; height: 62px; background-image: url('assets/mars.webp'); opacity: 0.42; animation-duration: 10s; animation-delay: -5s; }
 @keyframes floatPlanet { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-16px); } }
-@media (prefers-reduced-motion: reduce) { .earth-peek { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .celestial-body { animation: none; } }
 .brand { font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); opacity: 0.9; margin-bottom: 10px; font-weight: 700; }
 .site-footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--border); font-size: 13px; color: var(--text-dim); opacity: 0.8; text-align: center; }
 nav { display: flex; gap: 16px; margin-bottom: 24px; font-size: 15.5px; flex-wrap: wrap; }
@@ -128,6 +130,26 @@ summary { cursor: pointer; font-weight: 700; padding: 4px 0; color: var(--text);
 .champ-power { font-size: 22px; font-weight: 800; color: var(--major); }
 .champ-power span { font-variant-numeric: tabular-nums; }
 .champ-detail { font-size: 11.5px; color: var(--text-dim); margin-top: 6px; }
+.battle-intro { position: fixed; inset: 0; z-index: 9998; background: rgba(0,0,0,0.55); pointer-events: none; overflow: hidden; }
+.battle-ship { position: absolute; top: 50%; margin-top: -18px; width: 60px; height: 36px; }
+.ship-a { left: -15%; animation: shipInA 0.75s ease-in forwards, shipOut 0.35s ease-in 1.05s forwards; }
+.ship-b { right: -15%; animation: shipInB 0.75s ease-in forwards, shipOut 0.35s ease-in 1.05s forwards; }
+.ship-a .ship-body { width: 0; height: 0; border-style: solid; border-width: 18px 0 18px 44px; border-color: transparent transparent transparent #4fd1ff; filter: drop-shadow(0 0 8px #4fd1ff); }
+.ship-b .ship-body { width: 0; height: 0; border-style: solid; border-width: 18px 44px 18px 0; border-color: transparent #ff4fd8 transparent transparent; filter: drop-shadow(0 0 8px #ff4fd8); }
+.ship-a .ship-trail { position: absolute; top: 50%; right: 100%; width: 70px; height: 4px; margin-top: -2px; background: linear-gradient(90deg, transparent, #4fd1ff); opacity: 0.7; }
+.ship-b .ship-trail { position: absolute; top: 50%; left: 100%; width: 70px; height: 4px; margin-top: -2px; background: linear-gradient(270deg, transparent, #ff4fd8); opacity: 0.7; }
+.ship-label { position: absolute; top: -22px; left: 50%; transform: translateX(-50%); font-size: 12px; font-weight: 700; white-space: nowrap; color: #fff; text-shadow: 0 0 6px rgba(0,0,0,0.8); }
+@keyframes shipInA { from { left: -15%; } to { left: 42%; } }
+@keyframes shipInB { from { right: -15%; } to { right: 42%; } }
+@keyframes shipOut { to { opacity: 0; } }
+.laser { position: absolute; top: 50%; height: 3px; opacity: 0; border-radius: 2px; }
+.laser-a { left: 45%; width: 8%; background: #4fd1ff; box-shadow: 0 0 8px #4fd1ff; animation: laserFireA 0.25s linear 0.55s; }
+.laser-b { right: 45%; width: 8%; background: #ff4fd8; box-shadow: 0 0 8px #ff4fd8; animation: laserFireB 0.25s linear 0.55s; }
+@keyframes laserFireA { 0% { opacity: 0; transform: scaleX(0.3); } 40% { opacity: 1; transform: scaleX(1); } 100% { opacity: 0; transform: scaleX(1); } }
+@keyframes laserFireB { 0% { opacity: 0; transform: scaleX(0.3); } 40% { opacity: 1; transform: scaleX(1); } 100% { opacity: 0; transform: scaleX(1); } }
+.battle-flash { position: absolute; top: 50%; left: 50%; width: 40px; height: 40px; margin: -20px 0 0 -20px; border-radius: 50%; background: radial-gradient(circle, #fff 0%, #bdeaff 30%, transparent 70%); opacity: 0; animation: battleFlash 0.4s ease-out 0.72s; }
+@keyframes battleFlash { 0% { opacity: 0; transform: scale(0.2); } 45% { opacity: 1; transform: scale(3.5); } 100% { opacity: 0; transform: scale(5); } }
+@media (prefers-reduced-motion: reduce) { .battle-intro { display: none; } }
 .timeline { display: flex; gap: 0; overflow-x: auto; padding: 20px 0 30px; }
 .tl-point { flex: 0 0 220px; position: relative; padding: 0 16px; border-top: 2px solid var(--border); padding-top: 16px; }
 .tl-dot { position: absolute; top: -6px; left: 16px; width: 10px; height: 10px; border-radius: 50%; background: var(--major); box-shadow: 0 0 8px color-mix(in srgb, var(--major) 60%, transparent); }
@@ -145,11 +167,9 @@ summary { cursor: pointer; font-weight: 700; padding: 4px 0; color: var(--text);
 .warp-overlay { position: fixed; inset: 0; z-index: 9999; pointer-events: none; opacity: 0; background: radial-gradient(circle at center, #fff 0%, color-mix(in srgb, var(--accent) 60%, #fff) 15%, transparent 70%); }
 .warp-overlay.active { animation: warpFlash 0.4s ease-out; }
 @keyframes warpFlash { 0% { opacity: 0; transform: scale(0.3); } 40% { opacity: 0.9; transform: scale(1.6); } 100% { opacity: 0; transform: scale(2.6); } }
-.moon-peek { position: fixed; bottom: -40px; left: -40px; width: 90px; height: 90px; border-radius: 50%; z-index: -2; pointer-events: none; opacity: 0.3; filter: blur(0.5px); background: radial-gradient(circle at 35% 30%, color-mix(in srgb, var(--text) 40%, transparent), transparent 75%); animation: floatMoon 13s ease-in-out infinite; }
-@keyframes floatMoon { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(10px); } }
-@media (prefers-reduced-motion: reduce) { .moon-peek { animation: none; } .warp-overlay.active { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .warp-overlay.active { animation: none; } }
 @media print {
-  canvas#starfield, .earth-peek, nav, .brand, .site-footer, .card-actions, .tool-row, .filters, .major-toggle, .search-box, .accent-picker { display: none !important; }
+  canvas#starfield, .celestial-body, nav, .brand, .site-footer, .card-actions, .tool-row, .filters, .major-toggle, .search-box, .accent-picker { display: none !important; }
   body { background: #fff; color: #000; }
   .card { background: #fff; border: 1px solid #ccc; break-inside: avoid; }
   details { open: true; }
@@ -170,8 +190,12 @@ summary { cursor: pointer; font-weight: 700; padding: 4px 0; color: var(--text);
 </head>
 <body data-page="stats">
 <canvas id="starfield"></canvas>
-<div class="earth-peek"></div>
-<div class="moon-peek"></div>
+<div class="celestial-body body-earth"></div>
+<div class="celestial-body body-moon"></div>
+<div class="celestial-body body-sun"></div>
+<div class="celestial-body body-saturn"></div>
+<div class="celestial-body body-uranus"></div>
+<div class="celestial-body body-mars"></div>
 <div class="brand">🛰️ MEW Station <span id="mascot" title=""></span></div>
 <div class="streak-badge" id="streakBadge"></div>
 <div class="accent-picker" id="accentPicker"></div>
@@ -690,6 +714,13 @@ document.getElementById('printPdf')?.addEventListener('click', () => {
       o.start(); o.stop(ctx.currentTime + 0.5);
     } catch (e) {}
   }
+})();
+</script>
+<script>
+(function() {
+  const el = document.getElementById('battleIntro');
+  if (!el) return;
+  setTimeout(() => { el.remove(); }, 1550);
 })();
 </script>
 <script>
