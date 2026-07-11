@@ -72,26 +72,42 @@ h1 { font-size: 22px; margin-bottom: 4px; }
 .filters button { border: 1px solid color-mix(in srgb, currentColor 25%, transparent); background: transparent; color: inherit; border-radius: 999px; padding: 5px 12px; font-size: 13px; cursor: pointer; }
 .filters button.active { background: color-mix(in srgb, currentColor 15%, transparent); font-weight: 600; }
 .card { border: 1px solid color-mix(in srgb, currentColor 15%, transparent); border-radius: 12px; padding: 16px; margin-bottom: 14px; }
-.badge { display: inline-block; font-size: 12px; padding: 2px 9px; border-radius: 999px; background: color-mix(in srgb, currentColor 12%, transparent); margin-bottom: 8px; }
+.card.major { border: 1.5px solid #e0912f; background: color-mix(in srgb, #e0912f 8%, transparent); }
+.badge { display: inline-block; font-size: 12px; padding: 2px 9px; border-radius: 999px; background: color-mix(in srgb, currentColor 12%, transparent); margin-bottom: 8px; margin-right: 6px; }
+.badge.major { background: #e0912f; color: #1a1300; font-weight: 700; }
 .card h3 { margin: 0 0 8px; font-size: 17px; }
 .card h3 a { color: inherit; text-decoration: none; }
 .card h3 a:hover { text-decoration: underline; }
 .card p { margin: 0 0 8px; }
 .meta { font-size: 13px; opacity: 0.55; }
-.group-heading { margin-top: 32px; font-size: 16px; opacity: 0.8; }
+.group-heading { margin-top: 32px; margin-bottom: 12px; font-size: 16px; opacity: 0.85; font-weight: 700; }
+.major-toggle { display: flex; align-items: center; gap: 6px; font-size: 13px; margin-bottom: 16px; opacity: 0.85; cursor: pointer; }
 details { margin-bottom: 10px; }
 summary { cursor: pointer; font-weight: 600; padding: 4px 0; }
 .empty { opacity: 0.6; padding: 20px 0; }
 """
 
 FILTER_SCRIPT = """
-function applyFilter(cat) {
-  document.querySelectorAll('.filters button').forEach(b => b.classList.toggle('active', b.dataset.cat === cat));
+let currentCat = 'all';
+function applyFilter() {
+  const majorOnly = document.getElementById('majorOnly')?.checked;
   document.querySelectorAll('.card').forEach(c => {
-    c.style.display = (cat === 'all' || c.dataset.category === cat) ? '' : 'none';
+    const catOk = currentCat === 'all' || c.dataset.category === currentCat;
+    const majorOk = !majorOnly || c.dataset.importance === 'major';
+    c.style.display = (catOk && majorOk) ? '' : 'none';
+  });
+  document.querySelectorAll('.group-heading').forEach(h => {
+    const anyVisible = [...document.querySelectorAll(`.card[data-group="${h.dataset.group}"]`)]
+      .some(c => c.style.display !== 'none');
+    h.style.display = anyVisible ? '' : 'none';
   });
 }
-document.querySelectorAll('.filters button').forEach(b => b.addEventListener('click', () => applyFilter(b.dataset.cat)));
+document.querySelectorAll('.filters button').forEach(b => b.addEventListener('click', () => {
+  currentCat = b.dataset.cat;
+  document.querySelectorAll('.filters button').forEach(x => x.classList.toggle('active', x === b));
+  applyFilter();
+}));
+document.getElementById('majorOnly')?.addEventListener('change', applyFilter);
 """
 
 
@@ -125,19 +141,27 @@ def page_shell(title: str, active: str, body: str) -> str:
 """
 
 
-def filters_html(categories_present: set) -> str:
+def filters_html(categories_present: set, show_major_toggle: bool = False) -> str:
     buttons = ['<button data-cat="all" class="active">ทั้งหมด</button>']
     for cat, label in CATEGORY_LABELS.items():
         if cat in categories_present:
             buttons.append(f'<button data-cat="{cat}">{esc(label)}</button>')
-    return '<div class="filters">' + "".join(buttons) + "</div>"
+    html = '<div class="filters">' + "".join(buttons) + "</div>"
+    if show_major_toggle:
+        html += '<label class="major-toggle"><input type="checkbox" id="majorOnly"> แสดงเฉพาะข่าวใหญ่ 🔥</label>'
+    return html
 
 
-def card_html(item: dict) -> str:
+def card_html(item: dict, group: str = "") -> str:
     cat = item.get("category", "other")
     label = CATEGORY_LABELS.get(cat, "อื่นๆ")
-    return f"""<div class="card" data-category="{esc(cat)}">
-  <span class="badge">{esc(label)}</span>
+    importance = item.get("importance", "normal")
+    is_major = importance == "major"
+    group_attr = f' data-group="{esc(group)}"' if group else ""
+    major_class = " major" if is_major else ""
+    major_badge = '<span class="badge major">🔥 ข่าวใหญ่</span>' if is_major else ""
+    return f"""<div class="card{major_class}" data-category="{esc(cat)}" data-importance="{esc(importance)}"{group_attr}>
+  {major_badge}<span class="badge">{esc(label)}</span>
   <h3><a href="{esc(item.get('url', '#'))}" target="_blank" rel="noopener">{esc(item.get('title_th', ''))}</a></h3>
   <p>{esc(item.get('summary_th', ''))}</p>
   <div class="meta">{esc(item.get('source', ''))} · {thai_date(item['date'])}</div>
@@ -151,10 +175,23 @@ def build_index(all_items):
     latest_date = all_items[0]["date"]
     today_items = [i for i in all_items if i["date"] == latest_date]
     cats_present = {i.get("category", "other") for i in today_items}
+    major_items = [i for i in today_items if i.get("importance") == "major"]
+    normal_items = [i for i in today_items if i.get("importance") != "major"]
+
+    sections = []
+    if major_items:
+        sections.append('<div class="group-heading" data-group="major">🔥 ข่าวใหญ่วันนี้</div>')
+        sections.append("".join(card_html(i, group="major") for i in major_items))
+    if normal_items:
+        heading = "ข่าวอื่นๆ วันนี้" if major_items else ""
+        if heading:
+            sections.append(f'<div class="group-heading" data-group="normal">{heading}</div>')
+        sections.append("".join(card_html(i, group="normal") for i in normal_items))
+
     body = f"""<h1>ข่าว AI ประจำวันที่ {thai_date(latest_date)}</h1>
-<div class="sub">{len(today_items)} ข่าว</div>
-{filters_html(cats_present)}
-{''.join(card_html(i) for i in today_items)}"""
+<div class="sub">{len(today_items)} ข่าว{f" · ข่าวใหญ่ {len(major_items)} ข่าว" if major_items else ""}</div>
+{filters_html(cats_present, show_major_toggle=bool(major_items))}
+{''.join(sections)}"""
     write("index.html", page_shell(f"ข่าว AI {thai_date(latest_date)}", "index", body))
 
 

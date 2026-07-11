@@ -36,14 +36,20 @@ def main():
         return
 
     date_str = os.path.splitext(os.path.basename(path))[0]
-    titles = [item.get("title_th", "") for item in items[:TOP_N]]
-    body = "\n".join(f"• {t}" for t in titles)
+    major = [i for i in items if i.get("importance") == "major"]
+    ranked = major + [i for i in items if i.get("importance") != "major"]
+    titles = [("🔥 " if item.get("importance") == "major" else "• ") + item.get("title_th", "") for item in ranked[:TOP_N]]
+    body = "\n".join(titles)
     if len(items) > TOP_N:
         body += f"\n…และอีก {len(items) - TOP_N} ข่าว"
 
+    title = f"ข่าว AI วันที่ {date_str} ({len(items)} ข่าว)"
+    if major:
+        title = f"🔥 มีข่าวใหญ่! " + title
+
     toast = Notification(
         app_id="ข่าว AI รายวัน",
-        title=f"ข่าว AI วันที่ {date_str} ({len(items)} ข่าว)",
+        title=title,
         msg=body,
         launch=f"file:///{INDEX_PATH.replace(os.sep, '/')}",
     )
