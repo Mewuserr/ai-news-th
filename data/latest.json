@@ -1,62 +1,47 @@
 [
   {
-    "source": "Google DeepMind",
-    "title_th": "Google DeepMind เผยงานวิจัยใหม่ด้านการให้เหตุผลของโมเดล AI",
-    "summary_th": "ทีมวิจัยของ Google DeepMind เผยแพร่งานวิจัยที่ช่วยให้โมเดลภาษาให้เหตุผลเป็นขั้นตอนได้แม่นยำขึ้นในโจทย์คณิตศาสตร์และตรรกะ โดยเทคนิคนี้อาจถูกนำไปใช้ในผลิตภัณฑ์ Gemini รุ่นถัดไป",
-    "category": "research",
+    "source": "OpenAI",
+    "title_th": "OpenAI เปิดตัวโมเดลตระกูล GPT-5.6 (Sol, Terra, Luna) ให้ใช้งานทั่วไป",
+    "summary_th": "OpenAI เปิดให้ใช้งานโมเดลตระกูลใหม่ GPT-5.6 แบ่งเป็น 3 รุ่นคือ Sol (เรือธง), Terra (รุ่นกลาง) และ Luna (ประหยัดสุด) ผ่าน ChatGPT, Codex และ API แล้ว โดย Sol จะขับเคลื่อนโหมดคิดวิเคราะห์ขั้นสูงสำหรับผู้ใช้แผนระดับสูง ถือเป็นการอัปเกรดฐานโมเดลครั้งใหญ่ที่สุดของ OpenAI ในรอบหลายเดือน",
+    "category": "model_release",
+    "importance": "major",
+    "url": "https://openai.com/index/previewing-gpt-5-6-sol/",
+    "date": "2026-07-11"
+  },
+  {
+    "source": "Future of Life Institute",
+    "title_th": "รายงาน AI Safety Index ชี้บริษัท AI รายใหญ่ถอยห่างจากคำมั่นด้านความปลอดภัย",
+    "summary_th": "Future of Life Institute เผยแพร่รายงาน AI Safety Index ฉบับกลางปี 2026 ประเมิน 9 บริษัท AI รายใหญ่ทั่วโลก พบว่าไม่มีบริษัทไหนได้เกรด A หรือ B โดย Anthropic ได้คะแนนสูงสุดแต่ยังอยู่แค่ C+ ตามด้วย OpenAI และ Google DeepMind ที่ได้ C ส่วน xAI, DeepSeek และ Mistral สอบตกเกรด F รายงานระบุว่าหลายบริษัทเริ่มถอยห่างจากคำมั่นเดิมที่จะหยุดพัฒนาโมเดลหากเข้าใกล้ระดับความเสี่ยงที่กำหนดไว้",
+    "category": "policy",
+    "importance": "major",
+    "url": "https://futureoflife.org/ai-safety-index-summer-2026/",
+    "date": "2026-07-11"
+  },
+  {
+    "source": "xAI (SpaceXAI)",
+    "title_th": "xAI เปิดตัว Grok 4.5 เจาะกลุ่มงานเขียนโค้ดและ agent",
+    "summary_th": "xAI เปิดตัว Grok 4.5 โมเดลตัวแรกที่ออกแบบมาเฉพาะงานเขียนโค้ดและงานแบบ agent ฝึกจากข้อมูลการใช้งานจริงใน Cursor อีลอน มัสก์ระบุว่าเทียบชั้น Claude Opus 4.8 แต่เร็วกว่าและราคาถูกกว่า ราคาต่อ 1 ล้านโทเคนอยู่ที่ 2 ดอลลาร์ (input) และ 6 ดอลลาร์ (output) ยังไม่เปิดให้ใช้ในสหภาพยุโรปตอนนี้",
+    "category": "model_release",
     "importance": "normal",
-    "url": "https://example.com/deepmind-reasoning-research",
+    "url": "https://www.axios.com/2026/07/08/spacexai-grok-new-model",
     "date": "2026-07-11"
   },
   {
     "source": "Meta AI",
-    "title_th": "Meta เปิดตัวฟีเจอร์ AI ผู้ช่วยเวอร์ชันใหม่ในแอปตระกูล Meta",
-    "summary_th": "Meta อัปเดตผู้ช่วย AI ในแอป WhatsApp, Instagram และ Facebook ให้ตอบคำถามและสร้างภาพได้เร็วขึ้น พร้อมรองรับภาษาเพิ่มเติมกว่า 10 ภาษา",
+    "title_th": "Meta เปิดขาย API โมเดล Muse Spark 1.1 ครั้งแรก ราคาถูกกว่าคู่แข่งราว 4 เท่า",
+    "summary_th": "Meta เริ่มเก็บเงินค่าใช้งาน AI เป็นครั้งแรกผ่านโมเดล Muse Spark 1.1 ราคาประมาณ 1 ใน 4 ของ Claude Opus 4.8 และ GPT-5.5 เปิดให้ใช้แบบพรีวิวเฉพาะในสหรัฐฯ ก่อน ถือเป็นการเข้าสู่ธุรกิจขาย API แข่งกับ Anthropic และ OpenAI อย่างเป็นทางการ",
     "category": "product",
     "importance": "normal",
-    "url": "https://example.com/meta-ai-assistant-update",
+    "url": "https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/",
     "date": "2026-07-11"
-  },
-  {
-    "source": "EU Commission",
-    "title_th": "สหภาพยุโรปออกแนวปฏิบัติเพิ่มเติมสำหรับกฎหมาย AI Act",
-    "summary_th": "คณะกรรมาธิการยุโรปเผยแพร่แนวปฏิบัติฉบับใหม่เพื่อช่วยบริษัทตีความข้อกำหนดของ AI Act โดยเฉพาะส่วนที่เกี่ยวกับโมเดล AI ความเสี่ยงสูง ซึ่งจะเริ่มบังคับใช้เต็มรูปแบบในปีหน้า",
-    "category": "policy",
-    "importance": "major",
-    "url": "https://example.com/eu-ai-act-guidance",
-    "date": "2026-07-11"
-  },
-  {
-    "source": "xAI",
-    "title_th": "xAI เปิดตัว Grok เวอร์ชันใหม่เน้นความเร็วในการตอบ",
-    "summary_th": "xAI ประกาศ Grok รุ่นใหม่ที่เน้นลดเวลาในการตอบสนองและต้นทุนการประมวลผล พร้อมเปิดให้ผู้ใช้ทั่วไปทดลองใช้งานฟรีในสัปดาห์นี้",
-    "category": "model_release",
-    "importance": "major",
-    "url": "https://example.com/xai-grok-update",
-    "date": "2026-07-11"
-  },
-  {
-    "source": "OpenAI",
-    "title_th": "OpenAI เปิดตัวโมเดลใหม่ที่เก่งขึ้นด้านการเขียนโค้ด",
-    "summary_th": "OpenAI ประกาศโมเดลรุ่นใหม่ที่พัฒนาความสามารถด้านการเขียนและแก้โค้ดให้แม่นยำขึ้น พร้อมรองรับบริบทที่ยาวขึ้นกว่าเดิม บริษัทระบุว่าจะทยอยเปิดให้ใช้งานผ่าน API ในสัปดาห์นี้",
-    "category": "model_release",
-    "url": "https://example.com/openai-new-model",
-    "date": "2026-07-10"
   },
   {
     "source": "Anthropic",
-    "title_th": "Anthropic เพิ่มฟีเจอร์ใหม่ให้ Claude ใช้เครื่องมือภายนอกได้ดีขึ้น",
-    "summary_th": "Anthropic อัปเดตความสามารถของ Claude ในการเรียกใช้เครื่องมือและ API ภายนอกอย่างแม่นยำมากขึ้น ลดอัตราการเรียกผิดพลาด และรองรับงานที่ซับซ้อนหลายขั้นตอนได้ดีขึ้น",
-    "category": "product",
-    "url": "https://example.com/anthropic-tool-use",
-    "date": "2026-07-10"
-  },
-  {
-    "source": "Mistral AI",
-    "title_th": "Mistral AI ระดมทุนรอบใหม่มูลค่าหลายร้อยล้านดอลลาร์",
-    "summary_th": "บริษัท AI สัญชาติฝรั่งเศส Mistral AI ปิดดีลระดมทุนรอบใหม่ นำโดยนักลงทุนรายใหญ่ในยุโรป เพื่อขยายทีมวิจัยและโครงสร้างพื้นฐานด้านการประมวลผล",
-    "category": "funding",
-    "url": "https://example.com/mistral-funding",
-    "date": "2026-07-10"
+    "title_th": "Anthropic แต่งตั้งเบน เบอร์นันกี อดีตประธานเฟด นั่งบอร์ดกำกับดูแลระยะยาว",
+    "summary_th": "Anthropic แต่งตั้ง ดร.เบน เบอร์นันกี อดีตประธานธนาคารกลางสหรัฐฯ (เฟด) และเจ้าของรางวัลโนเบลเศรษฐศาสตร์ปี 2022 เข้าร่วม Long-Term Benefit Trust ซึ่งเป็นคณะกรรมการอิสระที่ให้คำแนะนำบอร์ดบริษัทเรื่องความเสี่ยงและผลกระทบต่อสังคมจากการพัฒนา AI โดยกรรมการกลุ่มนี้ไม่ถือหุ้นและไม่มีส่วนแบ่งกำไรจากบริษัท",
+    "category": "other",
+    "importance": "normal",
+    "url": "https://www.anthropic.com/news/ben-bernanke",
+    "date": "2026-07-11"
   }
 ]
