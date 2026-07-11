@@ -9,8 +9,8 @@ import random
 from PIL import Image, ImageDraw, ImageFont
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-BG = (10, 14, 39)       # #0a0e27, site background
-ACCENT = (139, 111, 255)  # #8b6fff, site accent purple
+BG = (0, 0, 0)           # #000000, site background
+ACCENT = (79, 209, 255)  # #4fd1ff, site accent blue
 STAR = (255, 255, 255)
 
 SIZES = {
