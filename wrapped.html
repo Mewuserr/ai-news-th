@@ -137,7 +137,8 @@ summary { cursor: pointer; font-weight: 700; padding: 4px 0; color: var(--text);
 .tl-card a { color: var(--text); text-decoration: none; font-size: 14.5px; line-height: 1.5; }
 .tl-card a:hover { color: var(--accent); text-decoration: underline; }
 .wrap-carousel { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 20px; }
-.wrap-card { flex: 0 0 85%; max-width: 360px; scroll-snap-align: center; border-radius: 20px; border: 1px solid var(--border); background: linear-gradient(160deg, color-mix(in srgb, var(--accent) 12%, var(--card-bg)), color-mix(in srgb, var(--major) 10%, var(--card-bg))); padding: 40px 24px; text-align: center; min-height: 260px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; }
+.wrap-card { flex: 0 0 85%; max-width: 360px; scroll-snap-align: center; border-radius: 20px; border: 1px solid var(--border); background: linear-gradient(160deg, color-mix(in srgb, var(--accent) 12%, var(--card-bg)), color-mix(in srgb, var(--major) 10%, var(--card-bg))); padding: 40px 24px; text-align: center; min-height: 260px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; text-decoration: none; color: inherit; cursor: pointer; transition: transform 0.15s ease; }
+.wrap-card:hover { transform: translateY(-4px); border-color: var(--accent); }
 .wrap-emoji { font-size: 40px; }
 .wrap-big { font-size: 34px; font-weight: 800; color: var(--text); word-break: break-word; }
 .wrap-label { font-size: 14px; color: var(--text-dim); }
@@ -178,8 +179,87 @@ summary { cursor: pointer; font-weight: 700; padding: 4px 0; color: var(--text);
 <div id="followPanel" class="follow-panel"></div>
 <nav><a href="index.html" class="">วันนี้</a><a href="weekly.html" class="">รายสัปดาห์</a><a href="archive.html" class="">คลังข่าวย้อนหลัง</a><a href="stats.html" class="">สถิติ</a><a href="timeline.html" class="">ไทม์ไลน์</a><a href="wrapped.html" class="active">สรุปประจำเดือน</a><a href="quiz.html" class="">ควิซ</a><a href="bookmarks.html" class="">บันทึกไว้อ่าน</a></nav>
 <h1>✨ สรุปประจำเดือน กรกฎาคม 2569</h1>
-<div class="sub">ลากดูทีละใบ เหมือน Spotify Wrapped ของวงการ AI</div>
-<div class="wrap-carousel"><div class="wrap-card"><div class="wrap-emoji">🛰️</div><div class="wrap-big">5</div><div class="wrap-label">ข่าว AI เดือน กรกฎาคม 2569</div></div><div class="wrap-card"><div class="wrap-emoji">🏆</div><div class="wrap-big">OpenAI</div><div class="wrap-label">บริษัทที่ถูกพูดถึงบ่อยสุด (1 ข่าว)</div></div><div class="wrap-card"><div class="wrap-emoji">📂</div><div class="wrap-big">เปิดตัวโมเดล/ฟีเจอร์ใหม่</div><div class="wrap-label">หมวดข่าวที่แข่งขันดุที่สุด (2 ข่าว)</div></div><div class="wrap-card"><div class="wrap-emoji">🔥</div><div class="wrap-big" style="font-size:20px">OpenAI เปิดตัวโมเดลตระกูล GPT-5.6 (Sol, Terra, Luna) ให้ใช้งานทั่วไป</div><div class="wrap-label">ข่าวใหญ่ประจำเดือน · OpenAI</div></div><div class="wrap-card"><div class="wrap-emoji">🚀</div><div class="wrap-big" style="font-size:18px">แล้วเจอกันเดือนหน้า</div><div class="wrap-label">MEW Station</div></div></div>
+<div class="sub">ลากดูทีละใบ เหมือน Spotify Wrapped ของวงการ AI — แตะการ์ดไหนก็ได้เพื่อดูรายละเอียด</div>
+<div class="wrap-carousel"><a class="wrap-card" href="archive.html#month-2026-07"><div class="wrap-emoji">🛰️</div><div class="wrap-big">5</div><div class="wrap-label">ข่าว AI เดือน กรกฎาคม 2569 · แตะดูทั้งหมด</div></a><a class="wrap-card" href="archive.html#month-2026-07"><div class="wrap-emoji">🏆</div><div class="wrap-big">OpenAI</div><div class="wrap-label">บริษัทที่ถูกพูดถึงบ่อยสุด (1 ข่าว) · แตะดูข่าว</div></a><a class="wrap-card" href="archive.html#month-2026-07"><div class="wrap-emoji">📂</div><div class="wrap-big">เปิดตัวโมเดล/ฟีเจอร์ใหม่</div><div class="wrap-label">หมวดข่าวที่แข่งขันดุที่สุด (2 ข่าว) · แตะดูข่าว</div></a><a class="wrap-card" href="https://openai.com/index/previewing-gpt-5-6-sol/" target="_blank" rel="noopener"><div class="wrap-emoji">🔥</div><div class="wrap-big" style="font-size:20px">OpenAI เปิดตัวโมเดลตระกูล GPT-5.6 (Sol, Terra, Luna) ให้ใช้งานทั่วไป</div><div class="wrap-label">ข่าวใหญ่ประจำเดือน · OpenAI · แตะอ่านข่าวเต็ม</div></a><a class="wrap-card" href="archive.html#month-2026-07"><div class="wrap-emoji">🚀</div><div class="wrap-big" style="font-size:18px">แล้วเจอกันเดือนหน้า</div><div class="wrap-label">MEW Station · แตะดูข่าวทั้งหมดเดือนนี้</div></a></div>
+<details class="month-group">
+<summary>📋 รายละเอียดข่าวทั้งหมดเดือนนี้ (5 ข่าว)</summary>
+<div class="card major" data-category="model_release" data-importance="major" data-url="https://openai.com/index/previewing-gpt-5-6-sol/" data-source="OpenAI">
+  <div class="card-actions">
+    <button class="bookmark-btn" data-url="https://openai.com/index/previewing-gpt-5-6-sol/" title="บันทึกไว้อ่านทีหลัง" aria-label="บันทึกไว้อ่านทีหลัง">☆</button>
+    <button class="like-btn" data-url="https://openai.com/index/previewing-gpt-5-6-sol/" data-v="up" title="ชอบข่าวนี้" aria-label="ชอบข่าวนี้">👍</button>
+    <button class="like-btn" data-url="https://openai.com/index/previewing-gpt-5-6-sol/" data-v="down" title="ไม่สนใจข่าวแบบนี้" aria-label="ไม่สนใจข่าวแบบนี้">👎</button>
+    <button class="listen-btn" data-text="OpenAI เปิดตัวโมเดลตระกูล GPT-5.6 (Sol, Terra, Luna) ให้ใช้งานทั่วไป. OpenAI เปิดให้ใช้งานโมเดลตระกูลใหม่ GPT-5.6 แบ่งเป็น 3 รุ่นคือ Sol (เรือธง), Terra (รุ่นกลาง) และ Luna (ประหยัดสุด) ผ่าน ChatGPT, Codex และ API แล้ว โดย Sol จะขับเคลื่อนโหมดคิดวิเคราะห์ขั้นสูงสำหรับผู้ใช้แผนระดับสูง ถือเป็นการอัปเกรดฐานโมเดลครั้งใหญ่ที่สุดของ OpenAI ในรอบหลายเดือน" title="ฟังข่าวนี้" aria-label="ฟังข่าวนี้">🔈</button>
+    <a class="translate-btn" href="https://translate.google.com/?sl=th&amp;tl=en&amp;text=OpenAI%20%E0%B9%80%E0%B8%9B%E0%B8%B4%E0%B8%94%E0%B8%95%E0%B8%B1%E0%B8%A7%E0%B9%82%E0%B8%A1%E0%B9%80%E0%B8%94%E0%B8%A5%E0%B8%95%E0%B8%A3%E0%B8%B0%E0%B8%81%E0%B8%B9%E0%B8%A5%20GPT-5.6%20%28Sol%2C%20Terra%2C%20Luna%29%20%E0%B9%83%E0%B8%AB%E0%B9%89%E0%B9%83%E0%B8%8A%E0%B9%89%E0%B8%87%E0%B8%B2%E0%B8%99%E0%B8%97%E0%B8%B1%E0%B9%88%E0%B8%A7%E0%B9%84%E0%B8%9B.%20OpenAI%20%E0%B9%80%E0%B8%9B%E0%B8%B4%E0%B8%94%E0%B9%83%E0%B8%AB%E0%B9%89%E0%B9%83%E0%B8%8A%E0%B9%89%E0%B8%87%E0%B8%B2%E0%B8%99%E0%B9%82%E0%B8%A1%E0%B9%80%E0%B8%94%E0%B8%A5%E0%B8%95%E0%B8%A3%E0%B8%B0%E0%B8%81%E0%B8%B9%E0%B8%A5%E0%B9%83%E0%B8%AB%E0%B8%A1%E0%B9%88%20GPT-5.6%20%E0%B9%81%E0%B8%9A%E0%B9%88%E0%B8%87%E0%B9%80%E0%B8%9B%E0%B9%87%E0%B8%99%203%20%E0%B8%A3%E0%B8%B8%E0%B9%88%E0%B8%99%E0%B8%84%E0%B8%B7%E0%B8%AD%20Sol%20%28%E0%B9%80%E0%B8%A3%E0%B8%B7%E0%B8%AD%E0%B8%98%E0%B8%87%29%2C%20Terra%20%28%E0%B8%A3%E0%B8%B8%E0%B9%88%E0%B8%99%E0%B8%81%E0%B8%A5%E0%B8%B2%E0%B8%87%29%20%E0%B9%81%E0%B8%A5%E0%B8%B0%20Luna%20%28%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%AB%E0%B8%A2%E0%B8%B1%E0%B8%94%E0%B8%AA%E0%B8%B8%E0%B8%94%29%20%E0%B8%9C%E0%B9%88%E0%B8%B2%E0%B8%99%20ChatGPT%2C%20Codex%20%E0%B9%81%E0%B8%A5%E0%B8%B0%20API%20%E0%B9%81%E0%B8%A5%E0%B9%89%E0%B8%A7%20%E0%B9%82%E0%B8%94%E0%B8%A2%20Sol%20%E0%B8%88%E0%B8%B0%E0%B8%82%E0%B8%B1%E0%B8%9A%E0%B9%80%E0%B8%84%E0%B8%A5%E0%B8%B7%E0%B9%88%E0%B8%AD%E0%B8%99%E0%B9%82%E0%B8%AB%E0%B8%A1%E0%B8%94%E0%B8%84%E0%B8%B4%E0%B8%94%E0%B8%A7%E0%B8%B4%E0%B9%80%E0%B8%84%E0%B8%A3%E0%B8%B2%E0%B8%B0%E0%B8%AB%E0%B9%8C%E0%B8%82%E0%B8%B1%E0%B9%89%E0%B8%99%E0%B8%AA%E0%B8%B9%E0%B8%87%E0%B8%AA%E0%B8%B3%E0%B8%AB%E0%B8%A3%E0%B8%B1%E0%B8%9A%E0%B8%9C%E0%B8%B9%E0%B9%89%E0%B9%83%E0%B8%8A%E0%B9%89%E0%B9%81%E0%B8%9C%E0%B8%99%E0%B8%A3%E0%B8%B0%E0%B8%94%E0%B8%B1%E0%B8%9A%E0%B8%AA%E0%B8%B9%E0%B8%87%20%E0%B8%96%E0%B8%B7%E0%B8%AD%E0%B9%80%E0%B8%9B%E0%B9%87%E0%B8%99%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%AD%E0%B8%B1%E0%B8%9B%E0%B9%80%E0%B8%81%E0%B8%A3%E0%B8%94%E0%B8%90%E0%B8%B2%E0%B8%99%E0%B9%82%E0%B8%A1%E0%B9%80%E0%B8%94%E0%B8%A5%E0%B8%84%E0%B8%A3%E0%B8%B1%E0%B9%89%E0%B8%87%E0%B9%83%E0%B8%AB%E0%B8%8D%E0%B9%88%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%AA%E0%B8%B8%E0%B8%94%E0%B8%82%E0%B8%AD%E0%B8%87%20OpenAI%20%E0%B9%83%E0%B8%99%E0%B8%A3%E0%B8%AD%E0%B8%9A%E0%B8%AB%E0%B8%A5%E0%B8%B2%E0%B8%A2%E0%B9%80%E0%B8%94%E0%B8%B7%E0%B8%AD%E0%B8%99&amp;op=translate" target="_blank" rel="noopener" title="แปลเป็นอังกฤษ" aria-label="แปลเป็นอังกฤษ">EN</a>
+    <button class="share-btn" data-url="https://openai.com/index/previewing-gpt-5-6-sol/" data-title="OpenAI เปิดตัวโมเดลตระกูล GPT-5.6 (Sol, Terra, Luna) ให้ใช้งานทั่วไป" title="แชร์ข่าวนี้" aria-label="แชร์ข่าวนี้">🔗</button>
+  </div>
+  <span class="badge major">🔥 ข่าวใหญ่</span><span class="badge">เปิดตัวโมเดล/ฟีเจอร์ใหม่</span>
+  <h3><a href="https://openai.com/index/previewing-gpt-5-6-sol/" target="_blank" rel="noopener">OpenAI เปิดตัวโมเดลตระกูล GPT-5.6 (Sol, Terra, Luna) ให้ใช้งานทั่วไป</a></h3>
+  <p>OpenAI เปิดให้ใช้งานโมเดลตระกูลใหม่ GPT-5.6 แบ่งเป็น 3 รุ่นคือ Sol (เรือธง), Terra (รุ่นกลาง) และ Luna (ประหยัดสุด) ผ่าน ChatGPT, Codex และ API แล้ว โดย Sol จะขับเคลื่อนโหมดคิดวิเคราะห์ขั้นสูงสำหรับผู้ใช้แผนระดับสูง ถือเป็นการอัปเกรดฐานโมเดลครั้งใหญ่ที่สุดของ OpenAI ในรอบหลายเดือน</p>
+  
+  <div class="meta">OpenAI · 11 กรกฎาคม 2569</div>
+  <div class="related"><span>ข่าวใกล้เคียง:</span><ul><li><a href="https://www.axios.com/2026/07/08/spacexai-grok-new-model" target="_blank" rel="noopener">xAI เปิดตัว Grok 4.5 เจาะกลุ่มงานเขียนโค้ดและ agent</a></li></ul></div>
+</div><div class="card major" data-category="policy" data-importance="major" data-url="https://futureoflife.org/ai-safety-index-summer-2026/" data-source="Future of Life Institute">
+  <div class="card-actions">
+    <button class="bookmark-btn" data-url="https://futureoflife.org/ai-safety-index-summer-2026/" title="บันทึกไว้อ่านทีหลัง" aria-label="บันทึกไว้อ่านทีหลัง">☆</button>
+    <button class="like-btn" data-url="https://futureoflife.org/ai-safety-index-summer-2026/" data-v="up" title="ชอบข่าวนี้" aria-label="ชอบข่าวนี้">👍</button>
+    <button class="like-btn" data-url="https://futureoflife.org/ai-safety-index-summer-2026/" data-v="down" title="ไม่สนใจข่าวแบบนี้" aria-label="ไม่สนใจข่าวแบบนี้">👎</button>
+    <button class="listen-btn" data-text="รายงาน AI Safety Index ชี้บริษัท AI รายใหญ่ถอยห่างจากคำมั่นด้านความปลอดภัย. Future of Life Institute เผยแพร่รายงาน AI Safety Index ฉบับกลางปี 2026 ประเมิน 9 บริษัท AI รายใหญ่ทั่วโลก พบว่าไม่มีบริษัทไหนได้เกรด A หรือ B โดย Anthropic ได้คะแนนสูงสุดแต่ยังอยู่แค่ C+ ตามด้วย OpenAI และ Google DeepMind ที่ได้ C ส่วน xAI, DeepSeek และ Mistral สอบตกเกรด F รายงานระบุว่าหลายบริษัทเริ่มถอยห่างจากคำมั่นเดิมที่จะหยุดพัฒนาโมเดลหากเข้าใกล้ระดับความเสี่ยงที่กำหนดไว้" title="ฟังข่าวนี้" aria-label="ฟังข่าวนี้">🔈</button>
+    <a class="translate-btn" href="https://translate.google.com/?sl=th&amp;tl=en&amp;text=%E0%B8%A3%E0%B8%B2%E0%B8%A2%E0%B8%87%E0%B8%B2%E0%B8%99%20AI%20Safety%20Index%20%E0%B8%8A%E0%B8%B5%E0%B9%89%E0%B8%9A%E0%B8%A3%E0%B8%B4%E0%B8%A9%E0%B8%B1%E0%B8%97%20AI%20%E0%B8%A3%E0%B8%B2%E0%B8%A2%E0%B9%83%E0%B8%AB%E0%B8%8D%E0%B9%88%E0%B8%96%E0%B8%AD%E0%B8%A2%E0%B8%AB%E0%B9%88%E0%B8%B2%E0%B8%87%E0%B8%88%E0%B8%B2%E0%B8%81%E0%B8%84%E0%B8%B3%E0%B8%A1%E0%B8%B1%E0%B9%88%E0%B8%99%E0%B8%94%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%84%E0%B8%A7%E0%B8%B2%E0%B8%A1%E0%B8%9B%E0%B8%A5%E0%B8%AD%E0%B8%94%E0%B8%A0%E0%B8%B1%E0%B8%A2.%20Future%20of%20Life%20Institute%20%E0%B9%80%E0%B8%9C%E0%B8%A2%E0%B9%81%E0%B8%9E%E0%B8%A3%E0%B9%88%E0%B8%A3%E0%B8%B2%E0%B8%A2%E0%B8%87%E0%B8%B2%E0%B8%99%20AI%20Safety%20Index%20%E0%B8%89%E0%B8%9A%E0%B8%B1%E0%B8%9A%E0%B8%81%E0%B8%A5%E0%B8%B2%E0%B8%87%E0%B8%9B%E0%B8%B5%202026%20%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B9%80%E0%B8%A1%E0%B8%B4%E0%B8%99%209%20%E0%B8%9A%E0%B8%A3%E0%B8%B4%E0%B8%A9%E0%B8%B1%E0%B8%97%20AI%20%E0%B8%A3%E0%B8%B2%E0%B8%A2%E0%B9%83%E0%B8%AB%E0%B8%8D%E0%B9%88%E0%B8%97%E0%B8%B1%E0%B9%88%E0%B8%A7%E0%B9%82%E0%B8%A5%E0%B8%81%20%E0%B8%9E%E0%B8%9A%E0%B8%A7%E0%B9%88%E0%B8%B2%E0%B9%84%E0%B8%A1%E0%B9%88%E0%B8%A1%E0%B8%B5%E0%B8%9A%E0%B8%A3%E0%B8%B4%E0%B8%A9%E0%B8%B1%E0%B8%97%E0%B9%84%E0%B8%AB%E0%B8%99%E0%B9%84%E0%B8%94%E0%B9%89%E0%B9%80%E0%B8%81%E0%B8%A3%E0%B8%94%20A%20%E0%B8%AB%E0%B8%A3%E0%B8%B7%E0%B8%AD%20B%20%E0%B9%82%E0%B8%94%E0%B8%A2%20Anthropic%20%E0%B9%84%E0%B8%94%E0%B9%89%E0%B8%84%E0%B8%B0%E0%B9%81%E0%B8%99%E0%B8%99%E0%B8%AA%E0%B8%B9%E0%B8%87%E0%B8%AA%E0%B8%B8%E0%B8%94%E0%B9%81%E0%B8%95%E0%B9%88%E0%B8%A2%E0%B8%B1%E0%B8%87%E0%B8%AD%E0%B8%A2%E0%B8%B9%E0%B9%88%E0%B9%81%E0%B8%84%E0%B9%88%20C%2B%20%E0%B8%95%E0%B8%B2%E0%B8%A1%E0%B8%94%E0%B9%89%E0%B8%A7%E0%B8%A2%20OpenAI%20%E0%B9%81%E0%B8%A5%E0%B8%B0%20Google%20DeepMind%20%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B9%84%E0%B8%94%E0%B9%89%20C%20%E0%B8%AA%E0%B9%88%E0%B8%A7%E0%B8%99%20xAI%2C%20DeepSeek%20%E0%B9%81%E0%B8%A5%E0%B8%B0%20Mistral%20%E0%B8%AA%E0%B8%AD%E0%B8%9A%E0%B8%95%E0%B8%81%E0%B9%80%E0%B8%81%E0%B8%A3%E0%B8%94%20F%20%E0%B8%A3%E0%B8%B2%E0%B8%A2%E0%B8%87%E0%B8%B2%E0%B8%99%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B8%E0%B8%A7%E0%B9%88%E0%B8%B2%E0%B8%AB%E0%B8%A5%E0%B8%B2%E0%B8%A2%E0%B8%9A%E0%B8%A3%E0%B8%B4%E0%B8%A9%E0%B8%B1%E0%B8%97%E0%B9%80%E0%B8%A3%E0%B8%B4%E0%B9%88%E0%B8%A1%E0%B8%96%E0%B8%AD%E0%B8%A2%E0%B8%AB%E0%B9%88%E0%B8%B2%E0%B8%87%E0%B8%88%E0%B8%B2%E0%B8%81%E0%B8%84%E0%B8%B3%E0%B8%A1%E0%B8%B1%E0%B9%88%E0%B8%99%E0%B9%80%E0%B8%94%E0%B8%B4%E0%B8%A1%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%88%E0%B8%B0%E0%B8%AB%E0%B8%A2%E0%B8%B8%E0%B8%94%E0%B8%9E%E0%B8%B1%E0%B8%92%E0%B8%99%E0%B8%B2%E0%B9%82%E0%B8%A1%E0%B9%80%E0%B8%94%E0%B8%A5%E0%B8%AB%E0%B8%B2%E0%B8%81%E0%B9%80%E0%B8%82%E0%B9%89%E0%B8%B2%E0%B9%83%E0%B8%81%E0%B8%A5%E0%B9%89%E0%B8%A3%E0%B8%B0%E0%B8%94%E0%B8%B1%E0%B8%9A%E0%B8%84%E0%B8%A7%E0%B8%B2%E0%B8%A1%E0%B9%80%E0%B8%AA%E0%B8%B5%E0%B9%88%E0%B8%A2%E0%B8%87%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%81%E0%B8%B3%E0%B8%AB%E0%B8%99%E0%B8%94%E0%B9%84%E0%B8%A7%E0%B9%89&amp;op=translate" target="_blank" rel="noopener" title="แปลเป็นอังกฤษ" aria-label="แปลเป็นอังกฤษ">EN</a>
+    <button class="share-btn" data-url="https://futureoflife.org/ai-safety-index-summer-2026/" data-title="รายงาน AI Safety Index ชี้บริษัท AI รายใหญ่ถอยห่างจากคำมั่นด้านความปลอดภัย" title="แชร์ข่าวนี้" aria-label="แชร์ข่าวนี้">🔗</button>
+  </div>
+  <span class="badge major">🔥 ข่าวใหญ่</span><span class="badge">นโยบาย/กฎหมาย</span>
+  <h3><a href="https://futureoflife.org/ai-safety-index-summer-2026/" target="_blank" rel="noopener">รายงาน AI Safety Index ชี้บริษัท AI รายใหญ่ถอยห่างจากคำมั่นด้านความปลอดภัย</a></h3>
+  <p>Future of Life Institute เผยแพร่รายงาน AI Safety Index ฉบับกลางปี 2026 ประเมิน 9 บริษัท AI รายใหญ่ทั่วโลก พบว่าไม่มีบริษัทไหนได้เกรด A หรือ B โดย Anthropic ได้คะแนนสูงสุดแต่ยังอยู่แค่ C+ ตามด้วย OpenAI และ Google DeepMind ที่ได้ C ส่วน xAI, DeepSeek และ Mistral สอบตกเกรด F รายงานระบุว่าหลายบริษัทเริ่มถอยห่างจากคำมั่นเดิมที่จะหยุดพัฒนาโมเดลหากเข้าใกล้ระดับความเสี่ยงที่กำหนดไว้</p>
+  
+  <div class="meta">Future of Life Institute · 11 กรกฎาคม 2569</div>
+  
+</div><div class="card" data-category="model_release" data-importance="normal" data-url="https://www.axios.com/2026/07/08/spacexai-grok-new-model" data-source="xAI (SpaceXAI)">
+  <div class="card-actions">
+    <button class="bookmark-btn" data-url="https://www.axios.com/2026/07/08/spacexai-grok-new-model" title="บันทึกไว้อ่านทีหลัง" aria-label="บันทึกไว้อ่านทีหลัง">☆</button>
+    <button class="like-btn" data-url="https://www.axios.com/2026/07/08/spacexai-grok-new-model" data-v="up" title="ชอบข่าวนี้" aria-label="ชอบข่าวนี้">👍</button>
+    <button class="like-btn" data-url="https://www.axios.com/2026/07/08/spacexai-grok-new-model" data-v="down" title="ไม่สนใจข่าวแบบนี้" aria-label="ไม่สนใจข่าวแบบนี้">👎</button>
+    <button class="listen-btn" data-text="xAI เปิดตัว Grok 4.5 เจาะกลุ่มงานเขียนโค้ดและ agent. xAI เปิดตัว Grok 4.5 โมเดลตัวแรกที่ออกแบบมาเฉพาะงานเขียนโค้ดและงานแบบ agent ฝึกจากข้อมูลการใช้งานจริงใน Cursor อีลอน มัสก์ระบุว่าเทียบชั้น Claude Opus 4.8 แต่เร็วกว่าและราคาถูกกว่า ราคาต่อ 1 ล้านโทเคนอยู่ที่ 2 ดอลลาร์ (input) และ 6 ดอลลาร์ (output) ยังไม่เปิดให้ใช้ในสหภาพยุโรปตอนนี้" title="ฟังข่าวนี้" aria-label="ฟังข่าวนี้">🔈</button>
+    <a class="translate-btn" href="https://translate.google.com/?sl=th&amp;tl=en&amp;text=xAI%20%E0%B9%80%E0%B8%9B%E0%B8%B4%E0%B8%94%E0%B8%95%E0%B8%B1%E0%B8%A7%20Grok%204.5%20%E0%B9%80%E0%B8%88%E0%B8%B2%E0%B8%B0%E0%B8%81%E0%B8%A5%E0%B8%B8%E0%B9%88%E0%B8%A1%E0%B8%87%E0%B8%B2%E0%B8%99%E0%B9%80%E0%B8%82%E0%B8%B5%E0%B8%A2%E0%B8%99%E0%B9%82%E0%B8%84%E0%B9%89%E0%B8%94%E0%B9%81%E0%B8%A5%E0%B8%B0%20agent.%20xAI%20%E0%B9%80%E0%B8%9B%E0%B8%B4%E0%B8%94%E0%B8%95%E0%B8%B1%E0%B8%A7%20Grok%204.5%20%E0%B9%82%E0%B8%A1%E0%B9%80%E0%B8%94%E0%B8%A5%E0%B8%95%E0%B8%B1%E0%B8%A7%E0%B9%81%E0%B8%A3%E0%B8%81%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%AD%E0%B8%AD%E0%B8%81%E0%B9%81%E0%B8%9A%E0%B8%9A%E0%B8%A1%E0%B8%B2%E0%B9%80%E0%B8%89%E0%B8%9E%E0%B8%B2%E0%B8%B0%E0%B8%87%E0%B8%B2%E0%B8%99%E0%B9%80%E0%B8%82%E0%B8%B5%E0%B8%A2%E0%B8%99%E0%B9%82%E0%B8%84%E0%B9%89%E0%B8%94%E0%B9%81%E0%B8%A5%E0%B8%B0%E0%B8%87%E0%B8%B2%E0%B8%99%E0%B9%81%E0%B8%9A%E0%B8%9A%20agent%20%E0%B8%9D%E0%B8%B6%E0%B8%81%E0%B8%88%E0%B8%B2%E0%B8%81%E0%B8%82%E0%B9%89%E0%B8%AD%E0%B8%A1%E0%B8%B9%E0%B8%A5%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B9%83%E0%B8%8A%E0%B9%89%E0%B8%87%E0%B8%B2%E0%B8%99%E0%B8%88%E0%B8%A3%E0%B8%B4%E0%B8%87%E0%B9%83%E0%B8%99%20Cursor%20%E0%B8%AD%E0%B8%B5%E0%B8%A5%E0%B8%AD%E0%B8%99%20%E0%B8%A1%E0%B8%B1%E0%B8%AA%E0%B8%81%E0%B9%8C%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B8%E0%B8%A7%E0%B9%88%E0%B8%B2%E0%B9%80%E0%B8%97%E0%B8%B5%E0%B8%A2%E0%B8%9A%E0%B8%8A%E0%B8%B1%E0%B9%89%E0%B8%99%20Claude%20Opus%204.8%20%E0%B9%81%E0%B8%95%E0%B9%88%E0%B9%80%E0%B8%A3%E0%B9%87%E0%B8%A7%E0%B8%81%E0%B8%A7%E0%B9%88%E0%B8%B2%E0%B9%81%E0%B8%A5%E0%B8%B0%E0%B8%A3%E0%B8%B2%E0%B8%84%E0%B8%B2%E0%B8%96%E0%B8%B9%E0%B8%81%E0%B8%81%E0%B8%A7%E0%B9%88%E0%B8%B2%20%E0%B8%A3%E0%B8%B2%E0%B8%84%E0%B8%B2%E0%B8%95%E0%B9%88%E0%B8%AD%201%20%E0%B8%A5%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B9%82%E0%B8%97%E0%B9%80%E0%B8%84%E0%B8%99%E0%B8%AD%E0%B8%A2%E0%B8%B9%E0%B9%88%E0%B8%97%E0%B8%B5%E0%B9%88%202%20%E0%B8%94%E0%B8%AD%E0%B8%A5%E0%B8%A5%E0%B8%B2%E0%B8%A3%E0%B9%8C%20%28input%29%20%E0%B9%81%E0%B8%A5%E0%B8%B0%206%20%E0%B8%94%E0%B8%AD%E0%B8%A5%E0%B8%A5%E0%B8%B2%E0%B8%A3%E0%B9%8C%20%28output%29%20%E0%B8%A2%E0%B8%B1%E0%B8%87%E0%B9%84%E0%B8%A1%E0%B9%88%E0%B9%80%E0%B8%9B%E0%B8%B4%E0%B8%94%E0%B9%83%E0%B8%AB%E0%B9%89%E0%B9%83%E0%B8%8A%E0%B9%89%E0%B9%83%E0%B8%99%E0%B8%AA%E0%B8%AB%E0%B8%A0%E0%B8%B2%E0%B8%9E%E0%B8%A2%E0%B8%B8%E0%B9%82%E0%B8%A3%E0%B8%9B%E0%B8%95%E0%B8%AD%E0%B8%99%E0%B8%99%E0%B8%B5%E0%B9%89&amp;op=translate" target="_blank" rel="noopener" title="แปลเป็นอังกฤษ" aria-label="แปลเป็นอังกฤษ">EN</a>
+    <button class="share-btn" data-url="https://www.axios.com/2026/07/08/spacexai-grok-new-model" data-title="xAI เปิดตัว Grok 4.5 เจาะกลุ่มงานเขียนโค้ดและ agent" title="แชร์ข่าวนี้" aria-label="แชร์ข่าวนี้">🔗</button>
+  </div>
+  <span class="badge">เปิดตัวโมเดล/ฟีเจอร์ใหม่</span>
+  <h3><a href="https://www.axios.com/2026/07/08/spacexai-grok-new-model" target="_blank" rel="noopener">xAI เปิดตัว Grok 4.5 เจาะกลุ่มงานเขียนโค้ดและ agent</a></h3>
+  <p>xAI เปิดตัว Grok 4.5 โมเดลตัวแรกที่ออกแบบมาเฉพาะงานเขียนโค้ดและงานแบบ agent ฝึกจากข้อมูลการใช้งานจริงใน Cursor อีลอน มัสก์ระบุว่าเทียบชั้น Claude Opus 4.8 แต่เร็วกว่าและราคาถูกกว่า ราคาต่อ 1 ล้านโทเคนอยู่ที่ 2 ดอลลาร์ (input) และ 6 ดอลลาร์ (output) ยังไม่เปิดให้ใช้ในสหภาพยุโรปตอนนี้</p>
+  
+  <div class="meta">xAI (SpaceXAI) · 11 กรกฎาคม 2569</div>
+  <div class="related"><span>ข่าวใกล้เคียง:</span><ul><li><a href="https://openai.com/index/previewing-gpt-5-6-sol/" target="_blank" rel="noopener">OpenAI เปิดตัวโมเดลตระกูล GPT-5.6 (Sol, Terra, Luna) ให้ใช้งานทั่วไป</a></li></ul></div>
+</div><div class="card" data-category="product" data-importance="normal" data-url="https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/" data-source="Meta AI">
+  <div class="card-actions">
+    <button class="bookmark-btn" data-url="https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/" title="บันทึกไว้อ่านทีหลัง" aria-label="บันทึกไว้อ่านทีหลัง">☆</button>
+    <button class="like-btn" data-url="https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/" data-v="up" title="ชอบข่าวนี้" aria-label="ชอบข่าวนี้">👍</button>
+    <button class="like-btn" data-url="https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/" data-v="down" title="ไม่สนใจข่าวแบบนี้" aria-label="ไม่สนใจข่าวแบบนี้">👎</button>
+    <button class="listen-btn" data-text="Meta เปิดขาย API โมเดล Muse Spark 1.1 ครั้งแรก ราคาถูกกว่าคู่แข่งราว 4 เท่า. Meta เริ่มเก็บเงินค่าใช้งาน AI เป็นครั้งแรกผ่านโมเดล Muse Spark 1.1 ราคาประมาณ 1 ใน 4 ของ Claude Opus 4.8 และ GPT-5.5 เปิดให้ใช้แบบพรีวิวเฉพาะในสหรัฐฯ ก่อน ถือเป็นการเข้าสู่ธุรกิจขาย API แข่งกับ Anthropic และ OpenAI อย่างเป็นทางการ" title="ฟังข่าวนี้" aria-label="ฟังข่าวนี้">🔈</button>
+    <a class="translate-btn" href="https://translate.google.com/?sl=th&amp;tl=en&amp;text=Meta%20%E0%B9%80%E0%B8%9B%E0%B8%B4%E0%B8%94%E0%B8%82%E0%B8%B2%E0%B8%A2%20API%20%E0%B9%82%E0%B8%A1%E0%B9%80%E0%B8%94%E0%B8%A5%20Muse%20Spark%201.1%20%E0%B8%84%E0%B8%A3%E0%B8%B1%E0%B9%89%E0%B8%87%E0%B9%81%E0%B8%A3%E0%B8%81%20%E0%B8%A3%E0%B8%B2%E0%B8%84%E0%B8%B2%E0%B8%96%E0%B8%B9%E0%B8%81%E0%B8%81%E0%B8%A7%E0%B9%88%E0%B8%B2%E0%B8%84%E0%B8%B9%E0%B9%88%E0%B9%81%E0%B8%82%E0%B9%88%E0%B8%87%E0%B8%A3%E0%B8%B2%E0%B8%A7%204%20%E0%B9%80%E0%B8%97%E0%B9%88%E0%B8%B2.%20Meta%20%E0%B9%80%E0%B8%A3%E0%B8%B4%E0%B9%88%E0%B8%A1%E0%B9%80%E0%B8%81%E0%B9%87%E0%B8%9A%E0%B9%80%E0%B8%87%E0%B8%B4%E0%B8%99%E0%B8%84%E0%B9%88%E0%B8%B2%E0%B9%83%E0%B8%8A%E0%B9%89%E0%B8%87%E0%B8%B2%E0%B8%99%20AI%20%E0%B9%80%E0%B8%9B%E0%B9%87%E0%B8%99%E0%B8%84%E0%B8%A3%E0%B8%B1%E0%B9%89%E0%B8%87%E0%B9%81%E0%B8%A3%E0%B8%81%E0%B8%9C%E0%B9%88%E0%B8%B2%E0%B8%99%E0%B9%82%E0%B8%A1%E0%B9%80%E0%B8%94%E0%B8%A5%20Muse%20Spark%201.1%20%E0%B8%A3%E0%B8%B2%E0%B8%84%E0%B8%B2%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%A1%E0%B8%B2%E0%B8%93%201%20%E0%B9%83%E0%B8%99%204%20%E0%B8%82%E0%B8%AD%E0%B8%87%20Claude%20Opus%204.8%20%E0%B9%81%E0%B8%A5%E0%B8%B0%20GPT-5.5%20%E0%B9%80%E0%B8%9B%E0%B8%B4%E0%B8%94%E0%B9%83%E0%B8%AB%E0%B9%89%E0%B9%83%E0%B8%8A%E0%B9%89%E0%B9%81%E0%B8%9A%E0%B8%9A%E0%B8%9E%E0%B8%A3%E0%B8%B5%E0%B8%A7%E0%B8%B4%E0%B8%A7%E0%B9%80%E0%B8%89%E0%B8%9E%E0%B8%B2%E0%B8%B0%E0%B9%83%E0%B8%99%E0%B8%AA%E0%B8%AB%E0%B8%A3%E0%B8%B1%E0%B8%90%E0%B8%AF%20%E0%B8%81%E0%B9%88%E0%B8%AD%E0%B8%99%20%E0%B8%96%E0%B8%B7%E0%B8%AD%E0%B9%80%E0%B8%9B%E0%B9%87%E0%B8%99%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B9%80%E0%B8%82%E0%B9%89%E0%B8%B2%E0%B8%AA%E0%B8%B9%E0%B9%88%E0%B8%98%E0%B8%B8%E0%B8%A3%E0%B8%81%E0%B8%B4%E0%B8%88%E0%B8%82%E0%B8%B2%E0%B8%A2%20API%20%E0%B9%81%E0%B8%82%E0%B9%88%E0%B8%87%E0%B8%81%E0%B8%B1%E0%B8%9A%20Anthropic%20%E0%B9%81%E0%B8%A5%E0%B8%B0%20OpenAI%20%E0%B8%AD%E0%B8%A2%E0%B9%88%E0%B8%B2%E0%B8%87%E0%B9%80%E0%B8%9B%E0%B9%87%E0%B8%99%E0%B8%97%E0%B8%B2%E0%B8%87%E0%B8%81%E0%B8%B2%E0%B8%A3&amp;op=translate" target="_blank" rel="noopener" title="แปลเป็นอังกฤษ" aria-label="แปลเป็นอังกฤษ">EN</a>
+    <button class="share-btn" data-url="https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/" data-title="Meta เปิดขาย API โมเดล Muse Spark 1.1 ครั้งแรก ราคาถูกกว่าคู่แข่งราว 4 เท่า" title="แชร์ข่าวนี้" aria-label="แชร์ข่าวนี้">🔗</button>
+  </div>
+  <span class="badge">ผลิตภัณฑ์</span>
+  <h3><a href="https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/" target="_blank" rel="noopener">Meta เปิดขาย API โมเดล Muse Spark 1.1 ครั้งแรก ราคาถูกกว่าคู่แข่งราว 4 เท่า</a></h3>
+  <p>Meta เริ่มเก็บเงินค่าใช้งาน AI เป็นครั้งแรกผ่านโมเดล Muse Spark 1.1 ราคาประมาณ 1 ใน 4 ของ Claude Opus 4.8 และ GPT-5.5 เปิดให้ใช้แบบพรีวิวเฉพาะในสหรัฐฯ ก่อน ถือเป็นการเข้าสู่ธุรกิจขาย API แข่งกับ Anthropic และ OpenAI อย่างเป็นทางการ</p>
+  
+  <div class="meta">Meta AI · 11 กรกฎาคม 2569</div>
+  
+</div><div class="card" data-category="other" data-importance="normal" data-url="https://www.anthropic.com/news/ben-bernanke" data-source="Anthropic">
+  <div class="card-actions">
+    <button class="bookmark-btn" data-url="https://www.anthropic.com/news/ben-bernanke" title="บันทึกไว้อ่านทีหลัง" aria-label="บันทึกไว้อ่านทีหลัง">☆</button>
+    <button class="like-btn" data-url="https://www.anthropic.com/news/ben-bernanke" data-v="up" title="ชอบข่าวนี้" aria-label="ชอบข่าวนี้">👍</button>
+    <button class="like-btn" data-url="https://www.anthropic.com/news/ben-bernanke" data-v="down" title="ไม่สนใจข่าวแบบนี้" aria-label="ไม่สนใจข่าวแบบนี้">👎</button>
+    <button class="listen-btn" data-text="Anthropic แต่งตั้งเบน เบอร์นันกี อดีตประธานเฟด นั่งบอร์ดกำกับดูแลระยะยาว. Anthropic แต่งตั้ง ดร.เบน เบอร์นันกี อดีตประธานธนาคารกลางสหรัฐฯ (เฟด) และเจ้าของรางวัลโนเบลเศรษฐศาสตร์ปี 2022 เข้าร่วม Long-Term Benefit Trust ซึ่งเป็นคณะกรรมการอิสระที่ให้คำแนะนำบอร์ดบริษัทเรื่องความเสี่ยงและผลกระทบต่อสังคมจากการพัฒนา AI โดยกรรมการกลุ่มนี้ไม่ถือหุ้นและไม่มีส่วนแบ่งกำไรจากบริษัท" title="ฟังข่าวนี้" aria-label="ฟังข่าวนี้">🔈</button>
+    <a class="translate-btn" href="https://translate.google.com/?sl=th&amp;tl=en&amp;text=Anthropic%20%E0%B9%81%E0%B8%95%E0%B9%88%E0%B8%87%E0%B8%95%E0%B8%B1%E0%B9%89%E0%B8%87%E0%B9%80%E0%B8%9A%E0%B8%99%20%E0%B9%80%E0%B8%9A%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B8%99%E0%B8%B1%E0%B8%99%E0%B8%81%E0%B8%B5%20%E0%B8%AD%E0%B8%94%E0%B8%B5%E0%B8%95%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%98%E0%B8%B2%E0%B8%99%E0%B9%80%E0%B8%9F%E0%B8%94%20%E0%B8%99%E0%B8%B1%E0%B9%88%E0%B8%87%E0%B8%9A%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B8%94%E0%B8%81%E0%B8%B3%E0%B8%81%E0%B8%B1%E0%B8%9A%E0%B8%94%E0%B8%B9%E0%B9%81%E0%B8%A5%E0%B8%A3%E0%B8%B0%E0%B8%A2%E0%B8%B0%E0%B8%A2%E0%B8%B2%E0%B8%A7.%20Anthropic%20%E0%B9%81%E0%B8%95%E0%B9%88%E0%B8%87%E0%B8%95%E0%B8%B1%E0%B9%89%E0%B8%87%20%E0%B8%94%E0%B8%A3.%E0%B9%80%E0%B8%9A%E0%B8%99%20%E0%B9%80%E0%B8%9A%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B8%99%E0%B8%B1%E0%B8%99%E0%B8%81%E0%B8%B5%20%E0%B8%AD%E0%B8%94%E0%B8%B5%E0%B8%95%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%98%E0%B8%B2%E0%B8%99%E0%B8%98%E0%B8%99%E0%B8%B2%E0%B8%84%E0%B8%B2%E0%B8%A3%E0%B8%81%E0%B8%A5%E0%B8%B2%E0%B8%87%E0%B8%AA%E0%B8%AB%E0%B8%A3%E0%B8%B1%E0%B8%90%E0%B8%AF%20%28%E0%B9%80%E0%B8%9F%E0%B8%94%29%20%E0%B9%81%E0%B8%A5%E0%B8%B0%E0%B9%80%E0%B8%88%E0%B9%89%E0%B8%B2%E0%B8%82%E0%B8%AD%E0%B8%87%E0%B8%A3%E0%B8%B2%E0%B8%87%E0%B8%A7%E0%B8%B1%E0%B8%A5%E0%B9%82%E0%B8%99%E0%B9%80%E0%B8%9A%E0%B8%A5%E0%B9%80%E0%B8%A8%E0%B8%A3%E0%B8%A9%E0%B8%90%E0%B8%A8%E0%B8%B2%E0%B8%AA%E0%B8%95%E0%B8%A3%E0%B9%8C%E0%B8%9B%E0%B8%B5%202022%20%E0%B9%80%E0%B8%82%E0%B9%89%E0%B8%B2%E0%B8%A3%E0%B9%88%E0%B8%A7%E0%B8%A1%20Long-Term%20Benefit%20Trust%20%E0%B8%8B%E0%B8%B6%E0%B9%88%E0%B8%87%E0%B9%80%E0%B8%9B%E0%B9%87%E0%B8%99%E0%B8%84%E0%B8%93%E0%B8%B0%E0%B8%81%E0%B8%A3%E0%B8%A3%E0%B8%A1%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%AD%E0%B8%B4%E0%B8%AA%E0%B8%A3%E0%B8%B0%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B9%83%E0%B8%AB%E0%B9%89%E0%B8%84%E0%B8%B3%E0%B9%81%E0%B8%99%E0%B8%B0%E0%B8%99%E0%B8%B3%E0%B8%9A%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B8%94%E0%B8%9A%E0%B8%A3%E0%B8%B4%E0%B8%A9%E0%B8%B1%E0%B8%97%E0%B9%80%E0%B8%A3%E0%B8%B7%E0%B9%88%E0%B8%AD%E0%B8%87%E0%B8%84%E0%B8%A7%E0%B8%B2%E0%B8%A1%E0%B9%80%E0%B8%AA%E0%B8%B5%E0%B9%88%E0%B8%A2%E0%B8%87%E0%B9%81%E0%B8%A5%E0%B8%B0%E0%B8%9C%E0%B8%A5%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%97%E0%B8%9A%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B8%AA%E0%B8%B1%E0%B8%87%E0%B8%84%E0%B8%A1%E0%B8%88%E0%B8%B2%E0%B8%81%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%9E%E0%B8%B1%E0%B8%92%E0%B8%99%E0%B8%B2%20AI%20%E0%B9%82%E0%B8%94%E0%B8%A2%E0%B8%81%E0%B8%A3%E0%B8%A3%E0%B8%A1%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%81%E0%B8%A5%E0%B8%B8%E0%B9%88%E0%B8%A1%E0%B8%99%E0%B8%B5%E0%B9%89%E0%B9%84%E0%B8%A1%E0%B9%88%E0%B8%96%E0%B8%B7%E0%B8%AD%E0%B8%AB%E0%B8%B8%E0%B9%89%E0%B8%99%E0%B9%81%E0%B8%A5%E0%B8%B0%E0%B9%84%E0%B8%A1%E0%B9%88%E0%B8%A1%E0%B8%B5%E0%B8%AA%E0%B9%88%E0%B8%A7%E0%B8%99%E0%B9%81%E0%B8%9A%E0%B9%88%E0%B8%87%E0%B8%81%E0%B8%B3%E0%B9%84%E0%B8%A3%E0%B8%88%E0%B8%B2%E0%B8%81%E0%B8%9A%E0%B8%A3%E0%B8%B4%E0%B8%A9%E0%B8%B1%E0%B8%97&amp;op=translate" target="_blank" rel="noopener" title="แปลเป็นอังกฤษ" aria-label="แปลเป็นอังกฤษ">EN</a>
+    <button class="share-btn" data-url="https://www.anthropic.com/news/ben-bernanke" data-title="Anthropic แต่งตั้งเบน เบอร์นันกี อดีตประธานเฟด นั่งบอร์ดกำกับดูแลระยะยาว" title="แชร์ข่าวนี้" aria-label="แชร์ข่าวนี้">🔗</button>
+  </div>
+  <span class="badge">อื่นๆ</span>
+  <h3><a href="https://www.anthropic.com/news/ben-bernanke" target="_blank" rel="noopener">Anthropic แต่งตั้งเบน เบอร์นันกี อดีตประธานเฟด นั่งบอร์ดกำกับดูแลระยะยาว</a></h3>
+  <p>Anthropic แต่งตั้ง ดร.เบน เบอร์นันกี อดีตประธานธนาคารกลางสหรัฐฯ (เฟด) และเจ้าของรางวัลโนเบลเศรษฐศาสตร์ปี 2022 เข้าร่วม Long-Term Benefit Trust ซึ่งเป็นคณะกรรมการอิสระที่ให้คำแนะนำบอร์ดบริษัทเรื่องความเสี่ยงและผลกระทบต่อสังคมจากการพัฒนา AI โดยกรรมการกลุ่มนี้ไม่ถือหุ้นและไม่มีส่วนแบ่งกำไรจากบริษัท</p>
+  
+  <div class="meta">Anthropic · 11 กรกฎาคม 2569</div>
+  
+</div>
+</details>
 <footer class="site-footer">🛰️ MEW Station · ดูแลและคัดสรรข่าวโดย MEW · อัปเดตอัตโนมัติทุกวัน</footer>
 
 <script type="application/json" id="all-sources">["Anthropic", "Future of Life Institute", "Meta AI", "OpenAI", "xAI (SpaceXAI)"]</script>
@@ -327,26 +407,45 @@ document.getElementById('randomOldNews')?.addEventListener('click', () => {
 });
 </script>
 <script>
-function pickThaiVoice() {
-  const voices = window.speechSynthesis.getVoices();
-  return voices.find(v => v.lang && v.lang.toLowerCase().startsWith('th')) || null;
+let _voiceCache = [];
+function _refreshVoiceCache() { _voiceCache = window.speechSynthesis.getVoices(); }
+if ('speechSynthesis' in window) {
+  _refreshVoiceCache();
+  window.speechSynthesis.onvoiceschanged = _refreshVoiceCache;
 }
-function speakBookmarked() {
+function waitForVoices() {
+  return new Promise(resolve => {
+    if (_voiceCache.length) { resolve(_voiceCache); return; }
+    let tries = 0;
+    const iv = setInterval(() => {
+      _refreshVoiceCache();
+      tries++;
+      if (_voiceCache.length || tries > 10) { clearInterval(iv); resolve(_voiceCache); }
+    }, 150);
+  });
+}
+function pickThaiVoice() {
+  return _voiceCache.find(v => v.lang && v.lang.toLowerCase().startsWith('th')) || null;
+}
+const NO_THAI_VOICE_MSG = 'เครื่อง/เบราว์เซอร์นี้ไม่มีเสียงพูดภาษาไทยติดตั้งไว้ ลองเปิดเว็บนี้จากมือถือแทนดูครับ (Android/iPhone ส่วนใหญ่มีเสียงไทยอยู่แล้ว) หรือลองเปลี่ยนเป็น Chrome/Edge บนคอม';
+async function speakBookmarked() {
   if (!('speechSynthesis' in window)) {
     alert('เบราว์เซอร์นี้ไม่รองรับการอ่านออกเสียง ลองเปิดจาก Chrome หรือ Safari บนมือถือดูครับ');
     return;
   }
   const cards = [...document.querySelectorAll('.card')].filter(c => c.style.display !== 'none');
   if (!cards.length) { alert('ยังไม่มีข่าวที่บันทึกไว้ให้ฟัง'); return; }
-  window.speechSynthesis.cancel();
+  await waitForVoices();
   const thaiVoice = pickThaiVoice();
+  if (!thaiVoice) { alert(NO_THAI_VOICE_MSG); return; }
+  window.speechSynthesis.cancel();
   const btn = document.getElementById('speakBookmarks');
   cards.forEach((card, idx) => {
     const title = card.querySelector('h3 a')?.textContent || '';
     const summary = card.querySelector('p')?.textContent || '';
     const utter = new SpeechSynthesisUtterance(`${title}. ${summary}`);
     utter.lang = 'th-TH';
-    if (thaiVoice) utter.voice = thaiVoice;
+    utter.voice = thaiVoice;
     if (idx === 0 && btn) utter.onstart = () => { btn.textContent = '⏸ กำลังอ่าน... (กดเพื่อหยุด)'; };
     if (idx === cards.length - 1 && btn) utter.onend = () => { btn.textContent = '🔊 ฟังข่าวที่บันทึกไว้ทั้งหมด'; };
     window.speechSynthesis.speak(utter);
@@ -386,11 +485,14 @@ function playJingle() {
   });
 }
 
+let _dialogueActive = false;
+let _dialogueStop = false;
+
 function speakQueue(lines) {
   return new Promise(resolve => {
     let i = 0;
     function next() {
-      if (i >= lines.length) { resolve(); return; }
+      if (_dialogueStop || i >= lines.length) { resolve(); return; }
       const [text, pitch] = lines[i++];
       const utter = new SpeechSynthesisUtterance(text);
       utter.lang = 'th-TH';
@@ -407,11 +509,22 @@ function speakQueue(lines) {
 
 document.getElementById('dialogueListen')?.addEventListener('click', async (e) => {
   const btn = e.currentTarget;
+  if (_dialogueActive) {
+    _dialogueStop = true;
+    window.speechSynthesis.cancel();
+    _dialogueActive = false;
+    btn.textContent = '🎙️ ฟังแบบ 2 พิธีกร';
+    return;
+  }
   if (!('speechSynthesis' in window)) { alert('เบราว์เซอร์นี้ไม่รองรับการอ่านออกเสียง'); return; }
+  await waitForVoices();
+  if (!pickThaiVoice()) { alert(NO_THAI_VOICE_MSG); return; }
   window.speechSynthesis.cancel();
   const items = [...document.querySelectorAll('.card')].filter(c => c.style.display !== 'none');
   if (!items.length) { alert('ไม่มีข่าววันนี้ให้ฟัง'); return; }
-  btn.textContent = '⏸ กำลังฟัง... (รอสักครู่)';
+  _dialogueActive = true;
+  _dialogueStop = false;
+  btn.textContent = '⏸ กำลังฟัง... (กดเพื่อหยุด)';
   const lines = [];
   const title0 = document.querySelector('h1')?.textContent || '';
   lines.push([`สวัสดีครับ ผมพิธีกรจาก MEW Station ${title0}`, 1.0]);
@@ -426,11 +539,12 @@ document.getElementById('dialogueListen')?.addEventListener('click', async (e) =
   lines.push(['บ๊ายบายค่ะ', 1.25]);
   await playJingle();
   await speakQueue(lines);
+  _dialogueActive = false;
   btn.textContent = '🎙️ ฟังแบบ 2 พิธีกร';
 });
 </script>
 <script>
-document.querySelectorAll('.listen-btn').forEach(btn => btn.addEventListener('click', () => {
+document.querySelectorAll('.listen-btn').forEach(btn => btn.addEventListener('click', async () => {
   if (!('speechSynthesis' in window)) {
     alert('เบราว์เซอร์นี้ไม่รองรับการอ่านออกเสียง');
     return;
@@ -440,13 +554,14 @@ document.querySelectorAll('.listen-btn').forEach(btn => btn.addEventListener('cl
     btn.classList.remove('speaking');
     return;
   }
+  await waitForVoices();
+  const thaiVoice = pickThaiVoice();
+  if (!thaiVoice) { alert(NO_THAI_VOICE_MSG); return; }
   window.speechSynthesis.cancel();
   document.querySelectorAll('.listen-btn.speaking').forEach(b => b.classList.remove('speaking'));
   const utter = new SpeechSynthesisUtterance(btn.dataset.text);
   utter.lang = 'th-TH';
-  const voices = window.speechSynthesis.getVoices();
-  const thaiVoice = voices.find(v => v.lang && v.lang.toLowerCase().startsWith('th'));
-  if (thaiVoice) utter.voice = thaiVoice;
+  utter.voice = thaiVoice;
   utter.onstart = () => btn.classList.add('speaking');
   utter.onend = () => btn.classList.remove('speaking');
   window.speechSynthesis.speak(utter);
@@ -495,6 +610,14 @@ searchBox?.addEventListener('input', () => {
   const emptyMsg = document.getElementById('searchEmpty');
   if (emptyMsg) emptyMsg.hidden = anyVisible || !q;
 });
+
+if (location.hash) {
+  const target = document.querySelector(location.hash);
+  if (target && target.tagName === 'DETAILS') {
+    target.open = true;
+    setTimeout(() => target.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
+  }
+}
 </script>
 <script>
 document.getElementById('quickReadToggle')?.addEventListener('click', () => {

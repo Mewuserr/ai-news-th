@@ -208,7 +208,8 @@ summary { cursor: pointer; font-weight: 700; padding: 4px 0; color: var(--text);
 .tl-card a { color: var(--text); text-decoration: none; font-size: 14.5px; line-height: 1.5; }
 .tl-card a:hover { color: var(--accent); text-decoration: underline; }
 .wrap-carousel { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 20px; }
-.wrap-card { flex: 0 0 85%; max-width: 360px; scroll-snap-align: center; border-radius: 20px; border: 1px solid var(--border); background: linear-gradient(160deg, color-mix(in srgb, var(--accent) 12%, var(--card-bg)), color-mix(in srgb, var(--major) 10%, var(--card-bg))); padding: 40px 24px; text-align: center; min-height: 260px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; }
+.wrap-card { flex: 0 0 85%; max-width: 360px; scroll-snap-align: center; border-radius: 20px; border: 1px solid var(--border); background: linear-gradient(160deg, color-mix(in srgb, var(--accent) 12%, var(--card-bg)), color-mix(in srgb, var(--major) 10%, var(--card-bg))); padding: 40px 24px; text-align: center; min-height: 260px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; text-decoration: none; color: inherit; cursor: pointer; transition: transform 0.15s ease; }
+.wrap-card:hover { transform: translateY(-4px); border-color: var(--accent); }
 .wrap-emoji { font-size: 40px; }
 .wrap-big { font-size: 34px; font-weight: 800; color: var(--text); word-break: break-word; }
 .wrap-label { font-size: 14px; color: var(--text-dim); }
@@ -388,26 +389,45 @@ document.getElementById('randomOldNews')?.addEventListener('click', () => {
 """
 
 SPEAK_SCRIPT = """
-function pickThaiVoice() {
-  const voices = window.speechSynthesis.getVoices();
-  return voices.find(v => v.lang && v.lang.toLowerCase().startsWith('th')) || null;
+let _voiceCache = [];
+function _refreshVoiceCache() { _voiceCache = window.speechSynthesis.getVoices(); }
+if ('speechSynthesis' in window) {
+  _refreshVoiceCache();
+  window.speechSynthesis.onvoiceschanged = _refreshVoiceCache;
 }
-function speakBookmarked() {
+function waitForVoices() {
+  return new Promise(resolve => {
+    if (_voiceCache.length) { resolve(_voiceCache); return; }
+    let tries = 0;
+    const iv = setInterval(() => {
+      _refreshVoiceCache();
+      tries++;
+      if (_voiceCache.length || tries > 10) { clearInterval(iv); resolve(_voiceCache); }
+    }, 150);
+  });
+}
+function pickThaiVoice() {
+  return _voiceCache.find(v => v.lang && v.lang.toLowerCase().startsWith('th')) || null;
+}
+const NO_THAI_VOICE_MSG = 'เครื่อง/เบราว์เซอร์นี้ไม่มีเสียงพูดภาษาไทยติดตั้งไว้ ลองเปิดเว็บนี้จากมือถือแทนดูครับ (Android/iPhone ส่วนใหญ่มีเสียงไทยอยู่แล้ว) หรือลองเปลี่ยนเป็น Chrome/Edge บนคอม';
+async function speakBookmarked() {
   if (!('speechSynthesis' in window)) {
     alert('เบราว์เซอร์นี้ไม่รองรับการอ่านออกเสียง ลองเปิดจาก Chrome หรือ Safari บนมือถือดูครับ');
     return;
   }
   const cards = [...document.querySelectorAll('.card')].filter(c => c.style.display !== 'none');
   if (!cards.length) { alert('ยังไม่มีข่าวที่บันทึกไว้ให้ฟัง'); return; }
-  window.speechSynthesis.cancel();
+  await waitForVoices();
   const thaiVoice = pickThaiVoice();
+  if (!thaiVoice) { alert(NO_THAI_VOICE_MSG); return; }
+  window.speechSynthesis.cancel();
   const btn = document.getElementById('speakBookmarks');
   cards.forEach((card, idx) => {
     const title = card.querySelector('h3 a')?.textContent || '';
     const summary = card.querySelector('p')?.textContent || '';
     const utter = new SpeechSynthesisUtterance(`${title}. ${summary}`);
     utter.lang = 'th-TH';
-    if (thaiVoice) utter.voice = thaiVoice;
+    utter.voice = thaiVoice;
     if (idx === 0 && btn) utter.onstart = () => { btn.textContent = '⏸ กำลังอ่าน... (กดเพื่อหยุด)'; };
     if (idx === cards.length - 1 && btn) utter.onend = () => { btn.textContent = '🔊 ฟังข่าวที่บันทึกไว้ทั้งหมด'; };
     window.speechSynthesis.speak(utter);
@@ -448,11 +468,14 @@ function playJingle() {
   });
 }
 
+let _dialogueActive = false;
+let _dialogueStop = false;
+
 function speakQueue(lines) {
   return new Promise(resolve => {
     let i = 0;
     function next() {
-      if (i >= lines.length) { resolve(); return; }
+      if (_dialogueStop || i >= lines.length) { resolve(); return; }
       const [text, pitch] = lines[i++];
       const utter = new SpeechSynthesisUtterance(text);
       utter.lang = 'th-TH';
@@ -469,11 +492,22 @@ function speakQueue(lines) {
 
 document.getElementById('dialogueListen')?.addEventListener('click', async (e) => {
   const btn = e.currentTarget;
+  if (_dialogueActive) {
+    _dialogueStop = true;
+    window.speechSynthesis.cancel();
+    _dialogueActive = false;
+    btn.textContent = '🎙️ ฟังแบบ 2 พิธีกร';
+    return;
+  }
   if (!('speechSynthesis' in window)) { alert('เบราว์เซอร์นี้ไม่รองรับการอ่านออกเสียง'); return; }
+  await waitForVoices();
+  if (!pickThaiVoice()) { alert(NO_THAI_VOICE_MSG); return; }
   window.speechSynthesis.cancel();
   const items = [...document.querySelectorAll('.card')].filter(c => c.style.display !== 'none');
   if (!items.length) { alert('ไม่มีข่าววันนี้ให้ฟัง'); return; }
-  btn.textContent = '⏸ กำลังฟัง... (รอสักครู่)';
+  _dialogueActive = true;
+  _dialogueStop = false;
+  btn.textContent = '⏸ กำลังฟัง... (กดเพื่อหยุด)';
   const lines = [];
   const title0 = document.querySelector('h1')?.textContent || '';
   lines.push([`สวัสดีครับ ผมพิธีกรจาก MEW Station ${title0}`, 1.0]);
@@ -488,12 +522,13 @@ document.getElementById('dialogueListen')?.addEventListener('click', async (e) =
   lines.push(['บ๊ายบายค่ะ', 1.25]);
   await playJingle();
   await speakQueue(lines);
+  _dialogueActive = false;
   btn.textContent = '🎙️ ฟังแบบ 2 พิธีกร';
 });
 """
 
 LISTEN_SCRIPT = """
-document.querySelectorAll('.listen-btn').forEach(btn => btn.addEventListener('click', () => {
+document.querySelectorAll('.listen-btn').forEach(btn => btn.addEventListener('click', async () => {
   if (!('speechSynthesis' in window)) {
     alert('เบราว์เซอร์นี้ไม่รองรับการอ่านออกเสียง');
     return;
@@ -503,13 +538,14 @@ document.querySelectorAll('.listen-btn').forEach(btn => btn.addEventListener('cl
     btn.classList.remove('speaking');
     return;
   }
+  await waitForVoices();
+  const thaiVoice = pickThaiVoice();
+  if (!thaiVoice) { alert(NO_THAI_VOICE_MSG); return; }
   window.speechSynthesis.cancel();
   document.querySelectorAll('.listen-btn.speaking').forEach(b => b.classList.remove('speaking'));
   const utter = new SpeechSynthesisUtterance(btn.dataset.text);
   utter.lang = 'th-TH';
-  const voices = window.speechSynthesis.getVoices();
-  const thaiVoice = voices.find(v => v.lang && v.lang.toLowerCase().startsWith('th'));
-  if (thaiVoice) utter.voice = thaiVoice;
+  utter.voice = thaiVoice;
   utter.onstart = () => btn.classList.add('speaking');
   utter.onend = () => btn.classList.remove('speaking');
   window.speechSynthesis.speak(utter);
@@ -560,6 +596,14 @@ searchBox?.addEventListener('input', () => {
   const emptyMsg = document.getElementById('searchEmpty');
   if (emptyMsg) emptyMsg.hidden = anyVisible || !q;
 });
+
+if (location.hash) {
+  const target = document.querySelector(location.hash);
+  if (target && target.tagName === 'DETAILS') {
+    target.open = true;
+    setTimeout(() => target.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
+  }
+}
 """
 
 QUICKREAD_SCRIPT = """
@@ -1026,7 +1070,7 @@ def build_archive(all_items):
         month_label = f"{THAI_MONTHS[d.month]} {d.year + 543}"
         month_items = by_month[ym]
         cards = "".join(card_html(i, all_items=all_items) for i in month_items)
-        body_parts.append(f"""<details class="month-group" data-month="{ym}">
+        body_parts.append(f"""<details class="month-group" id="month-{ym}" data-month="{ym}">
 <summary>{month_label} ({len(month_items)} ข่าว)</summary>
 {cards}
 </details>""")
@@ -1295,21 +1339,29 @@ def build_wrapped(all_items):
     top_source = source_counts.most_common(1)[0] if source_counts else ("-", 0)
     top_category = category_counts.most_common(1)[0] if category_counts else ("-", 0)
 
+    month_anchor = f"archive.html#month-{this_month}"
+
     cards = [
-        f'<div class="wrap-card"><div class="wrap-emoji">🛰️</div><div class="wrap-big">{len(month_items)}</div><div class="wrap-label">ข่าว AI เดือน {esc(month_label)}</div></div>',
-        f'<div class="wrap-card"><div class="wrap-emoji">🏆</div><div class="wrap-big">{esc(top_source[0])}</div><div class="wrap-label">บริษัทที่ถูกพูดถึงบ่อยสุด ({top_source[1]} ข่าว)</div></div>',
-        f'<div class="wrap-card"><div class="wrap-emoji">📂</div><div class="wrap-big">{esc(top_category[0])}</div><div class="wrap-label">หมวดข่าวที่แข่งขันดุที่สุด ({top_category[1]} ข่าว)</div></div>',
+        f'<a class="wrap-card" href="{month_anchor}"><div class="wrap-emoji">🛰️</div><div class="wrap-big">{len(month_items)}</div><div class="wrap-label">ข่าว AI เดือน {esc(month_label)} · แตะดูทั้งหมด</div></a>',
+        f'<a class="wrap-card" href="{month_anchor}"><div class="wrap-emoji">🏆</div><div class="wrap-big">{esc(top_source[0])}</div><div class="wrap-label">บริษัทที่ถูกพูดถึงบ่อยสุด ({top_source[1]} ข่าว) · แตะดูข่าว</div></a>',
+        f'<a class="wrap-card" href="{month_anchor}"><div class="wrap-emoji">📂</div><div class="wrap-big">{esc(top_category[0])}</div><div class="wrap-label">หมวดข่าวที่แข่งขันดุที่สุด ({top_category[1]} ข่าว) · แตะดูข่าว</div></a>',
     ]
     if major_items:
         biggest = major_items[0]
         cards.append(
-            f'<div class="wrap-card"><div class="wrap-emoji">🔥</div><div class="wrap-big" style="font-size:20px">{esc(biggest.get("title_th",""))}</div><div class="wrap-label">ข่าวใหญ่ประจำเดือน · {esc(biggest.get("source",""))}</div></div>'
+            f'<a class="wrap-card" href="{esc(biggest.get("url","#"))}" target="_blank" rel="noopener"><div class="wrap-emoji">🔥</div><div class="wrap-big" style="font-size:20px">{esc(biggest.get("title_th",""))}</div><div class="wrap-label">ข่าวใหญ่ประจำเดือน · {esc(biggest.get("source",""))} · แตะอ่านข่าวเต็ม</div></a>'
         )
-    cards.append('<div class="wrap-card"><div class="wrap-emoji">🚀</div><div class="wrap-big" style="font-size:18px">แล้วเจอกันเดือนหน้า</div><div class="wrap-label">MEW Station</div></div>')
+    cards.append(f'<a class="wrap-card" href="{month_anchor}"><div class="wrap-emoji">🚀</div><div class="wrap-big" style="font-size:18px">แล้วเจอกันเดือนหน้า</div><div class="wrap-label">MEW Station · แตะดูข่าวทั้งหมดเดือนนี้</div></a>')
+
+    detail_cards = "".join(card_html(i, all_items=month_items) for i in sorted(month_items, key=lambda i: i["date"], reverse=True))
 
     body = f"""<h1>✨ สรุปประจำเดือน {esc(month_label)}</h1>
-<div class="sub">ลากดูทีละใบ เหมือน Spotify Wrapped ของวงการ AI</div>
-<div class="wrap-carousel">{''.join(cards)}</div>"""
+<div class="sub">ลากดูทีละใบ เหมือน Spotify Wrapped ของวงการ AI — แตะการ์ดไหนก็ได้เพื่อดูรายละเอียด</div>
+<div class="wrap-carousel">{''.join(cards)}</div>
+<details class="month-group">
+<summary>📋 รายละเอียดข่าวทั้งหมดเดือนนี้ ({len(month_items)} ข่าว)</summary>
+{detail_cards}
+</details>"""
     write("wrapped.html", page_shell("สรุปประจำเดือน", "wrapped", body))
 
 
