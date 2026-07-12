@@ -96,7 +96,7 @@ body {
   font-family: "Leelawadee UI", "Noto Sans Thai", "Segoe UI", -apple-system, sans-serif;
   font-size: 16.5px;
   max-width: 880px; margin: 0 auto; padding: 24px 16px 64px; line-height: 1.65;
-  color: var(--text); position: relative;
+  color: var(--text); position: relative; z-index: 0;
 }
 canvas#starfield { position: fixed; inset: 0; z-index: -3; }
 .celestial-body { position: fixed; z-index: -2; pointer-events: none; background-size: contain; background-repeat: no-repeat; background-position: center; animation: floatPlanet ease-in-out infinite; }
