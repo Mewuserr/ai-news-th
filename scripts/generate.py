@@ -10,7 +10,6 @@ import re
 import random
 from datetime import datetime, timezone, timedelta
 from collections import defaultdict, Counter
-from urllib.parse import quote
 
 try:
     from pythainlp.tokenize import word_tokenize as _thai_word_tokenize
@@ -109,6 +108,12 @@ canvas#starfield { position: fixed; inset: 0; z-index: -3; }
 .body-mars { top: 58%; right: -28px; width: 62px; height: 62px; background-image: url('assets/mars.webp'); opacity: 0.42; animation-duration: 10s; animation-delay: -5s; }
 @keyframes floatPlanet { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-16px); } }
 @media (prefers-reduced-motion: reduce) { .celestial-body { animation: none; } }
+.lang-toggle { display: flex; justify-content: center; gap: 6px; margin-bottom: 10px; }
+.lang-toggle button { border: 1px solid var(--border); background: color-mix(in srgb, var(--accent) 6%, transparent); color: var(--text-dim); border-radius: 999px; padding: 4px 14px; font-size: 12.5px; font-weight: 700; cursor: pointer; }
+.lang-toggle button.active { background: color-mix(in srgb, var(--accent) 25%, transparent); color: var(--text); border-color: var(--accent); }
+#google_translate_element, .goog-te-gadget-icon, iframe.skiptranslate { display: none !important; }
+body { top: 0 !important; }
+.goog-text-highlight { background: none !important; box-shadow: none !important; }
 .brand { font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); opacity: 0.9; margin-bottom: 10px; font-weight: 700; }
 .site-footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--border); font-size: 13px; color: var(--text-dim); opacity: 0.8; text-align: center; }
 nav { display: flex; gap: 16px; margin-bottom: 24px; font-size: 15.5px; flex-wrap: wrap; }
@@ -125,8 +130,8 @@ h2 { color: var(--text); }
 .badge { display: inline-block; font-size: 12.5px; padding: 3px 10px; border-radius: 999px; background: color-mix(in srgb, var(--accent) 18%, transparent); color: var(--text-dim); margin-bottom: 8px; margin-right: 6px; }
 .badge.major { background: var(--major); color: #1a0016; font-weight: 700; }
 .card h3 { margin: 0 0 8px; font-size: 18px; font-weight: 700; }
-.card h3 a { color: var(--text); text-decoration: none; }
-.card h3 a:hover { color: var(--accent); text-decoration: underline; }
+.card h3 a { color: var(--text); text-decoration: underline; text-decoration-color: color-mix(in srgb, var(--accent) 55%, transparent); text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
+.card h3 a:hover { color: var(--accent); text-decoration-color: var(--accent); }
 .card p { margin: 0 0 8px; color: var(--text); opacity: 0.92; font-size: 15.5px; }
 .card p.context { font-size: 13.5px; font-style: italic; color: var(--accent); opacity: 0.85; border-left: 2px solid var(--accent); padding-left: 8px; }
 .meta { font-size: 13.5px; opacity: 0.6; color: var(--text-dim); }
@@ -144,15 +149,14 @@ summary { cursor: pointer; font-weight: 700; padding: 4px 0; color: var(--text);
 .stat-value { font-size: 12.5px; opacity: 0.7; margin-left: 8px; font-variant-numeric: tabular-nums; color: var(--text-dim); }
 .stat-bar-wrap { display: flex; align-items: center; flex: 1; }
 .card-actions { display: flex; gap: 4px; float: right; align-items: center; }
-.card-actions button, .card-actions a.translate-btn { background: none; border: none; cursor: pointer; font-size: 16px; line-height: 1; padding: 4px 5px; opacity: 0.6; color: var(--text-dim); text-decoration: none; border-radius: 6px; }
-.card-actions button:hover, .card-actions a.translate-btn:hover { opacity: 1; background: color-mix(in srgb, var(--accent) 12%, transparent); }
+.card-actions button { background: none; border: none; cursor: pointer; font-size: 16px; line-height: 1; padding: 4px 5px; opacity: 0.6; color: var(--text-dim); border-radius: 6px; }
+.card-actions button:hover { opacity: 1; background: color-mix(in srgb, var(--accent) 12%, transparent); }
 .bookmark-btn { color: var(--major); font-size: 18px; }
 .bookmark-btn.saved { opacity: 1; }
 .share-btn { color: var(--accent); }
 .listen-btn.speaking { opacity: 1; color: var(--accent); }
 .like-btn.active[data-v="up"] { opacity: 1; color: #6fe08f; }
 .like-btn.active[data-v="down"] { opacity: 1; color: var(--text-dim); }
-.translate-btn { font-size: 12px; font-weight: 700; border: 1px solid var(--border); }
 .related { clear: both; margin-top: 10px; padding-top: 8px; border-top: 1px dashed var(--border); font-size: 12.5px; color: var(--text-dim); }
 .related span { opacity: 0.8; }
 .related ul { margin: 4px 0 0; padding-left: 18px; }
@@ -681,6 +685,26 @@ ACCENT_SCRIPT = """
 })();
 """
 
+LANG_SCRIPT = """
+(function() {
+  function currentLang() {
+    const m = document.cookie.match(/googtrans=\\/th\\/(\\w+)/);
+    return m ? m[1] : 'th';
+  }
+  function setLang(lang) {
+    if (lang === currentLang()) return;
+    document.cookie = 'googtrans=/th/' + lang + '; path=/';
+    location.reload();
+  }
+  const buttons = document.querySelectorAll('.lang-toggle button');
+  const active = currentLang();
+  buttons.forEach(function(b) {
+    if (b.dataset.lang === active) b.classList.add('active');
+    b.addEventListener('click', function() { setLang(b.dataset.lang); });
+  });
+})();
+"""
+
 FOLLOW_SCRIPT = """
 (function() {
   const dataEl = document.getElementById('all-sources');
@@ -1042,6 +1066,10 @@ def page_shell(title: str, active: str, body: str, random_urls: list = None) -> 
 <div class="celestial-body body-saturn"></div>
 <div class="celestial-body body-uranus"></div>
 <div class="celestial-body body-mars"></div>
+<div class="lang-toggle" id="langToggle">
+  <button data-lang="th" title="ภาษาไทย" aria-label="เปลี่ยนเป็นภาษาไทย">TH</button>
+  <button data-lang="en" title="English" aria-label="Switch to English">EN</button>
+</div>
 <div class="brand">🛰️ {esc(SITE_NAME)} <span id="mascot" title=""></span></div>
 <div class="streak-badge" id="streakBadge"></div>
 <div class="accent-picker" id="accentPicker"></div>
@@ -1052,6 +1080,9 @@ def page_shell(title: str, active: str, body: str, random_urls: list = None) -> 
 <footer class="site-footer">🛰️ {esc(SITE_NAME)} · ดูแลและคัดสรรข่าวโดย MEW · อัปเดตอัตโนมัติทุกวัน</footer>
 {urls_script}
 {sources_script}
+<div id="google_translate_element"></div>
+<script>function googleTranslateElementInit(){{new google.translate.TranslateElement({{pageLanguage:'th',includedLanguages:'en',autoDisplay:false}},'google_translate_element');}}</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async></script>
 <script>{STARFIELD_SCRIPT}</script>
 <script>{FILTER_SCRIPT}</script>
 <script>{BOOKMARK_SCRIPT}</script>
@@ -1072,6 +1103,7 @@ def page_shell(title: str, active: str, body: str, random_urls: list = None) -> 
 <script>{FOLLOW_SCRIPT}</script>
 <script>{QUIZ_SCRIPT}</script>
 <script>{WARP_SCRIPT}</script>
+<script>{LANG_SCRIPT}</script>
 </body>
 </html>
 """
@@ -1111,7 +1143,6 @@ def card_html(item: dict, group: str = "", all_items: list = None) -> str:
     summary_th = item.get("summary_th", "")
     share_title = esc(title_th)
     speak_text = esc(f"{title_th}. {summary_th}")
-    translate_url = esc(f"https://translate.google.com/?sl=th&tl=en&text={quote(f'{title_th}. {summary_th}')}&op=translate")
     context = item.get("context_th", "").strip()
     context_html = f'<p class="context">🔗 {esc(context)}</p>' if context else ""
 
@@ -1131,7 +1162,6 @@ def card_html(item: dict, group: str = "", all_items: list = None) -> str:
     <button class="like-btn" data-url="{url}" data-v="up" title="ชอบข่าวนี้" aria-label="ชอบข่าวนี้">👍</button>
     <button class="like-btn" data-url="{url}" data-v="down" title="ไม่สนใจข่าวแบบนี้" aria-label="ไม่สนใจข่าวแบบนี้">👎</button>
     <button class="listen-btn" data-text="{speak_text}" title="ฟังข่าวนี้" aria-label="ฟังข่าวนี้">🔈</button>
-    <a class="translate-btn" href="{translate_url}" target="_blank" rel="noopener" title="แปลเป็นอังกฤษ" aria-label="แปลเป็นอังกฤษ">EN</a>
     <button class="share-btn" data-url="{url}" data-title="{share_title}" title="แชร์ข่าวนี้" aria-label="แชร์ข่าวนี้">🔗</button>
   </div>
   {major_badge}<span class="badge">{esc(label)}</span>
