@@ -1183,23 +1183,27 @@ def build_index(all_items):
     major_items = [i for i in today_items if i.get("importance") == "major"]
     normal_items = [i for i in today_items if i.get("importance") != "major"]
 
+    today_bkk_dt = datetime.now(BANGKOK)
+    today_bkk = today_bkk_dt.strftime("%Y-%m-%d")
+    is_fresh = latest_date == today_bkk
+    day_ref = "วันนี้" if is_fresh else f"วันที่ {thai_date(latest_date)}"
+
     sections = []
     if major_items:
-        sections.append('<div class="group-heading" data-group="major">🔥 ข่าวใหญ่วันนี้</div>')
+        sections.append(f'<div class="group-heading" data-group="major">🔥 ข่าวใหญ่{day_ref}</div>')
         sections.append("".join(card_html(i, group="major", all_items=all_items) for i in major_items))
     if normal_items:
-        heading = "ข่าวอื่นๆ วันนี้" if major_items else ""
+        heading = f"ข่าวอื่นๆ {day_ref}" if major_items else ""
         if heading:
             sections.append(f'<div class="group-heading" data-group="normal">{heading}</div>')
         sections.append("".join(card_html(i, group="normal", all_items=all_items) for i in normal_items))
 
-    today_bkk_dt = datetime.now(BANGKOK)
-    today_bkk = today_bkk_dt.strftime("%Y-%m-%d")
-    is_fresh = latest_date == today_bkk
-    freshness = (
-        '<div class="freshness fresh">✓ เป็นข่าวล่าสุดของวันนี้</div>' if is_fresh
-        else '<div class="freshness stale">ยังไม่มีข่าวใหม่ของวันนี้ — นี่คือข่าวล่าสุดที่มี</div>'
-    )
+    if is_fresh:
+        heading_html = f"""<h1>ข่าว AI ประจำวันที่ {thai_date(latest_date)}</h1>
+<div class="freshness fresh">✓ เป็นข่าวล่าสุดของวันนี้</div>"""
+    else:
+        heading_html = f"""<h1>วันนี้ ({thai_date(today_bkk)}) ยังไม่มีข่าวใหม่</h1>
+<div class="freshness stale">⏳ รอบดึงข่าวของวันนี้ยังไม่เข้ามา — ด้านล่างคือข่าวล่าสุดที่มี ({thai_date(latest_date)})</div>"""
 
     memory_html = ""
     try:
@@ -1240,15 +1244,15 @@ def build_index(all_items):
 
     body = f"""{dogfight}
 {champ_html}
-<h1>ข่าว AI ประจำวันที่ {thai_date(latest_date)}</h1>
-{freshness}
+{heading_html}
 <div class="sub">{len(today_items)} ข่าว{f" · ข่าวใหญ่ {len(major_items)} ข่าว" if major_items else ""}</div>
 {tool_row}
 {narrative_html}
 {memory_html}
 {filters_html(cats_present, show_major_toggle=bool(major_items))}
 {''.join(sections)}"""
-    write("index.html", page_shell(f"ข่าว AI {thai_date(latest_date)}", "index", body, random_urls=[i["url"] for i in all_items]))
+    page_title = f"ข่าว AI {thai_date(latest_date)}" if is_fresh else f"ยังไม่มีข่าวใหม่วันนี้ ({thai_date(today_bkk)})"
+    write("index.html", page_shell(page_title, "index", body, random_urls=[i["url"] for i in all_items]))
 
 
 def build_weekly(weeks):
