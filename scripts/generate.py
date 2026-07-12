@@ -76,6 +76,14 @@ def load_narrative(date_str: str) -> str:
         return json.load(f).get("narrative_th", "")
 
 
+def load_capabilities() -> dict:
+    path = os.path.join(ROOT, "data", "capabilities.json")
+    if not os.path.exists(path):
+        return {}
+    with open(path, encoding="utf-8") as f:
+        return json.load(f)
+
+
 def esc(s: str) -> str:
     return (s or "").replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace('"', "&quot;")
 
@@ -204,6 +212,21 @@ summary { cursor: pointer; font-weight: 700; padding: 4px 0; color: var(--text);
 .champ-power { font-size: 22px; font-weight: 800; color: var(--major); }
 .champ-power span { font-variant-numeric: tabular-nums; }
 .champ-detail { font-size: 11.5px; color: var(--text-dim); margin-top: 6px; }
+.cap-methodology { font-size: 13px; color: var(--text-dim); line-height: 1.7; border: 1px dashed var(--border); border-radius: 10px; padding: 12px 14px; margin-bottom: 26px; }
+.cap-category { margin-bottom: 34px; }
+.cap-category h2 { font-size: 19px; margin: 0 0 8px; }
+.cap-summary { font-size: 14.5px; line-height: 1.75; margin: 0 0 10px; opacity: 0.92; }
+.cap-scale-note { font-size: 12.5px; color: var(--text-dim); margin-bottom: 14px; }
+.cap-tool-grid { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 10px; }
+.cap-tool-card { flex: 1; min-width: 210px; max-width: 260px; border: 1px solid var(--border); border-radius: 14px; padding: 16px; background: linear-gradient(160deg, color-mix(in srgb, var(--accent) 8%, var(--card-bg)), var(--card-bg)); }
+.cap-tool-rank { font-size: 18px; margin-bottom: 2px; }
+.cap-tool-name { font-weight: 700; font-size: 14.5px; margin-bottom: 4px; }
+.cap-stars { color: var(--major); font-size: 15px; letter-spacing: 1px; margin-bottom: 4px; }
+.cap-score-label { font-size: 11.5px; color: var(--text-dim); margin-bottom: 8px; }
+.cap-verdict { font-size: 13px; line-height: 1.6; margin: 0; opacity: 0.9; }
+.cap-sources { font-size: 12px; color: var(--text-dim); }
+.cap-sources a { color: var(--accent); text-decoration: none; }
+.cap-sources a:hover { text-decoration: underline; }
 .dogfight-wrap { border: 1px solid var(--border); border-radius: 20px; padding: 8px; margin-bottom: 14px; background: radial-gradient(ellipse at center, color-mix(in srgb, var(--accent) 5%, transparent), transparent 70%); }
 .dogfight-wrap canvas { display: block; width: 100%; height: 190px; border-radius: 14px; }
 @media (max-width: 520px) { .dogfight-wrap canvas { height: 150px; } }
@@ -1068,6 +1091,7 @@ def nav_html(active: str) -> str:
         ("stats.html", "สถิติ", "stats"),
         ("timeline.html", "ไทม์ไลน์", "timeline"),
         ("wrapped.html", "สรุปประจำเดือน", "wrapped"),
+        ("capabilities.html", "ความสามารถ AI", "capabilities"),
         ("quiz.html", "ควิซ", "quiz"),
         ("bookmarks.html", "บันทึกไว้อ่าน", "bookmarks"),
     ]
@@ -1654,6 +1678,49 @@ def build_wrapped(all_items):
     write("wrapped.html", page_shell("สรุปประจำเดือน", "wrapped", body))
 
 
+def stars_html(stars: float) -> str:
+    full = round(stars)
+    empty = 5 - full
+    return "★" * full + "☆" * empty
+
+
+def build_capabilities():
+    data = load_capabilities()
+    if not data or not data.get("categories"):
+        write("capabilities.html", page_shell("ความสามารถ AI ตอนนี้", "capabilities", '<h1>ความสามารถ AI ตอนนี้</h1><p class="empty">ยังไม่มีข้อมูล</p>'))
+        return
+
+    updated_label = thai_date(data["updated"]) if data.get("updated") else ""
+    sections = []
+    for cat in data["categories"]:
+        tool_cards = []
+        for idx, tool in enumerate(cat.get("tools", [])):
+            medal = RANK_MEDALS[idx] if idx < len(RANK_MEDALS) else f"#{idx + 1}"
+            tool_cards.append(f"""<div class="cap-tool-card">
+  <div class="cap-tool-rank">{medal}</div>
+  <div class="cap-tool-name">{esc(tool['name'])}</div>
+  <div class="cap-stars" title="ตีความจากอันดับ/ผลสอบเทียบจริง ไม่ใช่ตัวเลขทางการที่เทียบข้ามหมวดได้">{stars_html(tool['stars'])}</div>
+  <div class="cap-score-label">{esc(tool['score_label'])}</div>
+  <p class="cap-verdict">{esc(tool['verdict_th'])}</p>
+</div>""")
+        sources_html = " · ".join(
+            f'<a href="{esc(s["url"])}" target="_blank" rel="noopener">{esc(s["title"])}</a>' for s in cat.get("sources", [])
+        )
+        sections.append(f"""<div class="cap-category" id="cap-{esc(cat['id'])}">
+  <h2>{cat['icon']} {esc(cat['name_th'])}</h2>
+  <p class="cap-summary">{esc(cat['summary_th'])}</p>
+  <div class="cap-scale-note">📏 {esc(cat['scale_note_th'])}</div>
+  <div class="cap-tool-grid">{''.join(tool_cards)}</div>
+  <div class="cap-sources">แหล่งอ้างอิง: {sources_html}</div>
+</div>""")
+
+    body = f"""<h1>🤖 ความสามารถ AI ตอนนี้</h1>
+<div class="sub">ภาพรวมว่า AI แต่ละแบบทำอะไรได้ถึงระดับไหนแล้ว · อัปเดตล่าสุด {esc(updated_label)}</div>
+<div class="cap-methodology">⭐ คะแนนดาวเป็นการตีความของเราจากอันดับ/ผลสอบเทียบจริงที่แหล่งข้อมูลรายงาน ไม่ใช่ตัวเลขทางการที่เทียบข้ามหมวดกันได้ (เช่น ดาวของหมวดภาพ เทียบกับดาวของหมวดโค้ดตรงๆ ไม่ได้) ตัวเลขจริงที่อ้างอิงแสดงอยู่ใต้ชื่อแต่ละตัวเสมอ ข้อมูลเปลี่ยนเร็ว อัปเดตหน้านี้เป็นรอบ (ไม่ใช่รายวัน) เพื่อคุมคุณภาพเนื้อหา</div>
+{''.join(sections)}"""
+    write("capabilities.html", page_shell("ความสามารถ AI ตอนนี้", "capabilities", body))
+
+
 def build_bookmarks(all_items):
     if not all_items:
         body = '<h1>ข่าวที่บันทึกไว้อ่าน</h1><p class="empty">ยังไม่มีข้อมูล</p>'
@@ -1722,6 +1789,7 @@ def main():
     build_timeline(all_items)
     build_quiz(all_items)
     build_wrapped(all_items)
+    build_capabilities()
     build_bookmarks(all_items)
     build_ics(all_items)
     update_latest_cache(all_items)

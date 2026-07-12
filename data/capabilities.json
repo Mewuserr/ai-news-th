@@ -1,0 +1,96 @@
+{
+  "updated": "2026-07-12",
+  "categories": [
+    {
+      "id": "text",
+      "icon": "💬",
+      "name_th": "ข้อความ / แชท (LLM)",
+      "summary_th": "โมเดลแชท/เหตุผลชั้นนำกลางปี 2569 ทำคะแนน Elo ทะลุ 1500 บน LMArena เป็นครั้งแรก แก้ปัญหาจริงบน GitHub ได้เองแบบครบวงจร (~85-89% บน SWE-bench Verified) และคุยงานต่อเนื่องยาวๆ ผ่าน terminal ได้ แต่ยังมีจุดอ่อน: ยัง \"หลอน\" เรียกใช้ API/ไลบรารีที่ไม่มีจริงอยู่บ้าง (ตัวดีที่สุดก็ยังหลอน ~23%) และเนื้อหายาวมากๆ ตรงกลางอาจตกหล่น",
+      "scale_note_th": "อ้างอิง Elo จาก LMArena (สนามให้คนโหวตแบบไม่รู้ชื่อรุ่น) ตัวเลขเป็นค่าประมาณ แหล่งข้อมูลต่างเว็บรายงานไม่ตรงกันเป๊ะ",
+      "tools": [
+        { "name": "Claude Opus 4.8", "stars": 5, "score_label": "Elo ~1510 (LMArena) · Elo ~1582 (สนามโค้ด)", "verdict_th": "แชมป์ภาพรวมและแชมป์โค้ด ตัวเลือกที่ดีที่สุดถ้าต้องการเหตุผลลึกและงานคุณภาพสูง" },
+        { "name": "GPT-5.5 Pro", "stars": 4.5, "score_label": "Elo ~1500 · Terminal-Bench 82.7%", "verdict_th": "สูสีอันดับต้น โดดเด่นเรื่องทำงานอัตโนมัติต่อเนื่องยาวๆ ผ่าน terminal" },
+        { "name": "Gemini 3.1 Pro", "stars": 4.5, "score_label": "Elo ~1500 (LMArena)", "verdict_th": "อยู่กลุ่มบนเช่นกัน อเนกประสงค์ ไม่มีจุดอ่อนเด่นชัด" },
+        { "name": "DeepSeek V4-Pro", "stars": 4, "score_label": "SWE-bench Verified 80.6%", "verdict_th": "คุ้มค่าที่สุด ราคาต่อ token ถูกกว่า GPT-5.5 ถึง ~34 เท่า" },
+        { "name": "Qwen 3.6 Max", "stars": 4, "score_label": "อัตราหลอน 22.9% (ต่ำสุดในกลุ่มท็อป)", "verdict_th": "หลอนน้อยที่สุดในกลุ่มท็อป เหมาะงานที่ต้องการความน่าเชื่อถือมากกว่าคะแนนสูงสุด" }
+      ],
+      "sources": [
+        { "title": "LMArena Leaderboard", "url": "https://huggingface.co/spaces/lmarena-ai/arena-leaderboard" },
+        { "title": "Best LLM for Coding 2026 (SWE-bench)", "url": "https://onyx.app/insights/best-llms-for-coding-2026" }
+      ]
+    },
+    {
+      "id": "image",
+      "icon": "🎨",
+      "name_th": "สร้างภาพ",
+      "summary_th": "การสร้างภาพตอนนี้เก่งเรื่องภาพสมจริง ภาพสไตล์ศิลปะ และในที่สุดก็เขียนตัวอักษรในภาพให้อ่านออกได้แล้ว แต่ไม่มีตัวไหนชนะทุกด้าน มืออาชีพเลยผสมใช้หลายตัวตามงาน",
+      "scale_note_th": "อ้างอิง Elo จาก Artificial Analysis Image Arena (คนโหวตภาพจาก prompt เดียวกันแบบไม่รู้ที่มา)",
+      "tools": [
+        { "name": "GPT Image 2 (high)", "stars": 5, "score_label": "Elo ~1338 (Artificial Analysis, #1)", "verdict_th": "อันดับ 1 ทั้งสร้างภาพและแก้ไขภาพ ทิ้งห่างอันดับ 2 มากที่สุดเท่าที่กระดานเคยบันทึก" },
+        { "name": "Reve 2.0", "stars": 4.5, "score_label": "Elo 1278 (#2)", "verdict_th": "อันดับ 2 บนกระดาน คุณภาพรองจาก GPT Image 2 ไม่มาก" },
+        { "name": "Nano Banana 2 Lite (Gemini)", "stars": 4, "score_label": "Elo 1260 (ท็อป 5)", "verdict_th": "ติดท็อป 5 จุดเด่นคือเร็วและถูก" },
+        { "name": "Midjourney v7", "stars": 4, "score_label": "ไม่ติดอันดับต้นบน Elo", "verdict_th": "ขึ้นชื่อเรื่องภาพสไตล์ภาพยนตร์/บรรณาธิการที่ \"มีอารมณ์\" ที่สุด จุดอ่อนคือเขียนตัวอักษรในภาพยังไม่แม่น (~30-40%)" },
+        { "name": "FLUX", "stars": 4, "score_label": "ไม่มี Elo อย่างเป็นทางการ", "verdict_th": "สมจริงที่สุด แนวภาพถ่ายจริงมากกว่าภาพวาด เหมาะงานสินค้า/ภาพสมจริง" },
+        { "name": "Ideogram V3", "stars": 4, "score_label": "แม่นตัวอักษรในภาพ ~90-95%", "verdict_th": "เขียนตัวอักษรในภาพแม่นที่สุด ตัวเดียวที่มืออาชีพเชื่อใจงานโปสเตอร์/ตัวอักษร" }
+      ],
+      "sources": [
+        { "title": "Text to Image Leaderboard - Artificial Analysis", "url": "https://artificialanalysis.ai/image/leaderboard/text-to-image" },
+        { "title": "Midjourney vs FLUX vs Ideogram v3", "url": "https://www.aimagicx.com/blog/midjourney-vs-flux-vs-ideogram-image-comparison-2026" }
+      ]
+    },
+    {
+      "id": "video",
+      "icon": "🎬",
+      "name_th": "สร้างวิดีโอ",
+      "summary_th": "วิดีโอจาก AI ตอนนี้ยาวประมาณ 5-15 วินาทีต่อคลิป สมจริงขึ้นมาก (ผม ของเหลว ผ้า) มีเสียงประกอบ/พูดในตัว และตัดต่อหลายช็อตต่อเนื่องกันได้ดีขึ้น จุดที่ยังจำกัดคือความยาวคลิปและความสม่ำเสมอของตัวละคร/วัตถุข้ามช็อต",
+      "scale_note_th": "อ้างอิง Elo จาก Artificial Analysis Video Arena — ข้อสังเกต: ตัวที่ Elo สูงสุดจริงๆ ไม่ใช่ตัวที่คนพูดถึงเยอะที่สุดเสมอไป",
+      "tools": [
+        { "name": "Veo 3.1 (Google)", "stars": 5, "score_label": "แนะนำมากสุดในรีวิวทั่วไป (ไม่ใช่ Elo #1)", "verdict_th": "ทำตาม prompt แม่น มีเสียง 48kHz และภาพ 4K ตัวเลือกอเนกประสงค์ที่แนะนำที่สุด" },
+        { "name": "Kling 3.0", "stars": 4.5, "score_label": "Elo 1112 (ท็อป 5) · เริ่ม $0.10-0.84/คลิป 10 วิ", "verdict_th": "คุ้มค่าที่สุด ความสม่ำเสมอหลายช็อตดี" },
+        { "name": "Runway Gen-4.5", "stars": 4, "score_label": "ไม่มี Elo เปิดเผยชัด", "verdict_th": "เหมาะงานมืออาชีพ ควบคุมได้ละเอียด (motion brush, คุมตัวละครจากภาพอ้างอิง)" },
+        { "name": "Dreamina Seedance 2.0", "stars": 4, "score_label": "Elo 1226 (อันดับ 1 จริงบนกระดาน)", "verdict_th": "อันดับ 1 จริงตาม Elo แต่ยังไม่ค่อยเป็นที่รู้จักเท่าตัวอื่น" },
+        { "name": "⚠️ OpenAI Sora", "stars": 1, "score_label": "เลิกให้บริการ", "verdict_th": "เว็บ/แอปปิดไปแล้วเม.ย. 2569 และ API จะปิดก.ย. 2569 — ไม่แนะนำให้เลือกใช้อีกต่อไป" }
+      ],
+      "sources": [
+        { "title": "Text to Video Leaderboard - Artificial Analysis", "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video" },
+        { "title": "Best AI Video Generator 2026", "url": "https://aiviewer.ai/guides/best-ai-video-generator-2026-sora-runway-veo-pika-and-kling-compared/" }
+      ]
+    },
+    {
+      "id": "music",
+      "icon": "🎵",
+      "name_th": "สร้างเพลง",
+      "summary_th": "การสร้างเพลงด้วย AI พัฒนาไวกว่าที่คาด ตอนนี้มีสนามประลองแบบโหวตจริงรองรับแล้ว ไม่ใช่แค่คำโฆษณา คุณภาพเสียงร้องและโครงเพลงทั้งเพลงดีขึ้นมาก จุดที่ยังต่างกันเยอะคือเรื่องลิขสิทธิ์/สิทธิ์การใช้เชิงพาณิชย์",
+      "scale_note_th": "อ้างอิง Elo จาก Artificial Analysis Music Arena แยกคะแนนดนตรีบรรเลงกับเสียงร้อง",
+      "tools": [
+        { "name": "Suno (v5.5)", "stars": 5, "score_label": "Elo บรรเลง 1113 · ร้อง 1156 (#1 ทั้งคู่)", "verdict_th": "แชมป์ทั้งดนตรีบรรเลงและร้อง ฐานผู้ใช้ใหญ่ที่สุด สร้างเพลงเต็มได้เร็วที่สุด แต่ยังมีคดีความกับ Sony Music อยู่ (คาดตัดสินกลางปี 2569)" },
+        { "name": "Udio (v1.5 Allegro)", "stars": 4.5, "score_label": "มีสัญญาลิขสิทธิ์กับ Universal/Warner", "verdict_th": "เหมาะคนอยากควบคุมละเอียด (แก้เฉพาะช่วง 2 วิได้) เสียงร้องเป็นธรรมชาติกว่า ปลอดภัยกว่าเชิงพาณิชย์" },
+        { "name": "Eleven Music", "stars": 4, "score_label": "Elo บรรเลง 1062 (#2)", "verdict_th": "ม้ามืดจากทีม ElevenLabs ที่ถนัดเทคโนโลยีเสียงอยู่แล้ว" },
+        { "name": "Mureka V8", "stars": 4, "score_label": "Elo ร้อง 1144 (#2)", "verdict_th": "เสียงร้องดีเกินคาด แต่ยังไม่ค่อยมีคนรู้จัก" },
+        { "name": "Google Lyria 3 Pro", "stars": 3.5, "score_label": "Elo ร้อง 1089 (#3)", "verdict_th": "กลางๆ ค่อนไปทางดี อยู่ในระบบนิเวศ Gemini" }
+      ],
+      "sources": [
+        { "title": "Music Arena Leaderboard - Artificial Analysis", "url": "https://artificialanalysis.ai/music/arena?tab=leaderboard" },
+        { "title": "AI Music Generator Comparison 2026", "url": "https://www.chartlex.com/blog/marketing/ai-music-generator-comparison-2026" }
+      ]
+    },
+    {
+      "id": "code",
+      "icon": "💻",
+      "name_th": "เขียนโค้ด",
+      "summary_th": "AI เขียนโค้ดตอนนี้ข้ามจาก \"เดาคำต่อไป\" ไปเป็น \"ทำงานวิศวกรซอฟต์แวร์ให้แบบอัตโนมัติ\" แก้หลายไฟล์ รันเทส รันคำสั่ง terminal เองได้ ส่งงานพร้อมใช้ จุดที่ยังอ่อนคือการตัดสินใจสถาปัตยกรรมใหม่ๆ ที่ไม่เคยเจอมาก่อน กับโค้ดเก่าขนาดใหญ่มากที่ต้องมีคนช่วยชี้ทาง",
+      "scale_note_th": "เกณฑ์เดิม SWE-bench Verified เริ่มอิ่มตัว/มีข้อสงสัยเรื่องข้อมูลรั่ว วงการเลยขยับไปใช้ SWE-bench Pro ที่ยากและน่าเชื่อถือกว่า ตัวเลขด้านล่างเป็นค่าที่มีแหล่งอ้างอิงตรงกันอย่างน้อย 2 แห่งเท่านั้น (ตัดตัวเลขที่ดูเหมือนบทความ SEO ปั่นออกแล้ว)",
+      "tools": [
+        { "name": "Claude Opus 4.8", "stars": 5, "score_label": "SWE-bench Verified 88.6% · SWE-bench Pro 69.2%", "verdict_th": "แชมป์ที่ถูกอ้างอิงมากที่สุด เหตุผลลึกเหมาะงาน refactor ซับซ้อน" },
+        { "name": "Claude Code", "stars": 5, "score_label": "หน้าต่างบริบทถึง 1 ล้าน token", "verdict_th": "เครื่องมือ agent ทำงานผ่าน terminal โดยตรง คุมภาพรวมทั้งโปรเจกต์ได้ (เว็บนี้สร้างด้วยตัวนี้)" },
+        { "name": "GPT-5.6 (Sol/Terra/Luna)", "stars": 4, "score_label": "SWE-bench Pro 64.6% / 63.4% / 62.7%", "verdict_th": "3 ระดับราคา/ความสามารถ ตัว agent (Codex) ทำงานแบบ cloud มอบงานแล้วรอผลเป็น PR" },
+        { "name": "Cursor", "stars": 4, "score_label": "เลือกโมเดลได้หลายตัว", "verdict_th": "editor ที่ใช้ได้หลายโมเดล (GPT-5.5, Opus 4.8, Gemini 3.1 Pro, Grok) เหมาะงานเขียนโค้ดประจำวันในตัว IDE" },
+        { "name": "Gemini 3.1 Pro", "stars": 4, "score_label": "SWE-bench Verified ~80.6%", "verdict_th": "อีกตัวเลือกระดับต้น อยู่ในระบบนิเวศ Google" }
+      ],
+      "sources": [
+        { "title": "SWE-bench Pro Leaderboard", "url": "https://www.morphllm.com/swe-bench-pro" },
+        { "title": "SWE-bench (official)", "url": "https://www.swebench.com/" }
+      ]
+    }
+  ]
+}

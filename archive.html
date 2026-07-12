@@ -134,6 +134,21 @@ summary { cursor: pointer; font-weight: 700; padding: 4px 0; color: var(--text);
 .champ-power { font-size: 22px; font-weight: 800; color: var(--major); }
 .champ-power span { font-variant-numeric: tabular-nums; }
 .champ-detail { font-size: 11.5px; color: var(--text-dim); margin-top: 6px; }
+.cap-methodology { font-size: 13px; color: var(--text-dim); line-height: 1.7; border: 1px dashed var(--border); border-radius: 10px; padding: 12px 14px; margin-bottom: 26px; }
+.cap-category { margin-bottom: 34px; }
+.cap-category h2 { font-size: 19px; margin: 0 0 8px; }
+.cap-summary { font-size: 14.5px; line-height: 1.75; margin: 0 0 10px; opacity: 0.92; }
+.cap-scale-note { font-size: 12.5px; color: var(--text-dim); margin-bottom: 14px; }
+.cap-tool-grid { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 10px; }
+.cap-tool-card { flex: 1; min-width: 210px; max-width: 260px; border: 1px solid var(--border); border-radius: 14px; padding: 16px; background: linear-gradient(160deg, color-mix(in srgb, var(--accent) 8%, var(--card-bg)), var(--card-bg)); }
+.cap-tool-rank { font-size: 18px; margin-bottom: 2px; }
+.cap-tool-name { font-weight: 700; font-size: 14.5px; margin-bottom: 4px; }
+.cap-stars { color: var(--major); font-size: 15px; letter-spacing: 1px; margin-bottom: 4px; }
+.cap-score-label { font-size: 11.5px; color: var(--text-dim); margin-bottom: 8px; }
+.cap-verdict { font-size: 13px; line-height: 1.6; margin: 0; opacity: 0.9; }
+.cap-sources { font-size: 12px; color: var(--text-dim); }
+.cap-sources a { color: var(--accent); text-decoration: none; }
+.cap-sources a:hover { text-decoration: underline; }
 .dogfight-wrap { border: 1px solid var(--border); border-radius: 20px; padding: 8px; margin-bottom: 14px; background: radial-gradient(ellipse at center, color-mix(in srgb, var(--accent) 5%, transparent), transparent 70%); }
 .dogfight-wrap canvas { display: block; width: 100%; height: 190px; border-radius: 14px; }
 @media (max-width: 520px) { .dogfight-wrap canvas { height: 150px; } }
@@ -192,7 +207,7 @@ summary { cursor: pointer; font-weight: 700; padding: 4px 0; color: var(--text);
 <div class="accent-picker" id="accentPicker"></div>
 <button id="followToggle" class="follow-toggle">⚙️ ติดตามเฉพาะบริษัท</button>
 <div id="followPanel" class="follow-panel"></div>
-<nav><a href="index.html" class="">วันนี้</a><a href="weekly.html" class="">รายสัปดาห์</a><a href="archive.html" class="active">คลังข่าวย้อนหลัง</a><a href="stats.html" class="">สถิติ</a><a href="timeline.html" class="">ไทม์ไลน์</a><a href="wrapped.html" class="">สรุปประจำเดือน</a><a href="quiz.html" class="">ควิซ</a><a href="bookmarks.html" class="">บันทึกไว้อ่าน</a></nav>
+<nav><a href="index.html" class="">วันนี้</a><a href="weekly.html" class="">รายสัปดาห์</a><a href="archive.html" class="active">คลังข่าวย้อนหลัง</a><a href="stats.html" class="">สถิติ</a><a href="timeline.html" class="">ไทม์ไลน์</a><a href="wrapped.html" class="">สรุปประจำเดือน</a><a href="capabilities.html" class="">ความสามารถ AI</a><a href="quiz.html" class="">ควิซ</a><a href="bookmarks.html" class="">บันทึกไว้อ่าน</a></nav>
 <h1>คลังข่าว AI ย้อนหลัง</h1>
 <input type="text" id="searchBox" class="search-box" placeholder="🔎 ค้นหาข่าวเก่า... (หัวข้อ/สรุป/บริษัท)">
 <div id="searchEmpty" class="empty" hidden>ไม่พบข่าวที่ตรงกับคำค้นหา</div>
