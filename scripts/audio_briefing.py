@@ -40,7 +40,7 @@ THAI_MONTHS = [
     "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม",
 ]
 
-CO_HOST_REACTIONS = ["โอ้โห น่าสนใจมากครับ", "ว้าว ข่าวนี้เด็ดเลย", "น่าติดตามจริงๆ", "อันนี้ห้ามพลาดเลยนะ"]
+CO_HOST_REACTIONS = ["โอ้โห น่าสนใจมากเลยค่ะ", "ว้าว ข่าวนี้เด็ดเลย", "น่าติดตามจริงๆ", "อันนี้ห้ามพลาดเลยนะ"]
 
 
 def spoken_thai_date(date_str: str) -> str:
@@ -77,9 +77,9 @@ def build_script(items: list, date_str: str, is_stale: bool) -> str:
 
     spoken_date = spoken_thai_date(date_str)
     if is_stale:
-        intro = f"สวัสดีครับ ตอนนี้ยังไม่มีข่าวของวันนี้ นี่คือข่าวล่าสุดที่มี ประจำวันที่ {spoken_date} มีข่าวทั้งหมด {len(items)} ข่าว"
+        intro = f"สวัสดีค่ะ ตอนนี้ยังไม่มีข่าวของวันนี้ นี่คือข่าวล่าสุดที่มี ประจำวันที่ {spoken_date} มีข่าวทั้งหมด {len(items)} ข่าว"
     else:
-        intro = f"สวัสดีครับ นี่คือสรุปข่าว AI ประจำวันที่ {spoken_date} มีข่าวทั้งหมด {len(items)} ข่าว"
+        intro = f"สวัสดีค่ะ นี่คือสรุปข่าว AI ประจำวันที่ {spoken_date} มีข่าวทั้งหมด {len(items)} ข่าว"
     lines = [intro]
 
     if major:
@@ -93,7 +93,7 @@ def build_script(items: list, date_str: str, is_stale: bool) -> str:
             label = CATEGORY_LABELS_TH.get(item.get("category", "other"), "ข่าวทั่วไป")
             lines.append(f"ข่าว{label}: {item.get('title_th', '')}. {item.get('summary_th', '')}")
 
-    lines.append("จบสรุปข่าวครับ")
+    lines.append("จบสรุปข่าวค่ะ")
     return " ".join(lines)
 
 
@@ -181,8 +181,8 @@ def generate_and_play_dialogue(play: bool = True) -> str:
     major = [i for i in use_items if i.get("importance") == "major"]
     normal = [i for i in use_items if i.get("importance") != "major"]
 
-    host_intro = f"สวัสดีครับ ผมพิธีกรจาก MEW Station นี่คือสรุปข่าว AI ประจำวันที่ {spoken_date}" if not is_stale \
-        else f"สวัสดีครับ วันนี้ยังไม่มีข่าวใหม่ นี่คือข่าวล่าสุดที่มี ประจำวันที่ {spoken_date}"
+    host_intro = f"สวัสดีค่ะ ดิฉันพิธีกรจาก MEW Station นี่คือสรุปข่าว AI ประจำวันที่ {spoken_date}" if not is_stale \
+        else f"สวัสดีค่ะ วันนี้ยังไม่มีข่าวใหม่ นี่คือข่าวล่าสุดที่มี ประจำวันที่ {spoken_date}"
     audio += tts_segment(host_intro) + AudioSegment.silent(duration=200)
     audio += tts_segment(f"มีข่าวทั้งหมด {len(use_items)} ข่าววันนี้ค่ะ", pitch_up=True) + AudioSegment.silent(duration=250)
 
@@ -194,7 +194,7 @@ def generate_and_play_dialogue(play: bool = True) -> str:
         reaction = CO_HOST_REACTIONS[idx % len(CO_HOST_REACTIONS)]
         audio += tts_segment(reaction, pitch_up=True) + AudioSegment.silent(duration=300)
 
-    audio += tts_segment("วันนี้ก็จบสรุปข่าวแค่นี้ครับ แล้วเจอกันใหม่") + AudioSegment.silent(duration=150)
+    audio += tts_segment("วันนี้ก็จบสรุปข่าวแค่นี้ค่ะ แล้วเจอกันใหม่") + AudioSegment.silent(duration=150)
     audio += tts_segment("บ๊ายบายค่ะ", pitch_up=True)
 
     mp3_path = os.path.join(AUDIO_DIR, f"{use_date}_dialogue.mp3")
