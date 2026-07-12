@@ -438,10 +438,25 @@ function waitForVoices() {
     }, 150);
   });
 }
-function pickThaiVoice() {
-  return _voiceCache.find(v => v.lang && v.lang.toLowerCase().startsWith('th')) || null;
+function pickVoiceForLang(prefix) {
+  return _voiceCache.find(v => v.lang && v.lang.toLowerCase().startsWith(prefix)) || null;
 }
-const NO_THAI_VOICE_MSG = 'เครื่อง/เบราว์เซอร์นี้ไม่มีเสียงพูดภาษาไทยติดตั้งไว้ ลองเปิดเว็บนี้จากมือถือแทนดูครับ (Android/iPhone ส่วนใหญ่มีเสียงไทยอยู่แล้ว) หรือลองเปลี่ยนเป็น Chrome/Edge บนคอม';
+function pickThaiVoice() {
+  return pickVoiceForLang('th');
+}
+function currentSiteLang() {
+  const m = document.cookie.match(/googtrans=\/th\/(\w+)/);
+  return (m && m[1] === 'en') ? 'en' : 'th';
+}
+function pickSpeechVoice() {
+  if (currentSiteLang() === 'en') {
+    const en = pickVoiceForLang('en');
+    if (en) return { voice: en, lang: en.lang };
+  }
+  const th = pickThaiVoice();
+  return th ? { voice: th, lang: 'th-TH' } : null;
+}
+const NO_THAI_VOICE_MSG = 'เครื่อง/เบราว์เซอร์นี้ไม่มีเสียงพูดที่ใช้งานได้ ลองเปิดเว็บนี้จากมือถือแทนดูครับ (Android/iPhone ส่วนใหญ่มีเสียงไทยอยู่แล้ว) หรือลองเปลี่ยนเป็น Chrome/Edge บนคอม';
 async function speakBookmarked() {
   if (!('speechSynthesis' in window)) {
     alert('เบราว์เซอร์นี้ไม่รองรับการอ่านออกเสียง ลองเปิดจาก Chrome หรือ Safari บนมือถือดูครับ');
@@ -450,16 +465,16 @@ async function speakBookmarked() {
   const cards = [...document.querySelectorAll('.card')].filter(c => c.style.display !== 'none');
   if (!cards.length) { alert('ยังไม่มีข่าวที่บันทึกไว้ให้ฟัง'); return; }
   await waitForVoices();
-  const thaiVoice = pickThaiVoice();
-  if (!thaiVoice) { alert(NO_THAI_VOICE_MSG); return; }
+  const picked = pickSpeechVoice();
+  if (!picked) { alert(NO_THAI_VOICE_MSG); return; }
   window.speechSynthesis.cancel();
   const btn = document.getElementById('speakBookmarks');
   cards.forEach((card, idx) => {
     const title = card.querySelector('h3 a')?.textContent || '';
     const summary = card.querySelector('p')?.textContent || '';
     const utter = new SpeechSynthesisUtterance(`${title}. ${summary}`);
-    utter.lang = 'th-TH';
-    utter.voice = thaiVoice;
+    utter.lang = picked.lang;
+    utter.voice = picked.voice;
     if (idx === 0 && btn) utter.onstart = () => { btn.textContent = '⏸ กำลังอ่าน... (กดเพื่อหยุด)'; };
     if (idx === cards.length - 1 && btn) utter.onend = () => { btn.textContent = '🔊 ฟังข่าวที่บันทึกไว้ทั้งหมด'; };
     window.speechSynthesis.speak(utter);
@@ -476,7 +491,32 @@ document.getElementById('speakBookmarks')?.addEventListener('click', () => {
 });
 </script>
 <script>
-const CO_HOST_REACTIONS = ['โอ้โห น่าสนใจมากเลยค่ะ', 'ว้าว ข่าวนี้เด็ดเลย', 'น่าติดตามจริงๆ', 'อันนี้ห้ามพลาดเลยนะ'];
+const DIALOGUE_TEXT = {
+  th: {
+    greetingFresh: title => `สวัสดีค่ะ ดิฉันพิธีกรจาก MEW Station ${title}`,
+    greetingStale: 'สวัสดีค่ะ ดิฉันพิธีกรจาก MEW Station วันนี้ยังไม่มีข่าวใหม่ค่ะ แต่จะขอนำข่าวล่าสุดที่มีมาสรุปให้ฟังกันนะคะ',
+    count: n => `มีข่าวทั้งหมด ${n} ข่าววันนี้ค่ะ`,
+    reactions: ['โอ้โห น่าสนใจมากเลยค่ะ', 'ว้าว ข่าวนี้เด็ดเลย', 'น่าติดตามจริงๆ', 'อันนี้ห้ามพลาดเลยนะ'],
+    closing: 'วันนี้ก็จบสรุปข่าวแค่นี้ค่ะ แล้วเจอกันใหม่',
+    bye: 'บ๊ายบายค่ะ',
+    noVoice: 'เบราว์เซอร์นี้ไม่รองรับการอ่านออกเสียง',
+    noNews: 'ไม่มีข่าววันนี้ให้ฟัง',
+    listeningBtn: '⏸ กำลังฟัง... (กดเพื่อหยุด)',
+    idleBtn: '🎙️ ฟังแบบ 2 พิธีกร',
+  },
+  en: {
+    greetingFresh: title => `Hello, I'm your host from MEW Station. ${title}`,
+    greetingStale: "Hello, I'm your host from MEW Station. There's no new news today, but I'll go ahead and read you the latest news we have.",
+    count: n => `There ${n === 1 ? 'is' : 'are'} ${n} ${n === 1 ? 'story' : 'stories'} today.`,
+    reactions: ["Wow, that's really interesting.", 'This story is great.', "That's definitely worth following.", "Don't miss this one."],
+    closing: "That wraps up today's news. See you next time.",
+    bye: 'Bye for now.',
+    noVoice: "This browser doesn't support reading text aloud.",
+    noNews: 'There is no news to listen to today.',
+    listeningBtn: '⏸ Listening... (click to stop)',
+    idleBtn: '🎙️ Listen with 2 hosts',
+  },
+};
 
 function playJingle() {
   return new Promise(resolve => {
@@ -502,17 +542,16 @@ function playJingle() {
 let _dialogueActive = false;
 let _dialogueStop = false;
 
-function speakQueue(lines) {
+function speakQueue(lines, picked) {
   return new Promise(resolve => {
     let i = 0;
     function next() {
       if (_dialogueStop || i >= lines.length) { resolve(); return; }
       const [text, pitch] = lines[i++];
       const utter = new SpeechSynthesisUtterance(text);
-      utter.lang = 'th-TH';
+      utter.lang = picked.lang;
       utter.pitch = pitch;
-      const thaiVoice = pickThaiVoice();
-      if (thaiVoice) utter.voice = thaiVoice;
+      utter.voice = picked.voice;
       utter.onend = next;
       utter.onerror = next;
       window.speechSynthesis.speak(utter);
@@ -523,38 +562,42 @@ function speakQueue(lines) {
 
 document.getElementById('dialogueListen')?.addEventListener('click', async (e) => {
   const btn = e.currentTarget;
+  const lang = currentSiteLang();
+  const T = DIALOGUE_TEXT[lang];
   if (_dialogueActive) {
     _dialogueStop = true;
     window.speechSynthesis.cancel();
     _dialogueActive = false;
-    btn.textContent = '🎙️ ฟังแบบ 2 พิธีกร';
+    btn.textContent = T.idleBtn;
     return;
   }
-  if (!('speechSynthesis' in window)) { alert('เบราว์เซอร์นี้ไม่รองรับการอ่านออกเสียง'); return; }
+  if (!('speechSynthesis' in window)) { alert(T.noVoice); return; }
   await waitForVoices();
-  if (!pickThaiVoice()) { alert(NO_THAI_VOICE_MSG); return; }
+  const picked = pickSpeechVoice();
+  if (!picked) { alert(NO_THAI_VOICE_MSG); return; }
   window.speechSynthesis.cancel();
   const items = [...document.querySelectorAll('.card')].filter(c => c.style.display !== 'none');
-  if (!items.length) { alert('ไม่มีข่าววันนี้ให้ฟัง'); return; }
+  if (!items.length) { alert(T.noNews); return; }
   _dialogueActive = true;
   _dialogueStop = false;
-  btn.textContent = '⏸ กำลังฟัง... (กดเพื่อหยุด)';
+  btn.textContent = T.listeningBtn;
+  const isStale = !!document.querySelector('.freshness.stale');
   const lines = [];
   const title0 = document.querySelector('h1')?.textContent || '';
-  lines.push([`สวัสดีค่ะ ดิฉันพิธีกรจาก MEW Station ${title0}`, 1.0]);
-  lines.push([`มีข่าวทั้งหมด ${items.length} ข่าววันนี้ค่ะ`, 1.25]);
+  lines.push([isStale ? T.greetingStale : T.greetingFresh(title0), 1.0]);
+  lines.push([T.count(items.length), 1.25]);
   items.forEach((card, idx) => {
     const t = card.querySelector('h3 a')?.textContent || '';
     const s = card.querySelector('p')?.textContent || '';
     lines.push([`${t}. ${s}`, 1.0]);
-    lines.push([CO_HOST_REACTIONS[idx % CO_HOST_REACTIONS.length], 1.25]);
+    lines.push([T.reactions[idx % T.reactions.length], 1.25]);
   });
-  lines.push(['วันนี้ก็จบสรุปข่าวแค่นี้ค่ะ แล้วเจอกันใหม่', 1.0]);
-  lines.push(['บ๊ายบายค่ะ', 1.25]);
+  lines.push([T.closing, 1.0]);
+  lines.push([T.bye, 1.25]);
   await playJingle();
-  await speakQueue(lines);
+  await speakQueue(lines, picked);
   _dialogueActive = false;
-  btn.textContent = '🎙️ ฟังแบบ 2 พิธีกร';
+  btn.textContent = T.idleBtn;
 });
 </script>
 <script>
@@ -569,13 +612,17 @@ document.querySelectorAll('.listen-btn').forEach(btn => btn.addEventListener('cl
     return;
   }
   await waitForVoices();
-  const thaiVoice = pickThaiVoice();
-  if (!thaiVoice) { alert(NO_THAI_VOICE_MSG); return; }
+  const picked = pickSpeechVoice();
+  if (!picked) { alert(NO_THAI_VOICE_MSG); return; }
   window.speechSynthesis.cancel();
   document.querySelectorAll('.listen-btn.speaking').forEach(b => b.classList.remove('speaking'));
-  const utter = new SpeechSynthesisUtterance(btn.dataset.text);
-  utter.lang = 'th-TH';
-  utter.voice = thaiVoice;
+  const card = btn.closest('.card');
+  const title = card?.querySelector('h3 a')?.textContent || '';
+  const summary = card?.querySelector('p')?.textContent || '';
+  const text = (title || summary) ? `${title}. ${summary}` : btn.dataset.text;
+  const utter = new SpeechSynthesisUtterance(text);
+  utter.lang = picked.lang;
+  utter.voice = picked.voice;
   utter.onstart = () => btn.classList.add('speaking');
   utter.onend = () => btn.classList.remove('speaking');
   window.speechSynthesis.speak(utter);
