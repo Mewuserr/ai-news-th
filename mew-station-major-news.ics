@@ -4,7 +4,7 @@ PRODID:-//MEW Station//AI News TH//EN
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:20260711-0@mewuserr.github.io
-DTSTAMP:20260712T114610Z
+DTSTAMP:20260712T124436Z
 DTSTART;VALUE=DATE:20260711
 DTEND;VALUE=DATE:20260712
 SUMMARY:🔥 OpenAI เปิดตัวโมเดลตระกูล GPT-5.6 (Sol\, Terra\, Luna) ให้ใช้งานทั่วไป
@@ -13,7 +13,7 @@ URL:https://openai.com/index/previewing-gpt-5-6-sol/
 END:VEVENT
 BEGIN:VEVENT
 UID:20260711-1@mewuserr.github.io
-DTSTAMP:20260712T114610Z
+DTSTAMP:20260712T124436Z
 DTSTART;VALUE=DATE:20260711
 DTEND;VALUE=DATE:20260712
 SUMMARY:🔥 รายงาน AI Safety Index ชี้บริษัท AI รายใหญ่ถอยห่างจากคำมั่นด้านความปลอดภัย

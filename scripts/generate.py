@@ -471,25 +471,21 @@ const DIALOGUE_TEXT = {
     greetingFresh: title => `สวัสดีค่ะ ดิฉันพิธีกรจาก MEW Station ${title}`,
     greetingStale: 'สวัสดีค่ะ ดิฉันพิธีกรจาก MEW Station วันนี้ยังไม่มีข่าวใหม่ค่ะ แต่จะขอนำข่าวล่าสุดที่มีมาสรุปให้ฟังกันนะคะ',
     count: n => `มีข่าวทั้งหมด ${n} ข่าววันนี้ค่ะ`,
-    reactions: ['โอ้โห น่าสนใจมากเลยค่ะ', 'ว้าว ข่าวนี้เด็ดเลย', 'น่าติดตามจริงๆ', 'อันนี้ห้ามพลาดเลยนะ'],
     closing: 'วันนี้ก็จบสรุปข่าวแค่นี้ค่ะ แล้วเจอกันใหม่',
-    bye: 'บ๊ายบายค่ะ',
     noVoice: 'เบราว์เซอร์นี้ไม่รองรับการอ่านออกเสียง',
     noNews: 'ไม่มีข่าววันนี้ให้ฟัง',
     listeningBtn: '⏸ กำลังฟัง... (กดเพื่อหยุด)',
-    idleBtn: '🎙️ ฟังแบบ 2 พิธีกร',
+    idleBtn: '🎙️ ฟังพิธีกรอ่านข่าว',
   },
   en: {
     greetingFresh: title => `Hello, I'm your host from MEW Station. ${title}`,
     greetingStale: "Hello, I'm your host from MEW Station. There's no new news today, but I'll go ahead and read you the latest news we have.",
     count: n => `There ${n === 1 ? 'is' : 'are'} ${n} ${n === 1 ? 'story' : 'stories'} today.`,
-    reactions: ["Wow, that's really interesting.", 'This story is great.', "That's definitely worth following.", "Don't miss this one."],
     closing: "That wraps up today's news. See you next time.",
-    bye: 'Bye for now.',
     noVoice: "This browser doesn't support reading text aloud.",
     noNews: 'There is no news to listen to today.',
     listeningBtn: '⏸ Listening... (click to stop)',
-    idleBtn: '🎙️ Listen with 2 hosts',
+    idleBtn: '🎙️ Listen to the host read the news',
   },
 };
 
@@ -560,15 +556,13 @@ document.getElementById('dialogueListen')?.addEventListener('click', async (e) =
   const lines = [];
   const title0 = document.querySelector('h1')?.textContent || '';
   lines.push([isStale ? T.greetingStale : T.greetingFresh(title0), 1.0]);
-  lines.push([T.count(items.length), 1.25]);
-  items.forEach((card, idx) => {
+  lines.push([T.count(items.length), 1.0]);
+  items.forEach(card => {
     const t = card.querySelector('h3 a')?.textContent || '';
     const s = card.querySelector('p')?.textContent || '';
     lines.push([`${t}. ${s}`, 1.0]);
-    lines.push([T.reactions[idx % T.reactions.length], 1.25]);
   });
   lines.push([T.closing, 1.0]);
-  lines.push([T.bye, 1.25]);
   await playJingle();
   await speakQueue(lines, picked);
   _dialogueActive = false;
@@ -1278,7 +1272,7 @@ def build_index(all_items):
     tool_row = f"""<div class="tool-row">
 <button id="randomOldNews" class="tool-btn">🎲 สุ่มข่าวเก่า</button>
 <button id="quickReadToggle" class="tool-btn">⚡ อ่านเร็ว 60 วิ</button>
-<button id="dialogueListen" class="tool-btn">🎙️ ฟังแบบ 2 พิธีกร</button>
+<button id="dialogueListen" class="tool-btn">🎙️ ฟังพิธีกรอ่านข่าว</button>
 <button id="qrToggle" class="tool-btn">📱 สแกนเปิดมือถือ</button>
 <a href="mew-station-major-news.ics" class="tool-btn ics-btn" download>📅 บันทึกข่าวใหญ่ลงปฏิทิน</a>
 </div>
