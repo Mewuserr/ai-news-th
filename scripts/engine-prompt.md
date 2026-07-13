@@ -14,7 +14,7 @@
 ## 1. ค้นข่าว AI ล่าสุด
 ค้นหาข่าวที่ประกาศ/เผยแพร่ภายใน ~24-48 ชั่วโมงที่ผ่านมา จากสองกลุ่มแหล่งข่าว:
 
-**แหล่งทางการ (เช็คตรงหน้าข่าว/บล็อกของแต่ละเจ้า ผ่าน WebFetch หรือ WebSearch `site:` ก็ได้):**
+**แหล่งทางการฝั่งตะวันตก (เช็คตรงหน้าข่าว/บล็อกของแต่ละเจ้า ผ่าน WebFetch หรือ WebSearch `site:` ก็ได้):**
 - OpenAI — openai.com/news
 - Anthropic — anthropic.com/news
 - Google DeepMind — deepmind.google/discover/blog
@@ -24,11 +24,18 @@
 - Mistral AI — mistral.ai/news
 - Hugging Face — huggingface.co/blog
 
+**แหล่งทางการฝั่งจีน/เอเชีย (เพิ่ม 2026-07-13 — เดิมขาดไปทั้งที่เป็นผู้เล่นระดับท็อปจริง เช่น DeepSeek/Qwen ที่ติดอันดับสูงใน capabilities.html เว็บทางการส่วนใหญ่เป็นภาษาจีน ใช้ WebSearch หาข่าวแปล/สื่อรองแทนได้):**
+- DeepSeek — WebSearch "DeepSeek new model announcement"
+- Alibaba Qwen — qwen.ai/blog หรือ WebSearch "Alibaba Qwen new model"
+- Zhipu AI / Z.ai (GLM) — WebSearch "Zhipu AI GLM announcement"
+- Moonshot AI (Kimi) — WebSearch "Moonshot AI Kimi announcement"
+
 **สื่อเทคทั่วไป (ใช้ WebSearch หา "AI news today" หรือ site-specific):**
 - TechCrunch (AI section)
 - The Verge (AI section)
 - VentureBeat (AI section)
 - Ars Technica (AI tag)
+- South China Morning Post (Tech section) — ครอบข่าว AI จีนที่สื่อตะวันตกอาจพลาด
 
 **แหล่งข่าวอวกาศ (เพิ่มเข้ามาตามคำขอผู้ใช้ 2026-07-13 — ค้นทุกวันเหมือนข่าว AI ถ้ามีข่าวจริง ไม่ต้องมีก็ได้ถ้าวันนั้นไม่มีอะไรน่าสนใจ ครอบคลุมทั่วโลก ไม่ใช่แค่ฝั่งตะวันตก):**
 
