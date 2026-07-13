@@ -1411,9 +1411,13 @@ COMPANY_REGION = {
     "The Verge": "🇺🇸 สหรัฐฯ (สื่อ)", "VentureBeat": "🇺🇸 สหรัฐฯ (สื่อ)", "Ars Technica": "🇺🇸 สหรัฐฯ (สื่อ)",
     "Future of Life Institute": "🇺🇸 สหรัฐฯ (องค์กร)",
     "Mistral AI": "🇫🇷 ฝรั่งเศส", "Mistral": "🇫🇷 ฝรั่งเศส",
-    "DeepSeek": "🇨🇳 จีน", "Alibaba": "🇨🇳 จีน", "Alibaba Cloud": "🇨🇳 จีน",
-    "Baidu": "🇨🇳 จีน", "Tencent": "🇨🇳 จีน", "ByteDance": "🇨🇳 จีน", "Z.ai": "🇨🇳 จีน",
-    "EU Commission": "🇪🇺 ยุโรป (นโยบาย)",
+    "DeepSeek": "🇨🇳 จีน", "Alibaba": "🇨🇳 จีน", "Alibaba Cloud": "🇨🇳 จีน", "Alibaba Qwen": "🇨🇳 จีน", "Qwen": "🇨🇳 จีน",
+    "Baidu": "🇨🇳 จีน", "Tencent": "🇨🇳 จีน", "ByteDance": "🇨🇳 จีน", "Z.ai": "🇨🇳 จีน", "Zhipu AI": "🇨🇳 จีน",
+    "Moonshot AI": "🇨🇳 จีน", "CNSA": "🇨🇳 จีน",
+    "EU Commission": "🇪🇺 ยุโรป (นโยบาย)", "ESA": "🇪🇺 ยุโรป",
+    "NASA": "🇺🇸 สหรัฐฯ", "SpaceX": "🇺🇸 สหรัฐฯ", "Blue Origin": "🇺🇸 สหรัฐฯ", "Rocket Lab": "🇺🇸 สหรัฐฯ",
+    "Space.com": "🇺🇸 สหรัฐฯ (สื่อ)", "SpaceNews": "🇺🇸 สหรัฐฯ (สื่อ)",
+    "JAXA": "🇯🇵 ญี่ปุ่น", "ISRO": "🇮🇳 อินเดีย",
 }
 
 
@@ -1427,6 +1431,7 @@ CATEGORY_CLASS = {
     "funding": ("💰", "นักธุรกิจ"),
     "research": ("🔬", "นักปราชญ์"),
     "policy": ("⚖️", "ผู้พิทักษ์"),
+    "space": ("🛰️", "นักสำรวจอวกาศ"),
     "other": ("🌌", "นักผจญภัย"),
 }
 AVATAR_COLORS = ["#4fd1ff", "#ff4fd8", "#35ffb0", "#ffb020"]
