@@ -76,13 +76,18 @@ def main():
         if name in previous and current[name] != previous[name].get("description", "")
     ]
 
+    # On the very first run there's nothing to diff against, so the whole
+    # inventory is the starting baseline, not "newly discovered" - backdate
+    # first_seen so nothing wrongly shows a "new" badge on day one.
+    baseline_date = "2020-01-01" if is_first_run else today
+
     merged = []
     for name in sorted(current):
         prev = previous.get(name)
         merged.append({
             "name": name,
             "description": current[name],
-            "first_seen": prev["first_seen"] if prev else today,
+            "first_seen": prev["first_seen"] if prev else baseline_date,
         })
 
     has_changes = bool(new_names) or bool(changed_desc) or is_first_run
