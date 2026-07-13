@@ -32,6 +32,7 @@ CATEGORY_LABELS = {
     "funding": "ทุน/ธุรกิจ",
     "research": "งานวิจัย",
     "policy": "นโยบาย/กฎหมาย",
+    "space": "อวกาศ",
     "other": "อื่นๆ",
 }
 
