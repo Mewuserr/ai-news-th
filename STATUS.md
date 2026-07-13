@@ -13,8 +13,9 @@
 - **Cloud routine สำรอง** (`ai-news-th-daily-engine-backup`) รันทุกวันตี 6 (06:03 ICT, 1 ชม.หลังตัวหลัก) — เช็ค `data/engine-log.md` ว่าตัวหลักรันสำเร็จวันนี้หรือยัง ถ้ายัง จะรันงานทั้งหมดซ้ำเองแทน (ตั้งไว้ 2026-07-13 หลังพบว่าตัวหลักเงียบไม่ทำงานมาหลายวันโดยไม่มีร่องรอย)
 - ทำตาม instructions ใน `scripts/engine-prompt.md` — **ขั้นตอนที่ 9 (บังคับ)**: ทุกรอบต้องเขียน+commit+push `data/engine-log.md` เสมอไม่ว่าผลจะเป็นยังไง (มีข่าว/ไม่มีข่าว/push พัง) นี่คือจุดที่แก้บั๊กเดิมที่ routine เงียบสนิทถ้าคิดว่า "ไม่มีข่าวใหม่" — เช็คว่า routine ทำงานจริงทุกวันได้จาก log ไฟล์นี้เลย
 - เว็บเป็น **static site ล้วนๆ** (`scripts/generate.py` เขียน HTML จาก JSON ใน `data/`) — ไม่มี server, ไม่มี AI ทำงานตอนคนดูเข้าเว็บ (คนอื่นใช้ได้ฟรีไม่กินโควตา)
-- แจ้งเตือน Windows local: `scripts/notify_check.py` รันผ่าน Task Scheduler ("AI News TH Notify") ทุกเช้า 05:20 — ดึงจากเว็บจริง ไม่ใช่ AI
+- แจ้งเตือน Windows local: `scripts/notify_check.py` รันผ่าน Task Scheduler ("AI News TH Notify") ทุกเช้า **06:30** (เลื่อนจาก 05:20 เมื่อ 2026-07-13 เพราะเช็คเร็วเกินไป ก่อน routine หลัก/สำรองจะรันเสร็จ) — ดึงจากเว็บจริง ไม่ใช่ AI
 - เสียงพากย์: `scripts/audio_briefing.py` (gTTS ฟรี, มีจิงเกิ้ล + โหมด 2 พิธีกร) เรียกจาก Desktop shortcuts (.bat) — ไม่ใช่ AI เช่นกัน
+- **Skill watcher** (ใหม่ 2026-07-13): `scripts/skill_watch.py` รันผ่าน Task Scheduler ("Claude Skill Watch") ทุกวันจันทร์ 09:00 — สแกน skill ที่ติดตั้งใน `C:\Users\User\.claude\skills`, เทียบกับ `data/skills.json` เดิม ถ้ามี skill ใหม่: (1) แจ้งเตือน Windows (2) เขียน `data/skills.json` ใหม่ (3) รัน generate.py แล้ว commit+push ให้ขึ้นเว็บจริงในหน้า capabilities.html หัวข้อ "🧰 เครื่องมือที่คุณมีอยู่แล้วตอนนี้" พร้อมป้าย 🆕 ถ้าเจอใน 14 วันล่าสุด — ทำแบบนี้เพราะผู้ใช้บอกว่า Windows notification บางทีพลาด อยากให้เห็นในเว็บด้วย ไม่ใช้ AI เลย (แค่เทียบไฟล์ + git)
 
 ## ฟีเจอร์ที่ทำเสร็จแล้ว (ครบตามที่คุยกันแล้วทั้งหมด)
 - หน้าเว็บ: วันนี้ (index), รายสัปดาห์, คลังข่าวย้อนหลัง (มีค้นหา), สถิติ (word cloud, leaderboard, region breakdown, week-over-week), ไทม์ไลน์ข่าวใหญ่, ควิซ, สรุปประจำเดือนแบบ Wrapped (คลิกได้, มีรายละเอียด), บันทึกไว้อ่าน
