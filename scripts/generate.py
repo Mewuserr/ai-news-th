@@ -1217,7 +1217,10 @@ def card_html(item: dict, group: str = "", all_items: list = None) -> str:
     summary_th = item.get("summary_th", "")
     share_title = esc(title_th)
     speak_text = esc(f"{title_th}. {summary_th}")
-    context = item.get("context_th", "").strip()
+    # `or ""` (not just .get(k, "")) because the field being explicitly
+    # null (valid JSON, plausible from an LLM writing "no value") - not
+    # just absent - would otherwise crash .strip() on None.
+    context = (item.get("context_th") or "").strip()
     context_html = f'<p class="context">🔗 {esc(context)}</p>' if context else ""
 
     related_html = ""
@@ -1693,7 +1696,10 @@ def build_wrapped(all_items):
 
 
 def stars_html(stars: float) -> str:
-    full = round(stars)
+    # int(x + 0.5) instead of round(x): Python's round() uses banker's
+    # rounding (round(3.5) == round(4.5) == 4), which made a 3.5-star tool
+    # and a 4.5-star tool render with the identical star count.
+    full = int(stars + 0.5)
     empty = 5 - full
     return "★" * full + "☆" * empty
 
@@ -1724,7 +1730,7 @@ def skills_section_html() -> str:
         badge = '<span class="cap-score-label">🆕 ใหม่</span> ' if is_new(sk) else ""
         cards.append(f"""<div class="cap-tool-card">
   <div class="cap-tool-name">{badge}{esc(sk.get('name',''))}</div>
-  <p class="cap-verdict">{esc(sk.get('description','')[:150])}</p>
+  <p class="cap-verdict">{esc((sk.get('description') or '')[:150])}</p>
 </div>""")
 
     updated_label = thai_date(updated) if updated else ""

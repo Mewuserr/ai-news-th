@@ -4,7 +4,7 @@ PRODID:-//MEW Station//AI News TH//EN
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:20260713-0@mewuserr.github.io
-DTSTAMP:20260713T050124Z
+DTSTAMP:20260713T051116Z
 DTSTART;VALUE=DATE:20260713
 DTEND;VALUE=DATE:20260714
 SUMMARY:🔥 Apple ฟ้อง OpenAI ข้อหาขโมยความลับทางการค้า กล่าวหาซุ่มดึงตัวพนักงานกว่า 400 คน
@@ -13,7 +13,7 @@ URL:https://techcrunch.com/2026/07/10/apple-sues-openai-over-alleged-trade-secre
 END:VEVENT
 BEGIN:VEVENT
 UID:20260711-1@mewuserr.github.io
-DTSTAMP:20260713T050124Z
+DTSTAMP:20260713T051116Z
 DTSTART;VALUE=DATE:20260711
 DTEND;VALUE=DATE:20260712
 SUMMARY:🔥 OpenAI เปิดตัวโมเดลตระกูล GPT-5.6 (Sol\, Terra\, Luna) ให้ใช้งานทั่วไป
@@ -22,7 +22,7 @@ URL:https://openai.com/index/previewing-gpt-5-6-sol/
 END:VEVENT
 BEGIN:VEVENT
 UID:20260711-2@mewuserr.github.io
-DTSTAMP:20260713T050124Z
+DTSTAMP:20260713T051116Z
 DTSTART;VALUE=DATE:20260711
 DTEND;VALUE=DATE:20260712
 SUMMARY:🔥 รายงาน AI Safety Index ชี้บริษัท AI รายใหญ่ถอยห่างจากคำมั่นด้านความปลอดภัย
