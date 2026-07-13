@@ -1244,7 +1244,7 @@ def card_html(item: dict, group: str = "", all_items: list = None) -> str:
 
 def build_index(all_items):
     if not all_items:
-        write("index.html", page_shell("ข่าว AI วันนี้", "index", '<h1>ข่าว AI วันนี้</h1><p class="empty">ยังไม่มีข่าว — รอรอบดึงข่าวถัดไป</p>'))
+        write("index.html", page_shell("ข่าว AI & อวกาศ วันนี้", "index", '<h1>ข่าว AI & อวกาศ วันนี้</h1><p class="empty">ยังไม่มีข่าว — รอรอบดึงข่าวถัดไป</p>'))
         return
     latest_date = all_items[0]["date"]
     today_items = [i for i in all_items if i["date"] == latest_date]
@@ -1268,7 +1268,7 @@ def build_index(all_items):
         sections.append("".join(card_html(i, group="normal", all_items=all_items) for i in normal_items))
 
     if is_fresh:
-        heading_html = f"""<h1>ข่าว AI ประจำวันที่ {thai_date(latest_date)}</h1>
+        heading_html = f"""<h1>ข่าว AI & อวกาศ ประจำวันที่ {thai_date(latest_date)}</h1>
 <div class="freshness fresh">✓ เป็นข่าวล่าสุดของวันนี้</div>"""
     else:
         heading_html = f"""<h1>วันนี้ ({thai_date(today_bkk)}) ยังไม่มีข่าวใหม่</h1>
@@ -1320,7 +1320,7 @@ def build_index(all_items):
 {memory_html}
 {filters_html(cats_present, show_major_toggle=bool(major_items))}
 {''.join(sections)}"""
-    page_title = f"ข่าว AI {thai_date(latest_date)}" if is_fresh else f"ยังไม่มีข่าวใหม่วันนี้ ({thai_date(today_bkk)})"
+    page_title = f"ข่าว AI & อวกาศ {thai_date(latest_date)}" if is_fresh else f"ยังไม่มีข่าวใหม่วันนี้ ({thai_date(today_bkk)})"
     write("index.html", page_shell(page_title, "index", body, random_urls=[i["url"] for i in all_items]))
 
 
