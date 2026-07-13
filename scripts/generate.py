@@ -85,14 +85,6 @@ def load_capabilities() -> dict:
         return json.load(f)
 
 
-def load_skills() -> dict:
-    path = os.path.join(ROOT, "data", "skills.json")
-    if not os.path.exists(path):
-        return {}
-    with open(path, encoding="utf-8") as f:
-        return json.load(f)
-
-
 def esc(s: str) -> str:
     return (s or "").replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace('"', "&quot;")
 
@@ -1704,43 +1696,6 @@ def stars_html(stars: float) -> str:
     return "★" * full + "☆" * empty
 
 
-def skills_section_html() -> str:
-    skills_data = load_skills()
-    skills = skills_data.get("skills", [])
-    if not skills:
-        return ""
-
-    updated = skills_data.get("updated", "")
-    try:
-        cutoff = (datetime.strptime(updated, "%Y-%m-%d") - timedelta(days=14)) if updated else None
-    except ValueError:
-        cutoff = None
-
-    def is_new(sk):
-        if not cutoff:
-            return False
-        try:
-            return datetime.strptime(sk.get("first_seen", ""), "%Y-%m-%d") >= cutoff
-        except ValueError:
-            return False
-
-    ordered = sorted(skills, key=lambda sk: (not is_new(sk), sk.get("name", "")))
-    cards = []
-    for sk in ordered:
-        badge = '<span class="cap-score-label">🆕 ใหม่</span> ' if is_new(sk) else ""
-        cards.append(f"""<div class="cap-tool-card">
-  <div class="cap-tool-name">{badge}{esc(sk.get('name',''))}</div>
-  <p class="cap-verdict">{esc((sk.get('description') or '')[:150])}</p>
-</div>""")
-
-    updated_label = thai_date(updated) if updated else ""
-    return f"""<div class="cap-category" id="cap-skills">
-  <h2>🧰 เครื่องมือที่คุณมีอยู่แล้วตอนนี้ (Claude Code)</h2>
-  <p class="cap-summary">รายชื่อ skill/เครื่องมือจริงที่ติดตั้งอยู่ในเครื่อง ตรวจทุกสัปดาห์อัตโนมัติ (ไม่ใช้ AI) ตัวไหนขึ้น "🆕 ใหม่" คือเพิ่งพบใน 14 วันล่าสุด · อัปเดตล่าสุด {esc(updated_label)}</p>
-  <div class="cap-tool-grid">{''.join(cards)}</div>
-</div>"""
-
-
 def build_capabilities():
     data = load_capabilities()
     if not data or not data.get("categories"):
@@ -1774,7 +1729,6 @@ def build_capabilities():
     body = f"""<h1>🤖 ความสามารถ AI ตอนนี้</h1>
 <div class="sub">ภาพรวมว่า AI แต่ละแบบทำอะไรได้ถึงระดับไหนแล้ว · อัปเดตล่าสุด {esc(updated_label)}</div>
 <div class="cap-methodology">⭐ คะแนนดาวเป็นการตีความของเราจากอันดับ/ผลสอบเทียบจริงที่แหล่งข้อมูลรายงาน ไม่ใช่ตัวเลขทางการที่เทียบข้ามหมวดกันได้ (เช่น ดาวของหมวดภาพ เทียบกับดาวของหมวดโค้ดตรงๆ ไม่ได้) ตัวเลขจริงที่อ้างอิงแสดงอยู่ใต้ชื่อแต่ละตัวเสมอ ข้อมูลเปลี่ยนเร็ว อัปเดตหน้านี้เป็นรอบ (ไม่ใช่รายวัน) เพื่อคุมคุณภาพเนื้อหา</div>
-{skills_section_html()}
 {''.join(sections)}"""
     write("capabilities.html", page_shell("ความสามารถ AI ตอนนี้", "capabilities", body))
 
