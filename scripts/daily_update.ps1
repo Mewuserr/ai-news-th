@@ -10,6 +10,9 @@ $ErrorActionPreference = 'Continue'
 $repo = 'E:\ai-news-th'
 Set-Location $repo
 
+# Make sure the npm global bin (where 'claude' lives) is on PATH when launched by Task Scheduler
+$env:PATH = "$env:APPDATA\npm;$env:PATH"
+
 $today = (Get-Date).ToString('yyyy-MM-dd')          # local time = ICT (UTC+7)
 $utc   = (Get-Date).ToUniversalTime().ToString('yyyy-MM-dd HH:mm')
 $newsPath = Join-Path $repo "data\news\$today.json"
@@ -28,7 +31,7 @@ Steps:
 3. Use WebSearch/WebFetch to find REAL AI and space news from roughly the last 24-48 hours from the official company blogs and tech/space press listed in engine-prompt.md. Never invent news or URLs.
 4. Write 4-10 genuinely important or interesting items to data/news/$today.json as a JSON array, each object exactly matching the schema: source, title_th, summary_th, category (model_release|product|funding|research|policy|space|other), importance (major|normal), url, and optional context_th. Write all Thai text naturally (not word-for-word translation). For any new feature/model, emphasize what it can actually DO. Keep 'major' to 0-2 truly big stories.
 5. If you have at least 2 items, also write data/narrative/$today.json as {"narrative_th":"one flowing Thai paragraph weaving today's stories together"}.
-Hard rules: do NOT run git, do NOT run python/generate.py, do NOT run any shell/Bash command. Only use WebSearch, WebFetch, Read, Write, Edit, Glob, Grep. The wrapper script publishes; your only job is to produce the JSON file(s).
+Hard rules: WRITE ONLY these files - data/news/$today.json and optionally data/narrative/$today.json. Do NOT create or modify any other file (in particular do NOT touch data/engine-log.md). Do NOT run git, do NOT run python/generate.py, do NOT run any shell/Bash command. Only use WebSearch, WebFetch, Read, Write, Edit, Glob, Grep. The wrapper script publishes; your only job is to produce the JSON file(s).
 "@
 
 claude -p $prompt --allowedTools "WebSearch" "WebFetch" "Read" "Write" "Edit" "Glob" "Grep" --permission-mode acceptEdits |
@@ -55,7 +58,7 @@ $genOk = ($LASTEXITCODE -eq 0)
 if ($valid -and $genOk)            { $status = "OK: wrote $count news items, generate.py ok, pushing" }
 elseif ((-not $valid) -and $genOk) { $status = "NO NEW NEWS (or AI produced nothing usable) - site rebuilt, heartbeat only" }
 else                               { $status = "FAIL: generate.py error - see scripts\daily_update_claude.log" }
-"- $today $utc UTC [LOCAL PC]: $status" | Out-File -Append -Encoding utf8 (Join-Path $repo "data\engine-log.md")
+"- $utc UTC [LOCAL PC]: $status" | Out-File -Append -Encoding utf8 (Join-Path $repo "data\engine-log.md")
 
 # 6) Publish to GitHub (this machine has working push credentials)
 git add -A

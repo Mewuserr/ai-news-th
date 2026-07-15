@@ -9,8 +9,9 @@
 **โฟลเดอร์ในเครื่อง:** `E:\ai-news-th`
 
 ## สถาปัตยกรรม
-- **Cloud routine หลัก** (`ai-news-th-daily-engine`) รันทุกวันตี 5 (05:03 ICT) — ไปค้นข่าวจริง สรุปเป็นไทย เขียนไฟล์ JSON แล้ว push ขึ้น GitHub → GitHub Pages deploy อัตโนมัติ
-- **Cloud routine สำรอง** (`ai-news-th-daily-engine-backup`) รันทุกวันตี 6 (06:03 ICT, 1 ชม.หลังตัวหลัก) — เช็ค `data/engine-log.md` ว่าตัวหลักรันสำเร็จวันนี้หรือยัง ถ้ายัง จะรันงานทั้งหมดซ้ำเองแทน (ตั้งไว้ 2026-07-13 หลังพบว่าตัวหลักเงียบไม่ทำงานมาหลายวันโดยไม่มีร่องรอย)
+- **เครื่องยนต์ข่าวรายวัน = รันบนเครื่อง PC** (ตั้งแต่ 2026-07-15) ผ่าน **Windows Task Scheduler** task `MEW Station Daily News` ทุกวัน **06:00 น.** (StartWhenAvailable = ถ้าเปิดคอมสาย จะรันชดเชยให้เมื่อเปิด) → เรียก `scripts/daily_update.ps1`: ให้ headless `claude -p` ค้นข่าว+เขียน `data/news/{today}.json` (+narrative) เท่านั้น แล้วสคริปต์ธรรมดา `generate.py` + `git commit` + `git push` (เครื่องนี้มี git credential ที่ push ได้จริง) → GitHub Pages deploy อัตโนมัติ
+- **ทำไมย้ายมารันบนเครื่อง:** cloud routine เดิม (`ai-news-th-daily-engine` + `-backup`) ยิงตรงเวลาทุกวันจริง แต่ push ขึ้น GitHub **ไม่ได้เลย** เพราะ clone repo มาแบบอ่านอย่างเดียว ไม่มี credential — เป็นสาเหตุที่ข่าวไม่อัปเดตมาหลายวันแบบเงียบๆ. ตอนนี้ **ปิด cloud routine ทั้ง 2 ตัวแล้ว** (enabled=false ผ่าน RemoteTrigger). ถ้าจะกลับไปใช้คลาวด์ต้องฝัง GitHub PAT ให้มัน push ได้ก่อน
+- **แยก AI ออกจากงานที่พลาดไม่ได้:** AI ทำแค่ค้นข่าว+เขียน JSON ถ้า AI พังหรือได้ไฟล์เสีย สคริปต์จะลบไฟล์เสียทิ้งแล้ว rebuild เว็บจากข้อมูลเดิม + ยัง push heartbeat log เสมอ — การ push ไม่มีวันพังเพราะ AI. เช็คสถานะ: `data/engine-log.md`, `scripts/daily_update_claude.log`, หรือ Task Scheduler history
 - ทำตาม instructions ใน `scripts/engine-prompt.md` — **ขั้นตอนที่ 9 (บังคับ)**: ทุกรอบต้องเขียน+commit+push `data/engine-log.md` เสมอไม่ว่าผลจะเป็นยังไง (มีข่าว/ไม่มีข่าว/push พัง) นี่คือจุดที่แก้บั๊กเดิมที่ routine เงียบสนิทถ้าคิดว่า "ไม่มีข่าวใหม่" — เช็คว่า routine ทำงานจริงทุกวันได้จาก log ไฟล์นี้เลย
 - เว็บเป็น **static site ล้วนๆ** (`scripts/generate.py` เขียน HTML จาก JSON ใน `data/`) — ไม่มี server, ไม่มี AI ทำงานตอนคนดูเข้าเว็บ (คนอื่นใช้ได้ฟรีไม่กินโควตา)
 - แจ้งเตือน Windows local: `scripts/notify_check.py` รันผ่าน Task Scheduler ("AI News TH Notify") ทุกเช้า **06:30** (เลื่อนจาก 05:20 เมื่อ 2026-07-13 เพราะเช็คเร็วเกินไป ก่อน routine หลัก/สำรองจะรันเสร็จ) — ดึงจากเว็บจริง ไม่ใช่ AI
