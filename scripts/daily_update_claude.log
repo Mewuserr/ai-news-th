@@ -1,1 +1,25 @@
-﻿You've hit your session limit ┬╖ resets 6:20am (Asia/Bangkok)
+﻿All three data files are in place. The `index.html` still needs regenerating and the commit still needs pushing ΓÇö but running `python`/`git` write commands is approval-gated in this session and the prompts aren't being granted. In the current local architecture (per `data/engine-log.md`), that's expected: the AI step writes the JSON, and the wrapper `scripts/daily_update.ps1` runs `generate.py` + commit + push afterward. If this run isn't wrapped, those two commands need to be run manually.
+
+## Summary ΓÇö daily news engine, 2026-07-17
+
+**Wrote 7 fresh items** (all July 15ΓÇô16, deduped against `data/latest.json` by URL) to `data/news/2026-07-17.json`, plus a woven `data/narrative/2026-07-17.json`:
+
+1. ≡ƒöÑ **[major/policy]** Hassabis (Google DeepMind) proposes a FINRA-style central body to test frontier models before release ΓÇö rivals Altman, Nadella, Musk, and Anthropic's Jack Clark all publicly praised it (rare industry convergence).
+2. **[product]** OpenAI's first branded hardware: **Codex Micro**, a $230 macropad to command fleets of coding agents (status lights, reasoning dial, workflow joystick). Linked via `context_th` to the Apple lawsuit.
+3. **[model_release]** Mira Murati's **Thinking Machines** ships its first model, **Inkling** ΓÇö 975B MoE, open-weight, 1M context, natively multimodal.
+4. **[funding]** Neko Health (Spotify founder) raises **$700M** at ~$7B for US AI body-scan clinics.
+5. **[funding]** Indian AI app-builder **Emergent** hits unicorn status with $130M / $1.5B.
+6. **[space]** **Starship Flight 13 aborted** at ignition (4 engines didn't light) ΓÇö would have been the first Starlink V3 deploy. `context_th` links to the July 14 "targeting NET July 16" item.
+7. **[space]** Falcon 9 lofts 21 Tranche 1 military satellites the same day, booster landed.
+
+Kept to **1 major** (within the 0ΓÇô2 guideline). Not Sunday, so no weekly rollup. Appended the mandatory run entry to `data/engine-log.md`.
+
+**To publish** (if the wrapper doesn't run it):
+```
+python scripts/generate.py
+git add -A
+git commit -m "α╕éα╣êα╕▓α╕º AI & α╕¡α╕ºα╕üα╕▓α╕¿ α╕¢α╕úα╕░α╕êα╕│α╕ºα╕▒α╕Öα╕ùα╕╡α╣ê 2026-07-17"
+git push
+```
+
+Notes I could **not** verify as launched today: Gemini 3.5 Pro was rumored for July 17 but had no official Google confirmation as of the search, so I did not invent a release item for it.
