@@ -1,25 +1,25 @@
-﻿All three data files are in place. The `index.html` still needs regenerating and the commit still needs pushing ΓÇö but running `python`/`git` write commands is approval-gated in this session and the prompts aren't being granted. In the current local architecture (per `data/engine-log.md`), that's expected: the AI step writes the JSON, and the wrapper `scripts/daily_update.ps1` runs `generate.py` + commit + push afterward. If this run isn't wrapped, those two commands need to be run manually.
+﻿I've hit the key constraint, and looking at `scripts/daily_update.ps1` explains why. Here's where things stand.
 
-## Summary ΓÇö daily news engine, 2026-07-17
+## What I completed
+Researched today's real AI + space news (last 24ΓÇô48h), deduped against `data/latest.json`, and wrote both output files:
 
-**Wrote 7 fresh items** (all July 15ΓÇô16, deduped against `data/latest.json` by URL) to `data/news/2026-07-17.json`, plus a woven `data/narrative/2026-07-17.json`:
+- **`data/news/2026-07-18.json`** ΓÇö 5 verified stories, each with a real source URL:
+  1. ≡ƒöÑ **Kimi K3** (Moonshot AI) ΓÇö largest open-weight model ever, 2.8T params, tops coding leaderboards *(major, model_release)*
+  2. ≡ƒöÑ **WAICO / Xi Jinping** ΓÇö China launches 29-nation AI governance bloc at WAIC Shanghai *(major, policy)* ΓÇö linked as a counter to the US-led standards push from 17 Jul
+  3. **Beta Pictoris d** ΓÇö faintest exoplanet ever imaged from Earth, VLT + JWST cross-confirmed *(space)*
+  4. **OpenAI retires Atlas browser** ΓåÆ folds into ChatGPT desktop "superapp" *(product)* ΓÇö linked to the ChatGPT Work story from 14 Jul
+  5. **Anthropic "global workspace" / J-lens** ΓÇö reading Claude's internal thoughts *(research)*
+- **`data/narrative/2026-07-18.json`** ΓÇö one flowing Thai column weaving the five together (China's tech + geopolitical two-front push as the spine).
 
-1. ≡ƒöÑ **[major/policy]** Hassabis (Google DeepMind) proposes a FINRA-style central body to test frontier models before release ΓÇö rivals Altman, Nadella, Musk, and Anthropic's Jack Clark all publicly praised it (rare industry convergence).
-2. **[product]** OpenAI's first branded hardware: **Codex Micro**, a $230 macropad to command fleets of coding agents (status lights, reasoning dial, workflow joystick). Linked via `context_th` to the Apple lawsuit.
-3. **[model_release]** Mira Murati's **Thinking Machines** ships its first model, **Inkling** ΓÇö 975B MoE, open-weight, 1M context, natively multimodal.
-4. **[funding]** Neko Health (Spotify founder) raises **$700M** at ~$7B for US AI body-scan clinics.
-5. **[funding]** Indian AI app-builder **Emergent** hits unicorn status with $130M / $1.5B.
-6. **[space]** **Starship Flight 13 aborted** at ignition (4 engines didn't light) ΓÇö would have been the first Starlink V3 deploy. `context_th` links to the July 14 "targeting NET July 16" item.
-7. **[space]** Falcon 9 lofts 21 Tranche 1 military satellites the same day, booster landed.
+Today is Saturday, so no weekly rollup (that's tomorrow, 19 Jul).
 
-Kept to **1 major** (within the 0ΓÇô2 guideline). Not Sunday, so no weekly rollup. Appended the mandatory run entry to `data/engine-log.md`.
+## What's blocked
+`python scripts/generate.py` needs a permission approval that this session keeps auto-denying (I tried several forms; `git` commands *are* allowed, only `python` is gated). So the site rebuild + `git commit/push` + engine-log heartbeat haven't run.
 
-**To publish** (if the wrapper doesn't run it):
-```
-python scripts/generate.py
-git add -A
-git commit -m "α╕éα╣êα╕▓α╕º AI & α╕¡α╕ºα╕üα╕▓α╕¿ α╕¢α╕úα╕░α╕êα╕│α╕ºα╕▒α╕Öα╕ùα╕╡α╣ê 2026-07-17"
-git push
-```
+This is actually consistent with your current architecture: **`scripts/daily_update.ps1` (local Task Scheduler) is the thing that runs `generate.py`, git, and the log** ΓÇö the AI step is only supposed to *write the JSON*, which is done. The prompt I was invoked with is the older all-in-one version that asks me to publish too.
 
-Notes I could **not** verify as launched today: Gemini 3.5 Pro was rumored for July 17 but had no official Google confirmation as of the search, so I did not invent a release item for it.
+## Your options
+1. **Let the local wrapper publish** ΓÇö the JSON is written and validated; `daily_update.ps1` will rebuild + push on its normal run. Nothing more needed from me.
+2. **Have me finish here** ΓÇö approve the `python scripts/generate.py` command and I'll run generate ΓåÆ `git add -A` ΓåÆ commit ΓåÆ push ΓåÆ append the `data/engine-log.md` heartbeat, exactly as steps 6ΓÇô9 specify.
+
+Which would you like?
