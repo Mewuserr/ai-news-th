@@ -1,25 +1,23 @@
-﻿I've hit the key constraint, and looking at `scripts/daily_update.ps1` explains why. Here's where things stand.
+﻿Python is blocked too (as designed). I authored both files by hand as well-formed JSON ΓÇö no trailing commas, no unescaped quotes in the Thai text ΓÇö so the wrapper's validator (`daily_update.ps1` line 44) will pass and publish them.
 
-## What I completed
-Researched today's real AI + space news (last 24ΓÇô48h), deduped against `data/latest.json`, and wrote both output files:
+## Done ΓÇö daily news engine for 2026-07-20
 
-- **`data/news/2026-07-18.json`** ΓÇö 5 verified stories, each with a real source URL:
-  1. ≡ƒöÑ **Kimi K3** (Moonshot AI) ΓÇö largest open-weight model ever, 2.8T params, tops coding leaderboards *(major, model_release)*
-  2. ≡ƒöÑ **WAICO / Xi Jinping** ΓÇö China launches 29-nation AI governance bloc at WAIC Shanghai *(major, policy)* ΓÇö linked as a counter to the US-led standards push from 17 Jul
-  3. **Beta Pictoris d** ΓÇö faintest exoplanet ever imaged from Earth, VLT + JWST cross-confirmed *(space)*
-  4. **OpenAI retires Atlas browser** ΓåÆ folds into ChatGPT desktop "superapp" *(product)* ΓÇö linked to the ChatGPT Work story from 14 Jul
-  5. **Anthropic "global workspace" / J-lens** ΓÇö reading Claude's internal thoughts *(research)*
-- **`data/narrative/2026-07-18.json`** ΓÇö one flowing Thai column weaving the five together (China's tech + geopolitical two-front push as the spine).
+I researched the last ~24ΓÇô48h across the AI and space sources, deduped against `data/latest.json` and yesterday's `2026-07-19.json`, and wrote the two output files. The `daily_update.ps1` wrapper handles the rest (generate.py, engine-log, git push).
 
-Today is Saturday, so no weekly rollup (that's tomorrow, 19 Jul).
+**`data/news/2026-07-20.json` ΓÇö 5 items (0 major; genuinely no landscape-shifting story today):**
 
-## What's blocked
-`python scripts/generate.py` needs a permission approval that this session keeps auto-denying (I tried several forms; `git` commands *are* allowed, only `python` is gated). So the site rebuild + `git commit/push` + engine-log heartbeat haven't run.
+1. **Qwen3.8-Max preview** (Alibaba, Jul 19, WAIC Shanghai) ΓÇö `model_release`. First Qwen multimodal >1T params (claims 2.4T), reads text/image/video/docs, 1M-token context, "second only to Fable 5" but **no benchmarks/weights published yet** ΓÇö so kept `normal`, not `major`. Context-linked to Kimi K3.
+2. **Anthropic Γåö Meta compute talks up to $10B** (CNBC, Jul 17) ΓÇö `other`. Rival becomes supplier; linked to the earlier SpaceX/Colossus lease.
+3. **Anthropic folds Fable 5 into Max/Team Premium from Jul 20** ΓÇö `product`. Linked to the free-trial expiry on Jul 19.
+4. **SwRI asteroid-breakup study (~800M yrs ago)** ΓÇö `space`. Confirmed research (SwRI/phys.org/EurekAlert).
+5. **Google AI Mode gains Instacart/Canva/YouTube Music actions** (Jul 17) ΓÇö `product`, consumer-useful.
 
-This is actually consistent with your current architecture: **`scripts/daily_update.ps1` (local Task Scheduler) is the thing that runs `generate.py`, git, and the log** ΓÇö the AI step is only supposed to *write the JSON*, which is done. The prompt I was invoked with is the older all-in-one version that asks me to publish too.
+**`data/narrative/2026-07-20.json`** ΓÇö one flowing paragraph tying the day together (theme: infrastructure/money/access over flashy model launches, plus the space finding).
 
-## Your options
-1. **Let the local wrapper publish** ΓÇö the JSON is written and validated; `daily_update.ps1` will rebuild + push on its normal run. Nothing more needed from me.
-2. **Have me finish here** ΓÇö approve the `python scripts/generate.py` command and I'll run generate ΓåÆ `git add -A` ΓåÆ commit ΓåÆ push ΓåÆ append the `data/engine-log.md` heartbeat, exactly as steps 6ΓÇô9 specify.
+**Deliberately excluded as not-fresh or unverifiable:**
+- **Starship Flight 13** ΓÇö the Jul 20 target slipped; engines being replaced, now NET **Jul 23**. It hasn't flown, so I didn't report a launch.
+- **Anthropic S-1 / IPO** ΓÇö the confidential filing was **June 1**, only being recapped now; stale.
+- **Gemini 3.6 Flash "stopgap"** ΓÇö only registered names/speculation; the underlying Gemini 3.5 Pro delay was already published in `2026-07-19.json`.
+- **Chinese GLM-5.2 / DeepSeek V4 / Qwen 3.6, Meta Muse, Claude for Teachers, Fireworks/Neko/Emergent funding** ΓÇö all AprilΓÇômid-July, already published or too old.
 
-Which would you like?
+One note for you: the sources this session surfaced sometimes call the top Anthropic model "**Fable 5 α╕éα╕¡α╕ç Google**" vs. "Claude Fable 5." Per this machine's model list, `claude-fable-5` is an **Anthropic** model, so I wrote it without attributing it to Google (an earlier `latest.json` entry mislabeled it as Google's). Flagging in case you want to correct that older item.
