@@ -1,23 +1,19 @@
-﻿Python is blocked too (as designed). I authored both files by hand as well-formed JSON ΓÇö no trailing commas, no unescaped quotes in the Thai text ΓÇö so the wrapper's validator (`daily_update.ps1` line 44) will pass and publish them.
+﻿Done ΓÇö I wrote only the two files the wrapper expects (no git, no generate.py, per the hard rules in `scripts/daily_update.ps1`).
 
-## Done ΓÇö daily news engine for 2026-07-20
+**`data/news/2026-07-22.json`** ΓÇö 7 items, all deduped against `data/latest.json`, all verified against real sources from the last ~48h:
 
-I researched the last ~24ΓÇô48h across the AI and space sources, deduped against `data/latest.json` and yesterday's `2026-07-19.json`, and wrote the two output files. The `daily_update.ps1` wrapper handles the rest (generate.py, engine-log, git push).
+| # | Story | Cat | Imp |
+|---|---|---|---|
+| 1 | Google ships Gemini 3.6 Flash + 3.5 Flash-Lite + 3.5 Flash Cyber (17% fewer tokens, knowledge cutoff to Mar 2026); no 3.5 Pro, Gemini 4 pre-training started | model_release | **major** |
+| 2 | First confirmed atmosphere on a rocky habitable-zone planet ΓÇö helium escaping LHS 1140 b | space | **major** |
+| 3 | Moonshot pauses new Kimi K3 signups, GPUs maxed in 48h; open weights July 27 | product | normal |
+| 4 | Blomkamp's 13-min all-AI short *Nightborne* (Seedance 2.0) + new Barley Studios | product | normal |
+| 5 | Northrop Grumman MRV robotic servicing vehicle launches on Falcon 9 ΓÇö arms, satellite life-extension pods, 10-yr mission | space | normal |
+| 6 | Anthropic opens AI for Science rare-disease research grants | research | normal |
+| 7 | CAISI director resigns after 3 months ΓÇö third US AI-standards head in under half a year | policy | normal |
 
-**`data/news/2026-07-20.json` ΓÇö 5 items (0 major; genuinely no landscape-shifting story today):**
+Two `context_th` links added where a real prior story exists (Gemini 3.5 Pro expectations from 16 Jul; Kimi K3 launch from 17 Jul).
 
-1. **Qwen3.8-Max preview** (Alibaba, Jul 19, WAIC Shanghai) ΓÇö `model_release`. First Qwen multimodal >1T params (claims 2.4T), reads text/image/video/docs, 1M-token context, "second only to Fable 5" but **no benchmarks/weights published yet** ΓÇö so kept `normal`, not `major`. Context-linked to Kimi K3.
-2. **Anthropic Γåö Meta compute talks up to $10B** (CNBC, Jul 17) ΓÇö `other`. Rival becomes supplier; linked to the earlier SpaceX/Colossus lease.
-3. **Anthropic folds Fable 5 into Max/Team Premium from Jul 20** ΓÇö `product`. Linked to the free-trial expiry on Jul 19.
-4. **SwRI asteroid-breakup study (~800M yrs ago)** ΓÇö `space`. Confirmed research (SwRI/phys.org/EurekAlert).
-5. **Google AI Mode gains Instacart/Canva/YouTube Music actions** (Jul 17) ΓÇö `product`, consumer-useful.
+**`data/narrative/2026-07-22.json`** ΓÇö one paragraph tying the day together around the compute-capacity theme (Google selling cheapness, Moonshot out of GPUs), then the practical-tools angle, then governance vs. the industry's speed, closing with the two space stories.
 
-**`data/narrative/2026-07-20.json`** ΓÇö one flowing paragraph tying the day together (theme: infrastructure/money/access over flashy model launches, plus the space finding).
-
-**Deliberately excluded as not-fresh or unverifiable:**
-- **Starship Flight 13** ΓÇö the Jul 20 target slipped; engines being replaced, now NET **Jul 23**. It hasn't flown, so I didn't report a launch.
-- **Anthropic S-1 / IPO** ΓÇö the confidential filing was **June 1**, only being recapped now; stale.
-- **Gemini 3.6 Flash "stopgap"** ΓÇö only registered names/speculation; the underlying Gemini 3.5 Pro delay was already published in `2026-07-19.json`.
-- **Chinese GLM-5.2 / DeepSeek V4 / Qwen 3.6, Meta Muse, Claude for Teachers, Fireworks/Neko/Emergent funding** ΓÇö all AprilΓÇômid-July, already published or too old.
-
-One note for you: the sources this session surfaced sometimes call the top Anthropic model "**Fable 5 α╕éα╕¡α╕ç Google**" vs. "Claude Fable 5." Per this machine's model list, `claude-fable-5` is an **Anthropic** model, so I wrote it without attributing it to Google (an earlier `latest.json` entry mislabeled it as Google's). Flagging in case you want to correct that older item.
+Dropped as too old (>48h) after verification: Meta Muse Spark 1.1 (Jul 9), EU/Android DMA order (Jul 16), Shield AI's $1.5B round (March), Chai Discovery's $400M (Jul 13). Also skipped the unconfirmed "OpenAI paused a model that escaped its sandbox" and "Google Frozen v2 chip" items ΓÇö both sourced only to anonymous internal claims with no company confirmation.
