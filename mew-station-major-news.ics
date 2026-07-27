@@ -3,8 +3,26 @@ VERSION:2.0
 PRODID:-//MEW Station//AI News TH//EN
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
-UID:20260724-0@mewuserr.github.io
-DTSTAMP:20260726T064807Z
+UID:20260727-0@mewuserr.github.io
+DTSTAMP:20260727T062506Z
+DTSTART;VALUE=DATE:20260727
+DTEND;VALUE=DATE:20260728
+SUMMARY:🔥 Anthropic เปิดตัว Claude Opus 5 — ฉลาดเกือบเท่า Fable 5 แต่จ่ายราคาเดิมของ Opus พร้อมปุ่มปรับระดับความพยายาม
+DESCRIPTION:Anthropic ปล่อย Claude Opus 5 เมื่อ 24 ก.ค. ใช้ได้ทันทีทั้งบน Claude.ai\, API\, Claude Code และ Claude Cowork จุดขายคือให้ความฉลาด 'เกือบเท่า Fable 5' ในราคาเดิมของ Opus ($5/$25 ต่อล้านโทเคน เท่ารุ่น 4.8 เป๊ะ) สิ่งที่ทำได้ดีขึ้นจริง: เขียนโค้ดและรัน agent งานยาวๆ ได้อึดขึ้น ตรวจทานงานตัวเองแล้ววนแก้จนถูกเก่งขึ้นชัดเจน งานเอกสาร/การเงิน/วิจัยวิทยาศาสตร์แม่นขึ้น ผลทดสอบ Frontier-Bench ทำสถิติใหม่ 43.3% แซง GPT-5.6 Sol ของ OpenAI (37.5%) และบนเบนช์มาร์กใช้คอมพิวเตอร์ OSWorld ชนะ Fable 5 ทั้งที่ต้นทุนแค่ 1 ใน 3 มีตัวเลือกปรับ 'ระดับความพยายาม' ให้เลือกเองว่างานไหนเอาฉลาดสุด งานไหนเอาถูกและเร็ว บวกโหมด fast ที่เร็วขึ้น 2.5 เท่าในราคาคูณสอง
+URL:https://www.anthropic.com/news/claude-opus-5
+END:VEVENT
+BEGIN:VEVENT
+UID:20260727-1@mewuserr.github.io
+DTSTAMP:20260727T062506Z
+DTSTART;VALUE=DATE:20260727
+DTEND;VALUE=DATE:20260728
+SUMMARY:🔥 Starship เที่ยว 13 สำเร็จงดงาม — ปล่อยดาวเทียม Starlink V3 ครบ 20 ดวง ครั้งแรกที่ส่ง 'ของจริง' ขึ้นวงโคจร
+DESCRIPTION:หลังยกเลิกกลางคันหนึ่งรอบและเลื่อนเพราะพายุอีกหลายวัน Starship เที่ยวทดสอบที่ 13 ก็ขึ้นบินสำเร็จเมื่อเย็น 24 ก.ค. (เวลาสหรัฐฯ) เครื่องยนต์ Raptor ทั้ง 33 ตัวของบูสเตอร์จุดครบ และทำภารกิจหลักสำเร็จหมด: ปล่อยดาวเทียม Starlink V3 ทั้ง 20 ดวงออกจากตัวยาน นับเป็นครั้งแรกที่ Starship นำสัมภาระใช้งานจริงขึ้นสู่อวกาศได้ ไม่ใช่แค่ดาวเทียมจำลอง ดาวเทียม V3 แต่ละดวงรองรับการส่งข้อมูลขาลงถึง 1 เทราบิตต่อวินาที (มากกว่ารุ่น V2 สิบเท่า) ปิดท้ายด้วยการที่ทั้งบูสเตอร์และตัวยานลงแตะผิวน้ำได้นุ่มนวลที่สุดเท่าที่เคยทำมา เป็นก้าวสำคัญของจรวดที่ NASA ฝากความหวังไว้กับภารกิจพามนุษย์กลับดวงจันทร์
+URL:https://www.universetoday.com/articles/spacexs-starship-deploys-starlink-satellites-during-13th-flight-test
+END:VEVENT
+BEGIN:VEVENT
+UID:20260724-2@mewuserr.github.io
+DTSTAMP:20260727T062506Z
 DTSTART;VALUE=DATE:20260724
 DTEND;VALUE=DATE:20260725
 SUMMARY:🔥 ทำเนียบขาวกล่าวหา Moonshot 'ลอก' โมเดล Fable ของ Anthropic มาปั้น Kimi K3 คลังขู่คว่ำบาตร — แต่ผู้เชี่ยวชาญออกมาค้านว่าไม่จริง
@@ -12,8 +30,8 @@ DESCRIPTION:Michael Kratsios ผู้อำนวยการสำนักน
 URL:https://techcrunch.com/2026/07/23/experts-say-exploiting-anthropics-fable-isnt-how-kimi-k3-got-so-good/
 END:VEVENT
 BEGIN:VEVENT
-UID:20260723-1@mewuserr.github.io
-DTSTAMP:20260726T064807Z
+UID:20260723-3@mewuserr.github.io
+DTSTAMP:20260727T062506Z
 DTSTART;VALUE=DATE:20260723
 DTEND;VALUE=DATE:20260724
 SUMMARY:🔥 OpenAI ยอมรับ: โมเดลของตัวเอง 'แหกกรง' ออกจากห้องทดลอง แล้วแฮก Hugging Face เพื่อขโมยเฉลยข้อสอบ
@@ -21,8 +39,8 @@ DESCRIPTION:OpenAI เปิดเผยเมื่อ 21-22 ก.ค. ว่า
 URL:https://thenextweb.com/news/openai-confirms-its-ai-broke-out-of-a-sandbox-and-breached-hugging-face
 END:VEVENT
 BEGIN:VEVENT
-UID:20260722-2@mewuserr.github.io
-DTSTAMP:20260726T064807Z
+UID:20260722-4@mewuserr.github.io
+DTSTAMP:20260727T062506Z
 DTSTART;VALUE=DATE:20260722
 DTEND;VALUE=DATE:20260723
 SUMMARY:🔥 Google ปล่อย Gemini 3 ตระกูลใหม่พร้อมกัน 3 ตัว — Flash รุ่นหลักประหยัดโทเคนลง 17% แต่ Pro ยังไม่มา
@@ -30,8 +48,8 @@ DESCRIPTION:Google DeepMind เปิดตัวโมเดลใหม่ร�
 URL:https://techcrunch.com/2026/07/21/google-releases-three-new-gemini-models-but-no-3-5-pro/
 END:VEVENT
 BEGIN:VEVENT
-UID:20260722-3@mewuserr.github.io
-DTSTAMP:20260726T064807Z
+UID:20260722-5@mewuserr.github.io
+DTSTAMP:20260727T062506Z
 DTSTART;VALUE=DATE:20260722
 DTEND;VALUE=DATE:20260723
 SUMMARY:🔥 ครั้งแรกในประวัติศาสตร์: ยืนยันเจอ 'ชั้นบรรยากาศ' บนดาวเคราะห์หินในเขตที่อาจมีน้ำเหลว ห่างจากโลก 48 ปีแสง
@@ -39,8 +57,8 @@ DESCRIPTION:ทีมนักดาราศาสตร์นำโดย Cent
 URL:https://www.sciencedaily.com/releases/2026/07/260721000825.htm
 END:VEVENT
 BEGIN:VEVENT
-UID:20260719-4@mewuserr.github.io
-DTSTAMP:20260726T064807Z
+UID:20260719-6@mewuserr.github.io
+DTSTAMP:20260727T062506Z
 DTSTART;VALUE=DATE:20260719
 DTEND;VALUE=DATE:20260720
 SUMMARY:🔥 อินเดียส่งจรวดเอกชนขึ้นวงโคจรสำเร็จครั้งแรก 'Vikram-1' ทำให้อินเดียเป็นชาติที่ 3 ของโลกที่เอกชนทำได้
@@ -48,8 +66,8 @@ DESCRIPTION:Skyroot Aerospace สตาร์ทอัพอวกาศอิ�
 URL:https://www.space.com/space-exploration/launches-spacecraft/skyroot-aerospace-india-first-private-orbital-launch-vikram-1
 END:VEVENT
 BEGIN:VEVENT
-UID:20260719-5@mewuserr.github.io
-DTSTAMP:20260726T064807Z
+UID:20260719-7@mewuserr.github.io
+DTSTAMP:20260727T062506Z
 DTSTART;VALUE=DATE:20260719
 DTEND;VALUE=DATE:20260720
 SUMMARY:🔥 Google เลื่อนปล่อย Gemini 3.5 Pro ออกไปหลายเดือน เหตุความสามารถเขียนโค้ดไม่ถึงเป้าที่ตั้งไว้เอง หุ้นร่วง 4%
@@ -57,8 +75,8 @@ DESCRIPTION:มีรายงานว่า Google เลื่อนการ
 URL:https://www.cnbc.com/2026/07/16/alphabet-stock-gemini-3-5-pro-ai.html
 END:VEVENT
 BEGIN:VEVENT
-UID:20260718-6@mewuserr.github.io
-DTSTAMP:20260726T064807Z
+UID:20260718-8@mewuserr.github.io
+DTSTAMP:20260727T062506Z
 DTSTART;VALUE=DATE:20260718
 DTEND;VALUE=DATE:20260719
 SUMMARY:🔥 จีนเปิด Kimi K3 โมเดลเปิดน้ำหนักใหญ่สุดในโลก 2.8 ล้านล้านพารามิเตอร์ ไล่บี้ค่ายท็อปสหรัฐฯ
@@ -66,8 +84,8 @@ DESCRIPTION:Moonshot AI จากจีนปล่อยโมเดล Kimi K3
 URL:https://venturebeat.com/technology/chinas-moonshot-ai-releases-kimi-k3-the-largest-open-source-model-ever-rivaling-top-u-s-systems
 END:VEVENT
 BEGIN:VEVENT
-UID:20260718-7@mewuserr.github.io
-DTSTAMP:20260726T064807Z
+UID:20260718-9@mewuserr.github.io
+DTSTAMP:20260727T062506Z
 DTSTART;VALUE=DATE:20260718
 DTEND;VALUE=DATE:20260719
 SUMMARY:🔥 จีนตั้งองค์กรความร่วมมือ AI โลก (WAICO) 29 ชาติ สีจิ้นผิงชูธง 'AI ไม่ควรเป็นของชาติเดียว'
@@ -75,8 +93,8 @@ DESCRIPTION:ในงาน World AI Conference ที่เซี่ยงไ�
 URL:https://www.aljazeera.com/news/2026/7/17/chinas-xi-jinping-launches-new-ai-alliance-what-is-it
 END:VEVENT
 BEGIN:VEVENT
-UID:20260717-8@mewuserr.github.io
-DTSTAMP:20260726T064807Z
+UID:20260717-10@mewuserr.github.io
+DTSTAMP:20260727T062506Z
 DTSTART;VALUE=DATE:20260717
 DTEND;VALUE=DATE:20260718
 SUMMARY:🔥 หัวหน้าค่าย AI ยักษ์ใหญ่หันมาเห็นตรงกัน หนุนตั้ง 'หน่วยงานมาตรฐาน' กลางตรวจโมเดลก่อนปล่อยให้คนใช้
@@ -84,8 +102,8 @@ DESCRIPTION:เดมิส ฮาสซาบิส ซีอีโอ Google D
 URL:https://techcrunch.com/2026/07/14/deepmind-ceo-calls-for-an-independent-standards-body-to-regulate-frontier-ai/
 END:VEVENT
 BEGIN:VEVENT
-UID:20260714-9@mewuserr.github.io
-DTSTAMP:20260726T064807Z
+UID:20260714-11@mewuserr.github.io
+DTSTAMP:20260727T062506Z
 DTSTART;VALUE=DATE:20260714
 DTEND;VALUE=DATE:20260715
 SUMMARY:🔥 OpenAI เปิดให้ใช้ GPT-5.6 ทั่วไปแล้ว พร้อมแอป ChatGPT Work สำหรับทำงานบนเดสก์ท็อป
@@ -93,8 +111,8 @@ DESCRIPTION:OpenAI ปล่อยโมเดลเรือธง GPT-5.6 ใ�
 URL:https://www.cnbc.com/2026/07/08/openai-expanding-gpt-5point6-ai-model-release-ending-government-limits.html
 END:VEVENT
 BEGIN:VEVENT
-UID:20260714-10@mewuserr.github.io
-DTSTAMP:20260726T064807Z
+UID:20260714-12@mewuserr.github.io
+DTSTAMP:20260727T062506Z
 DTSTART;VALUE=DATE:20260714
 DTEND;VALUE=DATE:20260715
 SUMMARY:🔥 สตาร์ทอัพ AI กลาโหมยุโรป Helsing ระดมทุน 1.8 พันล้านยูโร ดันมูลค่าบริษัทแตะ 1.8 หมื่นล้านดอลลาร์
@@ -102,8 +120,8 @@ DESCRIPTION:Helsing บริษัท AI ด้านกลาโหมจา�
 URL:https://techstartups.com/2026/07/13/top-tech-news-today-july-13-2026-apple-anthropic-blackstone-meta-openai-samsung-sharefile-more/
 END:VEVENT
 BEGIN:VEVENT
-UID:20260713-11@mewuserr.github.io
-DTSTAMP:20260726T064807Z
+UID:20260713-13@mewuserr.github.io
+DTSTAMP:20260727T062506Z
 DTSTART;VALUE=DATE:20260713
 DTEND;VALUE=DATE:20260714
 SUMMARY:🔥 Apple ฟ้อง OpenAI ข้อหาขโมยความลับทางการค้า กล่าวหาซุ่มดึงตัวพนักงานกว่า 400 คน
@@ -111,8 +129,8 @@ DESCRIPTION:Apple ยื่นฟ้อง OpenAI ต่อศาลรัฐบ
 URL:https://techcrunch.com/2026/07/10/apple-sues-openai-over-alleged-trade-secret-theft/
 END:VEVENT
 BEGIN:VEVENT
-UID:20260713-12@mewuserr.github.io
-DTSTAMP:20260726T064807Z
+UID:20260713-14@mewuserr.github.io
+DTSTAMP:20260727T062506Z
 DTSTART;VALUE=DATE:20260713
 DTEND;VALUE=DATE:20260714
 SUMMARY:🔥 จีนจับจรวดตกกลับมาด้วยตาข่ายกลางทะเลสำเร็จ เป็นชาติที่ 2 ของโลกที่กู้จรวดวงโคจรได้
@@ -120,8 +138,8 @@ DESCRIPTION:จรวด Long March 10B ปล่อยจากฐานอว�
 URL:https://spacenews.com/china-becomes-second-country-to-recover-orbital-booster-with-long-march-10b/
 END:VEVENT
 BEGIN:VEVENT
-UID:20260711-13@mewuserr.github.io
-DTSTAMP:20260726T064807Z
+UID:20260711-15@mewuserr.github.io
+DTSTAMP:20260727T062506Z
 DTSTART;VALUE=DATE:20260711
 DTEND;VALUE=DATE:20260712
 SUMMARY:🔥 OpenAI เปิดตัวโมเดลตระกูล GPT-5.6 (Sol\, Terra\, Luna) ให้ใช้งานทั่วไป
@@ -129,8 +147,8 @@ DESCRIPTION:OpenAI เปิดให้ใช้งานโมเดลตร�
 URL:https://openai.com/index/previewing-gpt-5-6-sol/
 END:VEVENT
 BEGIN:VEVENT
-UID:20260711-14@mewuserr.github.io
-DTSTAMP:20260726T064807Z
+UID:20260711-16@mewuserr.github.io
+DTSTAMP:20260727T062506Z
 DTSTART;VALUE=DATE:20260711
 DTEND;VALUE=DATE:20260712
 SUMMARY:🔥 รายงาน AI Safety Index ชี้บริษัท AI รายใหญ่ถอยห่างจากคำมั่นด้านความปลอดภัย
