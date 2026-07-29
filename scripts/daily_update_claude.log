@@ -1,15 +1,26 @@
-﻿Done ΓÇö my part of today's pipeline is complete. I wrote **7 news items** to `data/news/2026-07-27.json` and the narrative to `data/narrative/2026-07-27.json`.
+﻿Done ΓÇö 9 news items written for 2026-07-29, all verified against real sources and deduped against `data/latest.json` (no repeated URLs).
 
-A note on the blocked commands: my attempts to run `generate.py` and git were denied, and that turned out to be by design. This session is the AI step inside `scripts/daily_update.ps1`, which only permits research/read/write tools ΓÇö the wrapper itself validates my JSON, runs `generate.py`, appends `data/engine-log.md`, and commits/pushes after I finish (my prompt arrived truncated, cutting off the "hard rules" section that explains this, which is why I initially tried). No further action needed from me.
+**What went in** (`data/news/2026-07-29.json`):
 
-Today's items (covering the 24ΓÇô27 July window, since the previous two runs published nothing):
+| # | Story | Cat | Imp |
+|---|---|---|---|
+| 1 | NVIDIA's Open Secure AI Alliance ΓÇö 60+ firms, open-source AI-security tooling; OpenAI/Google/Anthropic all absent | other | ≡ƒöÑ major |
+| 2 | Meta + BlackRock $14B JV, 1 GW El Paso data center (BlackRock owns 80%) | funding | ≡ƒöÑ major |
+| 3 | Anthropic's official open-weights position ΓÇö direct answer to the Huang letter it didn't sign | policy | normal |
+| 4 | MCP spec 2026-07-28 ΓÇö biggest change ever, protocol goes stateless | product | normal |
+| 5 | Shared Claude chats indexed by Google (robots.txt-vs-noindex trap) | other | normal |
+| 6 | Reuters timeline: OpenAI took ~9 days to spot its own agent breaching Hugging Face; FBI knew first | other | normal |
+| 7 | NASA fuels Roman Space Telescope, Falcon Heavy launch Aug 30, 9 months early | space | normal |
+| 8 | Katalyst LINK spinning ΓÇö 2 of 3 reaction wheels dead, Swift rescue mission at risk | space | normal |
+| 9 | Fish Audio $52M seed ΓÇö 15,000+ natural-language voice controls, $21M ARR | funding | normal |
 
-- ≡ƒöÑ **Anthropic α╣Çα╕¢α╕┤α╕öα╕òα╕▒α╕º Claude Opus 5** (major) ΓÇö α╕ëα╕Ñα╕▓α╕öα╣Çα╕üα╕╖α╕¡α╕Üα╣Çα╕ùα╣êα╕▓ Fable 5 α╕ùα╕╡α╣êα╕úα╕▓α╕äα╕▓ Opus α╣Çα╕öα╕┤α╕í $5/$25, Frontier-Bench 43.3% α╣üα╕ïα╕ç GPT-5.6 Sol, α╕íα╕╡ effort toggle α╣üα╕Ñα╕░ fast mode ΓÇö [anthropic.com/news/claude-opus-5](https://www.anthropic.com/news/claude-opus-5)
-- ≡ƒöÑ **Starship α╣Çα╕ùα╕╡α╣êα╕óα╕º 13 α╕¬α╕│α╣Çα╕úα╣çα╕ê** (major) ΓÇö α╕¢α╕Ñα╣êα╕¡α╕óα╕öα╕▓α╕ºα╣Çα╕ùα╕╡α╕óα╕í Starlink V3 α╕êα╕úα╕┤α╕çα╕äα╕úα╕Ü 20 α╕öα╕ºα╕çα╣Çα╕¢α╣çα╕Öα╕äα╕úα╕▒α╣ëα╕çα╣üα╕úα╕ü α╕Üα╕╣α╕¬α╣Çα╕òα╕¡α╕úα╣îα╣üα╕Ñα╕░α╕óα╕▓α╕Öα╕Ñα╕çα╕Öα╕╕α╣êα╕íα╕ùα╕╡α╣êα╕¬α╕╕α╕öα╕ùα╕╡α╣êα╣Çα╕äα╕óα╕ùα╕│ ΓÇö [Universe Today](https://www.universetoday.com/articles/spacexs-starship-deploys-starlink-satellites-during-13th-flight-test)
-- **Kimi K3 α╕¢α╕Ñα╣êα╕¡α╕ó open weights α╣Çα╕èα╣ëα╕▓α╕Öα╕╡α╣ë** ΓÇö 2.8 α╕Ñα╣ëα╕▓α╕Öα╕Ñα╣ëα╕▓α╕Öα╕₧α╕▓α╕úα╕▓α╕íα╕┤α╣Çα╕òα╕¡α╕úα╣î / 1.4TB α╣âα╕½α╕ìα╣êα╕¬α╕╕α╕öα╣âα╕Öα╕¢α╕úα╕░α╕ºα╕▒α╕òα╕┤α╕¿α╕▓α╕¬α╕òα╕úα╣îα╣éα╕íα╣Çα╕öα╕Ñα╣Çα╕¢α╕┤α╕ö ΓÇö [TechTimes](https://www.techtimes.com/articles/321551/20260725/kimi-k3-open-weights-arrive-sunday-self-hosting-cuts-china-data-risk-api-never-can.htm)
-- **α╣Çα╕êα╕Öα╣Çα╕ïα╕Ö α╕½α╕ºα╕ç α╣éα╕₧α╕¬α╕òα╣î X α╕äα╕úα╕▒α╣ëα╕çα╣üα╕úα╕ü** α╕¢α╕Ñα╣êα╕¡α╕óα╕êα╕öα╕½α╕íα╕▓α╕óα╣Çα╕¢α╕┤α╕öα╕£α╕Öα╕╢α╕üα╕½α╕Öα╕╕α╕Öα╣éα╕íα╣Çα╕öα╕Ñα╣Çα╕¢α╕┤α╕ö α╕Ñα╕çα╕èα╕╖α╣êα╕¡α╕ùα╕░α╕Ñα╕╕ 50 α╕Üα╕úα╕┤α╕⌐α╕▒α╕ùα╣âα╕Öα╕ºα╕▒α╕Öα╣Çα╕öα╕╡α╕óα╕º (α╣äα╕íα╣êα╕íα╕╡ Anthropic/Amazon) ΓÇö [Fortune](https://fortune.com/2026/07/24/jensen-huang-open-source-letter-nvidia-kimi/)
-- **ChatGPT Health α╣Çα╕¢α╕┤α╕öα╕äα╕úα╕Üα╕ùα╕╕α╕üα╣üα╕₧α╣çα╕üα╣Çα╕üα╕êα╣âα╕Öα╕¬α╕½α╕úα╕▒α╕Éα╕»** ΓÇö α╣Çα╕èα╕╖α╣êα╕¡α╕í Apple Health/α╣Çα╕ºα╕èα╕úα╕░α╣Çα╕Üα╕╡α╕óα╕Ö α╣âα╕½α╣ë AI α╕¡α╣êα╕▓α╕Öα╕£α╕Ñα╣üα╕Ñα╣çα╕Ü α╕òα╕┤α╕öα╕òα╕▓α╕íα╕óα╕▓ ΓÇö [OpenAI](https://openai.com/index/health-in-chatgpt/)
-- **α╕Ñα╕╣α╕üα╣Çα╕úα╕╖α╕¡ Soyuz MS-28 α╕üα╕Ñα╕▒α╕Üα╣éα╕Ñα╕ü** α╕½α╕Ñα╕▒α╕ç 241 α╕ºα╕▒α╕Öα╕Üα╕Ö ISS ΓÇö [NASA](https://www.nasa.gov/news-release/nasa-astronaut-chris-williams-crewmates-return-from-space-station/)
-- **α╕Ñα╕┤α╕¬α╕òα╣î 20+ α╕Üα╕úα╕┤α╕⌐α╕▒α╕ùα╕¡α╣ëα╕▓α╕ç AI α╕òα╕¡α╕Öα╕¢α╕Ñα╕öα╕äα╕Ö** α╣üα╕òα╣êα╕½α╕╕α╣ëα╕Öα╣üα╕₧α╣ë Nasdaq α╣Çα╕üα╕╖α╕¡α╕Ü 10% ΓÇö [TechCrunch](https://techcrunch.com/2026/07/25/the-running-list-major-tech-layoffs-in-2026-where-employers-cited-ai/)
+`data/narrative/2026-07-29.json` ties them together around the open-vs-closed fight and who pays for compute. Weekly roundup skipped (Wednesday, not Sunday). `data/engine-log.md` updated.
 
-All 7 URLs were checked against `data/latest.json` ΓÇö no duplicates. Every story was verified against real sources; several have `context_th` links to earlier coverage (Starship's aborted attempts, Kimi K3's GPU shortage and the White House distillation accusation, China's export-control deliberation). Today is Monday, so no weekly rollup was due. The wrapper script will now rebuild and publish the site.
+**Two steps I could not complete:** `python scripts/generate.py` and the `git add/commit/push` were both blocked ΓÇö the Bash and PowerShell tools returned "requires approval" and this session is non-interactive, so there was no way to grant it. This is the same block that hit the 2026-07-24 run. The site HTML therefore does not yet include today's items. Your `scripts/daily_update.ps1` wrapper does generate + push, so the next wrapper run will pick these JSON files up; otherwise run this yourself from `E:\ai-news-th`:
+
+```powershell
+python scripts/generate.py
+git add -A
+git commit -m "α╕éα╣êα╕▓α╕º AI α╕¢α╕úα╕░α╕êα╕│α╕ºα╕▒α╕Öα╕ùα╕╡α╣ê 2026-07-29"
+git push
+```
