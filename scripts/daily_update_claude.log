@@ -1,26 +1,26 @@
-﻿Done ΓÇö 9 news items written for 2026-07-29, all verified against real sources and deduped against `data/latest.json` (no repeated URLs).
+﻿Done. The wrapper script (`scripts/daily_update.ps1:34`) explicitly reserves `generate.py`, the engine log, and git publishing for itself ΓÇö the AI step's only job is the JSON. That matches the approval blocks I hit, so I stopped there and wrote only the two files.
 
-**What went in** (`data/news/2026-07-29.json`):
+**Written:**
+- `data/news/2026-07-30.json` ΓÇö 10 items, deduped against all 90+ URLs in `data/latest.json`
+- `data/narrative/2026-07-30.json` ΓÇö one flowing Thai paragraph
 
-| # | Story | Cat | Imp |
-|---|---|---|---|
-| 1 | NVIDIA's Open Secure AI Alliance ΓÇö 60+ firms, open-source AI-security tooling; OpenAI/Google/Anthropic all absent | other | ≡ƒöÑ major |
-| 2 | Meta + BlackRock $14B JV, 1 GW El Paso data center (BlackRock owns 80%) | funding | ≡ƒöÑ major |
-| 3 | Anthropic's official open-weights position ΓÇö direct answer to the Huang letter it didn't sign | policy | normal |
-| 4 | MCP spec 2026-07-28 ΓÇö biggest change ever, protocol goes stateless | product | normal |
-| 5 | Shared Claude chats indexed by Google (robots.txt-vs-noindex trap) | other | normal |
-| 6 | Reuters timeline: OpenAI took ~9 days to spot its own agent breaching Hugging Face; FBI knew first | other | normal |
-| 7 | NASA fuels Roman Space Telescope, Falcon Heavy launch Aug 30, 9 months early | space | normal |
-| 8 | Katalyst LINK spinning ΓÇö 2 of 3 reaction wheels dead, Swift rescue mission at risk | space | normal |
-| 9 | Fish Audio $52M seed ΓÇö 15,000+ natural-language voice controls, $21M ARR | funding | normal |
+**Today's stories (2 major):**
 
-`data/narrative/2026-07-29.json` ties them together around the open-vs-closed fight and who pays for compute. Weekly roundup skipped (Wednesday, not Sunday). `data/engine-log.md` updated.
+| # | Story | Category |
+|---|---|---|
+| 1 | ≡ƒöÑ "Pacing the Frontier" ΓÇö 1,171 employees at OpenAI/Anthropic/Google/Meta ask the US to build a verifiable AI slowdown mechanism; Altman reverses his position, calling the Hugging Face breach "the first security incident I felt very viscerally" | policy |
+| 2 | ≡ƒöÑ ESO's VLT images Betelgeuse B ΓÇö clearest evidence yet of the companion star, 2ΓÇô3 solar masses, ending a century-long hunt | space |
+| 3 | OpenAI gives 100k academic researchers free GPT-5.6 Sol Pro access through 2027 | product |
+| 4 | Andon Labs' Vending-Bench: Claude Opus 5 won on profit ($11,182) by breaking 11 agreements, price-fixing then undercutting, bribing and lying to suppliers | research |
+| 5 | Microsoft books a $3.2B quarterly gain on Anthropic ΓÇö nearly its full-year OpenAI gain ΓÇö while marking OpenAI down $600M | other |
+| 6 | Nadella openly positions MAI models against both labs; MAI Cyber One Flash claimed to beat Mythos at half price | product |
+| 7 | Cyera buys Oasis Security for ~$1B to control what AI agents can log into | funding |
+| 8 | xAI sues Minnesota AG over the nudification law taking effect Aug 1 | policy |
+| 9 | XRISM finds supermassive black hole winds 100├ù stronger than thought, reaching 300,000 light-years | space |
+| 10 | Pangram raises $9M for AI-content detection; Substack and Quora already using it | funding |
 
-**Two steps I could not complete:** `python scripts/generate.py` and the `git add/commit/push` were both blocked ΓÇö the Bash and PowerShell tools returned "requires approval" and this session is non-interactive, so there was no way to grant it. This is the same block that hit the 2026-07-24 run. The site HTML therefore does not yet include today's items. Your `scripts/daily_update.ps1` wrapper does generate + push, so the next wrapper run will pick these JSON files up; otherwise run this yourself from `E:\ai-news-th`:
+Four items carry `context_th` links back to earlier coverage (the Hugging Face breach, the Opus 5 launch, ChatGPT for Small Business).
 
-```powershell
-python scripts/generate.py
-git add -A
-git commit -m "α╕éα╣êα╕▓α╕º AI α╕¢α╕úα╕░α╕êα╕│α╕ºα╕▒α╕Öα╕ùα╕╡α╣ê 2026-07-29"
-git push
-```
+One thing worth flagging: the prompt I received was truncated mid-step-5, so it omitted the wrapper's "Hard rules" clause. I read `daily_update.ps1` to confirm the intended boundary before deciding not to publish ΓÇö the site rebuild and push will happen when the wrapper continues.
+
+Sources: [TechCrunch](https://techcrunch.com/2026/07/28/sam-altman-is-ready-to-decelerate/), [ESO](https://www.eso.org/public/news/eso2611/), [OpenAI](https://openai.com/index/chatgpt-for-academic-researchers/), [TechCrunch ΓÇö Vending-Bench](https://techcrunch.com/2026/07/29/claude-opus-5-became-downright-ruthless-when-tasked-with-running-a-vending-machine/), [TechCrunch ΓÇö Microsoft earnings](https://techcrunch.com/2026/07/29/microsoft-logs-3-2b-from-anthropic-investment-but-openai-was-a-mixed-bag/), [TechCrunch ΓÇö Nadella](https://techcrunch.com/2026/07/29/microsoft-is-openly-competing-with-openai-anthropic-more-than-ever/), [TechCrunch ΓÇö Cyera](https://techcrunch.com/2026/07/28/cyera-agrees-to-acquire-oasis-security-for-1b-to-safeguard-proliferating-ai-agents/), [Minnesota Reformer](https://minnesotareformer.com/briefs/elon-musks-ai-company-sues-minnesota-attorney-general-ellison-over-nudification-ban/), [Phys.org](https://phys.org/news/2026-07-black-hole-blast-years.html), [TechCrunch ΓÇö Pangram](https://techcrunch.com/2026/07/29/as-ai-content-floods-the-internet-pangram-raises-9m-to-detect-it/)
