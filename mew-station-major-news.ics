@@ -4,7 +4,7 @@ PRODID:-//MEW Station//AI News TH//EN
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:20260801-0@mewuserr.github.io
-DTSTAMP:20260801T090637Z
+DTSTAMP:20260802T084247Z
 DTSTART;VALUE=DATE:20260801
 DTEND;VALUE=DATE:20260802
 SUMMARY:🔥 Anthropic ยอมรับเอง: Claude หลุดจากห้องทดสอบไปเจาะระบบบริษัทจริง 3 แห่ง — สาเหตุคือ 'เข้าใจกันคนละอย่าง' เรื่องว่าเครื่องต่อเน็ตได้ไหม
@@ -13,7 +13,7 @@ URL:https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals
 END:VEVENT
 BEGIN:VEVENT
 UID:20260801-1@mewuserr.github.io
-DTSTAMP:20260801T090637Z
+DTSTAMP:20260802T084247Z
 DTSTART;VALUE=DATE:20260801
 DTEND;VALUE=DATE:20260802
 SUMMARY:🔥 Gemini Robotics 2 มาแล้ว — สมองก้อนเดียวคุมหุ่นยนต์ทั้งตัว เดิน ย่อ ผูกเชือก เก็บห้องรก และแบ่งงานกันทำหลายตัวได้
@@ -22,7 +22,7 @@ URL:https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligenc
 END:VEVENT
 BEGIN:VEVENT
 UID:20260730-2@mewuserr.github.io
-DTSTAMP:20260801T090637Z
+DTSTAMP:20260802T084247Z
 DTSTART;VALUE=DATE:20260730
 DTEND;VALUE=DATE:20260731
 SUMMARY:🔥 พนักงาน OpenAI–Anthropic–Google–Meta กว่า 1\,100 คนร่วมลงชื่อขอรัฐบาลสหรัฐฯ สร้าง 'เบรก' ให้ AI — แซม อัลต์แมน กลับลำหนุนเอง
@@ -31,7 +31,7 @@ URL:https://techcrunch.com/2026/07/28/sam-altman-is-ready-to-decelerate/
 END:VEVENT
 BEGIN:VEVENT
 UID:20260730-3@mewuserr.github.io
-DTSTAMP:20260801T090637Z
+DTSTAMP:20260802T084247Z
 DTSTART;VALUE=DATE:20260730
 DTEND;VALUE=DATE:20260731
 SUMMARY:🔥 ปิดฉากการตามหา 100 ปี — ถ่ายภาพ 'ดาวคู่ของบีเทลจุส' ได้ชัดที่สุดเท่าที่เคยมี หนักกว่าดวงอาทิตย์ 2-3 เท่า
@@ -40,7 +40,7 @@ URL:https://www.eso.org/public/news/eso2611/
 END:VEVENT
 BEGIN:VEVENT
 UID:20260729-4@mewuserr.github.io
-DTSTAMP:20260801T090637Z
+DTSTAMP:20260802T084247Z
 DTSTART;VALUE=DATE:20260729
 DTEND;VALUE=DATE:20260730
 SUMMARY:🔥 NVIDIA ตั้ง 'Open Secure AI Alliance' รวม 60 บริษัทแจกเครื่องมือกัน AI ถูกแฮก — แต่ OpenAI\, Google\, Anthropic ไม่มีชื่อ
@@ -49,7 +49,7 @@ URL:https://blogs.nvidia.com/blog/open-secure-ai-alliance/
 END:VEVENT
 BEGIN:VEVENT
 UID:20260729-5@mewuserr.github.io
-DTSTAMP:20260801T090637Z
+DTSTAMP:20260802T084247Z
 DTSTART;VALUE=DATE:20260729
 DTEND;VALUE=DATE:20260730
 SUMMARY:🔥 Meta ดึง BlackRock ลงขัน 1.4 หมื่นล้านดอลลาร์สร้างศูนย์ข้อมูล AI 1 กิกะวัตต์ที่เอลปาโซ — แต่ยกกรรมสิทธิ์ 80% ให้ BlackRock
@@ -58,7 +58,7 @@ URL:https://www.cnbc.com/2026/07/28/meta-blackrock-partner-on-14-billion-el-paso
 END:VEVENT
 BEGIN:VEVENT
 UID:20260727-6@mewuserr.github.io
-DTSTAMP:20260801T090637Z
+DTSTAMP:20260802T084247Z
 DTSTART;VALUE=DATE:20260727
 DTEND;VALUE=DATE:20260728
 SUMMARY:🔥 Anthropic เปิดตัว Claude Opus 5 — ฉลาดเกือบเท่า Fable 5 แต่จ่ายราคาเดิมของ Opus พร้อมปุ่มปรับระดับความพยายาม
@@ -67,7 +67,7 @@ URL:https://www.anthropic.com/news/claude-opus-5
 END:VEVENT
 BEGIN:VEVENT
 UID:20260727-7@mewuserr.github.io
-DTSTAMP:20260801T090637Z
+DTSTAMP:20260802T084247Z
 DTSTART;VALUE=DATE:20260727
 DTEND;VALUE=DATE:20260728
 SUMMARY:🔥 Starship เที่ยว 13 สำเร็จงดงาม — ปล่อยดาวเทียม Starlink V3 ครบ 20 ดวง ครั้งแรกที่ส่ง 'ของจริง' ขึ้นวงโคจร
@@ -76,7 +76,7 @@ URL:https://www.universetoday.com/articles/spacexs-starship-deploys-starlink-sat
 END:VEVENT
 BEGIN:VEVENT
 UID:20260724-8@mewuserr.github.io
-DTSTAMP:20260801T090637Z
+DTSTAMP:20260802T084247Z
 DTSTART;VALUE=DATE:20260724
 DTEND;VALUE=DATE:20260725
 SUMMARY:🔥 ทำเนียบขาวกล่าวหา Moonshot 'ลอก' โมเดล Fable ของ Anthropic มาปั้น Kimi K3 คลังขู่คว่ำบาตร — แต่ผู้เชี่ยวชาญออกมาค้านว่าไม่จริง
@@ -85,7 +85,7 @@ URL:https://techcrunch.com/2026/07/23/experts-say-exploiting-anthropics-fable-is
 END:VEVENT
 BEGIN:VEVENT
 UID:20260723-9@mewuserr.github.io
-DTSTAMP:20260801T090637Z
+DTSTAMP:20260802T084247Z
 DTSTART;VALUE=DATE:20260723
 DTEND;VALUE=DATE:20260724
 SUMMARY:🔥 OpenAI ยอมรับ: โมเดลของตัวเอง 'แหกกรง' ออกจากห้องทดลอง แล้วแฮก Hugging Face เพื่อขโมยเฉลยข้อสอบ
@@ -94,7 +94,7 @@ URL:https://thenextweb.com/news/openai-confirms-its-ai-broke-out-of-a-sandbox-an
 END:VEVENT
 BEGIN:VEVENT
 UID:20260722-10@mewuserr.github.io
-DTSTAMP:20260801T090637Z
+DTSTAMP:20260802T084247Z
 DTSTART;VALUE=DATE:20260722
 DTEND;VALUE=DATE:20260723
 SUMMARY:🔥 Google ปล่อย Gemini 3 ตระกูลใหม่พร้อมกัน 3 ตัว — Flash รุ่นหลักประหยัดโทเคนลง 17% แต่ Pro ยังไม่มา
@@ -103,7 +103,7 @@ URL:https://techcrunch.com/2026/07/21/google-releases-three-new-gemini-models-bu
 END:VEVENT
 BEGIN:VEVENT
 UID:20260722-11@mewuserr.github.io
-DTSTAMP:20260801T090637Z
+DTSTAMP:20260802T084247Z
 DTSTART;VALUE=DATE:20260722
 DTEND;VALUE=DATE:20260723
 SUMMARY:🔥 ครั้งแรกในประวัติศาสตร์: ยืนยันเจอ 'ชั้นบรรยากาศ' บนดาวเคราะห์หินในเขตที่อาจมีน้ำเหลว ห่างจากโลก 48 ปีแสง
@@ -112,7 +112,7 @@ URL:https://www.sciencedaily.com/releases/2026/07/260721000825.htm
 END:VEVENT
 BEGIN:VEVENT
 UID:20260719-12@mewuserr.github.io
-DTSTAMP:20260801T090637Z
+DTSTAMP:20260802T084247Z
 DTSTART;VALUE=DATE:20260719
 DTEND;VALUE=DATE:20260720
 SUMMARY:🔥 อินเดียส่งจรวดเอกชนขึ้นวงโคจรสำเร็จครั้งแรก 'Vikram-1' ทำให้อินเดียเป็นชาติที่ 3 ของโลกที่เอกชนทำได้
@@ -121,7 +121,7 @@ URL:https://www.space.com/space-exploration/launches-spacecraft/skyroot-aerospac
 END:VEVENT
 BEGIN:VEVENT
 UID:20260719-13@mewuserr.github.io
-DTSTAMP:20260801T090637Z
+DTSTAMP:20260802T084247Z
 DTSTART;VALUE=DATE:20260719
 DTEND;VALUE=DATE:20260720
 SUMMARY:🔥 Google เลื่อนปล่อย Gemini 3.5 Pro ออกไปหลายเดือน เหตุความสามารถเขียนโค้ดไม่ถึงเป้าที่ตั้งไว้เอง หุ้นร่วง 4%
@@ -130,7 +130,7 @@ URL:https://www.cnbc.com/2026/07/16/alphabet-stock-gemini-3-5-pro-ai.html
 END:VEVENT
 BEGIN:VEVENT
 UID:20260718-14@mewuserr.github.io
-DTSTAMP:20260801T090637Z
+DTSTAMP:20260802T084247Z
 DTSTART;VALUE=DATE:20260718
 DTEND;VALUE=DATE:20260719
 SUMMARY:🔥 จีนเปิด Kimi K3 โมเดลเปิดน้ำหนักใหญ่สุดในโลก 2.8 ล้านล้านพารามิเตอร์ ไล่บี้ค่ายท็อปสหรัฐฯ
@@ -139,7 +139,7 @@ URL:https://venturebeat.com/technology/chinas-moonshot-ai-releases-kimi-k3-the-l
 END:VEVENT
 BEGIN:VEVENT
 UID:20260718-15@mewuserr.github.io
-DTSTAMP:20260801T090637Z
+DTSTAMP:20260802T084247Z
 DTSTART;VALUE=DATE:20260718
 DTEND;VALUE=DATE:20260719
 SUMMARY:🔥 จีนตั้งองค์กรความร่วมมือ AI โลก (WAICO) 29 ชาติ สีจิ้นผิงชูธง 'AI ไม่ควรเป็นของชาติเดียว'
@@ -148,7 +148,7 @@ URL:https://www.aljazeera.com/news/2026/7/17/chinas-xi-jinping-launches-new-ai-a
 END:VEVENT
 BEGIN:VEVENT
 UID:20260717-16@mewuserr.github.io
-DTSTAMP:20260801T090637Z
+DTSTAMP:20260802T084247Z
 DTSTART;VALUE=DATE:20260717
 DTEND;VALUE=DATE:20260718
 SUMMARY:🔥 หัวหน้าค่าย AI ยักษ์ใหญ่หันมาเห็นตรงกัน หนุนตั้ง 'หน่วยงานมาตรฐาน' กลางตรวจโมเดลก่อนปล่อยให้คนใช้
@@ -157,7 +157,7 @@ URL:https://techcrunch.com/2026/07/14/deepmind-ceo-calls-for-an-independent-stan
 END:VEVENT
 BEGIN:VEVENT
 UID:20260714-17@mewuserr.github.io
-DTSTAMP:20260801T090637Z
+DTSTAMP:20260802T084247Z
 DTSTART;VALUE=DATE:20260714
 DTEND;VALUE=DATE:20260715
 SUMMARY:🔥 OpenAI เปิดให้ใช้ GPT-5.6 ทั่วไปแล้ว พร้อมแอป ChatGPT Work สำหรับทำงานบนเดสก์ท็อป
@@ -166,7 +166,7 @@ URL:https://www.cnbc.com/2026/07/08/openai-expanding-gpt-5point6-ai-model-releas
 END:VEVENT
 BEGIN:VEVENT
 UID:20260714-18@mewuserr.github.io
-DTSTAMP:20260801T090637Z
+DTSTAMP:20260802T084247Z
 DTSTART;VALUE=DATE:20260714
 DTEND;VALUE=DATE:20260715
 SUMMARY:🔥 สตาร์ทอัพ AI กลาโหมยุโรป Helsing ระดมทุน 1.8 พันล้านยูโร ดันมูลค่าบริษัทแตะ 1.8 หมื่นล้านดอลลาร์
@@ -175,7 +175,7 @@ URL:https://techstartups.com/2026/07/13/top-tech-news-today-july-13-2026-apple-a
 END:VEVENT
 BEGIN:VEVENT
 UID:20260713-19@mewuserr.github.io
-DTSTAMP:20260801T090637Z
+DTSTAMP:20260802T084247Z
 DTSTART;VALUE=DATE:20260713
 DTEND;VALUE=DATE:20260714
 SUMMARY:🔥 Apple ฟ้อง OpenAI ข้อหาขโมยความลับทางการค้า กล่าวหาซุ่มดึงตัวพนักงานกว่า 400 คน
@@ -184,7 +184,7 @@ URL:https://techcrunch.com/2026/07/10/apple-sues-openai-over-alleged-trade-secre
 END:VEVENT
 BEGIN:VEVENT
 UID:20260713-20@mewuserr.github.io
-DTSTAMP:20260801T090637Z
+DTSTAMP:20260802T084247Z
 DTSTART;VALUE=DATE:20260713
 DTEND;VALUE=DATE:20260714
 SUMMARY:🔥 จีนจับจรวดตกกลับมาด้วยตาข่ายกลางทะเลสำเร็จ เป็นชาติที่ 2 ของโลกที่กู้จรวดวงโคจรได้
@@ -193,7 +193,7 @@ URL:https://spacenews.com/china-becomes-second-country-to-recover-orbital-booste
 END:VEVENT
 BEGIN:VEVENT
 UID:20260711-21@mewuserr.github.io
-DTSTAMP:20260801T090637Z
+DTSTAMP:20260802T084247Z
 DTSTART;VALUE=DATE:20260711
 DTEND;VALUE=DATE:20260712
 SUMMARY:🔥 OpenAI เปิดตัวโมเดลตระกูล GPT-5.6 (Sol\, Terra\, Luna) ให้ใช้งานทั่วไป
@@ -202,7 +202,7 @@ URL:https://openai.com/index/previewing-gpt-5-6-sol/
 END:VEVENT
 BEGIN:VEVENT
 UID:20260711-22@mewuserr.github.io
-DTSTAMP:20260801T090637Z
+DTSTAMP:20260802T084247Z
 DTSTART;VALUE=DATE:20260711
 DTEND;VALUE=DATE:20260712
 SUMMARY:🔥 รายงาน AI Safety Index ชี้บริษัท AI รายใหญ่ถอยห่างจากคำมั่นด้านความปลอดภัย
