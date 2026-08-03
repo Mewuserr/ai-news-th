@@ -25,3 +25,4 @@
 - 2026-07-30 03:04 UTC [LOCAL PC]: OK: wrote 10 news items, generate.py ok, pushing
 - 2026-08-01 08:58 UTC [LOCAL PC]: OK: wrote 9 news items, generate.py ok, pushing
 - 2026-08-02 08:42 UTC [LOCAL PC]: NO NEW NEWS (or AI produced nothing usable) - site rebuilt, heartbeat only
+- 2026-08-03 07:52 UTC [LOCAL PC]: OK: wrote 8 news items, generate.py ok, pushing
