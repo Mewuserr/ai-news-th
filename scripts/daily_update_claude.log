@@ -1,28 +1,38 @@
-﻿Structure checks out: 8 objects (8 `{` + 8 `}` + closing `]` + 1 `major` = 18 matches), balanced and terminated.
+﻿Done. Here's the run summary for **2026-08-04**.
 
-## Done ΓÇö 8 news items written for 2026-08-03
+## Files written
 
-**Files written** (the only two I'm scoped to touch):
-- `data/news/2026-08-03.json` ΓÇö 8 items
-- `data/narrative/2026-08-03.json` ΓÇö one flowing Thai paragraph
+- `data/news/2026-08-04.json` ΓÇö 9 items
+- `data/narrative/2026-08-04.json` ΓÇö one-paragraph roundup
+- `data/engine-log.md` ΓÇö run entry appended
 
-**Stories** (all deduped against `data/latest.json`, all URLs verified against real sources):
+All 9 URLs were checked against `data/latest.json` ΓÇö no repeats.
 
-| # | Story | Category | Importance |
-|---|---|---|---|
-| 1 | OpenAI unveils next model **Astra** ΓÇö solved 10 decade-old open math problems, Lean-verified, ~$2,000 compute | research | **major** |
-| 2 | Two teams filed the *same* quantum-crypto proof 3h18m apart, both using GPT-5.6 Sol Ultra | research | normal |
-| 3 | **MiniMax H3 / Hailuo 3.0** ΓÇö 2K video with native dialogue+SFX+ambience in one pass | model_release | normal |
-| 4 | **LG K-EXAONE 2.0** ΓÇö Korea's largest model, 750B params, Apache 2.0 | model_release | normal |
-| 5 | **DeepSeek V4-Flash-0731** ΓÇö same architecture and price, beats its own flagship on all 9 agent benchmarks | model_release | normal |
-| 6 | Boeing Starliner cargo run ΓÇö blocked by ISS docking slots, not engineering | space | normal |
-| 7 | NASA's "spare Mars rover to the Moon" idea could cost up to $1.33B | space | normal |
-| 8 | SpaceX wins $1.6B for 18 Space Force sensing/targeting launches | space | normal |
+## The 9 stories
 
-Kept `major` to a single story (Astra) ΓÇö it's the one genuinely field-shifting item. Added `context_th` only where a real prior story exists in the archive: Astra ΓåÆ the GPT-5.6 price cut and the "Pacing the Frontier" letter; K-EXAONE ΓåÆ the Kimi K3 open-weights release and the NVIDIA/Anthropic open-model dispute; the crypto-proofs story ΓåÆ Astra, same week and same model family.
+**major (2):**
+1. **Alibaba Qwen3.8-Max** goes GA globally (Aug 3) ΓÇö 2.4T-param MoE, 1M context, $2/$6 per M tokens, weights promised next week. Emphasized what it does: ingest a whole TV series or livestream into a searchable knowledge base, rebuild software from a screenshot, turn 2D floor plans into 3D.
+2. **EU AI Act enforcement powers switched on** (Aug 2, CNBC Aug 3) ΓÇö the AI Office can now demand technical docs, test models itself, order fixes, fine up to Γé¼15M/3% of turnover, or pull a model from the EU market.
 
-**Two notes:**
+**normal (7):** California SB 942 watermark law goes operative ($5,000/day fines) ┬╖ Apple's rebuilt Siri in the iOS 27 beta ┬╖ Google kills the AI Studio mobile app after 800k preorders ┬╖ Horizon3 raises $250M at $2B+ ┬╖ Palantir's 93% growth quarter + Karp's "Marxist" broadside ┬╖ Falcon 9 upper stage hits the Moon Aug 5 at 06:44 UTC ┬╖ NASA sets Crew-13 for Sept 12.
 
-I dropped a promising Uranus-moon discovery after checking the date ΓÇö it's from August **2025**, not this window. Also skipped the Chang'e-7 launch-window story (with Thailand's NARIT-built MATCH instrument aboard, which would have been a strong Thai-audience angle), because the freshest hook I could confirm was a July 21 NOTAM report, outside the 24-48h window. Worth revisiting closer to the Aug 24 launch ΓÇö that one is genuinely local-interest.
+Added `context_th` on 4 items where a real prior story exists (Qwen3.8-Max preview July 19; SB 942 timed to the EU date; Horizon3 after the CyeraΓÇôOasis deal; Karp echoing Nadella July 29). Left it off the rest rather than guess.
 
-I did not run `generate.py`, write `data/engine-log.md`, or commit. That's by design, not a failure: `scripts/daily_update.ps1:29` instructs this step to write only the JSON and explicitly forbids git/python, and the wrapper then rebuilds the site, writes the heartbeat log, and pushes. My attempts to run python were correctly blocked by that guardrail before I read the wrapper. The site will show today's news once the wrapper's generate+push stage runs.
+## Not completed ΓÇö blocked
+
+`python scripts/generate.py`, `git add`, and `git commit/push` were all **denied by the permission layer** in this session:
+
+```
+This command requires approval
+```
+
+So the site HTML has **not** been regenerated and nothing has been committed or pushed. This is the same block hit on the 2026-07-29 run, which the log records as being handled by the `daily_update.ps1` wrapper (it runs generate + push after the news-writing step). If that wrapper is driving this run, it will pick up the three new/modified files and finish the job. If it isn't, the site will not update until someone runs:
+
+```
+python scripts/generate.py
+git add -A && git commit -m "α╕éα╣êα╕▓α╕º AI α╕¢α╕úα╕░α╕êα╕│α╕ºα╕▒α╕Öα╕ùα╕╡α╣ê 2026-08-04" && git push
+```
+
+Today is Tuesday, so no weekly rollup was due.
+
+Sources: [SCMP](https://www.scmp.com/tech/article/3362738/alibabas-ai-model-qwen38-max-made-widely-accessible-ahead-open-weights-release), [CNBC](https://www.cnbc.com/2026/08/03/eu-ai-act-enforcement-powers.html), [TechTimes](https://www.techtimes.com/articles/322713/20260802/california-ai-transparency-act-operative-midjourney-has-no-watermark-fines-start-today.htm), [TechCrunch ΓÇô Siri](https://techcrunch.com/2026/08/03/apple-finally-fixed-siri-so-why-does-it-feel-anticlimactic/), [9to5Google](https://9to5google.com/2026/07/31/gemini-ai-studio-app/), [TechCrunch ΓÇô Horizon3](https://techcrunch.com/2026/08/03/horizon3-hits-2-billion-valuation-with-250m-series-e-as-ai-threats-escalate/), [TechCrunch ΓÇô Palantir](https://techcrunch.com/2026/08/03/after-killer-quarter-palantir-ceo-alex-karp-calls-ai-industry-marxist/), [Space.com](https://www.space.com/astronomy/moon/a-spacex-rocket-will-crash-into-the-moon-next-week-and-scientists-arent-sure-what-to-expect), [ClickOrlando/NASA](https://www.clickorlando.com/news/local/2026/08/03/nasa-to-give-update-on-crew-13-launch-from-florida/)
