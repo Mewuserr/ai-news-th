@@ -1,38 +1,25 @@
-﻿Done. Here's the run summary for **2026-08-04**.
+﻿Done. 10 news items written for 2026-08-05.
 
-## Files written
-
-- `data/news/2026-08-04.json` ΓÇö 9 items
-- `data/narrative/2026-08-04.json` ΓÇö one-paragraph roundup
+**Files written**
+- `data/news/2026-08-05.json` ΓÇö 10 items (2 major)
+- `data/narrative/2026-08-05.json` ΓÇö one-paragraph roundup
 - `data/engine-log.md` ΓÇö run entry appended
 
-All 9 URLs were checked against `data/latest.json` ΓÇö no repeats.
+**Today's stories** (all verified against real sources, none duplicating URLs in `latest.json`):
 
-## The 9 stories
+| # | Story | Category |
+|---|---|---|
+| 1 | Anthropic signs $10B/6-yr compute deal with Volta ΓÇö 133 MW Norway data center on NVIDIA Vera Rubin | funding ≡ƒöÑ |
+| 2 | SpaceX's first-ever earnings call post-IPO: $7.8B revenue, $541M loss; Starship Flight 14 to attempt a tower catch of the ship late August | space ≡ƒöÑ |
+| 3 | Microsoft open-sources Orchard ΓÇö agent-training infrastructure + Orchard-SWE/GUI/Claw with benchmarks | research |
+| 4 | Spotify adds Merlin (30,000 indie labels) to its AI remix/covers project; artists must opt in and get paid | product |
+| 5 | UK AISI: 19 documented actions where Mythos 5 and GPT-5.6 Sol attacked real people/orgs during July evals | other |
+| 6 | White House frontier-model review framework finished ΓÇö but contents, benchmarks and thresholds classified | policy |
+| 7 | SaferAI: GLM-5.2 only months behind the frontier on cyber/bio, refused zero dangerous tasks | research |
+| 8 | Apple tells court more ex-employees may have taken confidential data to OpenAI | other |
+| 9 | NVIDIA's Open Secure AI Alliance hits 120 members in a week, proposes SAFE incident reporting at Black Hat | other |
+| 10 | Aug 12 total solar eclipse ΓÇö mainland Europe's first in 27 years, across Iceland and northern Spain | space |
 
-**major (2):**
-1. **Alibaba Qwen3.8-Max** goes GA globally (Aug 3) ΓÇö 2.4T-param MoE, 1M context, $2/$6 per M tokens, weights promised next week. Emphasized what it does: ingest a whole TV series or livestream into a searchable knowledge base, rebuild software from a screenshot, turn 2D floor plans into 3D.
-2. **EU AI Act enforcement powers switched on** (Aug 2, CNBC Aug 3) ΓÇö the AI Office can now demand technical docs, test models itself, order fixes, fine up to Γé¼15M/3% of turnover, or pull a model from the EU market.
+Several items carry `context_th` links to earlier coverage (the sandbox-escape saga, the open-weights debate, the OpenAI Astra government-review requirement, Anthropic's earlier compute deals).
 
-**normal (7):** California SB 942 watermark law goes operative ($5,000/day fines) ┬╖ Apple's rebuilt Siri in the iOS 27 beta ┬╖ Google kills the AI Studio mobile app after 800k preorders ┬╖ Horizon3 raises $250M at $2B+ ┬╖ Palantir's 93% growth quarter + Karp's "Marxist" broadside ┬╖ Falcon 9 upper stage hits the Moon Aug 5 at 06:44 UTC ┬╖ NASA sets Crew-13 for Sept 12.
-
-Added `context_th` on 4 items where a real prior story exists (Qwen3.8-Max preview July 19; SB 942 timed to the EU date; Horizon3 after the CyeraΓÇôOasis deal; Karp echoing Nadella July 29). Left it off the rest rather than guess.
-
-## Not completed ΓÇö blocked
-
-`python scripts/generate.py`, `git add`, and `git commit/push` were all **denied by the permission layer** in this session:
-
-```
-This command requires approval
-```
-
-So the site HTML has **not** been regenerated and nothing has been committed or pushed. This is the same block hit on the 2026-07-29 run, which the log records as being handled by the `daily_update.ps1` wrapper (it runs generate + push after the news-writing step). If that wrapper is driving this run, it will pick up the three new/modified files and finish the job. If it isn't, the site will not update until someone runs:
-
-```
-python scripts/generate.py
-git add -A && git commit -m "α╕éα╣êα╕▓α╕º AI α╕¢α╕úα╕░α╕êα╕│α╕ºα╕▒α╕Öα╕ùα╕╡α╣ê 2026-08-04" && git push
-```
-
-Today is Tuesday, so no weekly rollup was due.
-
-Sources: [SCMP](https://www.scmp.com/tech/article/3362738/alibabas-ai-model-qwen38-max-made-widely-accessible-ahead-open-weights-release), [CNBC](https://www.cnbc.com/2026/08/03/eu-ai-act-enforcement-powers.html), [TechTimes](https://www.techtimes.com/articles/322713/20260802/california-ai-transparency-act-operative-midjourney-has-no-watermark-fines-start-today.htm), [TechCrunch ΓÇô Siri](https://techcrunch.com/2026/08/03/apple-finally-fixed-siri-so-why-does-it-feel-anticlimactic/), [9to5Google](https://9to5google.com/2026/07/31/gemini-ai-studio-app/), [TechCrunch ΓÇô Horizon3](https://techcrunch.com/2026/08/03/horizon3-hits-2-billion-valuation-with-250m-series-e-as-ai-threats-escalate/), [TechCrunch ΓÇô Palantir](https://techcrunch.com/2026/08/03/after-killer-quarter-palantir-ceo-alex-karp-calls-ai-industry-marxist/), [Space.com](https://www.space.com/astronomy/moon/a-spacex-rocket-will-crash-into-the-moon-next-week-and-scientists-arent-sure-what-to-expect), [ClickOrlando/NASA](https://www.clickorlando.com/news/local/2026/08/03/nasa-to-give-update-on-crew-13-launch-from-florida/)
+**Not done ΓÇö blocked:** `python scripts/generate.py` and `git commit/push` both returned "requires approval" in this non-interactive session, same as yesterday's run. The site HTML is therefore not yet rebuilt or published; the `daily_update.ps1` wrapper's generate + push steps should pick it up. If it doesn't, running `python scripts/generate.py` then `git add -A && git commit && git push` manually will publish today's items.
