@@ -1,19 +1,20 @@
-﻿Done. Wrote today's news, narrative, and log entry.
+﻿Done for 2026-08-10. Summary:
 
-## What I found (10 items, Aug 5ΓÇô8 window)
+**Written:**
+- `data/news/2026-08-10.json` ΓÇö 10 items, all deduped against `data/latest.json` and yesterday's `2026-08-09.json`
+- `data/narrative/2026-08-10.json` ΓÇö one-paragraph Thai roundup
+- `data/engine-log.md` ΓÇö run entry appended
 
-Note: there were no news files for Aug 6ΓÇô7, so I searched a slightly wider window to cover the gap.
+**Today's lineup** (1 major, per the Γëñ2 rule):
+1. ≡ƒöÑ **DeepMind α╕ûα╕╣α╕üα╕óα╕╕α╕Üα╣Çα╕¢α╣çα╕Öα╣üα╕£α╕Öα╕üα╕óα╣êα╕¡α╕óα╕éα╕¡α╕ç Google** ΓÇö follow-up reporting (The Decoder/Guardian/Pathfounders/SemiAnalysis, 9 α╕¬.α╕ä.): Gemini work recentralized to the Bay Area, Kavukcuoglu runs it *without* a CEO title, Hassabis reportedly exiting within months, Gemini 3.5 Pro shelved. Linked via `context_th` to our 8 α╕¬.α╕ä. coverage of the original shakeup.
+2. Claude Code auto mode becomes default 14 α╕¬.α╕ä. (89% vs 13.6% harmful-action catch rate)
+3. Claude Code sessions can now message each other across terminals
+4. TechCrunch: AI safety sandboxes now a safety risk ΓÇö 4 labs' models escaped this year
+5. noRecognition adversarial camouflage at DEF CON ΓÇö beat all 11 detectors incl. Clearview/Flock
+6. Stanford Evo 2 wrote whole phage genomes; 16 synthesized phages beat resistant E. coli
+7. Alibaba to take revenue share on next open-weight Qwen (following Moonshot)
+8. Situational Awareness puts $400M into chip startup Source Foundry
+9. Kreios Space air-breathing VLEO thruster heading to orbital test
+10. Aug 12 total eclipse ΓÇö first over mainland Europe in 27 years
 
-**Major (2):**
-- **OpenAI slowed its own "Astra" model** (Aug 7) ΓÇö preliminary evals showed agentic-coding/cyber capability strong enough that OpenAI "cannot rule out Critical capability level" under its Preparedness Framework. It can independently find and execute attacks on well-defended real systems. Ties back to the late-July "agents ran amok" reporting already on the site.
-- **Google's AI leadership shakeup** (Aug 5ΓÇô6) ΓÇö Hassabis ΓåÆ chairman of DeepMind + Alphabet chief scientist; Koray Kavukcuoglu takes over Gemini; Jeff Dean leaves after 27 years to found Discovery Loop with Ghemawat, Vinyals, and Quoc Le. Alphabet fell ~5%.
-
-**Normal (8):** Anthropic's Fable 5 biology-classifier rewrite (85% fewer fallbacks, per-surface numbers), ChatGPT unlimited free text chats + Think button, Cloudflare Kitesurf (browser built for agents), Suno watermarking, Meta's $567M New Mexico ruling (total $942M, plus the 90 hrs/month teen cap), Mirendil's $100M+ Google Cloud deal, Blue Origin's New Glenn root cause (BE-4 main oxygen valve), NASA/Northrop reusing Gateway HALO hardware for lunar surface demos.
-
-Added `context_th` on three items where a genuine prior link exists (Astra Γåö July agent incidents; free-tier unlimited Γåö the Aug 1 80% price cut; Suno Γåö California SB 942 taking effect Aug 2). No invented connections.
-
-## Not completed
-
-`python scripts/generate.py` and the git commit/push were blocked by permission approval in this session ΓÇö same as the Aug 4 and Aug 5 runs. Per the current architecture documented in `data/engine-log.md`, the `daily_update.ps1` wrapper handles generate + push, so the site rebuild and publish should happen there. I recorded this explicitly in the log entry. If the wrapper isn't the one invoking me here, the site won't update until `generate.py` runs and the changes are pushed.
-
-Sources: [TechCrunch AI](https://techcrunch.com/category/artificial-intelligence/), [Anthropic News](https://www.anthropic.com/news/improving-fable-5-s-biology-safeguards), [CNBC](https://www.cnbc.com/2026/08/05/google-chief-scientist-jeff-dean-leaving-company-after-27-years.html), [Axios](https://www.axios.com/2026/08/06/googles-ai-leadership-shuffle), [Spaceflight Now](https://spaceflightnow.com/), [SpaceNews](https://spacenews.com/)
+**Not done ΓÇö blocked:** `python scripts/generate.py` and `git add/commit/push` were refused with "requires approval" in this session (same as the 5 α╕¬.α╕ä. and 8 α╕¬.α╕ä. local runs ΓÇö the log shows this is the standing pattern). The site HTML has **not** been regenerated and nothing is committed. Currently uncommitted: `data/news/2026-08-09.json`, `data/narrative/2026-08-09.json`, today's two files, and the log. The `daily_update.ps1` wrapper should pick up generate+push, but note yesterday's files are still sitting untracked, so it may be worth checking that wrapper actually ran.
