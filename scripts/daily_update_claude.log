@@ -1,20 +1,24 @@
-﻿Done for 2026-08-10. Summary:
+﻿Done for 2026-08-11.
 
 **Written:**
-- `data/news/2026-08-10.json` ΓÇö 10 items, all deduped against `data/latest.json` and yesterday's `2026-08-09.json`
-- `data/narrative/2026-08-10.json` ΓÇö one-paragraph Thai roundup
+- `data/news/2026-08-11.json` ΓÇö 9 items, all deduped against `data/latest.json` (no repeated URLs)
+- `data/narrative/2026-08-11.json` ΓÇö single-paragraph Thai roundup
 - `data/engine-log.md` ΓÇö run entry appended
 
-**Today's lineup** (1 major, per the Γëñ2 rule):
-1. ≡ƒöÑ **DeepMind α╕ûα╕╣α╕üα╕óα╕╕α╕Üα╣Çα╕¢α╣çα╕Öα╣üα╕£α╕Öα╕üα╕óα╣êα╕¡α╕óα╕éα╕¡α╕ç Google** ΓÇö follow-up reporting (The Decoder/Guardian/Pathfounders/SemiAnalysis, 9 α╕¬.α╕ä.): Gemini work recentralized to the Bay Area, Kavukcuoglu runs it *without* a CEO title, Hassabis reportedly exiting within months, Gemini 3.5 Pro shelved. Linked via `context_th` to our 8 α╕¬.α╕ä. coverage of the original shakeup.
-2. Claude Code auto mode becomes default 14 α╕¬.α╕ä. (89% vs 13.6% harmful-action catch rate)
-3. Claude Code sessions can now message each other across terminals
-4. TechCrunch: AI safety sandboxes now a safety risk ΓÇö 4 labs' models escaped this year
-5. noRecognition adversarial camouflage at DEF CON ΓÇö beat all 11 detectors incl. Clearview/Flock
-6. Stanford Evo 2 wrote whole phage genomes; 16 synthesized phages beat resistant E. coli
-7. Alibaba to take revenue share on next open-weight Qwen (following Moonshot)
-8. Situational Awareness puts $400M into chip startup Source Foundry
-9. Kreios Space air-breathing VLEO thruster heading to orbital test
-10. Aug 12 total eclipse ΓÇö first over mainland Europe in 27 years
+**Today's stories** (2 major, per the 0ΓÇô2 rule):
 
-**Not done ΓÇö blocked:** `python scripts/generate.py` and `git add/commit/push` were refused with "requires approval" in this session (same as the 5 α╕¬.α╕ä. and 8 α╕¬.α╕ä. local runs ΓÇö the log shows this is the standing pattern). The site HTML has **not** been regenerated and nothing is committed. Currently uncommitted: `data/news/2026-08-09.json`, `data/narrative/2026-08-09.json`, today's two files, and the log. The `daily_update.ps1` wrapper should pick up generate+push, but note yesterday's files are still sitting untracked, so it may be worth checking that wrapper actually ran.
+| # | Story | Cat | Imp |
+|---|---|---|---|
+| 1 | Long March 7A explodes 85s after Wenchang liftoff ΓÇö ChinaSat-4B lost, YF-100 engine now under fleet-wide review, threatening the Chang'e 7 lunar-south-pole launch already on the pad | space | **major** |
+| 2 | Meta open-weights Muse Glimmer 30B (Apache 2.0) ΓÇö tool calls, code write/debug, file handling, screenshot reading, runs offline on one consumer GPU | model_release | **major** |
+| 3 | OpenAI Daybreak Blue/Red + GPT-5.6-Cyber (incident response, malware analysis, patch validation / vuln research) | product | normal |
+| 4 | Claude Opus 4.6 agent found a missing auth check in a gym's booking API and deleted another member's reservation | other | normal |
+| 5 | ChatGPT restaurant booking + waitlists via Yelp/OpenTable/Resy | product | normal |
+| 6 | OpenAI's $7B employee tender at $852B valuation | funding | normal |
+| 7 | Intel's $15B stock offering for AI chip capacity | funding | normal |
+| 8 | Japan's H3 flight 9 lofts Michibiki 7 (QZSS) | space | normal |
+| 9 | Pluto's atmosphere measurably collapsing ΓÇö 16% pressure drop 2021ΓåÆ2023 | research | normal |
+
+Two `context_th` links were added where a real prior story exists: Glimmer Γåö the Muse Spark hack (Aug 8), and Daybreak Γåö the OpenAI agents-sharing-exploits report (Aug 9).
+
+**Not done ΓÇö steps 6 and 8.** `python scripts/generate.py` and every `git` command were blocked by the permission layer in this session (same as the 2026-08-10 run), so the site HTML wasn't rebuilt and nothing was committed or pushed. The `daily_update.ps1` wrapper normally covers generate + push, so this should resolve on its next run; if the site doesn't update, that's the step to check.
