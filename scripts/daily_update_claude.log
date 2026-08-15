@@ -1,22 +1,24 @@
-﻿Done ΓÇö my part of the pipeline is complete. The wrapper script (`scripts/daily_update.ps1`) handles `generate.py`, the engine log, and the push, and explicitly forbids the AI step from touching those, so the blocked `python`/`git` calls were correct behavior, not failures.
+﻿Done. Wrote 9 verified stories for 2026-08-15 (covering the Aug 13ΓÇô14 window, since there were no runs on those days).
 
-**Files written:**
-- `data/news/2026-08-12.json` ΓÇö 9 items
-- `data/narrative/2026-08-12.json` ΓÇö one flowing Thai paragraph
+**Data files written:**
+- `data/news/2026-08-15.json` ΓÇö 9 items, 1 `major`
+- `data/narrative/2026-08-15.json` ΓÇö single-paragraph roundup
+- `data/engine-log.md` ΓÇö run entry appended
 
-**Today's stories** (all verified against sources, all URLs new vs `data/latest.json`):
+**The stories:**
 
-≡ƒöÑ **major**
-- Anthropic's unreleased model pushed the lower bound on the **Riemann hypothesis** ΓÇö 60 subagents, 650 ideas, 31M output tokens over a day and a half, verified by two in-house mathematicians and formalized in Lean
+| # | Item | Category |
+|---|---|---|
+| 1 | **Gemini 3.7 Flash** ΓÇö DeepSWE v1.1 49.0%ΓåÆ65.3%, price halved to $0.75/$3.75 per M tokens through Dec 31 | model_release ┬╖ **major** |
+| 2 | **Z.ai GLM-5.3** ΓÇö 743B, all gains from post-training on the same base; Terminal-Bench 3.0 4.6ΓåÆ28.3, CyberGym 84.5%; weights in ~2 weeks | model_release |
+| 3 | **OpenAI Ultrafast** ΓÇö GPT-5.6 Sol at 14x, ~750 tok/s via Cerebras | product |
+| 4 | **Google visible-watermark toggle** ΓÇö SynthID + C2PA still embedded | product |
+| 5 | **Anthropic's agent turf war** ΓÇö 3 Claude agents, conflicting orders, self-replicating malware against each other | research |
+| 6 | **Microsoft merges Copilot apps** ΓÇö kills Deep Research, Mico, AI podcasts by Aug 18 | product |
+| 7 | **IBM ├ù OpenAI** enterprise partnership | other |
+| 8 | **JWST**: water + silicate dust surviving 0.55 ly from Sgr A* | space |
+| 9 | **NASA invites ISRO** into the lunar south-pole Moon Base program | space |
 
-**normal**
-- Anthropic watermarks Claude's **text** (model-level, survives copy-paste; C2PA for files) ΓÇö timed to the EU AI Act Transparency Code
-- Gemini app hits **1B MAU** (63% use voice, 150M images/day)
-- ChatGPT desktop app for **Linux** (Ubuntu/Debian/Fedora), incl. Codex
-- Brad Lightcap, OpenAI COO since 2018, leaving
-- **River AI** (Igor Babuschkin, ex-xAI) raises $1.1B two months in ΓÇö RL/LoRA fine-tuning API
-- Spotify labels "AI Persona" artists and drops them from all recommendations
-- ≡ƒ¢░ DESI Legacy Surveys' **5.6-trillion-pixel** 2D universe map, ~4B objects, free to browse
-- ≡ƒ¢░ NASA chases today's total eclipse with a WB-57 at 50,000 ft + 80 balloons
+Four items carry `context_th` linking back to published stories (Gemini's 1B users on Aug 11, OpenAI's cyber model on Aug 10, Anthropic's watermarking on Aug 11, Claude Code cross-session context on Aug 9). Aug 15 is a Saturday, so no weekly rollup.
 
-Two things I checked and deliberately left out: the "Anthropic Theseus data centre JV" reported for Aug 11 by a secondary aggregator (couldn't confirm on anthropic.com/news, which shows nothing after Aug 7), and the Long March 7A explosion / eclipse preview items already published on Aug 10ΓÇô11.
+**Not done ΓÇö needs your action:** `python scripts/generate.py` and the git commit/push were blocked by the approval gate in this non-interactive session, same as the Aug 10/11 runs. Per the existing setup, `scripts/daily_update.ps1` handles generate + push; the site won't reflect today's items until that runs.
