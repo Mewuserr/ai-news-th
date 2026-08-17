@@ -1,23 +1,23 @@
-﻿Done. Wrote today's data files.
+﻿Done for 2026-08-17. Wrote **7 news items** + narrative, and logged the run.
 
-**`data/news/2026-08-16.json`** ΓÇö 9 verified items (all URLs fetched/confirmed, none duplicating `latest.json`):
+**Files written**
+- `data/news/2026-08-17.json` ΓÇö 7 items (1 major)
+- `data/narrative/2026-08-17.json`
+- `data/engine-log.md` ΓÇö appended today's entry
+- No weekly file (today is Monday, not Sunday)
+
+**Today's stories**
 
 | # | Story | Cat | Imp |
 |---|---|---|---|
-| 1 | SpaceX closes Cursor acquisition, $60B in stock (Aug 15) | funding | **major** |
-| 2 | Qwen3.8-27B open weights on HF ΓÇö Apache 2.0, runs on a 24GB GPU, text+image+video, SWE-bench Pro 61.7% | model_release | normal |
-| 3 | Anthropic explains Claude's text watermark (SynthID-Text) ΓÇö admits it barely marks code | product | normal |
-| 4 | SpaceX two Falcon 9s 38 minutes apart ΓÇö beat own record by 27 min | space | normal |
-| 5 | New plaintiff joins xAI suit over Grok-generated CSAM | policy | normal |
-| 6 | Google Health Coach ingests Abbott Lingo glucose data | product | normal |
-| 7 | NASA chief "extremely confident" on Artemis 3 in 2027 (3 launches needed) | space | normal |
-| 8 | Kog (France) seed round ΓÇö squeezing 10ΓÇô30├ù inference from existing GPUs | funding | normal |
-| 9 | Samsung xMAE/HiMAE ΓÇö infer ECG from watch PPG, <1ms on-device | research | normal |
+| 1 | Stripe buys OpenRouter for >$7B ΓÇö the gateway that lets devs call 400+ models through one API, 8M users, 5├ù its May valuation | funding | ≡ƒöÑ major |
+| 2 | Amodei fires back at "you're too negative" ΓÇö says the AI backlash is "fundamentally a crisis of trust," admits labs haven't delivered on big promises | other | normal |
+| 3 | Zuckerberg's 6,500-word "The Future is for Everyone" manifesto (Glimmer + Muse Spark) lands badly ΓÇö Glimmer needs hardware nobody can buy | other | normal |
+| 4 | DeepSeek V4-Pro-0813 goes GA (1.6T MoE, 1M context, 384k output, OpenAI/Anthropic-compatible endpoints) + open-source **Harness** agent vs Claude Code; peak/off-peak pricing from Aug 16 | model_release | normal |
+| 5 | China launches two days running ΓÇö Long March-2C w/ SEO sat (Aug 17, 664th LM flight) after Long March-12 w/ 24th LEO internet batch (Aug 16) | space | normal |
+| 6 | NASA NIAC funds SPARK: spherical ion-thruster aerobots, silent and rotor-free, to fly into Titan's karst caves | space | normal |
+| 7 | Artemis II pilot Victor Glover on hand-flying Orion ΓÇö first humans manually controlling a deep-space vehicle since Apollo ended in 1972 | space | normal |
 
-**`data/narrative/2026-08-16.json`** ΓÇö one paragraph tying the day together (SpaceX's double day, the watermark trend, local open-weight models, the inference-speed race).
+All URLs deduped against `data/latest.json` ΓÇö no repeats.
 
-**`data/weekly/2026-W33.json`** ΓÇö today is Sunday, so I also built the weekly roundup: Aug 10ΓÇô16, 45 items with `date` fields, 6 highlights, and `directions` for Anthropic (6 items), OpenAI (7), Google (5), and Alibaba/Qwen (2), each stated from counted category proportions only.
-
-Worth flagging: `data/weekly/` was **empty** before this run. Step 5 of the engine prompt has apparently never executed on any prior Sunday ΓÇö `weekly.html` has been showing the "α╕óα╕▒α╕çα╣äα╕íα╣êα╕íα╕╡α╕¬α╕úα╕╕α╕¢α╕úα╕▓α╕óα╕¬α╕▒α╕¢α╕öα╕▓α╕½α╣î" placeholder this whole time.
-
-Two steps I could not complete: `python scripts/generate.py` and the git commit/push were both blocked by the permission layer, and this session is non-interactive so approval can't be granted. Per the current architecture documented in `data/engine-log.md`, the `daily_update.ps1` wrapper runs generate + push after this stage, so those should follow automatically. I appended the run entry to `data/engine-log.md` noting exactly that.
+**Not run:** `python scripts/generate.py` and `git commit/push` were both blocked by the approval gate in this session (same as the last several local runs). Per the existing architecture, `daily_update.ps1` picks those up ΓÇö the JSON data is in place and ready for it. If you'd rather I run them directly, approve `python`/`git` and I'll finish the publish step.
