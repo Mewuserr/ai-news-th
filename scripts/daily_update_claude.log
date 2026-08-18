@@ -1,23 +1,23 @@
-﻿Done for 2026-08-17. Wrote **7 news items** + narrative, and logged the run.
+﻿Done. Wrote 9 items for 2026-08-18.
 
-**Files written**
-- `data/news/2026-08-17.json` ΓÇö 7 items (1 major)
-- `data/narrative/2026-08-17.json`
-- `data/engine-log.md` ΓÇö appended today's entry
-- No weekly file (today is Monday, not Sunday)
-
-**Today's stories**
+**`data/news/2026-08-18.json`** (9 items, 2 major):
 
 | # | Story | Cat | Imp |
 |---|---|---|---|
-| 1 | Stripe buys OpenRouter for >$7B ΓÇö the gateway that lets devs call 400+ models through one API, 8M users, 5├ù its May valuation | funding | ≡ƒöÑ major |
-| 2 | Amodei fires back at "you're too negative" ΓÇö says the AI backlash is "fundamentally a crisis of trust," admits labs haven't delivered on big promises | other | normal |
-| 3 | Zuckerberg's 6,500-word "The Future is for Everyone" manifesto (Glimmer + Muse Spark) lands badly ΓÇö Glimmer needs hardware nobody can buy | other | normal |
-| 4 | DeepSeek V4-Pro-0813 goes GA (1.6T MoE, 1M context, 384k output, OpenAI/Anthropic-compatible endpoints) + open-source **Harness** agent vs Claude Code; peak/off-peak pricing from Aug 16 | model_release | normal |
-| 5 | China launches two days running ΓÇö Long March-2C w/ SEO sat (Aug 17, 664th LM flight) after Long March-12 w/ 24th LEO internet batch (Aug 16) | space | normal |
-| 6 | NASA NIAC funds SPARK: spherical ion-thruster aerobots, silent and rotor-free, to fly into Titan's karst caves | space | normal |
-| 7 | Artemis II pilot Victor Glover on hand-flying Orion ΓÇö first humans manually controlling a deep-space vehicle since Apollo ended in 1972 | space | normal |
+| 1 | Anthropic ARR hits $65B (7├ù in 8 months), IPO at ΓëÑ$2T valuation | funding | ≡ƒöÑ major |
+| 2 | JWST/Max Planck: first triple active supermassive black hole in one galaxy, 12.5B ly away | space | ≡ƒöÑ major |
+| 3 | OpenAI **Computer History** ΓÇö ChatGPT Mac records clicks/keystrokes as searchable event timeline | product | normal |
+| 4 | Nvidia $1.5B into SB Energy + $105B credit; sole compute supplier for OpenAI's Ohio 8GW site | funding | normal |
+| 5 | Groq raises $350M but valuation halves to $3.5B after abandoning its own LPU chips | funding | normal |
+| 6 | Wispr $280M at $2B + Canto model (30% ΓåÆ <10% dictation error rate) | product | normal |
+| 7 | Amazon buying rare books, debinding and scanning them to train LLMs (404 Media) | other | normal |
+| 8 | Sophie Adenot becomes first French woman to spacewalk ΓÇö 6.5h ISS antenna swap | space | normal |
+| 9 | Z.ai GLM-5.3 tops CyberGym (84.5%) but trails badly on ExploitBench (54.4% vs 78%) | research | normal |
 
-All URLs deduped against `data/latest.json` ΓÇö no repeats.
+Two items carry `context_th` links to prior coverage: the Anthropic revenue story ties back to the 17 Aug Amodei piece, and GLM-5.3 ties back to its 14 Aug launch.
 
-**Not run:** `python scripts/generate.py` and `git commit/push` were both blocked by the approval gate in this session (same as the last several local runs). Per the existing architecture, `daily_update.ps1` picks those up ΓÇö the JSON data is in place and ready for it. If you'd rather I run them directly, approve `python`/`git` and I'll finish the publish step.
+**`data/narrative/2026-08-18.json`** ΓÇö one paragraph threading today: money outshouting models (Anthropic's IPO run-up ΓåÆ Nvidia locking up compute supply ΓåÆ Groq as the visible loser), then the usable-tool layer, the Amazon irony, and the two non-financial stories overhead.
+
+**`data/engine-log.md`** ΓÇö appended the run entry.
+
+**What I could not do:** `python scripts/generate.py` and `git add`/`commit`/`push` are blocked in this non-interactive session ΓÇö every invocation returns "This command requires approval," and there's no way to grant it here. Plain reads (`git status`, `python --version`) go through, so it's a rule on write/execute, not a missing tool. This matches every prior run in the log (10, 11, 15, 16, 17 Aug all end with the same note), where the `daily_update.ps1` wrapper runs generate + push afterward. Assuming the wrapper fires as usual, the site picks these up; if it doesn't, the HTML on GitHub Pages will still show 17 Aug as newest until `generate.py` runs.
