@@ -1,23 +1,20 @@
-﻿Done. Wrote 9 items for 2026-08-18.
+﻿Done. Wrote 8 news items for 2026-08-19 plus the narrative and engine log.
 
-**`data/news/2026-08-18.json`** (9 items, 2 major):
+**`data/news/2026-08-19.json`** (2 major, 6 normal, all deduped against previous days' URLs):
 
-| # | Story | Cat | Imp |
-|---|---|---|---|
-| 1 | Anthropic ARR hits $65B (7├ù in 8 months), IPO at ΓëÑ$2T valuation | funding | ≡ƒöÑ major |
-| 2 | JWST/Max Planck: first triple active supermassive black hole in one galaxy, 12.5B ly away | space | ≡ƒöÑ major |
-| 3 | OpenAI **Computer History** ΓÇö ChatGPT Mac records clicks/keystrokes as searchable event timeline | product | normal |
-| 4 | Nvidia $1.5B into SB Energy + $105B credit; sole compute supplier for OpenAI's Ohio 8GW site | funding | normal |
-| 5 | Groq raises $350M but valuation halves to $3.5B after abandoning its own LPU chips | funding | normal |
-| 6 | Wispr $280M at $2B + Canto model (30% ΓåÆ <10% dictation error rate) | product | normal |
-| 7 | Amazon buying rare books, debinding and scanning them to train LLMs (404 Media) | other | normal |
-| 8 | Sophie Adenot becomes first French woman to spacewalk ΓÇö 6.5h ISS antenna swap | space | normal |
-| 9 | Z.ai GLM-5.3 tops CyberGym (84.5%) but trails badly on ExploitBench (54.4% vs 78%) | research | normal |
+| # | Story | Cat |
+|---|---|---|
+| 1 ≡ƒöÑ | **ChatGPT for Teens** ΓÇö Study Mode walks through problems step-by-step, nudges when it detects homework-copying, auto-generates quizzes/visuals; parents get Quiet Hours + safety alerts. Landed after teen-suicide lawsuits and 900M weekly users | product |
+| 2 ≡ƒöÑ | **LandSpace lands Zhuque-3** ΓÇö first private company outside the US to recover an orbital-class first stage, on only its 2nd flight | space |
+| 3 | **Cursor (now SpaceX-owned) launches Origin**, a GitHub rival ΓÇö same day GitHub had a 6+ hour global outage | product |
+| 4 | **OpenAI's post-breach safeguards** ΓÇö network compartmentalization, 30-min alert target at ~20% compute overhead; disclosed it paused RL training for two weeks | policy |
+| 5 | **Warp Factories** ΓÇö agent loop across triageΓåÆspecΓåÆimplementΓåÆreviewΓåÆverify, wired to Jira/Linear/Slack; CEO says it covers ~30-35% of weekly work | product |
+| 6 | **Etched raises $700M at $21B**, double its July valuation, after Jane Street tested the chips and installed them | funding |
+| 7 | **Perplexity's India experiment results** ΓÇö downloads fell 90% post-promo but revenue rose ~60%; OpenAI and Google are copying the play | other |
+| 8 | **SpaceX hits 100 launches for 2026** (Starlink 17-50) | space |
 
-Two items carry `context_th` links to prior coverage: the Anthropic revenue story ties back to the 17 Aug Amodei piece, and GLM-5.3 ties back to its 14 Aug launch.
+Skipped as duplicates/out of scope: the Aug 18 ISS spacewalk (already published yesterday under a different URL), the Meta 29-state trial (social media, not AI), and the MOTHRA/Helix Nebula paper (Aug 12-13, outside the 24-48h window).
 
-**`data/narrative/2026-08-18.json`** ΓÇö one paragraph threading today: money outshouting models (Anthropic's IPO run-up ΓåÆ Nvidia locking up compute supply ΓåÆ Groq as the visible loser), then the usable-tool layer, the Amazon irony, and the two non-financial stories overhead.
+**Not run:** `python scripts/generate.py` and the git commit/push ΓÇö both `python` and `git` commands were blocked by permission approval in this non-interactive session, so I couldn't execute them. This matches the last several days' log entries: the `daily_update.ps1` wrapper handles generate + push after this step, and I noted the same in `data/engine-log.md`. If the wrapper isn't running, the site HTML won't reflect today's items until `generate.py` runs and the output is committed.
 
-**`data/engine-log.md`** ΓÇö appended the run entry.
-
-**What I could not do:** `python scripts/generate.py` and `git add`/`commit`/`push` are blocked in this non-interactive session ΓÇö every invocation returns "This command requires approval," and there's no way to grant it here. Plain reads (`git status`, `python --version`) go through, so it's a rule on write/execute, not a missing tool. This matches every prior run in the log (10, 11, 15, 16, 17 Aug all end with the same note), where the `daily_update.ps1` wrapper runs generate + push afterward. Assuming the wrapper fires as usual, the site picks these up; if it doesn't, the HTML on GitHub Pages will still show 17 Aug as newest until `generate.py` runs.
+Sources: [TechCrunch AI](https://techcrunch.com/category/artificial-intelligence/), [Space.com](https://www.space.com/news), [SpaceNews](https://spacenews.com/chinas-landspace-recovers-booster-with-second-orbital-launch-of-zhuque-3-rocket/)
