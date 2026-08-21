@@ -1,20 +1,33 @@
-﻿Done. Wrote 8 news items for 2026-08-19 plus the narrative and engine log.
+﻿Done. Here's the run summary.
 
-**`data/news/2026-08-19.json`** (2 major, 6 normal, all deduped against previous days' URLs):
+## α╣Çα╕éα╕╡α╕óα╕Öα╕éα╣êα╕▓α╕ºα╕ºα╕▒α╕Öα╕ùα╕╡α╣ê 2026-08-21 α╣üα╕Ñα╣ëα╕º ΓÇö 10 α╕éα╣êα╕▓α╕º
 
-| # | Story | Cat |
+**α╣äα╕ƒα╕Ñα╣îα╕ùα╕╡α╣êα╣Çα╕éα╕╡α╕óα╕Ö:**
+- `data/news/2026-08-21.json` ΓÇö 10 α╕éα╣êα╕▓α╕º (major 1 α╕éα╣êα╕▓α╕º)
+- `data/narrative/2026-08-21.json` ΓÇö α╕Üα╕ùα╕úα╣ëα╕¡α╕óα╣Çα╕úα╕╡α╕óα╕çα╕¢α╕úα╕░α╕êα╕│α╕ºα╕▒α╕Ö
+- `data/engine-log.md` ΓÇö α╕Üα╕▒α╕Öα╕ùα╕╢α╕üα╕úα╕¡α╕Üα╕üα╕▓α╕úα╕úα╕▒α╕Ö (α╕òα╣êα╕¡α╕ùα╣ëα╕▓α╕ó α╣äα╕íα╣êα╣äα╕öα╣ëα╕Ñα╕Üα╕éα╕¡α╕çα╣Çα╕öα╕┤α╕í)
+
+**α╕éα╣êα╕▓α╕ºα╕ùα╕╡α╣êα╣Çα╕üα╣çα╕Ü** (α╕ùα╕╕α╕üα╕èα╕┤α╣ëα╕Öα╣Çα╕èα╣çα╕ä `url` α╕üα╕▒α╕Ü `data/latest.json` α╣üα╕Ñα╣ëα╕º α╣äα╕íα╣êα╕ïα╣ëα╕│):
+
+| # | α╕½α╕▒α╕ºα╕éα╣ëα╕¡ | α╕½α╕íα╕ºα╕ö |
 |---|---|---|
-| 1 ≡ƒöÑ | **ChatGPT for Teens** ΓÇö Study Mode walks through problems step-by-step, nudges when it detects homework-copying, auto-generates quizzes/visuals; parents get Quiet Hours + safety alerts. Landed after teen-suicide lawsuits and 900M weekly users | product |
-| 2 ≡ƒöÑ | **LandSpace lands Zhuque-3** ΓÇö first private company outside the US to recover an orbital-class first stage, on only its 2nd flight | space |
-| 3 | **Cursor (now SpaceX-owned) launches Origin**, a GitHub rival ΓÇö same day GitHub had a 6+ hour global outage | product |
-| 4 | **OpenAI's post-breach safeguards** ΓÇö network compartmentalization, 30-min alert target at ~20% compute overhead; disclosed it paused RL training for two weeks | policy |
-| 5 | **Warp Factories** ΓÇö agent loop across triageΓåÆspecΓåÆimplementΓåÆreviewΓåÆverify, wired to Jira/Linear/Slack; CEO says it covers ~30-35% of weekly work | product |
-| 6 | **Etched raises $700M at $21B**, double its July valuation, after Jane Street tested the chips and installed them | funding |
-| 7 | **Perplexity's India experiment results** ΓÇö downloads fell 90% post-promo but revenue rose ~60%; OpenAI and Google are copying the play | other |
-| 8 | **SpaceX hits 100 launches for 2026** (Starlink 17-50) | space |
+| 1 | ≡ƒöÑ Chang'e 7 α╕óα╕┤α╕ç 24 α╕¬.α╕ä. ΓÇö α╕óα╕▓α╕Öα╣éα╕äα╕êα╕ú+α╕Ñα╕çα╕êα╕¡α╕ö+α╕úα╕ûα╕¬α╕│α╕úα╕ºα╕ê+α╕óα╕▓α╕Öα╕üα╕úα╕░α╣éα╕öα╕ö α╕½α╕▓α╕Öα╣ëα╕│α╣üα╕éα╣çα╕çα╕éα╕▒α╣ëα╕ºα╣âα╕òα╣ëα╕öα╕ºα╕çα╕êα╕▒α╕Öα╕ùα╕úα╣î | space (major) |
+| 2 | ChatGPT α╕¬α╣êα╕ç/α╕äα╣ëα╕Ö/α╕Ñα╕Üα╕éα╣ëα╕¡α╕äα╕ºα╕▓α╕íα╣âα╕Ö Apple Messages α╣üα╕ùα╕Öα╕äα╕╕α╕ôα╣äα╕öα╣ë | product |
+| 3 | Adobe Firefly α╣Çα╕₧α╕┤α╣êα╕íα╕¬α╕úα╣ëα╕▓α╕çα╣Çα╕₧α╕Ñα╕ç+α╣Çα╕¬α╕╡α╕óα╕çα╕₧α╕▓α╕üα╕óα╣î+SFX α╣âα╕èα╣ëα╣Çα╕èα╕┤α╕çα╕₧α╕▓α╕ôα╕┤α╕èα╕óα╣îα╣äα╕öα╣ë | product |
+| 4 | Google α╕óα╕▒α╕öα╣Çα╕äα╕úα╕╖α╣êα╕¡α╕çα╕íα╕╖α╕¡α╕òα╕┤α╕ºα╣Çα╕éα╣ëα╕▓ Search + Gemini (α╕ïα╕┤α╕í 3 α╕íα╕┤α╕òα╕┤, Lens α╣üα╕üα╣ëα╣éα╕êα╕ùα╕óα╣î) | product |
+| 5 | Meta AI α╕Ñα╕ç Mac ΓÇö dictation α╕ùα╕▒α╣êα╕ºα╣Çα╕äα╕úα╕╖α╣êα╕¡α╕ç + α╕¡α╣êα╕▓α╕Öα╕½α╕Öα╣ëα╕▓α╕êα╕¡α╕òα╕¡α╕Üα╕äα╕│α╕ûα╕▓α╕í | product |
+| 6 | Pew: 35% α╕éα╕¡α╕çα╕½α╕Öα╣ëα╕▓α╣Çα╕ºα╣çα╕Üα╕½α╕Ñα╕▒α╕ç ChatGPT α╕¬α╣êα╕¡α╕ºα╣êα╕▓ AI α╣Çα╕éα╕╡α╕óα╕Ö | research |
+| 7 | Anthropic α╕íα╕╡α╣éα╕íα╣Çα╕öα╕Ñα╕Ñα╕▒α╕Ü "Model 2" α╣Çα╕üα╣êα╕çα╕üα╕ºα╣êα╕▓ Claude α╕ùα╕╕α╕üα╕òα╕▒α╕ºα╕ùα╕╡α╣êα╣Çα╕¢α╕┤α╕öα╣âα╕èα╣ë | research |
+| 8 | JWST α╣Çα╕êα╕¡α╕öα╕▓α╕ºα╕ïα╣êα╕¡α╕Öα╣âα╕Öα╕üα╕▓α╣üα╕Ñα╣çα╕üα╕ïα╕╡α╕óα╕╕α╕äα╣üα╕úα╕ü ΓÇö α╕Üα╕▓α╕çα╣üα╕½α╣êα╕çα╕½α╕Öα╕▒α╕üα╕üα╕ºα╣êα╕▓α╕ùα╕╡α╣êα╕äα╕┤α╕ö 4 α╣Çα╕ùα╣êα╕▓ | space |
+| 9 | Meta Pocket α╣Çα╕¢α╕┤α╕öα╕ùα╕▒α╣êα╕ºα╕¬α╕½α╕úα╕▒α╕Éα╕» ΓÇö α╕₧α╕┤α╕íα╕₧α╣îα╕Üα╕¡α╕üα╣üα╕Ñα╣ëα╕ºα╣äα╕öα╣ëα╕íα╕┤α╕Öα╕┤α╣Çα╕üα╕íα╣Çα╕Ñα╣êα╕Öα╕êα╕úα╕┤α╕ç | product |
+| 10 | Binance α╣Çα╕¢α╕┤α╕ö Agent OS α╣âα╕½α╣ë AI agent α╣Çα╕ùα╕úα╕öα╕äα╕úα╕┤α╕¢α╣éα╕òα╣üα╕ùα╕Öα╣Çα╕êα╣ëα╕▓α╕éα╕¡α╕çα╕Üα╕▒α╕ìα╕èα╕╡ | product |
 
-Skipped as duplicates/out of scope: the Aug 18 ISS spacewalk (already published yesterday under a different URL), the Meta 29-state trial (social media, not AI), and the MOTHRA/Helix Nebula paper (Aug 12-13, outside the 24-48h window).
+α╣âα╕¬α╣ê `context_th` α╣üα╕äα╣ê 2 α╕éα╣êα╕▓α╕ºα╕ùα╕╡α╣êα╕íα╕╡α╕üα╕▓α╕úα╣Çα╕èα╕╖α╣êα╕¡α╕íα╣éα╕óα╕çα╕êα╕úα╕┤α╕ç (Google study tools Γåö ChatGPT for Teens α╕ºα╕▒α╕Öα╕ùα╕╡α╣ê 19 α╕¬.α╕ä., Model 2 Γåö α╕éα╣êα╕▓α╕ºα╣éα╕íα╣Çα╕öα╕Ñα╕Ñα╕▒α╕Üα╣üα╕üα╣ëα╣éα╕êα╕ùα╕óα╣îα╕äα╕ôα╕┤α╕òα╕¿α╕▓α╕¬α╕òα╕úα╣î 11 α╕¬.α╕ä.)
 
-**Not run:** `python scripts/generate.py` and the git commit/push ΓÇö both `python` and `git` commands were blocked by permission approval in this non-interactive session, so I couldn't execute them. This matches the last several days' log entries: the `daily_update.ps1` wrapper handles generate + push after this step, and I noted the same in `data/engine-log.md`. If the wrapper isn't running, the site HTML won't reflect today's items until `generate.py` runs and the output is committed.
+## α╕¬α╕¡α╕çα╣Çα╕úα╕╖α╣êα╕¡α╕çα╕ùα╕╡α╣êα╕òα╣ëα╕¡α╕çα╣üα╕êα╣ëα╕ç
 
-Sources: [TechCrunch AI](https://techcrunch.com/category/artificial-intelligence/), [Space.com](https://www.space.com/news), [SpaceNews](https://spacenews.com/chinas-landspace-recovers-booster-with-second-orbital-launch-of-zhuque-3-rocket/)
+**1. α╕úα╕¡α╕Üα╕ºα╕▒α╕Öα╕ùα╕╡α╣ê 20 α╕¬.α╕ä. α╣äα╕íα╣êα╣äα╕öα╣ëα╕úα╕▒α╕Ö** ΓÇö α╣äα╕íα╣êα╕íα╕╡α╕ùα╕▒α╣ëα╕ç `data/news/2026-08-20.json` α╣üα╕Ñα╕░ log entry α╕éα╕¡α╕çα╕ºα╕▒α╕Öα╕ùα╕╡α╣ê 20 α╕úα╕¡α╕Üα╕Öα╕╡α╣ëα╣Çα╕Ñα╕óα╕üα╕ºα╕▓α╕öα╕éα╣êα╕▓α╕ºα╕óα╣ëα╕¡α╕Öα╕ûα╕╢α╕ç 19-21 α╕¬.α╕ä. α╣âα╕½α╣ëα╕äα╕úα╕Ü (α╕éα╣êα╕▓α╕ºα╕ùα╕╡α╣ê 4 α╕íα╕▓α╕êα╕▓α╕üα╕ºα╕▒α╕Öα╕ùα╕╡α╣ê 19) α╣üα╕òα╣êα╕äα╕ºα╕úα╣Çα╕èα╣çα╕äα╕ºα╣êα╕▓ Task Scheduler α╣Çα╕íα╕╖α╣êα╕¡α╕ºα╕▓α╕Öα╕₧α╕Ñα╕▓α╕öα╣Çα╕₧α╕úα╕▓α╕░α╕¡α╕░α╣äα╕ú
+
+**2. α╕óα╕▒α╕çα╣äα╕íα╣êα╣äα╕öα╣ëα╕úα╕▒α╕Ö `generate.py` α╣üα╕Ñα╕░α╕óα╕▒α╕çα╣äα╕íα╣êα╣äα╕öα╣ë commit/push** ΓÇö α╕äα╕│α╕¬α╕▒α╣êα╕ç `python scripts/generate.py` α╕ûα╕╣α╕üα╕üα╕▒α╣ëα╕Ö approval α╣âα╕Ö session α╕Öα╕╡α╣ë (session α╣äα╕íα╣ê interactive α╣Çα╕Ñα╕óα╕üα╕öα╕¡α╕Öα╕╕α╕íα╕▒α╕òα╕┤α╣äα╕íα╣êα╣äα╕öα╣ë) α╕ïα╕╢α╣êα╕çα╕òα╕úα╕çα╕üα╕▒α╕Üα╕ùα╕╡α╣ê log α╣Çα╕öα╕┤α╕íα╕Üα╕▒α╕Öα╕ùα╕╢α╕üα╣äα╕ºα╣ëα╕ùα╕╕α╕üα╕úα╕¡α╕Ü α╕òα╕▓α╕íα╕¬α╕ûα╕▓α╕¢α╕▒α╕òα╕óα╕üα╕úα╕úα╕íα╕¢α╕▒α╕êα╕êα╕╕α╕Üα╕▒α╕Ö wrapper `daily_update.ps1` α╕êα╕░α╣Çα╕¢α╣çα╕Öα╕òα╕▒α╕ºα╕úα╕▒α╕Ö generate + push α╕òα╣êα╕¡α╣Çα╕¡α╕ç ΓÇö α╕£α╕íα╕êα╕çα╣âα╕êα╣äα╕íα╣ê commit α╕ùα╕┤α╣ëα╕çα╣äα╕ºα╣ë α╣Çα╕₧α╕úα╕▓α╕░α╕ûα╣ëα╕▓ commit α╕òα╕¡α╕Öα╕Öα╕╡α╣ëα╕êα╕░α╣äα╕öα╣ë HTML α╣Çα╕üα╣êα╕▓α╕éα╕¡α╕çα╣Çα╕íα╕╖α╣êα╕¡α╕ºα╕▓α╕Öα╕òα╕┤α╕öα╣äα╕¢α╕öα╣ëα╕ºα╕ó α╕¢α╕Ñα╣êα╕¡α╕óα╣âα╕½α╣ë wrapper generate α╣üα╕Ñα╣ëα╕º `git add -A` α╕ùα╕╡α╣Çα╕öα╕╡α╕óα╕ºα╕êα╕░α╕ûα╕╣α╕üα╕òα╣ëα╕¡α╕çα╕üα╕ºα╣êα╕▓
+
+α╕éα╣ëα╕¡α╕êα╕│α╕üα╕▒α╕öα╕ùα╕╡α╣êα╕òα╕▓α╕íα╕íα╕▓α╕äα╕╖α╕¡α╕£α╕íα╣äα╕íα╣êα╣äα╕öα╣ë validate JSON α╕öα╣ëα╕ºα╕óα╣Çα╕äα╕úα╕╖α╣êα╕¡α╕çα╕íα╕╖α╕¡ (α╕ùα╕▒α╣ëα╕ç `python -c` α╣üα╕Ñα╕░ `node -e` α╕ûα╕╣α╕üα╕üα╕▒α╣ëα╕Öα╣Çα╕½α╕íα╕╖α╕¡α╕Öα╕üα╕▒α╕Ö) ΓÇö α╕ûα╣ëα╕▓ generate.py α╕éα╕╢α╣ëα╕Ö error α╕òα╕¡α╕Ö wrapper α╕úα╕▒α╕Ö α╕Üα╕¡α╕üα╣äα╕öα╣ëα╣Çα╕Ñα╕óα╕äα╕úα╕▒α╕Ü α╣Çα╕öα╕╡α╣ïα╕óα╕ºα╣äα╕Ñα╣êα╣üα╕üα╣ëα╣âα╕½α╣ë
