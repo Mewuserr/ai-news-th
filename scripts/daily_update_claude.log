@@ -1,33 +1,23 @@
-﻿Done. Here's the run summary.
+﻿Done ΓÇö 10 items written for 2026-08-22.
 
-## α╣Çα╕éα╕╡α╕óα╕Öα╕éα╣êα╕▓α╕ºα╕ºα╕▒α╕Öα╕ùα╕╡α╣ê 2026-08-21 α╣üα╕Ñα╣ëα╕º ΓÇö 10 α╕éα╣êα╕▓α╕º
+**`data/news/2026-08-22.json`** (2 major, 8 normal, all deduped against `data/latest.json`):
 
-**α╣äα╕ƒα╕Ñα╣îα╕ùα╕╡α╣êα╣Çα╕éα╕╡α╕óα╕Ö:**
-- `data/news/2026-08-21.json` ΓÇö 10 α╕éα╣êα╕▓α╕º (major 1 α╕éα╣êα╕▓α╕º)
-- `data/narrative/2026-08-21.json` ΓÇö α╕Üα╕ùα╕úα╣ëα╕¡α╕óα╣Çα╕úα╕╡α╕óα╕çα╕¢α╕úα╕░α╕êα╕│α╕ºα╕▒α╕Ö
-- `data/engine-log.md` ΓÇö α╕Üα╕▒α╕Öα╕ùα╕╢α╕üα╕úα╕¡α╕Üα╕üα╕▓α╕úα╕úα╕▒α╕Ö (α╕òα╣êα╕¡α╕ùα╣ëα╕▓α╕ó α╣äα╕íα╣êα╣äα╕öα╣ëα╕Ñα╕Üα╕éα╕¡α╕çα╣Çα╕öα╕┤α╕í)
-
-**α╕éα╣êα╕▓α╕ºα╕ùα╕╡α╣êα╣Çα╕üα╣çα╕Ü** (α╕ùα╕╕α╕üα╕èα╕┤α╣ëα╕Öα╣Çα╕èα╣çα╕ä `url` α╕üα╕▒α╕Ü `data/latest.json` α╣üα╕Ñα╣ëα╕º α╣äα╕íα╣êα╕ïα╣ëα╕│):
-
-| # | α╕½α╕▒α╕ºα╕éα╣ëα╕¡ | α╕½α╕íα╕ºα╕ö |
+| # | Story | Category |
 |---|---|---|
-| 1 | ≡ƒöÑ Chang'e 7 α╕óα╕┤α╕ç 24 α╕¬.α╕ä. ΓÇö α╕óα╕▓α╕Öα╣éα╕äα╕êα╕ú+α╕Ñα╕çα╕êα╕¡α╕ö+α╕úα╕ûα╕¬α╕│α╕úα╕ºα╕ê+α╕óα╕▓α╕Öα╕üα╕úα╕░α╣éα╕öα╕ö α╕½α╕▓α╕Öα╣ëα╕│α╣üα╕éα╣çα╕çα╕éα╕▒α╣ëα╕ºα╣âα╕òα╣ëα╕öα╕ºα╕çα╕êα╕▒α╕Öα╕ùα╕úα╣î | space (major) |
-| 2 | ChatGPT α╕¬α╣êα╕ç/α╕äα╣ëα╕Ö/α╕Ñα╕Üα╕éα╣ëα╕¡α╕äα╕ºα╕▓α╕íα╣âα╕Ö Apple Messages α╣üα╕ùα╕Öα╕äα╕╕α╕ôα╣äα╕öα╣ë | product |
-| 3 | Adobe Firefly α╣Çα╕₧α╕┤α╣êα╕íα╕¬α╕úα╣ëα╕▓α╕çα╣Çα╕₧α╕Ñα╕ç+α╣Çα╕¬α╕╡α╕óα╕çα╕₧α╕▓α╕üα╕óα╣î+SFX α╣âα╕èα╣ëα╣Çα╕èα╕┤α╕çα╕₧α╕▓α╕ôα╕┤α╕èα╕óα╣îα╣äα╕öα╣ë | product |
-| 4 | Google α╕óα╕▒α╕öα╣Çα╕äα╕úα╕╖α╣êα╕¡α╕çα╕íα╕╖α╕¡α╕òα╕┤α╕ºα╣Çα╕éα╣ëα╕▓ Search + Gemini (α╕ïα╕┤α╕í 3 α╕íα╕┤α╕òα╕┤, Lens α╣üα╕üα╣ëα╣éα╕êα╕ùα╕óα╣î) | product |
-| 5 | Meta AI α╕Ñα╕ç Mac ΓÇö dictation α╕ùα╕▒α╣êα╕ºα╣Çα╕äα╕úα╕╖α╣êα╕¡α╕ç + α╕¡α╣êα╕▓α╕Öα╕½α╕Öα╣ëα╕▓α╕êα╕¡α╕òα╕¡α╕Üα╕äα╕│α╕ûα╕▓α╕í | product |
-| 6 | Pew: 35% α╕éα╕¡α╕çα╕½α╕Öα╣ëα╕▓α╣Çα╕ºα╣çα╕Üα╕½α╕Ñα╕▒α╕ç ChatGPT α╕¬α╣êα╕¡α╕ºα╣êα╕▓ AI α╣Çα╕éα╕╡α╕óα╕Ö | research |
-| 7 | Anthropic α╕íα╕╡α╣éα╕íα╣Çα╕öα╕Ñα╕Ñα╕▒α╕Ü "Model 2" α╣Çα╕üα╣êα╕çα╕üα╕ºα╣êα╕▓ Claude α╕ùα╕╕α╕üα╕òα╕▒α╕ºα╕ùα╕╡α╣êα╣Çα╕¢α╕┤α╕öα╣âα╕èα╣ë | research |
-| 8 | JWST α╣Çα╕êα╕¡α╕öα╕▓α╕ºα╕ïα╣êα╕¡α╕Öα╣âα╕Öα╕üα╕▓α╣üα╕Ñα╣çα╕üα╕ïα╕╡α╕óα╕╕α╕äα╣üα╕úα╕ü ΓÇö α╕Üα╕▓α╕çα╣üα╕½α╣êα╕çα╕½α╕Öα╕▒α╕üα╕üα╕ºα╣êα╕▓α╕ùα╕╡α╣êα╕äα╕┤α╕ö 4 α╣Çα╕ùα╣êα╕▓ | space |
-| 9 | Meta Pocket α╣Çα╕¢α╕┤α╕öα╕ùα╕▒α╣êα╕ºα╕¬α╕½α╕úα╕▒α╕Éα╕» ΓÇö α╕₧α╕┤α╕íα╕₧α╣îα╕Üα╕¡α╕üα╣üα╕Ñα╣ëα╕ºα╣äα╕öα╣ëα╕íα╕┤α╕Öα╕┤α╣Çα╕üα╕íα╣Çα╕Ñα╣êα╕Öα╕êα╕úα╕┤α╕ç | product |
-| 10 | Binance α╣Çα╕¢α╕┤α╕ö Agent OS α╣âα╕½α╣ë AI agent α╣Çα╕ùα╕úα╕öα╕äα╕úα╕┤α╕¢α╣éα╕òα╣üα╕ùα╕Öα╣Çα╕êα╣ëα╕▓α╕éα╕¡α╕çα╕Üα╕▒α╕ìα╕èα╕╡ | product |
+| 1 | ≡ƒöÑ Nvidia pays $6B for Poolside's "Model Factory" + 109 staff ΓÇö not an acquisition; Poolside stays independent | funding |
+| 2 | ≡ƒöÑ Trump signs national space policy: 1,000+ US launches/reentries per year by 2030, NASA told to open commercial paths to Mars | space |
+| 3 | OpenAI GPT-Image-2 native transparent backgrounds (`background=transparent`, PNG alpha at generation time) | product |
+| 4 | DeepSeek V4-Flash-Vision-Exp ΓÇö screenshot OCR, diagram analysis, up to 600 images/request, near Opus 4.8 on agent benchmarks | model_release |
+| 5 | Anthropic puts Claude Mythos 5 into cyber defense (CWE-tagged vuln scans + suggested patches, human approval required) | product |
+| 6 | Waymo's own 1,000+ TOPS chip, TSMC 5nm, already shipping in latest robotaxis | product |
+| 7 | Anthropic backs down on 30-day data retention ΓÇö data moves to customers' own cloud | policy |
+| 8 | Marvell issues Google a warrant worth up to $12.2B tied to actual TPU-ecosystem chip orders; Broadcom shares fall | funding |
+| 9 | JAXA unveils MMX ahead of Oct 20 launch ΓÇö first-ever sample return from the Mars system (Phobos) | space |
+| 10 | SpaceX static-fires Ship 41 to rehearse a deorbit burn ahead of Starship's first true orbital flight | space |
 
-α╣âα╕¬α╣ê `context_th` α╣üα╕äα╣ê 2 α╕éα╣êα╕▓α╕ºα╕ùα╕╡α╣êα╕íα╕╡α╕üα╕▓α╕úα╣Çα╕èα╕╖α╣êα╕¡α╕íα╣éα╕óα╕çα╕êα╕úα╕┤α╕ç (Google study tools Γåö ChatGPT for Teens α╕ºα╕▒α╕Öα╕ùα╕╡α╣ê 19 α╕¬.α╕ä., Model 2 Γåö α╕éα╣êα╕▓α╕ºα╣éα╕íα╣Çα╕öα╕Ñα╕Ñα╕▒α╕Üα╣üα╕üα╣ëα╣éα╕êα╕ùα╕óα╣îα╕äα╕ôα╕┤α╕òα╕¿α╕▓α╕¬α╕òα╕úα╣î 11 α╕¬.α╕ä.)
+**`data/narrative/2026-08-22.json`** ΓÇö one paragraph tying the day together: the money story (Nvidia buying capability without buying companies, while Google and Waymo both work to de-risk single-supplier chip dependence), the usable-today tools (transparent-background image gen, DeepSeek vision), Anthropic's two enterprise-pressure stories, and the space cluster where the new US policy landed the same day as two concrete steps toward it.
 
-## α╕¬α╕¡α╕çα╣Çα╕úα╕╖α╣êα╕¡α╕çα╕ùα╕╡α╣êα╕òα╣ëα╕¡α╕çα╣üα╕êα╣ëα╕ç
+Two notes:
 
-**1. α╕úα╕¡α╕Üα╕ºα╕▒α╕Öα╕ùα╕╡α╣ê 20 α╕¬.α╕ä. α╣äα╕íα╣êα╣äα╕öα╣ëα╕úα╕▒α╕Ö** ΓÇö α╣äα╕íα╣êα╕íα╕╡α╕ùα╕▒α╣ëα╕ç `data/news/2026-08-20.json` α╣üα╕Ñα╕░ log entry α╕éα╕¡α╕çα╕ºα╕▒α╕Öα╕ùα╕╡α╣ê 20 α╕úα╕¡α╕Üα╕Öα╕╡α╣ëα╣Çα╕Ñα╕óα╕üα╕ºα╕▓α╕öα╕éα╣êα╕▓α╕ºα╕óα╣ëα╕¡α╕Öα╕ûα╕╢α╕ç 19-21 α╕¬.α╕ä. α╣âα╕½α╣ëα╕äα╕úα╕Ü (α╕éα╣êα╕▓α╕ºα╕ùα╕╡α╣ê 4 α╕íα╕▓α╕êα╕▓α╕üα╕ºα╕▒α╕Öα╕ùα╕╡α╣ê 19) α╣üα╕òα╣êα╕äα╕ºα╕úα╣Çα╕èα╣çα╕äα╕ºα╣êα╕▓ Task Scheduler α╣Çα╕íα╕╖α╣êα╕¡α╕ºα╕▓α╕Öα╕₧α╕Ñα╕▓α╕öα╣Çα╕₧α╕úα╕▓α╕░α╕¡α╕░α╣äα╕ú
-
-**2. α╕óα╕▒α╕çα╣äα╕íα╣êα╣äα╕öα╣ëα╕úα╕▒α╕Ö `generate.py` α╣üα╕Ñα╕░α╕óα╕▒α╕çα╣äα╕íα╣êα╣äα╕öα╣ë commit/push** ΓÇö α╕äα╕│α╕¬α╕▒α╣êα╕ç `python scripts/generate.py` α╕ûα╕╣α╕üα╕üα╕▒α╣ëα╕Ö approval α╣âα╕Ö session α╕Öα╕╡α╣ë (session α╣äα╕íα╣ê interactive α╣Çα╕Ñα╕óα╕üα╕öα╕¡α╕Öα╕╕α╕íα╕▒α╕òα╕┤α╣äα╕íα╣êα╣äα╕öα╣ë) α╕ïα╕╢α╣êα╕çα╕òα╕úα╕çα╕üα╕▒α╕Üα╕ùα╕╡α╣ê log α╣Çα╕öα╕┤α╕íα╕Üα╕▒α╕Öα╕ùα╕╢α╕üα╣äα╕ºα╣ëα╕ùα╕╕α╕üα╕úα╕¡α╕Ü α╕òα╕▓α╕íα╕¬α╕ûα╕▓α╕¢α╕▒α╕òα╕óα╕üα╕úα╕úα╕íα╕¢α╕▒α╕êα╕êα╕╕α╕Üα╕▒α╕Ö wrapper `daily_update.ps1` α╕êα╕░α╣Çα╕¢α╣çα╕Öα╕òα╕▒α╕ºα╕úα╕▒α╕Ö generate + push α╕òα╣êα╕¡α╣Çα╕¡α╕ç ΓÇö α╕£α╕íα╕êα╕çα╣âα╕êα╣äα╕íα╣ê commit α╕ùα╕┤α╣ëα╕çα╣äα╕ºα╣ë α╣Çα╕₧α╕úα╕▓α╕░α╕ûα╣ëα╕▓ commit α╕òα╕¡α╕Öα╕Öα╕╡α╣ëα╕êα╕░α╣äα╕öα╣ë HTML α╣Çα╕üα╣êα╕▓α╕éα╕¡α╕çα╣Çα╕íα╕╖α╣êα╕¡α╕ºα╕▓α╕Öα╕òα╕┤α╕öα╣äα╕¢α╕öα╣ëα╕ºα╕ó α╕¢α╕Ñα╣êα╕¡α╕óα╣âα╕½α╣ë wrapper generate α╣üα╕Ñα╣ëα╕º `git add -A` α╕ùα╕╡α╣Çα╕öα╕╡α╕óα╕ºα╕êα╕░α╕ûα╕╣α╕üα╕òα╣ëα╕¡α╕çα╕üα╕ºα╣êα╕▓
-
-α╕éα╣ëα╕¡α╕êα╕│α╕üα╕▒α╕öα╕ùα╕╡α╣êα╕òα╕▓α╕íα╕íα╕▓α╕äα╕╖α╕¡α╕£α╕íα╣äα╕íα╣êα╣äα╕öα╣ë validate JSON α╕öα╣ëα╕ºα╕óα╣Çα╕äα╕úα╕╖α╣êα╕¡α╕çα╕íα╕╖α╕¡ (α╕ùα╕▒α╣ëα╕ç `python -c` α╣üα╕Ñα╕░ `node -e` α╕ûα╕╣α╕üα╕üα╕▒α╣ëα╕Öα╣Çα╕½α╕íα╕╖α╕¡α╕Öα╕üα╕▒α╕Ö) ΓÇö α╕ûα╣ëα╕▓ generate.py α╕éα╕╢α╣ëα╕Ö error α╕òα╕¡α╕Ö wrapper α╕úα╕▒α╕Ö α╕Üα╕¡α╕üα╣äα╕öα╣ëα╣Çα╕Ñα╕óα╕äα╕úα╕▒α╕Ü α╣Çα╕öα╕╡α╣ïα╕óα╕ºα╣äα╕Ñα╣êα╣üα╕üα╣ëα╣âα╕½α╣ë
+- I added `context_th` only to the Anthropic cyber-defense item, linking it to OpenAI's cyber model on Aug 10. The others had no verifiable prior-story link, so I left the field off rather than guess.
+- I did **not** run `generate.py`, git, or touch `data/engine-log.md`. That's by design ΓÇö `scripts/daily_update.ps1:34` instructs this agent to write only the two JSON files, and the wrapper does validation, site regeneration, logging, commit, and push itself. My attempts to run python were blocked by permissions, which matches that architecture. The site will update when the wrapper's publish step runs.
