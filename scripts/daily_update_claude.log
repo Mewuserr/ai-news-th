@@ -1,23 +1,32 @@
-﻿Done ΓÇö 10 items written for 2026-08-22.
+﻿Done. Here's what today's run produced.
 
-**`data/news/2026-08-22.json`** (2 major, 8 normal, all deduped against `data/latest.json`):
+## Written files
 
-| # | Story | Category |
+**`data/news/2026-08-23.json`** ΓÇö 10 items, all verified by fetching the source articles (no aggregator/SEO sites used), deduped against the last week of published URLs:
+
+| # | Story | Cat |
 |---|---|---|
-| 1 | ≡ƒöÑ Nvidia pays $6B for Poolside's "Model Factory" + 109 staff ΓÇö not an acquisition; Poolside stays independent | funding |
-| 2 | ≡ƒöÑ Trump signs national space policy: 1,000+ US launches/reentries per year by 2030, NASA told to open commercial paths to Mars | space |
-| 3 | OpenAI GPT-Image-2 native transparent backgrounds (`background=transparent`, PNG alpha at generation time) | product |
-| 4 | DeepSeek V4-Flash-Vision-Exp ΓÇö screenshot OCR, diagram analysis, up to 600 images/request, near Opus 4.8 on agent benchmarks | model_release |
-| 5 | Anthropic puts Claude Mythos 5 into cyber defense (CWE-tagged vuln scans + suggested patches, human approval required) | product |
-| 6 | Waymo's own 1,000+ TOPS chip, TSMC 5nm, already shipping in latest robotaxis | product |
-| 7 | Anthropic backs down on 30-day data retention ΓÇö data moves to customers' own cloud | policy |
-| 8 | Marvell issues Google a warrant worth up to $12.2B tied to actual TPU-ecosystem chip orders; Broadcom shares fall | funding |
-| 9 | JAXA unveils MMX ahead of Oct 20 launch ΓÇö first-ever sample return from the Mars system (Phobos) | space |
-| 10 | SpaceX static-fires Ship 41 to rehearse a deorbit burn ahead of Starship's first true orbital flight | space |
+| 1 ≡ƒöÑ | Nvidia research: Claude Opus 5 scores **30% ΓåÆ 100%** on ARC-AGI-3 with the same model, just a better harness | research |
+| 2 | DRAM shortage pushes Nvidia AI server prices up ~15% from early 2027 (Bloomberg) | other |
+| 3 | Netflix's GenRec swaps hand-built ranking features for an LLM reading watch history as plain text | product |
+| 4 | Princeton/UCSD skills study ΓÇö retrieval precision falls 29.6% ΓåÆ 3.3% as libraries grow 5 ΓåÆ 100 | research |
+| 5 | RayNeo iO glasses: no camera, summarizes meetings, 40-language translation, nod-to-confirm | product |
+| 6 | Inherent's Faraday beats Opus 4.8 and GPT-5.5 at research replication on a 27B model | research |
+| 7 | China's gray market sells Claude tokens at ~10% of list price via offshore proxies | other |
+| 8 | OpenAI reverses course, asks California to *strengthen* SB 53 | policy |
+| 9 | Princeton/UW: AI may make scientists do more work, less well | research |
+| 10 | FAA opens 60-day RFI on new spaceport sites ΓÇö 83% of launches sit at just three pads | space |
 
-**`data/narrative/2026-08-22.json`** ΓÇö one paragraph tying the day together: the money story (Nvidia buying capability without buying companies, while Google and Waymo both work to de-risk single-supplier chip dependence), the usable-today tools (transparent-background image gen, DeepSeek vision), Anthropic's two enterprise-pressure stories, and the space cluster where the new US policy landed the same day as two concrete steps toward it.
+Only one `major`, per the rubric.
 
-Two notes:
+**`data/narrative/2026-08-23.json`** ΓÇö one paragraph threading the day around "it's the scaffolding, not the model."
 
-- I added `context_th` only to the Anthropic cyber-defense item, linking it to OpenAI's cyber model on Aug 10. The others had no verifiable prior-story link, so I left the field off rather than guess.
-- I did **not** run `generate.py`, git, or touch `data/engine-log.md`. That's by design ΓÇö `scripts/daily_update.ps1:34` instructs this agent to write only the two JSON files, and the wrapper does validation, site regeneration, logging, commit, and push itself. My attempts to run python were blocked by permissions, which matches that architecture. The site will update when the wrapper's publish step runs.
+**`data/weekly/2026-W34.json`** ΓÇö today is Sunday, so I built the weekly rollup for Aug 17ΓÇô23: 54 items across the six days that have files (no run happened on Aug 20), 6 highlights, and `directions` for OpenAI, Anthropic, Nvidia, SpaceX, Meta, and DeepSeek ΓÇö each stated as a count of actual categories, no forecasting.
+
+**`data/engine-log.md`** ΓÇö run line appended.
+
+## Two things to flag
+
+**I dropped a SpaceX story on purpose.** Spaceflight Now reported the Aug 21 Starlink launch as SpaceX's "100th orbital mission of 2026," but your Aug 19 file already published Space.com reporting the Aug 18 Starlink 17-50 launch as mission #100. The sources genuinely disagree on the count. Rather than have the site announce the same milestone twice with conflicting numbers, I cut it and substituted the Princeton/UW research study. The reasoning is recorded in the engine log.
+
+**`generate.py` did not run, and nothing was committed or pushed.** Every form of `python` execution was blocked by permission prompts in this non-interactive session ΓÇö even `python -c "print(1+1)"`. This matches what the log shows for most recent rounds: the JSON gets written here and `daily_update.ps1` handles generate + commit + push. So the site won't show today's news until that wrapper runs. If you want it live sooner, run `python scripts/generate.py` followed by `git add -A && git commit && git push` yourself.
