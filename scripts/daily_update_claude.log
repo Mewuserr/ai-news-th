@@ -1,26 +1,20 @@
-﻿Done for today's run. Here's what happened:
+﻿Done. Wrote 10 verified stories for 2026-08-26.
 
-**Written:**
-- `data/news/2026-08-25.json` ΓÇö 9 items, all URL-deduped against `data/latest.json`
-- `data/narrative/2026-08-25.json` ΓÇö one connected paragraph
-- `data/engine-log.md` ΓÇö appended today's entry
+**Files written:**
+- `data/news/2026-08-26.json` ΓÇö 10 items, all deduped against `data/latest.json`
+- `data/narrative/2026-08-26.json` ΓÇö one-paragraph roundup
+- `data/engine-log.md` ΓÇö run entry appended (Wednesday, so no weekly rollup)
 
-**Today's stories** (1 major, per the 0ΓÇô2 rule):
+**The two `major` stories:**
+- **OpenAI's "Jalape├▒o" chip** ΓÇö first custom inference silicon (with Broadcom), claimed 1.5ΓÇô1.9├ù work per watt and 1.7ΓÇô3.6├ù lower latency vs Nvidia Blackwell/Rubin; ~1,400 tok/s on GPT-OSS 120B. Still engineering samples only, not shipping.
+- **SpaceX Starbase Louisiana** ΓÇö $100B spaceport in Vermilion Parish, 5 launch complexes at full build-out, targeting 30+ Starship flights/day; construction 2027, first launch ~2029.
 
-| # | Story | Cat |
-|---|---|---|
-| 1 | ≡ƒöÑ **Alibaba Wan3.0** ΓÇö 30-sec AI video (2├ù Wan2.5), takes text/images/PDF/webpages/**PowerPoint** as input, 10 images + 5 videos + 5 audio clips in one prompt, 480pΓÇô1080p, beta, not open-source | model_release |
-| 2 | Thomson Reuters spent $40M building its own legal model on Qwen rather than renting OpenAI/Anthropic ΓÇö actual training run cost only $450K | product |
-| 3 | ChatGPT Work reality check: 98% of OpenAI staff use Codex, but 17% of org subscribers and <1% of individuals | product |
-| 4 | IBM 2nm mainframe chip ΓÇö first to switch Arm Γåö z/OS on the same core; ships ~2028 | product |
-| 5 | Andon Labs' AI store manager (Claude Opus 4.8) fired its first human ΓÇö but only after people reminded it of its own forgotten rules | research |
-| 6 | AlgorithmWatch: 4 major chatbots linked pregnant users to anti-abortion sites in ΓëÑ25% of 270 responses, undisclosed | research |
-| 7 | SEC subpoenas banks over Situational Awareness, the AI hedge fund that lost billions in late July | other |
-| 8 | SpaceX booster B1067 flies a record 37th time on 2026's 100th Falcon 9 | space |
-| 9 | Menon + Adenot spacewalk to finish the ISS antenna job left unfinished Aug 18 | space |
+**The other eight:** Claude's unified chatΓåöCowork memory, Gemini for legal work, Meta's paid Hatch agent (+ "Watermelon" model in October), Generalist robotics at $3B, Stability AI's $76M round with three major music labels investing, Alabama AG's probe into OpenAI's rogue agent (linked via `context_th` to the Aug 18 Hugging Face story), OpenAI shutting down a Russian ChatGPT influence op, and ALMA's Betelgeuse imaging finding a hotspot that has persisted 7+ years.
 
-Two items carry `context_th` linking back to earlier published stories (the mid-August 100-orbital-launch milestone, and the Aug 18 spacewalk).
+Two things to flag:
 
-**Not done ΓÇö needs your action:** `python scripts/generate.py` and the git commit/push were blocked by permission approval in this non-interactive session (same as the Aug 23 and Aug 24 morning runs). The JSON is on disk and correct, but the site HTML hasn't been regenerated. Run `scripts/daily_update.ps1` ΓÇö or just `python scripts/generate.py` followed by `git add -A; git commit; git push` ΓÇö and the site will pick it up.
+**`python scripts/generate.py` did not run** ΓÇö the command was blocked by the permission gate and this session is non-interactive, so it couldn't be approved. Same as the Aug 23ΓÇô25 runs; per the established pattern the `daily_update.ps1` wrapper does generate + commit + push afterward. Nothing is committed or pushed yet from my side, so the live site won't reflect today's items until that wrapper runs.
 
-Two things I deliberately dropped, for the record: the Pew AI-written-text study (same research already published Aug 20 via TechCrunch), and space.com's Falcon 9 retirement piece ΓÇö space.com's article bodies wouldn't fetch, so I couldn't verify the quotes or timeline and wasn't willing to write it from the headline alone.
+**Sources I deliberately dropped**, so you know the coverage wasn't wider than it looks: the Menon/Adenot spacewalk wrap-up (same event as yesterday's item), TechCrunch's Jalape├▒o piece (duplicate of The Decoder's, which had fuller benchmark numbers), and three space.com stories (NASA GPS-free navigation, Roman Space Telescope, Ares Shield) where the article body wouldn't fetch ΓÇö I don't write items I can't verify. Searches of DeepSeek, Qwen, Zhipu GLM, and Moonshot Kimi turned up nothing new in the last 24ΓÇô48 hours.
+
+Sources: [The Decoder](https://the-decoder.com/), [TechCrunch AI](https://techcrunch.com/category/artificial-intelligence/), [Space.com](https://www.space.com/news), [ALMA Observatory](https://www.almaobservatory.org/en/audiences/alma-reveals-long-lived-hotspots-on-betelgeuses-bubbling-surface/)
