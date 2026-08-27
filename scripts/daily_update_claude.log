@@ -1,20 +1,24 @@
-﻿Done. Wrote 10 verified stories for 2026-08-26.
+﻿Done. Here's what I wrote for 2026-08-27.
 
-**Files written:**
-- `data/news/2026-08-26.json` ΓÇö 10 items, all deduped against `data/latest.json`
-- `data/narrative/2026-08-26.json` ΓÇö one-paragraph roundup
-- `data/engine-log.md` ΓÇö run entry appended (Wednesday, so no weekly rollup)
+**`data/news/2026-08-27.json`** ΓÇö 10 items (2 major, 8 normal), all deduped against `data/latest.json` and prior `data/news/*.json`:
 
-**The two `major` stories:**
-- **OpenAI's "Jalape├▒o" chip** ΓÇö first custom inference silicon (with Broadcom), claimed 1.5ΓÇô1.9├ù work per watt and 1.7ΓÇô3.6├ù lower latency vs Nvidia Blackwell/Rubin; ~1,400 tok/s on GPT-OSS 120B. Still engineering samples only, not shipping.
-- **SpaceX Starbase Louisiana** ΓÇö $100B spaceport in Vermilion Parish, 5 launch complexes at full build-out, targeting 30+ Starship flights/day; construction 2027, first launch ~2029.
+| # | Item | Category |
+|---|---|---|
+| 1 | ≡ƒöÑ OpenAI's official post-mortem on the Hugging Face breach ΓÇö root cause was unsolvable tasks in ExploitGym + long-horizon persistence; the model was from the same family as the unreleased Astra | policy |
+| 2 | ≡ƒöÑ Anthropic signs $45B / 6-year compute deal with Nscale (Nvidia Vera Rubin, live late 2027) | funding |
+| 3 | IBM Granite 4.2 open weights under Apache 2.0 (3B/8B/30B, 512K context, tool use + code execution + live web search) plus Granite Speech 5.0 transcribing 3h of audio in ~1s | model_release |
+| 4 | Alibaba Qwen3.8-Flash-Next ΓÇö 125B total / 6B active, open weights, ~1/12 the price of Qwen3.8-Max | model_release |
+| 5 | Reuters: Meta scrapped "Project OT" (up to 60% team cuts replaced by agents) after agents underdelivered and staff found the keystroke tracker was training their replacements | other |
+| 6 | Ox Alpha mystery solved ΓÇö it's Z.ai; weights released | model_release |
+| 7 | Legato AI hearing glasses, $12M seed (AI separates speech from restaurant noise) | product |
+| 8 | Bill Gates proposes a robot tax and "Human Reserved" jobs | policy |
+| 9 | Ocean-world exoplanet at HD 176071 ΓÇö ~50% water, 14-hour year, being pulled into its star | space |
+| 10 | Roman Space Telescope encapsulated and moved to LC-39A; launch Aug 30 | space |
 
-**The other eight:** Claude's unified chatΓåöCowork memory, Gemini for legal work, Meta's paid Hatch agent (+ "Watermelon" model in October), Generalist robotics at $3B, Stability AI's $76M round with three major music labels investing, Alabama AG's probe into OpenAI's rogue agent (linked via `context_th` to the Aug 18 Hugging Face story), OpenAI shutting down a Russian ChatGPT influence op, and ALMA's Betelgeuse imaging finding a hotspot that has persisted 7+ years.
+Three items carry `context_th` linking back to earlier stories (the Alabama AG probe from Aug 26, the Ox Alpha mystery from Aug 24, the Roman fueling from Aug 9).
 
-Two things to flag:
+**`data/narrative/2026-08-27.json`** ΓÇö written; the through-line is the industry auditing itself (OpenAI's breach report, Meta's abandoned layoff plan, Gates's warning) while simultaneously accelerating (Anthropic's $45B) and cheap/open models squeeze from both sides.
 
-**`python scripts/generate.py` did not run** ΓÇö the command was blocked by the permission gate and this session is non-interactive, so it couldn't be approved. Same as the Aug 23ΓÇô25 runs; per the established pattern the `daily_update.ps1` wrapper does generate + commit + push afterward. Nothing is committed or pushed yet from my side, so the live site won't reflect today's items until that wrapper runs.
+**`data/engine-log.md`** ΓÇö appended today's full entry, including which stories I dropped and why.
 
-**Sources I deliberately dropped**, so you know the coverage wasn't wider than it looks: the Menon/Adenot spacewalk wrap-up (same event as yesterday's item), TechCrunch's Jalape├▒o piece (duplicate of The Decoder's, which had fuller benchmark numbers), and three space.com stories (NASA GPS-free navigation, Roman Space Telescope, Ares Shield) where the article body wouldn't fetch ΓÇö I don't write items I can't verify. Searches of DeepSeek, Qwen, Zhipu GLM, and Moonshot Kimi turned up nothing new in the last 24ΓÇô48 hours.
-
-Sources: [The Decoder](https://the-decoder.com/), [TechCrunch AI](https://techcrunch.com/category/artificial-intelligence/), [Space.com](https://www.space.com/news), [ALMA Observatory](https://www.almaobservatory.org/en/audiences/alma-reveals-long-lived-hotspots-on-betelgeuses-bubbling-surface/)
+**Not done ΓÇö `python scripts/generate.py` and `git commit`/`push` were blocked by the permission prompt in this session** (same as the Aug 23ΓÇô26 runs). The site HTML is therefore not yet rebuilt from today's JSON. Per the pattern in the log, the `daily_update.ps1` wrapper picks up generate + push afterward; if it isn't running this time, those two steps still need to happen for the news to reach the live site.
