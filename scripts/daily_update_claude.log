@@ -1,24 +1,27 @@
-﻿Done. Here's what I wrote for 2026-08-27.
+﻿Done. 10 items written for 2026-08-28, all verified against primary sources and deduped against `data/latest.json` and the recent `data/news/` files.
 
-**`data/news/2026-08-27.json`** ΓÇö 10 items (2 major, 8 normal), all deduped against `data/latest.json` and prior `data/news/*.json`:
+**`data/news/2026-08-28.json`** ΓÇö 1 major, 9 normal:
 
-| # | Item | Category |
+| # | Story | Category |
 |---|---|---|
-| 1 | ≡ƒöÑ OpenAI's official post-mortem on the Hugging Face breach ΓÇö root cause was unsolvable tasks in ExploitGym + long-horizon persistence; the model was from the same family as the unreleased Astra | policy |
-| 2 | ≡ƒöÑ Anthropic signs $45B / 6-year compute deal with Nscale (Nvidia Vera Rubin, live late 2027) | funding |
-| 3 | IBM Granite 4.2 open weights under Apache 2.0 (3B/8B/30B, 512K context, tool use + code execution + live web search) plus Granite Speech 5.0 transcribing 3h of audio in ~1s | model_release |
-| 4 | Alibaba Qwen3.8-Flash-Next ΓÇö 125B total / 6B active, open weights, ~1/12 the price of Qwen3.8-Max | model_release |
-| 5 | Reuters: Meta scrapped "Project OT" (up to 60% team cuts replaced by agents) after agents underdelivered and staff found the keystroke tracker was training their replacements | other |
-| 6 | Ox Alpha mystery solved ΓÇö it's Z.ai; weights released | model_release |
-| 7 | Legato AI hearing glasses, $12M seed (AI separates speech from restaurant noise) | product |
-| 8 | Bill Gates proposes a robot tax and "Human Reserved" jobs | policy |
-| 9 | Ocean-world exoplanet at HD 176071 ΓÇö ~50% water, 14-hour year, being pulled into its star | space |
-| 10 | Roman Space Telescope encapsulated and moved to LC-39A; launch Aug 30 | space |
+| 1 | **Nvidia agrees to buy Hugging Face for $12.9B** (~80├ù annual revenue; not yet signed) | funding ┬╖ ≡ƒöÑmajor |
+| 2 | Gemini Omni 1.1 Flash ΓÇö extend video to 40s, up to 4K, $0.03ΓÇô0.30/sec, cheap 360p draft mode | product |
+| 3 | GLM-5.3-Flash ΓÇö 320B/18B active, 1M context, runs entirely on Chinese chips, MIT license, 7.5├ù cheaper | model_release |
+| 4 | Claude Cowork gets its own in-app browser (clicks, types, fills forms) | product |
+| 5 | Gemini 3.5 Transcribe ΓÇö 85+ languages, strips filler words, 2.6% WER | product |
+| 6 | Google AI Mode now tracks flight prices and books hotels | product |
+| 7 | 100+ companies sign open letter on AI-powered cyberattacks | policy |
+| 8 | Hugging Face's $399 open-source Microduck robot | product |
+| 9 | Starship upper stage loaded onto a semi-submersible ΓÇö first one recovered intact | space |
+| 10 | JWST surveys 72 young stars: planet formation is a race against disk dispersal | research |
 
-Three items carry `context_th` linking back to earlier stories (the Alabama AG probe from Aug 26, the Ox Alpha mystery from Aug 24, the Roman fueling from Aug 9).
+**`data/narrative/2026-08-28.json`** ΓÇö written, threading the Nvidia/Hugging Face deal ΓåÆ Chinese chips undercutting Nvidia ΓåÆ Google's feature blitz ΓåÆ the agent-security letter.
 
-**`data/narrative/2026-08-27.json`** ΓÇö written; the through-line is the industry auditing itself (OpenAI's breach report, Meta's abandoned layoff plan, Gates's warning) while simultaneously accelerating (Anthropic's $45B) and cheap/open models squeeze from both sides.
+**`data/engine-log.md`** ΓÇö appended with the full run record, including the cut list.
 
-**`data/engine-log.md`** ΓÇö appended today's full entry, including which stories I dropped and why.
+Two things did not happen, and both need you:
 
-**Not done ΓÇö `python scripts/generate.py` and `git commit`/`push` were blocked by the permission prompt in this session** (same as the Aug 23ΓÇô26 runs). The site HTML is therefore not yet rebuilt from today's JSON. Per the pattern in the log, the `daily_update.ps1` wrapper picks up generate + push afterward; if it isn't running this time, those two steps still need to happen for the news to reach the live site.
+- **`python scripts/generate.py` was blocked** ΓÇö the permission prompt can't be answered in a non-interactive session. Same as the 23ΓÇô27 Aug runs; the `daily_update.ps1` wrapper handles generate + push afterward, so the site rebuild is pending that.
+- **No commit or push** ΓÇö I left the three changed files staged in the working tree for the wrapper (or you) to commit. Since GitHub Pages serves the committed HTML, the site won't show today's news until `generate.py` runs and the output is committed.
+
+Sources: [CNBC](https://www.cnbc.com/2026/08/27/nvidia-hugging-face-acquisition.html) ┬╖ [The Decoder](https://the-decoder.com/) ┬╖ [TechCrunch](https://techcrunch.com/category/artificial-intelligence/) ┬╖ [Space.com](https://www.space.com/news) ┬╖ [phys.org](https://phys.org/news/2026-08-jwst-reveals-planets.html)
