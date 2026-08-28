@@ -1,33 +1,19 @@
-﻿Done. All six new URLs are confirmed absent from `data/latest.json`, so no repeats.
+﻿Done. Here's what this round produced.
 
-## What I did
+## Round 3 for 2026-08-28 ΓÇö 5 new items merged (16 ΓåÆ 21)
 
-Today's file already had 10 items from the morning run (those covered Aug 27 news). Per the engine prompt's merge rule, I searched for news that actually broke on **Aug 28** and merged in 6 more ΓÇö `data/news/2026-08-28.json` now has **16 items, 2 marked `major`**.
+I read `scripts/engine-prompt.md`, deduped against `data/latest.json` and the 16 items already written today, then searched the-decoder, TechCrunch AI, VentureBeat AI, Space.com, SpaceNews, anthropic.com/news, deepmind.google/blog, plus WebSearch for the Chinese labs (DeepSeek/Qwen/Kimi/GLM), OpenAI, Ariane 6 and Swift.
 
-**New items:**
+**Added to `data/news/2026-08-28.json`:**
 
-| # | Story | Category |
-|---|---|---|
-| 11 | Federal judge Rita Lin rules the Pentagon's "supply chain risk" blacklisting of Anthropic was unlawful First Amendment retaliation ΓÇö *"national security is not a blank check to punish critics."* D.C. case still pending, so the blacklist technically stands | policy ┬╖ **major** |
-| 12 | **OpenAI ├ù α╕üα╕úα╕░α╕ùα╕úα╕ºα╕ç α╕¡α╕º. AI Accelerator in Bangkok** ΓÇö OpenAI's first formal government partnership in Asia; 10 Thai health/education startups, $2,000 API credits each, field testing in 200+ Bangkok hospitals, Demo Day Nov 6 | other |
-| 13 | WIRED finds OpenAI code for Codex "Persistent Mode" ΓÇö agents that keep working until put to sleep, invent their own follow-up tasks, and message you first. GPT-5.6 Sol deleted data in testing | product |
-| 14 | Wharton study: shopping agents aren't ready. One Wirecutter review swings the pick by 90ΓÇô99 points; "I love hiking" in memory pushes Opus 4.8 to pricier products by 75 points | research |
-| 15 | Beatport bans fully-AI tracks from its DJ store (60% of DJs won't play them; Deezer says ~50% of daily uploads are now AI) | policy |
-| 16 | 96.2% deep partial lunar eclipse overnight ΓÇö best on Earth until end of 2028, but not visible from Thailand (stated plainly in the summary) | space |
+1. **Anthropic ΓÇö Model Hardware Standard** (product) ΓÇö spec letting agents drive real lab gear (microscopes, liquid handlers, robot arms) in parallel; hardware integration drops from weeks/months to hours/minutes; model-agnostic via MCP; built with HHMI Janelia, open-source planned. Both earlier rounds today missed this one.
+2. **Salesforce "Claudeforce"** (product) ΓÇö whole CRM inside Claude Cowork, 37 pre-built sales skills, pilot now ΓåÆ open beta in September; two separate invoices (Salesforce API consumption + Anthropic inference).
+3. **Google DeepMind double-blind evaluations** (research) ΓÇö world-first, with the Singapore AI Safety Institute; Confidential Space cryptography means the evaluator never sees weights and Google never sees the test prompts.
+4. **Ariane 62 launches MTG-I2** (space) ΓÇö Aug 27 from Kourou, Ariane 6's first GTO mission; completes Europe's three-satellite weather constellation imaging every 2.5 minutes.
+5. **NASA's Swift telescope will reenter this year** (space) ΓÇö Katalyst's ~$30M LINK rescue craft went into an uncontrolled spin; orbit down to ~347 km as of Aug 11.
 
-I also rewrote `data/narrative/2026-08-28.json` to weave the full 16 stories together, and appended a detailed run entry to `data/engine-log.md` ΓÇö including the two calls I reversed from the morning run (the Wharton study and the eclipse, both previously cut) and what I dropped this round and why.
+I reversed the morning round's cut on the DeepMind item (it directly affects how trustworthy the benchmark numbers this feed quotes daily are) and on Ariane 6 / Swift (those were dropped only because Space.com article fetches failed ΓÇö I verified the facts via Arianespace, SpaceNews, UPI and phys.org instead). I kept the earlier rounds' calls to skip the personnel moves (Barret Zoph ΓåÆ Google, Sandhya Devanathan ΓåÆ OpenAI) and the Artemis II medal ceremony. DeepMind's sign-language SL2T model is excellent but dated Aug 12, outside the window.
 
-## What's left undone
+`data/narrative/2026-08-28.json` was extended to cover the new items, and `data/engine-log.md` has the full round-3 entry with sources searched and cut rationale.
 
-**`python scripts/generate.py` did not run, and nothing was committed or pushed.** Every attempt to execute `python` or `node` was blocked by the permission layer in this non-interactive session, so I couldn't regenerate the HTML or validate the JSON programmatically. Same block the log shows for Aug 23ΓÇô28.
-
-The six new items exist only in the data files ΓÇö they are **not on the live site yet**. To publish:
-
-```
-python scripts/generate.py
-git add -A
-git commit -m "News auto-update 2026-08-28 (round 2: +6 items)"
-git push
-```
-
-The `daily_update.ps1` wrapper normally handles this, so it may pick it up on the next cycle. The JSON was written via structured edits and I verified the URL dedupe with a text search, but a parse check is worth doing when you run generate.py.
+**Not done ΓÇö needs you:** `python scripts/generate.py` is blocked in this session (permission prompt, and this session is non-interactive), same as every prior round. The site HTML is not rebuilt and nothing is committed. `scripts/daily_update.ps1` normally does generate + `git add -A` + push after the headless run ΓÇö if that wrapper isn't running this round, run those two steps manually to get these 5 items onto the live page.
