@@ -1,19 +1,33 @@
-﻿Done. Here's what this round produced.
+﻿Done. Here's the result of today's run.
 
-## Round 3 for 2026-08-28 ΓÇö 5 new items merged (16 ΓåÆ 21)
+**Wrote `data/news/2026-08-29.json` ΓÇö 9 items, 1 `major`** (validated as parseable JSON, all categories match the schema):
 
-I read `scripts/engine-prompt.md`, deduped against `data/latest.json` and the 16 items already written today, then searched the-decoder, TechCrunch AI, VentureBeat AI, Space.com, SpaceNews, anthropic.com/news, deepmind.google/blog, plus WebSearch for the Chinese labs (DeepSeek/Qwen/Kimi/GLM), OpenAI, Ariane 6 and Swift.
+| # | Source | Story | Cat |
+|---|---|---|---|
+| 1 | DeepMind / The Decoder | **[major]** AI Co-Scientist closes the loop ΓÇö plans experiments, drives real lab furnaces, writes the paper; fabrication rate 46% ΓåÆ 4% | research |
+| 2 | TechCrunch | Anthropic's Automated Alignment Researcher beats human researchers in ~6h at $4/hr vs $150/hr | research |
+| 3 | Google | **Expert Intelligence** ΓÇö load Play Books ebooks you own into Gemini Notebook, ask grounded questions, generate quizzes/Audio Overviews (100k+ titles) | product |
+| 4 | VentureBeat | Meta's EvoHarness-RL: Qwen3-8B hits 96.9% on ALFWorld, matching Claude Opus 4.5's 96.4% | research |
+| 5 | TechCrunch | Open-weight companies are the hottest acquisition targets (NvidiaΓÇôHF $13B, NvidiaΓÇôPoolside $6B, StripeΓÇôOpenRouter $7B) | funding |
+| 6 | SpaceNews | Roman telescope cleared launch readiness review ΓÇö Falcon Heavy on Aug 30, 9 months early | space |
+| 7 | SpaceNews | Long March 6C upper stage fragmented 47h after launch ΓÇö 5th breakup in the family | space |
+| 8 | SpaceNews | Trump EO creates commission to study a NASA-led national space academy, 120-day deadline | space |
+| 9 | TechCrunch | Lambda borrows another $1B for Nvidia chips to lease to Microsoft; AI-related debt past $400B in 2026 | funding |
 
-**Added to `data/news/2026-08-28.json`:**
+Also wrote `data/narrative/2026-08-29.json` and appended the full run entry (including every story I deliberately dropped and why) to `data/engine-log.md`.
 
-1. **Anthropic ΓÇö Model Hardware Standard** (product) ΓÇö spec letting agents drive real lab gear (microscopes, liquid handlers, robot arms) in parallel; hardware integration drops from weeks/months to hours/minutes; model-agnostic via MCP; built with HHMI Janelia, open-source planned. Both earlier rounds today missed this one.
-2. **Salesforce "Claudeforce"** (product) ΓÇö whole CRM inside Claude Cowork, 37 pre-built sales skills, pilot now ΓåÆ open beta in September; two separate invoices (Salesforce API consumption + Anthropic inference).
-3. **Google DeepMind double-blind evaluations** (research) ΓÇö world-first, with the Singapore AI Safety Institute; Confidential Space cryptography means the evaluator never sees weights and Google never sees the test prompts.
-4. **Ariane 62 launches MTG-I2** (space) ΓÇö Aug 27 from Kourou, Ariane 6's first GTO mission; completes Europe's three-satellite weather constellation imaging every 2.5 minutes.
-5. **NASA's Swift telescope will reenter this year** (space) ΓÇö Katalyst's ~$30M LINK rescue craft went into an uncontrolled spin; orbit down to ~347 km as of Aug 11.
+**Two steps I could not complete:**
 
-I reversed the morning round's cut on the DeepMind item (it directly affects how trustworthy the benchmark numbers this feed quotes daily are) and on Ariane 6 / Swift (those were dropped only because Space.com article fetches failed ΓÇö I verified the facts via Arianespace, SpaceNews, UPI and phys.org instead). I kept the earlier rounds' calls to skip the personnel moves (Barret Zoph ΓåÆ Google, Sandhya Devanathan ΓåÆ OpenAI) and the Artemis II medal ceremony. DeepMind's sign-language SL2T model is excellent but dated Aug 12, outside the window.
+- **`python scripts/generate.py` did not run** ΓÇö the `python` command required permission approval and this session is non-interactive, so it was denied. Same as the 2nd and 3rd rounds on Aug 28.
+- **No commit or push** ΓÇö pushing data-only would put a "news update" commit in history while the served HTML still shows yesterday's stories, so I left it.
 
-`data/narrative/2026-08-28.json` was extended to cover the new items, and `data/engine-log.md` has the full round-3 entry with sources searched and cut rationale.
+Git worked fine, so the wrapper `scripts/daily_update.ps1` should pick this up on its next run (that's what happened after the blocked rounds on Aug 28). If you want it live now:
 
-**Not done ΓÇö needs you:** `python scripts/generate.py` is blocked in this session (permission prompt, and this session is non-interactive), same as every prior round. The site HTML is not rebuilt and nothing is committed. `scripts/daily_update.ps1` normally does generate + `git add -A` + push after the headless run ΓÇö if that wrapper isn't running this round, run those two steps manually to get these 5 items onto the live page.
+```
+python scripts/generate.py
+git add -A
+git commit -m "α╕éα╣êα╕▓α╕º AI α╕¢α╕úα╕░α╕êα╕│α╕ºα╕▒α╕Öα╕ùα╕╡α╣ê 2026-08-29"
+git push
+```
+
+Aug 29 is a Saturday, so no weekly rollup was due. `openai.com/news` returned HTTP 403 and theverge.com was unfetchable again ΓÇö I covered OpenAI via TechCrunch and The Decoder instead.
