@@ -1,33 +1,29 @@
-﻿Done. Here's the result of today's run.
+﻿Done with the data work. Here's where things stand.
 
-**Wrote `data/news/2026-08-29.json` ΓÇö 9 items, 1 `major`** (validated as parseable JSON, all categories match the schema):
+## Written
 
-| # | Source | Story | Cat |
-|---|---|---|---|
-| 1 | DeepMind / The Decoder | **[major]** AI Co-Scientist closes the loop ΓÇö plans experiments, drives real lab furnaces, writes the paper; fabrication rate 46% ΓåÆ 4% | research |
-| 2 | TechCrunch | Anthropic's Automated Alignment Researcher beats human researchers in ~6h at $4/hr vs $150/hr | research |
-| 3 | Google | **Expert Intelligence** ΓÇö load Play Books ebooks you own into Gemini Notebook, ask grounded questions, generate quizzes/Audio Overviews (100k+ titles) | product |
-| 4 | VentureBeat | Meta's EvoHarness-RL: Qwen3-8B hits 96.9% on ALFWorld, matching Claude Opus 4.5's 96.4% | research |
-| 5 | TechCrunch | Open-weight companies are the hottest acquisition targets (NvidiaΓÇôHF $13B, NvidiaΓÇôPoolside $6B, StripeΓÇôOpenRouter $7B) | funding |
-| 6 | SpaceNews | Roman telescope cleared launch readiness review ΓÇö Falcon Heavy on Aug 30, 9 months early | space |
-| 7 | SpaceNews | Long March 6C upper stage fragmented 47h after launch ΓÇö 5th breakup in the family | space |
-| 8 | SpaceNews | Trump EO creates commission to study a NASA-led national space academy, 120-day deadline | space |
-| 9 | TechCrunch | Lambda borrows another $1B for Nvidia chips to lease to Microsoft; AI-related debt past $400B in 2026 | funding |
+**`data/news/2026-08-30.json`** ΓÇö 9 items, all deduped against `latest.json` and this week's dailies by URL. 2 marked `major`:
 
-Also wrote `data/narrative/2026-08-29.json` and appended the full run entry (including every story I deliberately dropped and why) to `data/engine-log.md`.
+- ≡ƒöÑ Sony Music Publishing + Warner Chappell sue Anthropic (founders Amodei and Mann named as defendants), N.D. Cal., filed Friday night ΓÇö the claim targets *how the files were obtained*, the same ground that cost Anthropic $1.5B in Bartz
+- ≡ƒöÑ Roman Space Telescope launched ΓÇö Falcon Heavy lifted off 07:26 EDT / 18:26 Thai time
+- OpenAI cutting Cursor off Nov 12 after SpaceX's acquisition (CNBC-confirmed; ~5% of Cursor traffic)
+- Google Research's WikiSkill (Gemini-3.5-Flash 49.5% ΓåÆ 68.1% with no retraining)
+- MATS study: coding agents answer "~90 minutes" for nearly every task and overrate their own work by ~20 points
+- LAION's 10-million-hour open video dataset
+- Claude Code's "+25%" weekly limit that nets out to ΓêÆ17%
+- Super Heavy's full 33-engine static fire ahead of Starship's first orbital flight
+- AI video displacing actors and livestreamers in China at ~90% lower cost
 
-**Two steps I could not complete:**
+**`data/narrative/2026-08-30.json`** ΓÇö one paragraph tying the day together.
 
-- **`python scripts/generate.py` did not run** ΓÇö the `python` command required permission approval and this session is non-interactive, so it was denied. Same as the 2nd and 3rd rounds on Aug 28.
-- **No commit or push** ΓÇö pushing data-only would put a "news update" commit in history while the served HTML still shows yesterday's stories, so I left it.
+**`data/weekly/2026-W35.json`** ΓÇö Sunday rollup, 2026-08-24 to 08-30: 6 highlights, `directions` for 8 companies (counts drawn only from the actual items), and all 76 items with dates. Structure verified: 76 open braces, 76 closers, 76 date fields.
 
-Git worked fine, so the wrapper `scripts/daily_update.ps1` should pick this up on its next run (that's what happened after the blocked rounds on Aug 28). If you want it live now:
+**`data/engine-log.md`** ΓÇö appended, including the sources searched and the stories I deliberately skipped.
 
-```
-python scripts/generate.py
-git add -A
-git commit -m "α╕éα╣êα╕▓α╕º AI α╕¢α╕úα╕░α╕êα╕│α╕ºα╕▒α╕Öα╕ùα╕╡α╣ê 2026-08-29"
-git push
-```
+## Not done ΓÇö publish steps are blocked
 
-Aug 29 is a Saturday, so no weekly rollup was due. `openai.com/news` returned HTTP 403 and theverge.com was unfetchable again ΓÇö I covered OpenAI via TechCrunch and The Decoder instead.
+`python scripts/generate.py` and `git add`/`commit`/`push` all return "requires approval" in this non-interactive session, so **the site HTML is not regenerated and nothing is pushed**. The changes sit in the working tree as untracked/modified files. Your `data/engine-log.md` shows this is the normal pattern for local-PC runs ΓÇö the `daily_update.ps1` wrapper picks up generate + commit + push afterward. If that wrapper doesn't run, today's news won't reach GitHub Pages.
+
+One correction I made mid-run: I first wrote the Roman item as "go for launch" because the window hadn't opened yet. It had by the time I checked the clock (11:51 UTC), so I confirmed liftoff against NASA's Roman blog and space.com's live blog and rewrote it. I stopped at what those sources confirm ΓÇö liftoff, Max Q, side-booster separation and return burn ΓÇö and did not claim spacecraft separation or signal acquisition, which I couldn't verify.
+
+I also deleted two temp helper scripts I'd created in `scripts/` when I found Python was blocked.
