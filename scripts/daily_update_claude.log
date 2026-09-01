@@ -1,29 +1,32 @@
-﻿Done with the data work. Here's where things stand.
+﻿Done for the data side ΓÇö but two steps are blocked in this session.
 
-## Written
+**Written:**
+- `data/news/2026-09-01.json` ΓÇö 10 items, 2 marked `major`
+- `data/narrative/2026-09-01.json` ΓÇö one connected paragraph
+- `data/engine-log.md` ΓÇö run entry appended (including the failures below)
 
-**`data/news/2026-08-30.json`** ΓÇö 9 items, all deduped against `latest.json` and this week's dailies by URL. 2 marked `major`:
+**Today's items** (all deduped against `latest.json` / recent day files):
 
-- ≡ƒöÑ Sony Music Publishing + Warner Chappell sue Anthropic (founders Amodei and Mann named as defendants), N.D. Cal., filed Friday night ΓÇö the claim targets *how the files were obtained*, the same ground that cost Anthropic $1.5B in Bartz
-- ≡ƒöÑ Roman Space Telescope launched ΓÇö Falcon Heavy lifted off 07:26 EDT / 18:26 Thai time
-- OpenAI cutting Cursor off Nov 12 after SpaceX's acquisition (CNBC-confirmed; ~5% of Cursor traffic)
-- Google Research's WikiSkill (Gemini-3.5-Flash 49.5% ΓåÆ 68.1% with no retraining)
-- MATS study: coding agents answer "~90 minutes" for nearly every task and overrate their own work by ~20 points
-- LAION's 10-million-hour open video dataset
-- Claude Code's "+25%" weekly limit that nets out to ΓêÆ17%
-- Super Heavy's full 33-engine static fire ahead of Starship's first orbital flight
-- AI video displacing actors and livestreamers in China at ~90% lower cost
+| # | α╣Çα╕úα╕╖α╣êα╕¡α╕ç | α╕½α╕íα╕ºα╕ö |
+|---|---|---|
+| 1 ≡ƒöÑ | Anthropic α╣Çα╕¢α╕┤α╕öα╣Çα╕£α╕óα╣Çα╕¡α╕ç: Claude α╕½α╕Ñα╕╕α╕öα╣üα╕ïα╕Öα╕öα╣îα╕Üα╣çα╕¡α╕üα╕ïα╣îα╣äα╕¢α╣üα╕òα╕░α╕úα╕░α╕Üα╕Üα╕êα╕úα╕┤α╕ç 2 α╕äα╕úα╕▒α╣ëα╕ç (30 α╕ü.α╕ä./4 α╕¬.α╕ä.) + α╕₧α╕Ü reward hacking α╕üα╕ºα╣êα╕▓ 10% α╕éα╕¡α╕ç RL environments | research |
+| 2 ≡ƒöÑ | Pentagon α╣Çα╕¢α╕┤α╕ö ChatGPT Mil + Grok for Government α╕Üα╕Ö GenAI.mil α╣âα╕½α╣ëα╣Çα╕êα╣ëα╕▓α╕½α╕Öα╣ëα╕▓α╕ùα╕╡α╣ê 3 α╕Ñα╣ëα╕▓α╕Öα╕äα╕Ö (α╕¬α╕íα╕▒α╕äα╕úα╣üα╕Ñα╣ëα╕º 1.7 α╕Ñα╣ëα╕▓α╕Ö) | product |
+| 3 | OpenClaw 2.0 ΓÇö α╕òα╕┤α╕öα╕òα╕▒α╣ëα╕çα╣üα╕ùα╕Üα╣äα╕íα╣êα╕òα╣ëα╕¡α╕çα╕òα╕▒α╣ëα╕çα╕äα╣êα╕▓, α╕½α╕▓α╕ïα╕▒α╕Üα╕¬α╕äα╕úα╕┤α╕¢α╕èα╕▒α╕Ö/API key α╣Çα╕öα╕┤α╕íα╣âα╕½α╣ëα╣Çα╕¡α╕ç, α╣Çα╕ïα╕¬α╕èα╕▒α╕Öα╕äα╕Ñα╕▓α╕ºα╕öα╣îα╣üα╕Üα╕Üα╕½α╕Ñα╕▓α╕óα╕äα╕Öα╕₧α╕úα╣ëα╕¡α╕íα╕üα╕▒α╕Ö | product |
+| 4 | α╣éα╕åα╕⌐α╕ôα╕▓α╣âα╕Ö ChatGPT α╣üα╕òα╕░ $1B/α╕¢α╕╡α╣âα╕Ö 200 α╕ºα╕▒α╕Ö + α╣Çα╕¢α╕┤α╕ö self-serve ads α╣âα╕Öα╕¡α╕┤α╕Öα╣Çα╕öα╕╡α╕ó/α╕óα╕╕α╣éα╕úα╕¢/MENA | other |
+| 5 | OpenAI α╣Çα╕úα╕┤α╣êα╕íα╕äα╕┤α╕öα╣Çα╕çα╕┤α╕Öα╣üα╕Üα╕Ü "α╕êα╣êα╕▓α╕óα╣Çα╕íα╕╖α╣êα╕¡ AI α╕ùα╕│α╕çα╕▓α╕Öα╕¬α╕│α╣Çα╕úα╣çα╕ê" α╕üα╕▒α╕Üα╕Ñα╕╣α╕üα╕äα╣ëα╕▓α╕¡α╕çα╕äα╣îα╕üα╕ú | other |
+| 6 | Nvidia α╕Ñα╕çα╕ùα╕╕α╕Ö $3.5B α╣âα╕Ö MediaTek (α╕íα╕╡ context α╣Çα╕èα╕╖α╣êα╕¡α╕íα╕öα╕╡α╕Ñ SoftBank 18 α╕¬.α╕ä. / Poolside 22 α╕¬.α╕ä.) | funding |
+| 7 | Instagram α╕Üα╕▒α╕çα╕äα╕▒α╕Üα╕¢α╣ëα╕▓α╕ó "AI-generated profile" α╣äα╕íα╣êα╕òα╕┤α╕ö = α╕Ñα╕öα╕üα╕▓α╕úα╕íα╕¡α╕çα╣Çα╕½α╣çα╕Ö | policy |
+| 8 | CXMT α╕êα╕╡α╕Öα╕£α╕Ñα╕┤α╕ò HBM3E α╣äα╕öα╣ëα╕äα╕úα╕▒α╣ëα╕çα╣üα╕úα╕ü (yield ~25%, α╕òα╕▓α╕íα╕½α╕Ñα╕▒α╕ç 3-5 α╕¢α╕╡) | other |
+| 9 | α╕₧α╕Üα╕äα╕ºα╕▓α╕íα╕úα╣ëα╕¡α╕Öα╕£α╕┤α╕öα╕¢α╕üα╕òα╕┤α╣âα╕òα╣ëα╕öα╕▓α╕ºα╕¡α╕▒α╕çα╕äα╕▓α╕úα╕ïα╕╡α╕üα╣âα╕òα╣ë α╕úα╣ëα╕¡α╕Öα╕üα╕ºα╣êα╕▓α╕ïα╕╡α╕üα╣Çα╕½α╕Öα╕╖α╕¡ 200-400┬░C | space |
+| 10 | α╣Çα╕öα╕┤α╕Öα╕¡α╕ºα╕üα╕▓α╕¿α╕½α╕ìα╕┤α╕çα╕Ñα╣ëα╕ºα╕Öα╕äα╕úα╕▒α╣ëα╕çα╕ùα╕╡α╣ê 6 α╣âα╕Öα╕¢α╕úα╕░α╕ºα╕▒α╕òα╕┤α╕¿α╕▓α╕¬α╕òα╕úα╣î (Meir + Adenot) α╕ºα╕▒α╕Öα╕Öα╕╡α╣ë | space |
 
-**`data/narrative/2026-08-30.json`** ΓÇö one paragraph tying the day together.
+**α╣äα╕íα╣êα╕¬α╕│α╣Çα╕úα╣çα╕ê 2 α╕éα╕▒α╣ëα╕Öα╕òα╕¡α╕Ö:** `python scripts/generate.py` α╣üα╕Ñα╕░ `git add/commit/push` α╕ûα╕╣α╕üα╕Üα╕Ñα╣çα╕¡α╕üα╕öα╣ëα╕ºα╕ó permission ΓÇö session α╕Öα╕╡α╣ëα╕úα╕▒α╕Öα╣üα╕Üα╕Ü non-interactive α╕êα╕╢α╕çα╕éα╕¡α╕¡α╕Öα╕╕α╕íα╕▒α╕òα╕┤α╣äα╕íα╣êα╣äα╕öα╣ë (α╣äα╕íα╣êα╣âα╕èα╣ê error α╕éα╕¡α╕çα╕¬α╕äα╕úα╕┤α╕¢α╕òα╣î α╕óα╕▒α╕çα╣äα╕íα╣êα╣äα╕öα╣ëα╕úα╕▒α╕Öα╣Çα╕Ñα╕ó) α╣Çα╕ºα╣çα╕Ü GitHub Pages α╕êα╕╢α╕çα╕óα╕▒α╕çα╣äα╕íα╣êα╕¡α╕▒α╕¢α╣Çα╕öα╕ò
 
-**`data/weekly/2026-W35.json`** ΓÇö Sunday rollup, 2026-08-24 to 08-30: 6 highlights, `directions` for 8 companies (counts drawn only from the actual items), and all 76 items with dates. Structure verified: 76 open braces, 76 closers, 76 date fields.
+α╕úα╕▒α╕Öα╕¬α╕¡α╕çα╕äα╕│α╕¬α╕▒α╣êα╕çα╕Öα╕╡α╣ëα╣Çα╕¡α╕çα╣äα╕öα╣ëα╣Çα╕Ñα╕óα╕äα╕úα╕▒α╕Ü α╣üα╕Ñα╣ëα╕ºα╣Çα╕ºα╣çα╕Üα╕êα╕░α╕éα╕╢α╣ëα╕Öα╕áα╕▓α╕óα╣âα╕Öα╣äα╕íα╣êα╕üα╕╡α╣êα╕Öα╕▓α╕ùα╕╡:
+```
+python scripts/generate.py
+git add -A && git commit -m "α╕éα╣êα╕▓α╕º AI α╕¢α╕úα╕░α╕êα╕│α╕ºα╕▒α╕Öα╕ùα╕╡α╣ê 2026-09-01" && git push
+```
+α╕½α╕úα╕╖α╕¡α╕ûα╣ëα╕▓α╕¡α╕óα╕▓α╕üα╣âα╕½α╣ëα╕£α╕íα╕úα╕▒α╕Öα╣âα╕½α╣ë α╕òα╕¡α╕Üα╕íα╕▓α╕ºα╣êα╕▓ "α╕úα╕▒α╕Öα╣äα╕öα╣ëα╣Çα╕Ñα╕ó" α╣âα╕Öα╣Çα╕ïα╕¬α╕èα╕▒α╕Öα╕ùα╕╡α╣êα╕¡α╕Öα╕╕α╕íα╕▒α╕òα╕┤ permission α╣äα╕öα╣ë
 
-**`data/engine-log.md`** ΓÇö appended, including the sources searched and the stories I deliberately skipped.
-
-## Not done ΓÇö publish steps are blocked
-
-`python scripts/generate.py` and `git add`/`commit`/`push` all return "requires approval" in this non-interactive session, so **the site HTML is not regenerated and nothing is pushed**. The changes sit in the working tree as untracked/modified files. Your `data/engine-log.md` shows this is the normal pattern for local-PC runs ΓÇö the `daily_update.ps1` wrapper picks up generate + commit + push afterward. If that wrapper doesn't run, today's news won't reach GitHub Pages.
-
-One correction I made mid-run: I first wrote the Roman item as "go for launch" because the window hadn't opened yet. It had by the time I checked the clock (11:51 UTC), so I confirmed liftoff against NASA's Roman blog and space.com's live blog and rewrote it. I stopped at what those sources confirm ΓÇö liftoff, Max Q, side-booster separation and return burn ΓÇö and did not claim spacecraft separation or signal acquisition, which I couldn't verify.
-
-I also deleted two temp helper scripts I'd created in `scripts/` when I found Python was blocked.
+Sources: [The Decoder](https://the-decoder.com/), [TechCrunch AI](https://techcrunch.com/category/artificial-intelligence/), [Anthropic Newsroom](https://www.anthropic.com/news), [VentureBeat AI](https://venturebeat.com/category/ai/), [Space.com](https://www.space.com/news), [SpaceNews](https://spacenews.com/)
