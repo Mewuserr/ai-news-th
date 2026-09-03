@@ -1,0 +1,79 @@
+[
+  {
+    "source": "TechCrunch",
+    "title_th": "Nvidia ยืนยันซื้อ Hugging Face มูลค่า 12.93 พันล้านดอลลาร์",
+    "summary_th": "Nvidia ประกาศยืนยันดีลซื้อ Hugging Face ด้วยเงิน 12.93 พันล้านดอลลาร์ ปิดฉากข่าวลือที่หลุดมาก่อนหน้านี้ Hugging Face คือ \"ที่เก็บของ\" ที่ใหญ่ที่สุดของวงการ AI แบบเปิด มีโมเดล 3 ล้านตัว แอป 1 ล้านตัว ชุดข้อมูล 500,000 ชุด และนักพัฒนาใช้งาน 18 ล้านคน Jensen Huang ยืนยันว่าแพลตฟอร์มจะยังเป็นกลางและเปิดต่อไป \"ไม่จำเป็นต้องใช้ชิป Nvidia เพื่อสร้างหรือรันโมเดลผ่าน Hugging Face\" ที่น่าสนใจคือปีก่อน Hugging Face เคยปฏิเสธข้อเสนอของ Nvidia ที่ 500 ล้านดอลลาร์ — ราคาขึ้นมา 25 เท่าในเวลาไม่ถึงสองปี",
+    "category": "funding",
+    "importance": "major",
+    "url": "https://techcrunch.com/2026/09/03/nvidia-confirms-it-will-buy-hugging-face-for-12-9-billion/",
+    "context_th": "ต่อจากข่าวรายงานดีลนี้ครั้งแรกโดย CNBC เมื่อ 27 ส.ค. ตอนนั้นยังเป็นแค่การรายงานจากแหล่งข่าว วันนี้ Nvidia ออกมายืนยันเป็นทางการพร้อมตัวเลขจริง"
+  },
+  {
+    "source": "TechCrunch",
+    "title_th": "กระทรวงยุติธรรมสหรัฐฯ เข้าข้าง OpenAI เรื่องเทรน AI ด้วยงานมีลิขสิทธิ์",
+    "summary_th": "รัฐบาลสหรัฐฯ ยื่นเอกสาร 20 หน้าต่อศาลแขวงนิวยอร์กในคดี The New York Times ฟ้อง OpenAI โดยสนับสนุนว่าการนำงานมีลิขสิทธิ์มาเทรนโมเดล AI เข้าข่าย \"fair use\" เหตุผลหลักคือสหรัฐฯ มีผลประโยชน์ในการรักษาความเป็นผู้นำด้าน AI และการจำกัดเรื่องนี้จะ \"ขัดขวางความก้าวหน้าทางวิทยาศาสตร์และการสร้างสรรค์\" เอกสารนี้ไม่มีผลผูกมัดศาล แต่มีน้ำหนักในการโน้มน้าว และจะส่งผลต่อคดีลิขสิทธิ์ AI อื่นๆ ที่ค้างอยู่อีกหลายสิบคดี",
+    "category": "policy",
+    "importance": "normal",
+    "url": "https://techcrunch.com/2026/09/02/u-s-government-sides-with-openai-on-issue-of-training-llms-on-copyrighted-material/",
+    "context_th": "เกิดขึ้นไม่กี่วันหลัง Sony Music และ Warner ฟ้อง Anthropic ข้อหาละเมิดทรัพย์สินทางปัญญา (ข่าว 29 ส.ค.) — ท่าทีของรัฐบาลครั้งนี้อาจกระทบคดีกลุ่มนั้นด้วย"
+  },
+  {
+    "source": "The Decoder",
+    "title_th": "Meta ปล่อย Muse Spark 1.3 เก่งงาน agent และตัดราคาคู่แข่งเกือบครึ่ง",
+    "summary_th": "Meta ออกโมเดล Muse Spark 1.3 ผ่าน Muse Code และ Meta Model API เป็นรุ่นที่สี่ในห้าเดือน จุดแข็งชัดเจนคืองานแบบ agent ที่ต้องเรียกใช้เครื่องมือเป็นขั้นเป็นตอน — ทำคะแนนนำอันดับหนึ่งบน τ³-Banking (จำลองการทำธุรกรรมธนาคาร) ที่ 52% และทำงานเขียนโค้ดผ่าน terminal ได้ 86% ในรุ่น max แต่ยังกลางๆ ในข้อสอบความรู้ทั่วไป GPQA Diamond ที่ 94% ไม้ตายจริงคือราคา: 0.55 ดอลลาร์ต่องาน ขณะที่คู่แข่งระดับเดียวกันอยู่ที่ 0.94-1.23 ดอลลาร์ รุ่น xhigh ใช้ได้แล้ววันนี้ ส่วนรุ่น max ยังเป็น limited preview รอผลทดสอบความปลอดภัย และจะมีเวอร์ชัน open-weights ตามมา",
+    "category": "model_release",
+    "importance": "normal",
+    "url": "https://the-decoder.com/meta-closes-in-on-the-top-with-muse-spark-1-3-and-undercuts-rivals-on-price/"
+  },
+  {
+    "source": "The Decoder",
+    "title_th": "Anthropic ทุ่มอีก 35 พันล้านดอลลาร์เช่าคอมพิวต์จาก Lambda",
+    "summary_th": "Anthropic เซ็นสัญญาเช่าคอมพิวต์กับ Lambda ผู้ให้บริการคลาวด์ที่ Nvidia หนุนหลัง มูลค่า 35 พันล้านดอลลาร์ ศูนย์ข้อมูลอยู่ที่ Nueces County รัฐเท็กซัส กำลังไฟราว 350 เมกะวัตต์ โดย Nvidia เป็นผู้ถือสัญญาเช่าอาคาร และ Hut 8 (อดีตบริษัทขุดคริปโต) เป็นผู้พัฒนา เป้าหมายคือรองรับความต้องการ Claude และ Claude Code ที่โตต่อเนื่อง ก่อนแผนเข้าตลาดหลักทรัพย์ รวมสองดีลล่าสุดเป็นเงินผูกพัน 80 พันล้านดอลลาร์ในเวลาไม่ถึงสองสัปดาห์",
+    "category": "funding",
+    "importance": "normal",
+    "url": "https://the-decoder.com/anthropic-ramps-up-claude-infrastructure-with-35-billion-lambda-deal/",
+    "context_th": "ต่อเนื่องจากดีลคอมพิวต์ 45 พันล้านดอลลาร์กับ NScale ที่เวสต์เวอร์จิเนีย (ข่าว 26 ส.ค.) และข่าว Lambda กู้เงิน 1 พันล้านดอลลาร์ไปซื้อชิปเพิ่ม (ข่าว 28 ส.ค.)"
+  },
+  {
+    "source": "TechCrunch",
+    "title_th": "เทคนิคคิดแบบใหม่ของ OpenAI ทำให้ผู้เชี่ยวชาญความปลอดภัยกังวล เพราะ \"อ่านความคิด AI ไม่ได้อีกแล้ว\"",
+    "summary_th": "โมเดล Astra ของ OpenAI ใช้เทคนิคชื่อ \"recurrent depth\" หรือ opaque recurrence ที่ต่างจากการคิดเป็นขั้นตอนแบบ chain-of-thought เดิม — โมเดลจะวนประมวลผลคำถามซ้ำๆ ภายในตัวเอง แทนที่จะเขียนความคิดออกมาเป็นข้อความให้อ่านได้ ปัญหาคือวิธีตรวจสอบความปลอดภัย AI ที่ใช้กันอยู่ทุกวันนี้พึ่งการอ่านร่องรอยความคิดเป็นหลัก Buck Shlegeris จาก Redwood เตือนว่าถ้า OpenAI ดันเทคนิคนี้ต่อ \"จะทำลายความสามารถในการตรวจสอบ chain-of-thought ไปเลย\" ฝั่ง OpenAI โดย Jakub Pachocki หัวหน้านักวิทยาศาสตร์ยืนยันว่าการรักษาการตรวจสอบความคิดยังเป็นเป้าหมายหลักของงานวิจัย",
+    "category": "research",
+    "importance": "normal",
+    "url": "https://techcrunch.com/2026/09/02/openais-new-reasoning-technique-alarms-ai-safety-experts/",
+    "context_th": "เป็นโมเดลตัวเดียวกับ Astra ที่มีข่าวว่าเก่งเรื่องเจาะระบบคอมพิวเตอร์เป็นพิเศษเมื่อ 1 ก.ย."
+  },
+  {
+    "source": "The Decoder",
+    "title_th": "Claude Fable 5.1 แกะรหัสลับอายุ 373 ปีที่ไม่มีใครไขได้ ใช้เวลา 44 นาที",
+    "summary_th": "Vals AI ทดลองให้โมเดลระดับแนวหน้าลองแก้ปัญหาที่มนุษย์ยังไขไม่ออก และ Fable 5.1 เลือกโจทย์ด้วยตัวเอง — \"Cyphral Distich\" ของ Sir Thomas Urquhart จากปี 1653 กลอนสองบรรทัดที่มีตัวเลข 32 ตัวต่อบรรทัด โมเดลค้นพบว่าตัวเลขแต่ละตัวชี้ไปที่คำใดคำหนึ่งใน 32 ส่วนของหนังสือของ Urquhart เอาอักษรตัวแรกของคำเหล่านั้นมาต่อกันก็ได้ข้อความว่า \"O God uphold King Charls the Second and make him the supreme ruler of this land\" ทำได้ในเวลา 44 นาทีโดยไม่มีมนุษย์ช่วย จุดที่น่าสนใจไม่ใช่ความฉลาดเชิงถอดรหัส แต่เป็นความอึดในการลองผิดลองถูกเป็นพันครั้งอย่างเป็นระบบ และการเลือกโจทย์ที่มีโอกาสสำเร็จได้เอง",
+    "category": "research",
+    "importance": "normal",
+    "url": "https://the-decoder.com/claude-fable-5-1-decoded-a-centuries-old-royalist-message-hidden-in-plain-sight-since-1653/",
+    "context_th": "Claude Fable 5.1 เพิ่งเปิดตัวเมื่อ 1 ก.ย. โดยชูจุดขายเรื่องงานเขียนโค้ดและงานวิจัยในราคาถูกลงถึง 45%"
+  },
+  {
+    "source": "TechCrunch",
+    "title_th": "Alexa ของ Amazon ช่วยเช็คให้ได้แล้วว่าอีเมล/SMS ที่ได้รับเป็นของปลอมหรือไม่",
+    "summary_th": "Amazon เพิ่มฟีเจอร์ตรวจจับสแกมเข้าไปใน Alexa for Shopping — เอาอีเมล ข้อความ SMS หรือข้อความที่อ้างว่ามาจาก Amazon มาให้ Alexa ดู แล้วมันจะบอกว่าจริงหรือปลอม ระบบวิเคราะห์ข้อมูลผู้ส่ง เนื้อหา เวลาที่ส่ง และ metadata เทียบกับข้อความหลายพันล้านชิ้นที่ Amazon เคยส่งจริงทั่วโลก และเรียนรู้เพิ่มจากข้อความที่ลูกค้ารายงานเข้ามา ที่มาของฟีเจอร์นี้คือปีละราว 360,000 คนโทรถาม call center ว่าข้อความที่ได้รับเป็นของจริงหรือไม่ ใช้ได้แล้วทั้งบนเว็บและแอป",
+    "category": "product",
+    "importance": "normal",
+    "url": "https://techcrunch.com/2026/09/02/psa-amazons-shopping-ai-can-now-tell-you-if-that-message-is-a-scam/"
+  },
+  {
+    "source": "Space.com",
+    "title_th": "NASA จ้าง Blue Origin 700 ล้านดอลลาร์สร้างดาวเทียมสื่อสารรอบดาวอังคาร",
+    "summary_th": "NASA เลือก Blue Origin ของ Jeff Bezos ให้ออกแบบ สร้าง ปล่อย และดำเนินการ Mars Telecommunications Network (MTN) ด้วยสัญญาราคาคงที่ 700 ล้านดอลลาร์ ยานลำนี้ไม่ได้ทำวิจัยวิทยาศาสตร์เอง แต่ทำหน้าที่เป็น \"เสาสัญญาณ\" กลางวงโคจรดาวอังคาร ส่งต่อข้อมูลวิทยาศาสตร์ ภาพถ่าย ข้อมูลนำทาง และการสื่อสารสำคัญของยานทุกลำที่ทำงานอยู่บนพื้นและรอบดาวอังคาร กำหนดส่งมอบยานให้ NASA ไม่เกิน 31 ธ.ค. 2028 และเริ่มใช้งานจริงที่ดาวอังคารในปี 2030 ดีลนี้ยังเป็นสัญญาณว่า NASA พยายามกระจายความเสี่ยงออกจากการพึ่ง SpaceX เจ้าเดียว",
+    "category": "space",
+    "importance": "normal",
+    "url": "https://www.space.com/space-exploration/missions/blue-origin-wins-usd700-million-contract-to-build-nasas-next-mars-orbiter"
+  },
+  {
+    "source": "ESA",
+    "title_th": "BepiColombo เริ่มขั้นตอนเข้าสู่ดาวพุธ หลังเดินทางมา 8 ปี",
+    "summary_th": "วันที่ 3 ก.ย. 2026 โมดูลขับเคลื่อน Mercury Transfer Module ของ ESA ที่พายานมาตลอด 8 ปี แยกตัวออกจากยานสำรวจสองลำสำเร็จ นับเป็นก้าวแรกของลำดับการเข้าสู่วงโคจรที่ซับซ้อนที่สุดครั้งหนึ่งที่ ESA เคยทำ ต่อจากนี้ Mercury Planetary Orbiter ของ ESA และยาน Mio ของ JAXA จะเข้าสู่วงโคจรดาวพุธพร้อมกันในเดือน พ.ย. แล้วแยกจากกันในเดือน ธ.ค. ก่อนเริ่มปฏิบัติการวิทยาศาสตร์จริงในเดือน เม.ย. 2027 ภารกิจนี้เป็นความร่วมมือยุโรป-ญี่ปุ่น เพื่อศึกษาดาวเคราะห์ที่อยู่ใกล้ดวงอาทิตย์ที่สุดและถูกสำรวจน้อยที่สุด",
+    "category": "space",
+    "importance": "normal",
+    "url": "https://www.esa.int/Science_Exploration/Space_Science/BepiColombo/Latest_updates_BepiColombo_s_arrival_at_Mercury"
+  }
+]
