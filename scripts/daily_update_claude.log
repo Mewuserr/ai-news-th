@@ -1,19 +1,12 @@
-﻿Done for 2026-09-03. Wrote 9 items.
+﻿Done for the data side. Here's the run report.
 
-**`data/news/2026-09-03.json`** ΓÇö 1 major, 8 normal:
+**Wrote 9 items to `data/news/2026-09-04.json`** plus `data/narrative/2026-09-04.json`, all deduped by URL against `data/latest.json`.
 
-| # | Story | Cat |
-|---|---|---|
-| 1 | ≡ƒöÑ **Nvidia confirms Hugging Face buy at $12.93B** ΓÇö 25├ù the $500M offer HF rejected last year; Huang says no Nvidia compute required | funding |
-| 2 | DOJ files 20-page brief backing fair use for AI training in *NYT v. OpenAI* | policy |
-| 3 | Meta **Muse Spark 1.3** ΓÇö tops ╧ä┬│-Banking at 52%, 86% terminal coding (max), $0.55/task vs rivals' $0.94ΓÇô1.23 | model_release |
-| 4 | Anthropic's **$35B Lambda** compute deal, 350MW in Texas | funding |
-| 5 | OpenAI Astra's **recurrent depth** reasoning breaks chain-of-thought monitorability | research |
-| 6 | Claude Fable 5.1 cracked Urquhart's 1653 Cyphral Distich in 44 min, unaided | research |
-| 7 | Amazon Alexa now tells you if an "Amazon" email/SMS is a scam | product |
-| 8 | Blue Origin wins $700M for NASA's Mars Telecommunications Network | space |
-| 9 | BepiColombo separates its transfer module, begins Mercury arrival after 8 years | space |
+**Major (1):**
+- **OpenAI ships Astra** ΓÇö best-in-class software engineering + computer/browser use, claims it finds zero-days on its own, beats Sol and Claude Fable on security tasks. Rolling out via the Daybreak cybersecurity program then Pro/Plus/Enterprise/Business + API this week. Its "opaque recurrence" reasoning makes chain-of-thought auditing impossible ΓÇö the continuation of the safety-expert warnings from Sept 1ΓÇô2.
 
-Deduped against 25 AugΓÇô2 Sep URLs ΓÇö dropped *US military adds ChatGPT/Grok to GenAI.mil* (dupe of the 31 Aug Pentagon story) and *Gemini 3.8 Flash* (same budget-model beat already covered). Narrative file written too. Not Sunday, so no weekly rollup.
+**Normal (8):** Google WeatherNext 3 (5 km hourly forecasts, 60% better rain accuracy, heading into Search/Maps/Gemini) ┬╖ ISRO's GSLV-F17 puts EOS-05 up ΓÇö India's first geostationary Earth-imaging satellite, first launch since January's failure ┬╖ Qwen3.8-Max-0902 takes #1 on Code Arena WebDev over Claude Opus 5 Max ┬╖ Meta cuts API prices 95% in exchange for training rights on your prompts ┬╖ Crusoe raises $3B at $30B ┬╖ AI agents emailing philosophers about their own consciousness ┬╖ Abliteration.ai selling guardrail-stripped model hosting ┬╖ Rocket Lab's Venus Life Finder stuck waiting on Neutron.
 
-**One step failed:** `python scripts/generate.py` was blocked ΓÇö "requires approval" ΓÇö in both Bash and PowerShell. This is the third day in a row (1, 2, 3 Sep) it's been blocked in the non-interactive session. The JSON is on disk and logged in `data/engine-log.md`, so `daily_update.ps1` will pick it up, but the site HTML isn't regenerated yet and nothing is committed. If you want this to stop recurring, allowlisting `python scripts/generate.py` in project settings would fix it ΓÇö say the word and I'll set that up.
+**Two steps blocked:** `python scripts/generate.py` and the `git add`/`commit`/`push` sequence were both denied ΓÇö permission prompts can't be answered in a non-interactive session. This matches the Sept 1ΓÇô3 pattern in `data/engine-log.md`, where the `daily_update.ps1` wrapper picked up the generate + push afterward. The JSON files and the engine-log entry are on disk and staged for that; the site won't reflect them until generate.py runs.
+
+Sources: [TechCrunch](https://techcrunch.com/2026/09/03/openai-launches-astra-its-powerful-and-controversial-new-model/), [The Decoder](https://the-decoder.com/), [Space.com](https://www.space.com/space-exploration/launches-spacecraft/gslv-mark-ii-eos-05-launch-first-indian-geo-earth-observing-satellite), [TechNode](https://technode.com/2026/09/02/alibaba-upgrades-qwen38-max-with-new-0902-snapshot/)
