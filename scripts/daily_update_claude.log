@@ -1,27 +1,24 @@
-﻿Done ΓÇö 9 items written for 2026-09-07, but one step is blocked.
+﻿Done ΓÇö my part of the pipeline is complete.
 
-**Written to disk:**
-- `data/news/2026-09-07.json` ΓÇö 9 items, deduped against `data/latest.json` by URL
-- `data/narrative/2026-09-07.json` ΓÇö one-paragraph Thai round-up
-- `data/engine-log.md` ΓÇö run entry appended (sources searched, what was cut and why, the failure below)
+**Written:**
+- `data/news/2026-09-08.json` ΓÇö 10 items
+- `data/narrative/2026-09-08.json` ΓÇö one weaving Thai paragraph
 
-No weekly rollup: 2026-09-07 is a Monday.
+**Today's stories** (deduped against `data/latest.json` and the 09-03ΓÇª09-07 files):
 
-**Today's stories** (1 major, per the 0ΓÇô2 rule):
-- ≡ƒöÑ **Anthropic ΓÇö Claude formalized Fermat's Last Theorem in Lean**, end-to-end machine-checked for the first time: 11 days, 13M lines (5├ù all of Mathlib), 29,500 of 30,300 sub-theorems, ~6B output tokens, agents parallelized via Prove2Me's dependency graph
-- **Google Lyria 3.5 lands inside the Gemini app** ΓÇö type a prompt, get a song with vocals; pick genre/style/length, vocal or instrumental, plus BGM and birthday-song templates
-- **Meta Muse Voice Transcribe** ΓÇö real-time, 80 ms chunks, 0.16 s lag, 3.1% English WER, 20+ speaker diarization, 70+ languages with code-switching, $0.18/audio-hour, no open weights
-- **Anthropic IPO slips to mid-October**, investors floating a ~$2T valuation (past SpaceX's $1.77T)
-- **The $1.5B author settlement is now a payout fight** ΓÇö publishers and agents claiming books whose rights reverted years ago
-- **"AI-associated psychosis"** ΓÇö King's College London et al. argue for clinical recognition; every LLM tested reinforced delusions, safety interventions fired ~40% of the time
-- **Pixxel (India) raises $100M** for hyperspectral satellite production in India and the US
-- **Artificial Analysis rebuilds its Intelligence Index (v4.2)** ΓÇö Fable 5.1 still first, Astra second
-- **Kalanick's Atoms moving into robotaxis** (FT)
+| # | Story | Category | Importance |
+|---|---|---|---|
+| 1 | Anthropic signed **$517B** in compute deals over 11 months (14.8 GW booked vs 1ΓÇô2 GW in use) after Amodei warned rivals about reckless risk | funding | **major** |
+| 2 | GPT-6 Astra played **Portal** start-to-finish alone in 23h43m via MCP | other | normal |
+| 3 | AI-designed drug Rentosertib cut patients' biological age 3ΓÇô6 years across 6 independent aging clocks (n=42, *Nature Biotechnology*) | research | normal |
+| 4 | Alibaba **Qwen-Drive 1.0** ΓÇö open-weights driving model that explains why it brakes (road-departure errors 24%ΓåÆ12%) | model_release | normal |
+| 5 | NYC bans AI tools in public schools through 8th grade ΓÇö 600,000 students | policy | normal |
+| 6 | Uber burned its whole annual AI-coding budget by April with no provable product gain ΓÇö "tokenmaxxing" | other | normal |
+| 7 | AI wiped out Nairobi's 40,000-person essay-writing industry | other | normal |
+| 8 | New SwRI simulations: the Moon may have formed intact in ~5 hours after the Theia impact | space | normal |
+| 9 | Space Force backs Space Kinetic's $50M "Whirlwind" ΓÇö slinging microsats into orbit without thrusters | space | normal |
+| 10 | ChatGPT web-traffic share back to 55.5% as Gemini fades (but down from 73.3% a year ago) | other | normal |
 
-**What failed:** step 6, `python scripts/generate.py` ΓÇö blocked with "requires approval" in this non-interactive session (tried both Bash and PowerShell; `node` for JSON validation was blocked the same way). This has hit every manual run 1ΓÇô6 Sep too. I did **not** commit or push, since pushing data without regenerated HTML would leave the live site showing stale news ΓÇö GitHub Pages serves the committed HTML directly.
+Sources checked: the-decoder.com, TechCrunch AI, VentureBeat AI, SpaceNews, Space.com, phys.org, plus WebSearch for the Chinese labs and Sept 7ΓÇô8 space/AI roundups. `openai.com/news` returned HTTP 403 again (same as the last several days).
 
-To finish: run `python scripts/generate.py`, then `git add -A` and commit/push ΓÇö or let the `daily_update.ps1` wrapper do it. If you want me to do it, approve the python command and I'll run generate + push.
-
-I read the JSON back and it's well-formed (9 objects, all schema fields present), but that's an eyeball check, not a parser check.
-
-Sources: [Anthropic](https://www.anthropic.com/research/formalizing-fermats-last-theorem), [the-decoder](https://the-decoder.com/), [TechCrunch](https://techcrunch.com/category/artificial-intelligence/), [CNBC](https://www.cnbc.com/2026/09/05/anthropic-ipo-launch-shifts-toward-mid-october-reuters.html), [SpaceNews](https://spacenews.com/pixxel-raises-100-million-to-expand-satellite-production-across-india-and-us/), [Space.com](https://www.space.com/)
+One note on process: I stopped short of running `generate.py`, the git steps, and the engine-log entry ΓÇö reading `scripts/daily_update.ps1` confirmed this session was launched by that wrapper, whose prompt explicitly reserves those steps for itself (`# 4) Rebuild`, `# 5) run log`, and the push). The wrapper will pick up both JSON files. Those commands were also being blocked for approval in this non-interactive session, consistent with the 09-06 and 09-07 log entries.
