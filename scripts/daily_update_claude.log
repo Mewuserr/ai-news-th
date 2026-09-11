@@ -1,18 +1,23 @@
-﻿Done. Here's the summary for 2026-09-10:
+﻿I've written today's news file with 10 stories, plus the story-style summary for the day. I haven't run generate.py, git or any other commands; `daily_update.ps1` does that after this step.
 
 **Files written**
-- `data/news/2026-09-10.json` ΓÇö 8 items
-- `data/narrative/2026-09-10.json` ΓÇö one-paragraph Thai roundup
-- `data/engine-log.md` ΓÇö run entry appended
+- `data/news/2026-09-11.json`: 10 stories, 2 marked major.
+- `data/narrative/2026-09-11.json`: one Thai paragraph tying the stories together.
 
-**Major (2)**
-1. **Mistral raises Γé¼3B** ΓÇö Samsung-led Series D, >Γé¼21B post-money, largest equity round ever for a European tech company; money goes into owning its own data centers ([TechCrunch](https://techcrunch.com/2026/09/08/mistral-raises-e3b-as-sovereign-ai-becomes-big-business/))
-2. **Navier-Stokes credit fight** ΓÇö NYU's Tristan Buckmaster accuses OpenAI of using his drafts without permission and pressuring him to drop his Anthropic-employed co-author; OpenAI can't rule out that his uploaded data improved their models ([the-decoder](https://the-decoder.com/openais-millennium-proof-dispute-raises-the-question-of-whether-researchers-can-trust-ai-labs/))
+**Major (≡ƒöÑ)**
+1. **DeepSeek V4.1 Flash:** a smaller model that beats DeepSeek's own previous top model. It can read images, is free to download, and replaces V4 Pro at the cheaper Flash price from Sept 14.
+2. **California AI laws (Sept 9ΓÇô10):** one set creates independent AI auditors. The other is Adam's Law: chatbot companies must check risks and verify users' ages, alert parents, and handle self-harm conversations, and families can sue. It takes effect July 2027.
 
-**Normal (6)** ΓÇö Suno v6 (music from images/video, line-level lyric edits, label-licensed); ChatGPT Images 2.5 (surgical edits, 2├ù faster, Sketch mode); Hugging Face ML Intern (chat-driven training, ~$0.50 per 6-hour run); Apple Reference Image (signed "digital negative" to prove iPhone photos are real); Anthropic researcher Jacob Coxon resigns over self-improving AI; US Space Command's first live-fly orbital maneuver exercise.
+**Normal**
+3. **OpenAI GPT-Live-1:** a voice model that keeps listening while it talks, so you can interrupt it mid-sentence. It costs $0.05 a minute, about $3 an hour.
+4. **OpenAI Agents API:** hands developers the system behind Codex for building long-running AI agents, at no extra fee.
+5. **ChatGPT for Financial Services:** researches companies, builds financial models and makes pitch decks, with a source link for every number.
+6. **Anthropic misuse report:** two students used swarms of AI agents to break into about 50 organizations, a spy system tracked about 25 million SIM cards in Mali, and several Chinese labs allegedly copied Claude's abilities.
+7. **Universal Music + ElevenLabs:** a licensed platform where fans can remix songs by artists who opt in.
+8. **Cognition SWE-2:** Devin's new coding model starts editing code after 18 steps instead of 48.
+9. **Stoke Space:** raised $1 billion for Nova, a rocket designed to be reused in full, even though it has never flown.
+10. **Dark energy:** a study of 2,884 supernovas adds evidence that dark energy may change over time. It is still an unreviewed preprint.
 
-**Two things to flag:**
+I checked every URL against `data/latest.json` and none repeat. Every story was confirmed on the company's own page or in at least one other outlet. The two `context_th` links point back to earlier stories on the site: GPT-6 Astra (Sept 4/6) and Suno v6 (Sept 10). I left out unconfirmed details, including DeepSeek's exact per-token price and a reported $1M-per-child fine.
 
-1. **`python scripts/generate.py` was blocked** ΓÇö "requires approval," and this session is non-interactive so approval can't be granted. Same as every run from Sept 1ΓÇô7. The JSON is on disk; the HTML is *not* regenerated and nothing is committed or pushed. Your `daily_update.ps1` wrapper normally picks this up (that's what the "generate.py ok, pushing" log lines are), so it should resolve on the next wrapper pass.
-
-2. **Sept 9 never ran.** There's no `data/engine-log.md` entry for 2026-09-09 and the last commit is Sept 8 ΓÇö that day was skipped entirely, not just failed at the push step. Worth checking why, since a silent skip leaves no trace at all.
+At the very start, before I read the wrapper script's "no shell commands" rule, I tried one Bash command. It was blocked and never ran. After that I used only the allowed tools.
