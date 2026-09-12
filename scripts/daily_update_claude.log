@@ -1,23 +1,23 @@
-﻿I've written today's news file with 10 stories, plus the story-style summary for the day. I haven't run generate.py, git or any other commands; `daily_update.ps1` does that after this step.
+﻿Done for 2026-09-12. Summary:
 
-**Files written**
-- `data/news/2026-09-11.json`: 10 stories, 2 marked major.
-- `data/narrative/2026-09-11.json`: one Thai paragraph tying the stories together.
+**Written:**
+- `data/news/2026-09-12.json` ΓÇö 9 items (1 major, 8 normal), all deduped by URL against the September news files
+- `data/narrative/2026-09-12.json` ΓÇö one-paragraph Thai roundup
+- `data/engine-log.md` ΓÇö appended today's run line
 
-**Major (≡ƒöÑ)**
-1. **DeepSeek V4.1 Flash:** a smaller model that beats DeepSeek's own previous top model. It can read images, is free to download, and replaces V4 Pro at the cheaper Flash price from Sept 14.
-2. **California AI laws (Sept 9ΓÇô10):** one set creates independent AI auditors. The other is Adam's Law: chatbot companies must check risks and verify users' ages, alert parents, and handle self-harm conversations, and families can sue. It takes effect July 2027.
+**Today's stories:**
+| # | Item | Cat |
+|---|---|---|
+| ≡ƒöÑ | OpenAI asks Congress whether an industry-wide AI slowdown breaks antitrust law | policy |
+| | Gemini desktop app for Windows ΓÇö Alt+Space overlay, Gmail/Drive drafting, Nano Banana image gen | product |
+| | Sakana AI Fugu Max + Fugu Ultra v2 (orchestration models, 1M context, 40ΓÇô60% cheaper output) | model_release |
+| | OpenAI pauses new $200 Pro signups under Astra demand | product |
+| | Garry Tan pushes back on distillation crackdown, wants an "American distillation regime" | policy |
+| | Moonshot AI targets $2B annual revenue | other |
+| | Class action accuses Anthropic of overselling Claude usage multipliers | policy |
+| | Rocket Lab files GAO protest over Blue Origin's $700M Mars comms contract | space |
+| | Impulse Space flies two Mira craft within ~200 m in LEO | space |
 
-**Normal**
-3. **OpenAI GPT-Live-1:** a voice model that keeps listening while it talks, so you can interrupt it mid-sentence. It costs $0.05 a minute, about $3 an hour.
-4. **OpenAI Agents API:** hands developers the system behind Codex for building long-running AI agents, at no extra fee.
-5. **ChatGPT for Financial Services:** researches companies, builds financial models and makes pitch decks, with a source link for every number.
-6. **Anthropic misuse report:** two students used swarms of AI agents to break into about 50 organizations, a spy system tracked about 25 million SIM cards in Mali, and several Chinese labs allegedly copied Claude's abilities.
-7. **Universal Music + ElevenLabs:** a licensed platform where fans can remix songs by artists who opt in.
-8. **Cognition SWE-2:** Devin's new coding model starts editing code after 18 steps instead of 48.
-9. **Stoke Space:** raised $1 billion for Nova, a rocket designed to be reused in full, even though it has never flown.
-10. **Dark energy:** a study of 2,884 supernovas adds evidence that dark energy may change over time. It is still an unreviewed preprint.
+Three items carry `context_th` links to earlier published stories (Astra launch, yesterday's Anthropic threat report, Blue Origin's Sept 3 contract win).
 
-I checked every URL against `data/latest.json` and none repeat. Every story was confirmed on the company's own page or in at least one other outlet. The two `context_th` links point back to earlier stories on the site: GPT-6 Astra (Sept 4/6) and Suno v6 (Sept 10). I left out unconfirmed details, including DeepSeek's exact per-token price and a reported $1M-per-child fine.
-
-At the very start, before I read the wrapper script's "no shell commands" rule, I tried one Bash command. It was blocked and never ran. After that I used only the allowed tools.
+**Not done ΓÇö steps 6 and 8:** `python scripts/generate.py` is blocked in this non-interactive session ("requires approval") via both Bash and PowerShell, same as every prior local run in the log. Since the HTML isn't regenerated, I did not commit or push ΓÇö pushing data JSON without matching HTML would leave the published site inconsistent. The `daily_update.ps1` wrapper (or running `python scripts/generate.py` then `git add -A && git commit && git push` yourself) will finish the round.
