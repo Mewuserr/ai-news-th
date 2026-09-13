@@ -1,23 +1,23 @@
-﻿Done for 2026-09-12. Summary:
+﻿Done. Wrote today's news; the wrapper (`daily_update.ps1`) handles generate.py, the log line, and the push.
 
-**Written:**
-- `data/news/2026-09-12.json` ΓÇö 9 items (1 major, 8 normal), all deduped by URL against the September news files
-- `data/narrative/2026-09-12.json` ΓÇö one-paragraph Thai roundup
-- `data/engine-log.md` ΓÇö appended today's run line
+**`data/news/2026-09-13.json` ΓÇö 9 items, 1 major**
 
-**Today's stories:**
-| # | Item | Cat |
-|---|---|---|
-| ≡ƒöÑ | OpenAI asks Congress whether an industry-wide AI slowdown breaks antitrust law | policy |
-| | Gemini desktop app for Windows ΓÇö Alt+Space overlay, Gmail/Drive drafting, Nano Banana image gen | product |
-| | Sakana AI Fugu Max + Fugu Ultra v2 (orchestration models, 1M context, 40ΓÇô60% cheaper output) | model_release |
-| | OpenAI pauses new $200 Pro signups under Astra demand | product |
-| | Garry Tan pushes back on distillation crackdown, wants an "American distillation regime" | policy |
-| | Moonshot AI targets $2B annual revenue | other |
-| | Class action accuses Anthropic of overselling Claude usage multipliers | policy |
-| | Rocket Lab files GAO protest over Blue Origin's $700M Mars comms contract | space |
-| | Impulse Space flies two Mira craft within ~200 m in LEO | space |
+| # | Source | Story | Cat |
+|---|---|---|---|
+| 1 | The Decoder | **Nvidia in talks to put up to $10B into Anthropic's IPO** (~$2T valuation, $100B raise target ΓÇö would be the largest IPO ever) | funding ┬╖ ≡ƒöÑ |
+| 2 | The Decoder | Altman, Musk and Hassabis all partly back Amodei's call for AI "speed limits" + independent lab audits | policy |
+| 3 | TechCrunch | Altman: taking OpenAI public in 2026 would be "ill-advised" ΓÇö 2027 now the frame | other |
+| 4 | The Decoder | ElevenLabs Music v2.5 ships in app + API; 5 free lossless downloads/day, blocks artist imitation | product |
+| 5 | The Decoder | Andon Labs: GPT-6 Astra runs a vending business ($15.5k vs Fable 5.1's $5.4k) and flies a surveillance drone solo ΓÇö but only 2.8% end-to-end reliability | research |
+| 6 | The Decoder | AllSpark's Iris-mini (35B) / Iris-pro (397B) open-weight search agents on Qwen, weights on Hugging Face | model_release |
+| 7 | The Decoder | Two-year Amsterdam study: students banned from AI ranked last both years | research |
+| 8 | Space.com | NASA + IBM open-source Lunar Foundation Model ΓÇö 22% better at locating polar ice | space |
+| 9 | Space.com | JWST catches Chariklo's rings changing: inner +50% denser, outer ΓêÆ60% fainter | space |
 
-Three items carry `context_th` links to earlier published stories (Astra launch, yesterday's Anthropic threat report, Blue Origin's Sept 3 contract win).
+Also wrote `data/narrative/2026-09-13.json`. All 9 URLs deduped against `data/latest.json`.
 
-**Not done ΓÇö steps 6 and 8:** `python scripts/generate.py` is blocked in this non-interactive session ("requires approval") via both Bash and PowerShell, same as every prior local run in the log. Since the HTML isn't regenerated, I did not commit or push ΓÇö pushing data JSON without matching HTML would leave the published site inconsistent. The `daily_update.ps1` wrapper (or running `python scripts/generate.py` then `git add -A && git commit && git push` yourself) will finish the round.
+**Two things to flag:**
+
+1. **Weekly rollup conflict.** Today is Sunday, so engine-prompt.md ┬º5 calls for `data/weekly/2026-W37.json`. I built it (55 items from 09-07 ΓåÆ 09-13, plus highlights and evidence-based `directions` for Anthropic, OpenAI, ElevenLabs and the open-weight camp). But `daily_update.ps1` line 34 hard-rules the AI step to *only* the news + narrative files, and the wrapper does `git add -A` ΓÇö so this file will auto-publish on the next run. **Tell me if you'd rather I drop it**; the two rules disagree and I chose to follow engine-prompt.md since weekly.html is a real page with W33ΓÇôW36 already in it.
+
+2. **`python` is blocked in this session** ΓÇö `python scripts/generate.py` returns "requires approval" and non-interactive mode can't grant it. That's expected per the design (the wrapper runs generate.py itself), so nothing is broken, but I couldn't verify the pages render.
