@@ -1,23 +1,23 @@
-﻿Done. Wrote today's news; the wrapper (`daily_update.ps1`) handles generate.py, the log line, and the push.
+﻿Done ΓÇö wrote both files for 2026-09-14.
 
-**`data/news/2026-09-13.json` ΓÇö 9 items, 1 major**
+**`data/news/2026-09-14.json`** ΓÇö 9 items (1 `major`), all deduped against `data/latest.json`:
 
-| # | Source | Story | Cat |
+| # | Story | Cat | Imp |
 |---|---|---|---|
-| 1 | The Decoder | **Nvidia in talks to put up to $10B into Anthropic's IPO** (~$2T valuation, $100B raise target ΓÇö would be the largest IPO ever) | funding ┬╖ ≡ƒöÑ |
-| 2 | The Decoder | Altman, Musk and Hassabis all partly back Amodei's call for AI "speed limits" + independent lab audits | policy |
-| 3 | TechCrunch | Altman: taking OpenAI public in 2026 would be "ill-advised" ΓÇö 2027 now the frame | other |
-| 4 | The Decoder | ElevenLabs Music v2.5 ships in app + API; 5 free lossless downloads/day, blocks artist imitation | product |
-| 5 | The Decoder | Andon Labs: GPT-6 Astra runs a vending business ($15.5k vs Fable 5.1's $5.4k) and flies a surveillance drone solo ΓÇö but only 2.8% end-to-end reliability | research |
-| 6 | The Decoder | AllSpark's Iris-mini (35B) / Iris-pro (397B) open-weight search agents on Qwen, weights on Hugging Face | model_release |
-| 7 | The Decoder | Two-year Amsterdam study: students banned from AI ranked last both years | research |
-| 8 | Space.com | NASA + IBM open-source Lunar Foundation Model ΓÇö 22% better at locating polar ice | space |
-| 9 | Space.com | JWST catches Chariklo's rings changing: inner +50% denser, outer ΓêÆ60% fainter | space |
+| 1 | Asian tech stocks slump after Amodei's "slow down" essay ΓÇö SoftBank ΓÇæ11.2%, SK Hynix + Samsung shed ~$91B in a day | other | **major** |
+| 2 | Nadella backs "deliberate pacing," publishes Microsoft's MAI Code of Conduct for public consultation | policy | normal |
+| 3 | China's state security minister Chen Yixin: AI is a "new arena for strategic rivalry," names Claude Mythos / GPT-5.5-Cyber | policy | normal |
+| 4 | Joe Benton (Anthropic) + Josh Engels (DeepMind) quit for METR ΓÇö "transparency is entirely voluntary" | other | normal |
+| 5 | Obama tells Democrats to have a "clear plan" on AI before midterms | policy | normal |
+| 6 | Real-SWE benchmark on real private company codebases ΓÇö Fable 5.1 tops at 38.8%, still fails 6 in 10 | research | normal |
+| 7 | Anthropic is the $13.7B / 6-yr GPU customer at Trump-linked RUM Group's Georgia site | funding | normal |
+| 8 | Sophia Space + SLI $300M for 10 orbital edge-compute satellites (240 Nvidia Jetson servers in orbit) | space | normal |
+| 9 | SpaceX flies the 700th Falcon mission, closing out SES's O3b mPOWER constellation | space | normal |
 
-Also wrote `data/narrative/2026-09-13.json`. All 9 URLs deduped against `data/latest.json`.
+Four items carry `context_th` linking back to real prior stories (13 Sep oversight backing, 9 Sep Coxon resignation, 9 Sep $517B compute deals).
 
-**Two things to flag:**
+**`data/narrative/2026-09-14.json`** ΓÇö one paragraph tying the day together: the safety debate leaving the op-ed page and hitting Asian order books, Microsoft joining the chorus while two insiders walk out to audit from outside, Obama and Beijing both reaching for policy, and Anthropic signing another $13.7B of GPUs in the middle of it ΓÇö with the compute race itself now literally heading off-planet.
 
-1. **Weekly rollup conflict.** Today is Sunday, so engine-prompt.md ┬º5 calls for `data/weekly/2026-W37.json`. I built it (55 items from 09-07 ΓåÆ 09-13, plus highlights and evidence-based `directions` for Anthropic, OpenAI, ElevenLabs and the open-weight camp). But `daily_update.ps1` line 34 hard-rules the AI step to *only* the news + narrative files, and the wrapper does `git add -A` ΓÇö so this file will auto-publish on the next run. **Tell me if you'd rather I drop it**; the two rules disagree and I chose to follow engine-prompt.md since weekly.html is a real page with W33ΓÇôW36 already in it.
+Per the wrapper's hard rules I did not run `generate.py`, touch `data/engine-log.md`, or run git ΓÇö `scripts/daily_update.ps1` handles rebuild, logging, and push after this step. Field counts check out (9├ù6 required + 4 optional = 58), so the wrapper's validation should pass.
 
-2. **`python` is blocked in this session** ΓÇö `python scripts/generate.py` returns "requires approval" and non-interactive mode can't grant it. That's expected per the design (the wrapper runs generate.py itself), so nothing is broken, but I couldn't verify the pages render.
+Sources: [Nikkei Asia](https://asia.nikkei.com/business/markets/tech-stocks-slump-in-asia-driven-by-ai-safety-concerns), [Unite.AI](https://www.unite.ai/nadella-announces-public-consultation-on-microsofts-mai-model-rules/), [SCMP](https://www.scmp.com/news/china/politics/article/3367349/chinas-intelligence-chief-warns-risks-ai-new-arena-strategic-rivalry), [IBTimes](https://www.ibtimes.com/more-researchers-are-quitting-anthropic-google-warning-about-where-ai-headed-escalate-3807369), [TechCrunch](https://techcrunch.com/2026/09/13/obama-urges-democrats-to-have-a-clear-plan-for-ai-safeguards/), [Specific Labs](https://withspecific.com/benchmarks/real-swe), [TECHi](https://www.techi.com/anthropic-rum-group-13-7-billion-gpu-deal-warrant/), [GeekWire](https://www.geekwire.com/2026/sophia-space-sli-300m-deal-computing-constellation/), [Space.com](https://www.space.com/space-exploration/launches-spacecraft/spacex-launches-3-telecom-satellites-to-orbit-on-700th-falcon-mission-of-all-time-video)
