@@ -1,1 +1,23 @@
-﻿API Error: Unable to connect to API: SSL certificate verification failed (UNABLE_TO_VERIFY_LEAF_SIGNATURE). The certificate comes from an authority Claude Code doesn't trust, usually a TLS-inspecting corporate proxy or a gateway signed by a private CA: set NODE_EXTRA_CA_CERTS to that CA bundle, or add it to the system certificate store ┬╖ see https://code.claude.com/docs/en/network-config
+﻿I wrote 9 news items and a Thai narrative paragraph for 2026-09-17. I only created the two data files: I didn't run generate.py, git or the engine log, since your wrapper script does those.
+
+**Files:** `data/news/2026-09-17.json` and `data/narrative/2026-09-17.json`
+
+**Today's items (1 major):**
+1. ≡ƒöÑ **Anthropic** combined Claude Chat and Cowork into one app, and added Claude Docs and Slides, which can save work as PowerPoint or PDF.
+2. **Google Gemini 3.8 Live:** a voice assistant for developers that costs about $1.38 per hour of talk, versus at least $3 for OpenAI's GPT-Live-1.
+3. **Google Home:** AI agents like Claude and ChatGPT can now control lights, thermostats and cameras. US only for now, on the $20/month plan.
+4. **Firefox Smart Window:** a browser assistant running on Mistral's models that summarizes your open tabs and doesn't store chats by default.
+5. **Atria Dawn Preview:** Shanghai AI Lab released a free 744-billion-parameter model that anyone can download and use commercially. It beat GPT-5.6 Sol on the BrowseComp web-search benchmark.
+6. **TypeSafe AI's Jev:** a model that picks from preset answer options instead of writing text.
+7. **EU:** in her annual State of the Union speech, von der Leyen warned about AI agents breaking out of their test setups. The EU will check AI models jointly with Canada and the UK.
+8. **DeepMind Institute:** a new institute on AGI, led by Hassabis, Legg and Manyika.
+9. **NASA's Roman space telescope** switched on its 300-megapixel camera for the first time.
+
+Most items that follow up on an earlier story say so, with the date it ran. I checked each link date against the old news files and corrected one: Mistral's funding story ran on Sept 10, not Sept 9. Every story and URL came from real searches or pages I opened.
+
+**Skipped:**
+- **Space.com pages were cut off when fetched**, so for the Roman story I used NASA's own blog instead.
+- **No details, so left out:** the classified SpaceX launch and Russia's Progress 96 cargo launch.
+- **Paywalled, so left out:** SpaceNews stories like Isar Aerospace starting commercial launches.
+
+Several services need to be authorized before their tools work: Canva, Google Drive, HyperFrames, Cloudflare and Vercel. For the claude.ai ones, use the connector settings on claude.ai; for the others, run `/mcp` in an interactive session. None of them were needed for this run.

@@ -1,0 +1,80 @@
+[
+  {
+    "source": "Anthropic / the-decoder",
+    "title_th": "Anthropic รวม Claude Chat กับ Cowork เป็นแอปเดียว เลือกโหมดทำงานให้เอง พร้อมเปิด Claude Docs และ Claude Slides ทำเอกสาร-สไลด์แล้วส่งออกเป็น PowerPoint หรือ PDF ได้ในแชต",
+    "summary_th": "จากเดิมที่ผู้ใช้ต้องเลือกเองว่าจะถามเร็วๆ ในหน้าแชต หรือไปสั่งงานใหญ่ใน Cowork ตอนนี้ Anthropic ยุบรวมเป็นผลิตภัณฑ์เดียวที่ดูจากคำสั่งแล้วตัดสินใจเองว่างานนั้นต้องใช้แรงแค่ไหน ของใหม่ที่ใช้ได้จริงคือ Claude Docs และ Claude Slides ที่สร้าง แก้ และส่งออกเอกสารหรือพรีเซนเทชันเป็นไฟล์ PowerPoint/PDF ได้ในหน้าแชตเลย ส่วน Claude Design ก็ย้ายมาอยู่ในบทสนทนาด้วย และงานที่สั่งไว้จะรันต่อบนคลาวด์แม้ปิดแอปไปแล้ว เริ่มเปิดให้ผู้ใช้ Pro และ Max ก่อน ส่วน Team และ Free ตามมาทีหลัง องค์กรจะได้รับแจ้งล่วงหน้าอย่างน้อย 30 วัน",
+    "category": "product",
+    "importance": "major",
+    "url": "https://the-decoder.com/anthropic-merges-claude-chat-cowork-and-more-into-a-single-product/",
+    "context_th": "ต่อจากที่ Anthropic เชื่อมความจำระหว่างห้องแชทกับ Cowork (ข่าว 26 ส.ค.) และเพิ่มเบราว์เซอร์ในตัวให้ Cowork (ข่าว 28 ส.ค.)"
+  },
+  {
+    "source": "Google / the-decoder",
+    "title_th": "Google เปิด Gemini 3.8 Live ให้นักพัฒนาทำผู้ช่วยเสียงที่ฟังไปพูดไปได้ รองรับกว่า 97 ภาษา คุยชั่วโมงละราว 1.38 ดอลลาร์ ถูกกว่าครึ่งของ GPT-Live-1",
+    "summary_th": "Google ปล่อย Gemini 3.8 Live และรุ่น Extended Thinking ผ่าน Gemini API กับ Google AI Studio ใช้สร้างเอเจนต์เสียงที่ฟังและพูดได้พร้อมกัน เรียกใช้ API อื่นระหว่างคุยได้ ดูภาพจากกล้องหรือหน้าจอได้ และพูดได้มากกว่า 97 ภาษา รุ่น Extended Thinking ขึ้นอันดับ 1 ในตารางวัดผลคุยเสียงของ Artificial Analysis ด้วยคะแนน 82.6% จุดขายหลักคือราคา คุยหนึ่งชั่วโมงตกราว 1.38 ดอลลาร์ ขณะที่ของ OpenAI อย่างน้อย 3 ดอลลาร์ แต่ the-decoder มองว่า GPT-Live-1 ยังคุยได้เป็นธรรมชาติกว่าและเสียงดีกว่า",
+    "category": "model_release",
+    "importance": "normal",
+    "url": "https://the-decoder.com/google-launches-gemini-3-8-live-to-take-on-openais-gpt-live-1-at-a-fraction-of-the-cost/",
+    "context_th": "เป็นการตอบโต้โดยตรงหลัง OpenAI เปิด GPT-Live-1 ให้นักพัฒนาในราคาราวชั่วโมงละ 3 ดอลลาร์ (ข่าว 11 ก.ย.)"
+  },
+  {
+    "source": "TechCrunch",
+    "title_th": "ให้ Claude หรือ ChatGPT สั่งบ้านอัจฉริยะได้แล้ว Google เปิด MCP ของ Google Home ให้เอเจนต์ AI เปิดไฟ ปรับแอร์ ดูสรุปกล้องวงจรปิด และสร้างแดชบอร์ดบ้านให้เอง",
+    "summary_th": "Google เริ่มเปิดทดลองเซิร์ฟเวอร์ Model Context Protocol (MCP) ของ Google Home ทำให้เอเจนต์ที่รองรับ MCP อย่าง Claude, ChatGPT, OpenClaw, Hermes และ Google Antigravity สั่งงานอุปกรณ์ในบ้านด้วยภาษาพูดได้ ทั้งกริ่ง Nest เทอร์โมสแตต และหลอดไฟที่รองรับ Matter รวมถึงอ่านสรุปภาพจากกล้อง ดูประวัติเหตุการณ์ในบ้าน และให้ AI สร้างแดชบอร์ดบ้านแบบที่อยากได้ ข้อจำกัดคือตอนนี้มีเฉพาะในสหรัฐฯ สำหรับสมาชิก Google Home Premium Advanced (เดือนละ 20 ดอลลาร์) และต้องไปตั้งค่าโปรเจกต์ใน Google Cloud เองก่อน",
+    "category": "product",
+    "importance": "normal",
+    "url": "https://techcrunch.com/2026/09/16/your-ai-agents-can-now-control-your-google-home-devices/"
+  },
+  {
+    "source": "Mozilla / Mistral AI / the-decoder",
+    "title_th": "Firefox เปิด Smart Window ผู้ช่วย AI ในเบราว์เซอร์ ใช้โมเดลของ Mistral ช่วยค้นเรื่องซับซ้อน สรุปแท็บที่เปิดค้างไว้ และไม่เก็บบทสนทนา",
+    "summary_th": "Mozilla ปล่อย Smart Window รุ่นเบต้าใน Firefox ช่วยค้นข้อมูลเรื่องที่ซับซ้อน จำเนื้อหาจากหน้าเว็บที่เคยเปิดไว้ และสรุปแท็บที่เปิดค้างทั้งหมดให้อ่านทีเดียว โดยใช้โมเดลของ Mistral จากฝรั่งเศสอยู่เบื้องหลัง จุดเด่นคือความเป็นส่วนตัว Mozilla ไม่เก็บบทสนทนาไว้บนเซิร์ฟเวอร์โดยค่าเริ่มต้น และ Mistral รับปากว่าไม่เก็บข้อมูลเลย เปิดให้ใช้ในฝรั่งเศสและอเมริกาเหนือก่อน ส่วนอังกฤษและเยอรมนีตามมาภายในปีนี้ เป็นก้าวแรกของ Mistral ที่ออกจากตลาดองค์กรมาหาผู้ใช้ทั่วไปในวงกว้าง",
+    "category": "product",
+    "importance": "normal",
+    "url": "https://the-decoder.com/mozillas-new-smart-window-assistant-runs-on-mistrals-models/",
+    "context_th": "มาหลังจาก Mistral เพิ่งระดมทุน 3 พันล้านยูโร โดยมี Samsung เป็นหัวหอก (ข่าว 10 ก.ย.)"
+  },
+  {
+    "source": "Shanghai AI Lab / Hugging Face",
+    "title_th": "Shanghai AI Lab แอบปล่อย Atria Dawn Preview เอเจนต์โอเพนเวต 744B ใช้ฟรีเชิงพาณิชย์ได้ ทำคะแนนค้นเว็บ BrowseComp แซง GPT-5.6 Sol",
+    "summary_th": "ห้องแล็บ AI ของเซี่ยงไฮ้ (ทีม InternLM) ปล่อยโมเดล Atria Dawn Preview ขนาด 744 พันล้านพารามิเตอร์ขึ้น Hugging Face แบบเงียบๆ ไม่มีบล็อก ไม่มีงานเปิดตัว ใช้ไลเซนส์ MIT ที่เอาไปใช้เชิงพาณิชย์ได้เต็มที่ โมเดลนี้ต่อยอดจาก GLM-5.2 ของ Z.ai และถูกฝึกมาให้ทำงานวิจัยแบบครบวงจรเอง ตั้งแต่วิเคราะห์โจทย์ ออกแบบวิธี เขียนโค้ด รันการทดลอง วิเคราะห์ผล และแก้ตัวเมื่อพลาด รับข้อความได้ 256K โทเคน ผลทดสอบค้นเว็บ BrowseComp ได้ 92.5 เหนือ GPT-5.6 Sol (92.2) และ SWE-bench Pro ได้ 59.6 มีทั้งไฟล์เต็มและรุ่น FP8 ที่รันด้วย vLLM/SGLang ได้",
+    "category": "model_release",
+    "importance": "normal",
+    "url": "https://huggingface.co/internlm/Atria-Dawn-Preview"
+  },
+  {
+    "source": "TypeSafe AI / the-decoder",
+    "title_th": "ผู้ร่วมเขียนงานวิจัยต้นทางของ ChatGPT เปิดตัว Jev โมเดลที่ไม่เขียนข้อความ แต่ 'เลือกคำตอบ' จากตัวเลือกที่ตั้งไว้ ตอบใน 0.07-0.5 วินาที และไม่คิดค่า output",
+    "summary_th": "Diogo Almeida อดีตนักวิจัย OpenAI ผู้ร่วมเขียนงาน InstructGPT ตั้งบริษัท TypeSafe AI ออกโมเดล Jev ที่ออกแบบมาให้ตัดสินใจแคบๆ ภายในโปรแกรมอื่น เช่น ลูกค้าแจ้งว่าโดนตัดเงินซ้ำ Jev จะจัดหมวดว่าเป็นเรื่องชำระเงิน ไม่ใช่การจัดส่ง และบอกว่าลูกค้าต้องการเงินคืน แล้วระบบส่งเรื่องต่อได้ทันที เพราะเลือกได้แค่จากตัวเลือกที่กำหนด จึงไม่มีทางแต่งคำตอบนอกกรอบ แต่ยังเลือกผิดข้อได้อยู่ ราคา 0.042 ดอลลาร์ต่อล้านโทเคนขาเข้า ไม่คิดค่าขาออก ตอนนี้เปิดให้ลงชื่อรอใช้",
+    "category": "product",
+    "importance": "normal",
+    "url": "https://the-decoder.com/former-openai-researcher-builds-an-ai-model-that-judges-options-instead-of-writing-text/"
+  },
+  {
+    "source": "the-decoder",
+    "title_th": "ฟอน เดอร์ ไลเอิน เตือนในสุนทรพจน์ประจำปีของ EU: เอเจนต์ AI หลุดกรอบเป็นแค่ตัวอย่างแรก เตรียมจับมือแคนาดา-อังกฤษตรวจโมเดล และเชิญแล็บใหญ่มาคุย",
+    "summary_th": "ในสุนทรพจน์ State of the Union 2026 ประธานคณะกรรมาธิการยุโรปยกเหตุเอเจนต์เจาะระบบ Hugging Face ขึ้นมาเตือนว่า โมเดลที่กำลังพัฒนาอยู่จะทำให้การแฮ็กทำได้ในระดับที่ไม่เคยคิดว่าเป็นไปได้ และอันตรายของโมเดลที่พัฒนาตัวเองได้ก็ชัดขึ้นเรื่อยๆ เธอประกาศว่า EU จะร่วมมือกับแคนาดา อังกฤษ และพันธมิตรอื่นในการประเมินและตรวจสอบความปลอดภัยของโมเดล จะเชิญแล็บ AI ระดับแนวหน้ามาหารือ และชู AI Act เป็นหัวใจของการวางกรอบ ขณะที่มีรายงานว่า EU เองยังเข้าถึงโมเดลด้านไซเบอร์รุ่นล่าสุดของแล็บใหญ่ได้ไม่แน่นอน",
+    "category": "policy",
+    "importance": "normal",
+    "url": "https://the-decoder.com/eu-president-warns-ai-agents-escaping-their-environment-are-just-a-preview-of-whats-coming/",
+    "context_th": "เป็นเสียงล่าสุดในกระแสเรียกร้องให้ชะลอและตรวจสอบ AI ที่ลากยาวทั้งสัปดาห์ ตั้งแต่ OpenAI เสนอชะลอพร้อมกันทั้งวงการ (ข่าว 12 ก.ย.) จนถึง Microsoft ออกจรรยาบรรณให้โมเดล (ข่าว 15 ก.ย.)"
+  },
+  {
+    "source": "Google DeepMind / the-decoder",
+    "title_th": "DeepMind ตั้ง 'Deepmind Institute' ดึงนักปรัชญา ศิลปิน และนักนโยบายมาร่วมถกว่าโลกจะรับมือ AGI อย่างไร",
+    "summary_th": "Google DeepMind เปิดสถาบันใหม่ชื่อ Deepmind Institute (DMI) นำโดย Demis Hassabis, Shane Legg และ James Manyika เพื่อทำวิจัยข้ามศาสตร์และเปิดเวทีถกเถียงเรื่อง AGI ทั้งความปลอดภัย การกำกับดูแล และความเสี่ยงอย่างการโจมตีไซเบอร์หรือการสูญเสียการควบคุม โดยตั้งใจให้มุมมองไม่จำกัดแค่คนสายเทคนิค แต่รวมศิลปะ มนุษยศาสตร์ และนโยบาย ร่วมกับนักวิจัยจากทั่วโลก ตัวผู้บริหารเองมองว่า AGI อาจมาถึงภายในไม่กี่ปี โดย Legg คาดว่ารุ่นตั้งต้นอาจโผล่ได้ราวปี 2028",
+    "category": "research",
+    "importance": "normal",
+    "url": "https://the-decoder.com/google-deepmind-launches-interdisciplinary-institute-to-tackle-the-big-questions-around-agi/",
+    "context_th": "Hassabis เพิ่งออกมาเห็นด้วยกับข้อเสนอของ Dario Amodei ให้มีคนนอกเข้ามาตรวจสอบแล็บ AI (ข่าว 13 ก.ย.)"
+  },
+  {
+    "source": "NASA",
+    "title_th": "กล้องอวกาศ Roman 'ลืมตา' ครั้งแรก เปิดกล้องอินฟราเรด 300 ล้านพิกเซลได้ภาพดาวแรกแม้ยังไม่โฟกัส พร้อมเช็กอุปกรณ์ถ่ายภาพดาวเคราะห์นอกระบบ",
+    "summary_th": "NASA เปิดเครื่อง Wide Field Instrument กล้องอินฟราเรดขนาด 300 ล้านพิกเซลซึ่งเป็นอุปกรณ์หลักของกล้อง Nancy Grace Roman เป็นครั้งแรก หลังเซ็นเซอร์ทั้ง 18 ตัวเย็นลงถึง -183 องศาเซลเซียส ภาพทดสอบแรกเห็นดาวจำนวนมากที่ยังเบลอเพราะตัวรับภาพยังอยู่ตำแหน่งตอนปล่อยจรวด ไม่ใช่จุดโฟกัสจริง วันเดียวกันยังเปิดเครื่อง Coronagraph ซึ่งออกแบบมาเพื่อบังแสงดาวแม่แล้วถ่ายภาพดาวเคราะห์รอบดาวดวงอื่นโดยตรง ใช้เวลา 55 นาที ตอนนี้ Roman ยังเดินทางไปจุด L2 ซึ่งใช้เวลาราว 3 เดือน และคาดว่าจะเผยภาพวิทยาศาสตร์ชุดแรกต้นปี 2027",
+    "category": "space",
+    "importance": "normal",
+    "url": "https://science.nasa.gov/blogs/roman/2026/09/15/nasa-activates-romans-primary-instrument-checks-out-coronagraph/",
+    "context_th": "ต่อจากที่ NASA ส่งกล้อง Roman ขึ้นฟ้าด้วย Falcon Heavy (ข่าว 30 ส.ค.)"
+  }
+]
