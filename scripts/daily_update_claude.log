@@ -1,34 +1,13 @@
-﻿I wrote today's 10 news items and the narrative. The next step (`generate.py`, commit and push) is left to your daily update script, as in previous runs. I couldn't check the JSON with a command because the check needed permission I didn't have. I wrote it by hand to the existing schema, but it hasn't been machine-validated, so `generate.py` is the first real test.
+﻿I didn't change anything this run. An earlier run today already finished the job:
 
-**`data/news/2026-09-23.json`** (none of the URLs are already in `latest.json`):
-1. ≡ƒöÑ **Claude Opus 5.5** (major): performs close to Fable 5.1 but costs about 40% less and answers 30% faster. It scores 81.8% on OSWorld 2.0 and 66.4% on Terminal-Bench 4.0, and the writing is less "Claude-sounding".
-2. **GPT-6 Sol and Luna**: half the price of the previous models. Independent testing found almost no gain in intelligence.
-3. **Xiaomi MiMo-V2.6**: now the strongest open model, at $0.435/$0.87 per million tokens. Anthropic accuses Xiaomi of pulling training data from Claude through more than 400,000 conversations.
-4. **OpenAI** calls for international standards for AI that improves itself.
-5. **Qualcomm Snapdragon 8 Elite Gen 6**: the top version can run a 30-billion-parameter model on the phone itself.
-6. **The Biological Computing Co.**: an add-on based on signals from lab-grown brain cells, claimed to make AI video 5├ù faster and 80% cheaper.
-7. **Meta** admits its Muse assistant copied OpenClaw, including a near-identical SOUL.md personality file.
-8. **Snorkel AI** raised $350M, taking its value to $3.5B.
-9. ≡ƒÜÇ **AstroForge** will let its AI system "Solo" fly a spacecraft and fix problems without waiting for Earth.
-10. ≡ƒÜÇ **GJ 3090 b**: the first planet found orbiting backward around a red dwarf star.
+- **Today's news file:** `data/news/2026-09-23.json` already holds 10 stories, which is the maximum. Two are marked major-worthy candidates, but only one is actually flagged major: the Claude Opus 5.5 launch. The others are OpenAI's GPT-6 Sol and Luna, Xiaomi's MiMo-V2.6, OpenAI's call for rules on AI that improves itself, Qualcomm's Snapdragon 8 Elite Gen 6 chip, the brain-cell-based speed-up for AI video, Meta's Muse copying OpenClaw, Snorkel AI's funding round, AstroForge's AI-flown spacecraft, and a planet orbiting backwards around a small red star.
+- **Today's story summary:** `data/narrative/2026-09-23.json` also already exists.
+- **Published:** the website was rebuilt, and both files were saved and pushed in commit `d25778e` at 12:47 Bangkok time.
 
-The context links point to earlier stories: Grok 4.7 (Sep 22), the UN panel (Sep 22), OpenAI's slowdown proposal (Sep 12), Anthropic's threat report (Sep 11) and Amazon blocking Muse (Sep 22). I checked the dates against `latest.json`.
+I searched again for anything big the earlier run missed. The only notable new item is a UN Security Council meeting on AI safety scheduled for today, with OpenAI, Anthropic, DeepSeek and Moonshot expected to attend. It hasn't happened yet, and the file is already at 10 stories, so I left it for tomorrow's run to cover once there are results. Two smaller stories also turned up: Alphabet's Intrinsic released open-source robotics software, and MIT's tiny flying robot got faster with a new AI controller. Neither was important enough to replace an existing story.
 
-**`data/narrative/2026-09-23.json`**: one paragraph tying the day together around the price war, borrowing and copying, and AI control.
-
-I left out stories that were already published under a different URL: Anthropic's biology lab (Sep 18) and OpenAI's 100 solved math problems (Sep 21).
-
-Several MCP connectors (Canva, Google Drive, HyperFrames, Cloudflare, Vercel) need to be authorized in claude.ai connector settings or through `/mcp`. They weren't needed for this run.
+The only uncommitted changes in the repo are two local log files (`scripts/.notify_state.json` and `scripts/daily_update_claude.log`), and I didn't touch them.
 
 Sources:
-- [Claude Opus 5.5](https://the-decoder.com/claude-opus-5-5-matches-fable-5-1-at-40-percent-lower-cost-as-anthropic-promises-to-fix-claudish-writing/)
-- [GPT-6 Sol/Luna](https://the-decoder.com/openais-gpt-6-sol-and-luna-cut-prices-in-half-but-barely-move-the-needle-on-performance/)
-- [Xiaomi MiMo-V2.6](https://the-decoder.com/xiaomis-affordable-flagship-ai-leads-the-open-models-and-anthropic-says-claude-helped-get-it-there/)
-- [OpenAI standards for self-improving AI](https://the-decoder.com/openai-calls-for-international-standards-on-ai-that-could-improve-itself/)
-- [Qualcomm chips](https://techcrunch.com/2026/09/22/qualcomm-launches-two-new-smartphone-chips-with-emphasis-on-ai/)
-- [Lab-grown neuron video add-on](https://the-decoder.com/a-tiny-software-layer-from-lab-grown-neurons-promises-faster-cheaper-ai-video/)
-- [Meta Muse and OpenClaw](https://techcrunch.com/2026/09/22/meta-admits-muses-likeness-to-openclaw-isnt-a-coincidence/)
-- [Snorkel AI](https://techcrunch.com/2026/09/22/snorkel-ai-triples-valuation-to-3-5b-as-demand-for-ai-training-data-booms/)
-- [AstroForge](https://techcrunch.com/2026/09/22/astroforge-is-putting-ai-in-command-of-its-next-spacecraft/)
-- [GJ 3090 b (QMUL)](https://www.qmul.ac.uk/news/latest-news/2026/science-and-engineering/se/first-backwards-planet-discovered-around-a-small-star-challenges-ideas-about-how-planets-form.html)
-- [GJ 3090 b (Space.com)](https://www.space.com/astronomy/exoplanets/scientists-find-weird-exoplanet-that-orbits-its-star-in-the-wrong-direction)
+- [AI Weekly ΓÇô AI News Today](https://aiweekly.co/ai-news-today)
+- [TechCrunch AI](https://techcrunch.com/category/artificial-intelligence/)
