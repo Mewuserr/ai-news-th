@@ -1,25 +1,34 @@
-﻿α╣Çα╕éα╕╡α╕óα╕Öα╕éα╣êα╕▓α╕ºα╕ºα╕▒α╕Öα╕ùα╕╡α╣ê 2026-09-22 α╣Çα╕¬α╕úα╣çα╕êα╣üα╕Ñα╣ëα╕º ΓÇö α╣üα╕òα╣ê **α╕óα╕▒α╕çα╣äα╕íα╣êα╣äα╕öα╣ëα╕éα╕╢α╣ëα╕Öα╣Çα╕ºα╣çα╕Ü** α╣Çα╕₧α╕úα╕▓α╕░ `generate.py` α╕ûα╕╣α╕üα╕üα╕▒α╣ëα╕Öα╕¬α╕┤α╕ùα╕ÿα╕┤α╣îα╕¡α╕╡α╕üα╕äα╕úα╕▒α╣ëα╕ç
+﻿I wrote today's 10 news items and the narrative. The next step (`generate.py`, commit and push) is left to your daily update script, as in previous runs. I couldn't check the JSON with a command because the check needed permission I didn't have. I wrote it by hand to the existing schema, but it hasn't been machine-validated, so `generate.py` is the first real test.
 
-**α╣äα╕ƒα╕Ñα╣îα╕ùα╕╡α╣êα╣Çα╕éα╕╡α╕óα╕Öα╕Ñα╕çα╕öα╕┤α╕¬α╕üα╣îα╣üα╕Ñα╣ëα╕º**
-- `data/news/2026-09-22.json` ΓÇö 10 α╕éα╣êα╕▓α╕º (major 2, normal 8) α╕öα╕╡α╕öα╕╣α╕¢α╕öα╣ëα╕ºα╕ó `url` α╣Çα╕ùα╕╡α╕óα╕Ü `data/latest.json` α╣üα╕Ñα╣ëα╕º α╣äα╕íα╣êα╕íα╕╡α╕ïα╣ëα╕│
-- `data/narrative/2026-09-22.json` ΓÇö α╣Çα╕úα╕╖α╣êα╕¡α╕çα╣Çα╕Ñα╣êα╕▓α╕úα╣ëα╕¡α╕óα╣Çα╕úα╕╡α╕óα╕çα╕éα╣êα╕▓α╕ºα╕ºα╕▒α╕Öα╕Öα╕╡α╣ë
-- `data/engine-log.md` ΓÇö α╕Üα╕▒α╕Öα╕ùα╕╢α╕üα╕£α╕Ñα╕úα╕¡α╕Üα╕Öα╕╡α╣ëα╕òα╣êα╕¡α╕ùα╣ëα╕▓α╕ó
+**`data/news/2026-09-23.json`** (none of the URLs are already in `latest.json`):
+1. ≡ƒöÑ **Claude Opus 5.5** (major): performs close to Fable 5.1 but costs about 40% less and answers 30% faster. It scores 81.8% on OSWorld 2.0 and 66.4% on Terminal-Bench 4.0, and the writing is less "Claude-sounding".
+2. **GPT-6 Sol and Luna**: half the price of the previous models. Independent testing found almost no gain in intelligence.
+3. **Xiaomi MiMo-V2.6**: now the strongest open model, at $0.435/$0.87 per million tokens. Anthropic accuses Xiaomi of pulling training data from Claude through more than 400,000 conversations.
+4. **OpenAI** calls for international standards for AI that improves itself.
+5. **Qualcomm Snapdragon 8 Elite Gen 6**: the top version can run a 30-billion-parameter model on the phone itself.
+6. **The Biological Computing Co.**: an add-on based on signals from lab-grown brain cells, claimed to make AI video 5├ù faster and 80% cheaper.
+7. **Meta** admits its Muse assistant copied OpenClaw, including a near-identical SOUL.md personality file.
+8. **Snorkel AI** raised $350M, taking its value to $3.5B.
+9. ≡ƒÜÇ **AstroForge** will let its AI system "Solo" fly a spacecraft and fix problems without waiting for Earth.
+10. ≡ƒÜÇ **GJ 3090 b**: the first planet found orbiting backward around a red dwarf star.
 
-**α╕éα╣êα╕▓α╕ºα╣Çα╕öα╣êα╕Öα╕ºα╕▒α╕Öα╕Öα╕╡α╣ë (major)**
-- α╕¬α╕½α╕úα╕▒α╕Éα╕»ΓÇôα╕êα╕╡α╕Öα╕òα╕üα╕Ñα╕çα╣Çα╕¢α╕┤α╕öα╕¬α╕▓α╕óα╕òα╕úα╕çα╕äα╕╕α╕óα╣Çα╕úα╕╖α╣êα╕¡α╕ç AI α╕₧α╕úα╣ëα╕¡α╕íα╕üα╕Ñα╣äα╕üα╣üα╕êα╣ëα╕çα╣Çα╕òα╕╖α╕¡α╕Öα╣Çα╕íα╕╖α╣êα╕¡α╣Çα╕üα╕┤α╕öα╣Çα╕½α╕òα╕╕α╕üα╕úα╕░α╕ùα╕Üα╕äα╕ºα╕▓α╕íα╕íα╕▒α╣êα╕Öα╕äα╕ç α╕üα╣êα╕¡α╕Öα╕¢α╕úα╕░α╕èα╕╕α╕íα╕ùα╕úα╕▒α╕íα╕¢α╣îΓÇôα╕¬α╕╡ 25ΓÇô26 α╕ü.α╕ó. (α╣äα╕íα╣êα╣üα╕òα╕░α╣Çα╕úα╕╖α╣êα╕¡α╕çα╕äα╕╕α╕íα╕¬α╣êα╕çα╕¡α╕¡α╕üα╕èα╕┤α╕¢α╣Çα╕Ñα╕ó)
-- NASA/LRO α╕óα╕╖α╕Öα╕óα╕▒α╕Öα╕½α╕Ñα╕╕α╕íα╕¡α╕╕α╕üα╕üα╕▓α╕Üα╕▓α╕òα╣âα╕½α╕íα╣êα╕Üα╕Öα╕öα╕ºα╕çα╕êα╕▒α╕Öα╕ùα╕úα╣î "McGetchin" α╕üα╕ºα╣ëα╕▓α╕ç 222 α╕í. α╕Ñα╕╢α╕ü 43 α╕í. α╣Çα╕üα╕┤α╕öα╕èα╣êα╕ºα╕ç α╣Çα╕í.α╕ó.ΓÇôα╕₧.α╕ä. 2024 α╣âα╕½α╕ìα╣êα╕ùα╕╡α╣êα╕¬α╕╕α╕öα╣Çα╕ùα╣êα╕▓α╕ùα╕╡α╣êα╣Çα╕äα╕óα╕êα╕▒α╕Üα╕üα╕▓α╕úα╣Çα╕üα╕┤α╕öα╣äα╕öα╣ëα╣âα╕Öα╕úα╕░α╕Üα╕Üα╕¬α╕╕α╕úα╕┤α╕óα╕░ α╕òα╕╡α╕₧α╕┤α╕íα╕₧α╣î 2 α╕çα╕▓α╕Öα╣âα╕Ö Science Advances
+The context links point to earlier stories: Grok 4.7 (Sep 22), the UN panel (Sep 22), OpenAI's slowdown proposal (Sep 12), Anthropic's threat report (Sep 11) and Amazon blocking Muse (Sep 22). I checked the dates against `latest.json`.
 
-**α╕éα╣êα╕▓α╕ºα╕¡α╕╖α╣êα╕Ö** ΓÇö Grok 4.7 α╕úα╕▓α╕äα╕▓α╕ûα╕╣α╕üα╣üα╕òα╣êα╕äα╕░α╣üα╕Öα╕Öα╣Çα╕¡α╣Çα╕êα╕Öα╕òα╣îα╣Çα╕éα╕╡α╕óα╕Öα╣éα╕äα╣ëα╕öα╕½α╣êα╕▓α╕çα╕äα╕╣α╣êα╣üα╕éα╣êα╕çα╕äα╕úα╕╢α╣êα╕çα╕òα╣êα╕¡α╕äα╕úα╕╢α╣êα╕ç, Googlebook $899 (Magic Cursor + Rambler), ByteDance Dramagic α╕ùα╕│α╕Ñα╕░α╕äα╕úα╕¬α╕▒α╣ëα╕Öα╕äα╕úα╕Üα╕ºα╕çα╕êα╕ú, UN α╕Üα╕¡α╕üα╣äα╕íα╣êα╕íα╕╡α╕¡α╕░α╣äα╕úα╕úα╕▒α╕Üα╕¢α╕úα╕░α╕üα╕▒α╕Öα╕ºα╣êα╕▓α╕íα╕Öα╕╕α╕⌐α╕óα╣îα╕êα╕░α╕äα╕╕α╕íα╣Çα╕¡α╣Çα╕êα╕Öα╕òα╣îα╣äα╕öα╣ë, Starship α╣Çα╕òα╕úα╕╡α╕óα╕íα╕óα╕┤α╕çα╣Çα╕éα╣ëα╕▓α╕ºα╕çα╣éα╕äα╕êα╕úα╕äα╕úα╕▒α╣ëα╕çα╣üα╕úα╕ü 28 α╕ü.α╕ó., OpenAI α╕òα╕▒α╣ëα╕çα╕äα╕ôα╕░α╕ùα╕╡α╣êα╕¢α╕úα╕╢α╕üα╕⌐α╕▓α╕äα╕ôα╕┤α╕òα╕¿α╕▓α╕¬α╕òα╕úα╣î, Amazon α╕Üα╕Ñα╣çα╕¡α╕ü Muse α╕éα╕¡α╕ç Meta, SoftBank α╕üα╕╣α╣ëα╕₧α╕▒α╕Öα╕ÿα╕Üα╕▒α╕òα╕úα╕éα╕óα╕░ $11B α╕êα╣êα╕▓α╕óα╕äα╣êα╕▓α╕½α╕╕α╣ëα╕Ö OpenAI
+**`data/narrative/2026-09-23.json`**: one paragraph tying the day together around the price war, borrowing and copying, and AI control.
 
-**α╕ùα╕╡α╣êα╕äα╣ëα╕▓α╕çα╕¡α╕óα╕╣α╣ê (α╕ùα╕│α╕òα╣êα╕¡α╣Çα╕¡α╕çα╣äα╕íα╣êα╣äα╕öα╣ëα╣âα╕Öα╕úα╕¡α╕Üα╕Öα╕╡α╣ë)**
+I left out stories that were already published under a different URL: Anthropic's biology lab (Sep 18) and OpenAI's 100 solved math problems (Sep 21).
 
-`python scripts/generate.py` α╕ûα╕╣α╕üα╕òα╕¡α╕Üα╕ºα╣êα╕▓ "This command requires approval" α╕ùα╕╕α╕üα╕úα╕╣α╕¢α╣üα╕Üα╕Üα╕ùα╕╡α╣êα╕Ñα╕¡α╕ç ΓÇö α╕ùα╕▒α╣ëα╕ç Bash α╣üα╕Ñα╕░ PowerShell, α╕ùα╕▒α╣ëα╕ç `python`, `python3`, path α╣üα╕Üα╕Ü `./`, α╣üα╕Ñα╕░ `dangerouslyDisableSandbox` α╕éα╕ôα╕░α╕ùα╕╡α╣ê `python --version` α╕üα╕▒α╕Ü git α╕¡α╣êα╕▓α╕Öα╕¡α╕óα╣êα╕▓α╕çα╣Çα╕öα╕╡α╕óα╕ºα╕£α╣êα╕▓α╕Öα╕¢α╕üα╕òα╕┤ α╣Çα╕¢α╣çα╕Öα╕¡α╕▓α╕üα╕▓α╕úα╣Çα╕öα╕┤α╕íα╕ùα╕╡α╣êα╣Çα╕üα╕┤α╕öα╕ïα╣ëα╕│α╕íα╕▓α╕òα╕▒α╣ëα╕çα╣üα╕òα╣ê 12, 15, 19, 20, 21 α╕ü.α╕ó. α╣Çα╕₧α╕úα╕▓α╕░ session α╕Öα╕╡α╣ëα╣Çα╕¢α╣çα╕Ö non-interactive α╕êα╕╢α╕çα╕¡α╕Öα╕╕α╕íα╕▒α╕òα╕┤α╕¬α╕┤α╕ùα╕ÿα╕┤α╣îα╕òα╕¡α╕Öα╕úα╕▒α╕Öα╣äα╕íα╣êα╣äα╕öα╣ë α╕£α╕íα╕êα╕╢α╕çα╣äα╕íα╣êα╣äα╕öα╣ë commit/push α╕öα╣ëα╕ºα╕ó (α╕êα╕░α╣äα╕öα╣ëα╣äα╕íα╣ê push α╕éα╣ëα╕¡α╕íα╕╣α╕Ñα╕ùα╕╡α╣ê HTML α╕óα╕▒α╕çα╣äα╕íα╣êα╕òα╕úα╕çα╕üα╕▒α╕Ö)
+Several MCP connectors (Canva, Google Drive, HyperFrames, Cloudflare, Vercel) need to be authorized in claude.ai connector settings or through `/mcp`. They weren't needed for this run.
 
-α╕öα╕╣α╕êα╕▓α╕ü log α╕óα╣ëα╕¡α╕Öα╕½α╕Ñα╕▒α╕ç α╕úα╕¡α╕Ü wrapper `scripts/daily_update.ps1` α╕ùα╕╡α╣êα╕úα╕▒α╕Öα╕úα╕▓α╕º 07:30 UTC α╕éα╕¡α╕çα╕¬α╕¡α╕çα╕ºα╕▒α╕Öα╕üα╣êα╕¡α╕Öα╕½α╕Öα╣ëα╕▓α╕¢α╕┤α╕öα╕çα╕▓α╕Öα╣âα╕½α╣ëα╣Çα╕¡α╕çα╣äα╕öα╣ë (`generate.py ok, pushing`) α╕ºα╕▒α╕Öα╕Öα╕╡α╣ëα╕Öα╣êα╕▓α╕êα╕░α╣Çα╕¢α╣çα╕Öα╣üα╕Üα╕Üα╣Çα╕öα╕╡α╕óα╕ºα╕üα╕▒α╕Ö α╕ûα╣ëα╕▓α╣äα╕íα╣êα╕¡α╕óα╕▓α╕üα╕úα╕¡ α╕úα╕▒α╕Öα╣Çα╕¡α╕çα╣äα╕öα╣ëα╣Çα╕Ñα╕ó:
-
-```
-python scripts/generate.py
-git add -A; git commit -m "News auto-update 2026-09-22"; git push
-```
-
-α╕ûα╣ëα╕▓α╕¡α╕óα╕▓α╕üα╣âα╕½α╣ëα╕¢α╕▒α╕ìα╕½α╕▓α╕Öα╕╡α╣ëα╕êα╕Üα╕ûα╕▓α╕ºα╕ú α╕Üα╕¡α╕üα╣äα╕öα╣ë α╕£α╕íα╣Çα╕₧α╕┤α╣êα╕í `Bash(python scripts/generate.py)` α╕Ñα╕ç allow list α╣âα╕Ö `.claude/settings.json` α╕éα╕¡α╕çα╣éα╕¢α╕úα╣Çα╕êα╕üα╕òα╣îα╣âα╕½α╣ëα╕äα╕úα╕▒α╕Ü
+Sources:
+- [Claude Opus 5.5](https://the-decoder.com/claude-opus-5-5-matches-fable-5-1-at-40-percent-lower-cost-as-anthropic-promises-to-fix-claudish-writing/)
+- [GPT-6 Sol/Luna](https://the-decoder.com/openais-gpt-6-sol-and-luna-cut-prices-in-half-but-barely-move-the-needle-on-performance/)
+- [Xiaomi MiMo-V2.6](https://the-decoder.com/xiaomis-affordable-flagship-ai-leads-the-open-models-and-anthropic-says-claude-helped-get-it-there/)
+- [OpenAI standards for self-improving AI](https://the-decoder.com/openai-calls-for-international-standards-on-ai-that-could-improve-itself/)
+- [Qualcomm chips](https://techcrunch.com/2026/09/22/qualcomm-launches-two-new-smartphone-chips-with-emphasis-on-ai/)
+- [Lab-grown neuron video add-on](https://the-decoder.com/a-tiny-software-layer-from-lab-grown-neurons-promises-faster-cheaper-ai-video/)
+- [Meta Muse and OpenClaw](https://techcrunch.com/2026/09/22/meta-admits-muses-likeness-to-openclaw-isnt-a-coincidence/)
+- [Snorkel AI](https://techcrunch.com/2026/09/22/snorkel-ai-triples-valuation-to-3-5b-as-demand-for-ai-training-data-booms/)
+- [AstroForge](https://techcrunch.com/2026/09/22/astroforge-is-putting-ai-in-command-of-its-next-spacecraft/)
+- [GJ 3090 b (QMUL)](https://www.qmul.ac.uk/news/latest-news/2026/science-and-engineering/se/first-backwards-planet-discovered-around-a-small-star-challenges-ideas-about-how-planets-form.html)
+- [GJ 3090 b (Space.com)](https://www.space.com/astronomy/exoplanets/scientists-find-weird-exoplanet-that-orbits-its-star-in-the-wrong-direction)
