@@ -1,13 +1,20 @@
-﻿I didn't change anything this run. An earlier run today already finished the job:
+﻿I've written today's news file (`data/news/2026-09-24.json`, 9 items) and the narrative file (`data/narrative/2026-09-24.json`). I checked every link against `data/latest.json` and none of them have been published before.
 
-- **Today's news file:** `data/news/2026-09-23.json` already holds 10 stories, which is the maximum. Two are marked major-worthy candidates, but only one is actually flagged major: the Claude Opus 5.5 launch. The others are OpenAI's GPT-6 Sol and Luna, Xiaomi's MiMo-V2.6, OpenAI's call for rules on AI that improves itself, Qualcomm's Snapdragon 8 Elite Gen 6 chip, the brain-cell-based speed-up for AI video, Meta's Muse copying OpenClaw, Snorkel AI's funding round, AstroForge's AI-flown spacecraft, and a planet orbiting backwards around a small red star.
-- **Today's story summary:** `data/narrative/2026-09-23.json` also already exists.
-- **Published:** the website was rebuilt, and both files were saved and pushed in commit `d25778e` at 12:47 Bangkok time.
+**Today's items:**
+- ≡ƒöÑ **Major:** Anthropic's biology lab says it found a new DNA-editing enzyme system, similar to CRISPR, and that Claude did most of the finding (about 950 agents working for 21 hours). The story includes the caveats: Stanford found something similar earlier, and other scientists still need to check the result.
+- ChatGPT Voice can now read your calendar, send emails and post in Slack using only voice commands.
+- Meta announced Ray-Ban Meta Audio glasses with no camera ($349), a keychain AI device called Muse Charm, and new features for its Muse agent.
+- Google released Gemini 3.8 Flash TTS: you describe a voice in words and it creates it, or it copies a voice from a 30-second clip. An hour of audio costs about $0.81.
+- Alibaba released Qwen Audio 3.1, five new voice and speech models, and cut its prices by up to 95%.
+- YouTube will let viewers type what they want to watch and get a custom feed, and it added AI tools for creators.
+- Enveda raised $311M, doubling its value to $2B; it uses AI to find drugs in plants and microbes.
+- SpaceX has fully assembled Starship for its first orbital flight, set for Sept 28 at the earliest.
+- The Crew-13 astronaut mission to the space station moved to Oct 1 after a leak on its spacecraft was repaired.
 
-I searched again for anything big the earlier run missed. The only notable new item is a UN Security Council meeting on AI safety scheduled for today, with OpenAI, Anthropic, DeepSeek and Moonshot expected to attend. It hasn't happened yet, and the file is already at 10 stories, so I left it for tomorrow's run to cover once there are results. Two smaller stories also turned up: Alphabet's Intrinsic released open-source robotics software, and MIT's tiny flying robot got faster with a new AI controller. Neither was important enough to replace an existing story.
+Four items link back to earlier stories on the site, such as Anthropic's lab being revealed on Sept 19. Space coverage is weaker than usual: I couldn't find confirmed space news from the national space agencies (NASA's own site, ESA, China, Japan, India) for the last day or two, so both space items came from SpaceX coverage.
 
-The only uncommitted changes in the repo are two local log files (`scripts/.notify_state.json` and `scripts/daily_update_claude.log`), and I didn't touch them.
+**Not done yet:**
+- **JSON check:** my command to confirm both files are valid JSON was blocked, so that check hasn't run. I wrote them to the required format by hand.
+- **Publishing:** your instructions stopped partway through step 5, so I didn't run `generate.py`, commit or push. Recent commits suggest your daily update script handles those steps; if it doesn't, run `python scripts/generate.py` and then `git add -A`, commit and push.
 
-Sources:
-- [AI Weekly ΓÇô AI News Today](https://aiweekly.co/ai-news-today)
-- [TechCrunch AI](https://techcrunch.com/category/artificial-intelligence/)
+**Needs your action:** several connectors need signing in before they'll work (Canva, Google Drive, HyperFrames, Cloudflare, Vercel). None of them were needed today. Sign in through your claude.ai connector settings or `/mcp`.

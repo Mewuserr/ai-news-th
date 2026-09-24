@@ -1,0 +1,78 @@
+[
+  {
+    "source": "TechCrunch",
+    "title_th": "Anthropic เผยห้องแล็บชีววิทยาของตัวเองเจอระบบเอนไซม์ใหม่ในไวรัสแบคทีเรีย ตัด-ก๊อป-แปะ DNA ได้คล้าย CRISPR โดย Claude เป็นคนหาเจอเกือบทั้งหมด",
+    "summary_th": "Claude ใช้เอเจนต์ราว 950 ตัวทำงานรวม 21 ชั่วโมง ใช้ไป 210 ล้านโทเคน ไล่ค้น DNA ของแบคเทอริโอเฟจจนเจอระบบเอนไซม์ที่ยังไม่เคยมีใครรู้จัก ทำงานคล้าย CRISPR คือตัด ก๊อป และแปะลำดับ DNA ได้ ส่วนการทดลองในแล็บจริงยังเป็นนักวิทยาศาสตร์มนุษย์ลงมือเอง Dario Amodei ยอมรับเองว่าทีม Stanford เคยเจอระบบที่คล้ายกันบางส่วนมาก่อน และผลนี้ยังต้องรอวงการวิทยาศาสตร์ตรวจสอบอีกรอบ",
+    "category": "research",
+    "importance": "major",
+    "url": "https://techcrunch.com/2026/09/23/anthropic-says-its-biology-lab-has-already-found-something-big/",
+    "context_th": "สืบเนื่องจากที่ Anthropic เพิ่งเปิดเผยว่ามีห้องแล็บชีววิทยาจริงในแถบ Bay Area (ข่าว 19 ก.ย.)"
+  },
+  {
+    "source": "OpenAI",
+    "title_th": "ChatGPT Voice สั่งงานด้วยเสียงได้จริงแล้ว เช็คปฏิทิน ส่งอีเมล ตอบ Slack หาค่าใช้จ่ายซ้ำในแอปการเงิน ไปจนถึงให้สร้างเว็บที่มีหน้าชำระเงิน",
+    "summary_th": "โหมดเสียงของ ChatGPT รุ่นใหม่รันบน GPT-6 Astra, Sol และ Luna และเรียกใช้ปลั๊กอินได้เป็นครั้งแรก เท่ากับว่าพูดสั่งให้มันเปิดดูนัดในปฏิทิน ร่างและส่งอีเมล ส่งข้อความใน Slack ตรวจหารายการที่ถูกหักเงินซ้ำ หรือสั่งทำเอกสาร สไลด์ และสเปรดชีตผ่าน ChatGPT Work ได้โดยไม่ต้องแตะจอ ใช้ได้ทั่วโลกทั้งเว็บและมือถือในแอปเวอร์ชันล่าสุด",
+    "category": "product",
+    "importance": "normal",
+    "url": "https://the-decoder.com/chatgpt-voice-gets-closer-to-her-with-email-calendar-and-slack-access/",
+    "context_th": "ต่อยอดจาก GPT-6 Sol และ Luna ที่ OpenAI เพิ่งเปิดตัวเมื่อวันก่อน (ข่าว 23 ก.ย.)"
+  },
+  {
+    "source": "Meta",
+    "title_th": "Meta เปิดแว่น Ray-Ban Meta Audio ไม่มีกล้อง ราคา 349 ดอลลาร์ พร้อมพวงกุญแจ AI 'Muse Charm' และให้เอเจนต์ Muse มีหน้าตา มีอีเมลของตัวเอง",
+    "summary_th": "แว่นรุ่นใหม่ตัดกล้องออกเพื่อแก้ปัญหาความเป็นส่วนตัว เหลือแค่ฟังเพลง/พอดแคสต์ โทร แปลภาษาพูด และคุยกับ Muse หนักแค่ 43 กรัม ใช้ได้ 12 ชั่วโมงต่อชาร์จ เปิดพรีออเดอร์ 13 ต.ค. ส่วน Muse Charm เป็นอุปกรณ์ขนาดฝ่ามือมีจอเล็กๆ แตะเซ็นเซอร์ลายนิ้วมือแล้วพูดสั่งงานได้เลยไม่ต้องปลดล็อกมือถือ วางขายช่วงธันวาคม นอกจากนี้ Muse ยังได้อวตารคุยวิดีโอแบบเรียลไทม์ มีอีเมลของตัวเองให้ฟอร์เวิร์ดงานไปให้ทำ และจับมือร้านค้าอย่าง Walmart, Sephora, Best Buy, Expedia, Instacart ให้ช้อปแทนได้",
+    "category": "product",
+    "importance": "normal",
+    "url": "https://techcrunch.com/2026/09/23/everything-new-coming-to-metas-ai-agent-muse/",
+    "context_th": "มาในช่วงที่ Meta เพิ่งยอมรับว่า Muse ลอกแบบ OpenClaw (ข่าว 23 ก.ย.) และถูก Amazon บล็อกไม่ให้ช้อปแทนผู้ใช้ (ข่าว 22 ก.ย.)"
+  },
+  {
+    "source": "Google",
+    "title_th": "Google ออก Gemini 3.8 Flash TTS พิมพ์บรรยายลักษณะเสียงแล้วได้เสียงใหม่ตามนั้น โคลนเสียงจากคลิป 30 วินาที กว่า 100 ภาษา ชั่วโมงละไม่ถึง 30 บาท",
+    "summary_th": "โมเดลแปลงข้อความเป็นเสียงสองรุ่นใหม่ Flash TTS กับ Flash-Lite TTS ออกแบบเสียงจากคำบรรยาย โคลนเสียงจากตัวอย่าง 30 วินาที ใส่คำกำกับการแสดงรายบรรทัด ทำบทสนทนาสองเสียง และใส่เสียงหัวเราะ/ถอนหายใจได้ มีเสียงสำเร็จรูปกว่า 2,000 เสียงรวมสำเนียงท้องถิ่น ราคาถึงสิ้นปี 2026 อยู่ที่ราว 0.81 ดอลลาร์ต่อชั่วโมงเสียง (Flash-Lite 0.54 ดอลลาร์) ก่อนขึ้นเป็นเท่าตัวในปี 2027 ใช้ได้แล้วผ่าน Gemini API และ AI Studio",
+    "category": "model_release",
+    "importance": "normal",
+    "url": "https://the-decoder.com/googles-new-flash-tts-models-let-you-design-ai-voices-from-scratch-using-text-descriptions/"
+  },
+  {
+    "source": "Alibaba Qwen",
+    "title_th": "Alibaba ออก Qwen Audio 3.1 ห้าโมเดลเสียงใหม่ พร้อมหั่นราคาถอดเสียงลงสูงสุด 95%",
+    "summary_th": "ชุดใหม่มีทั้งโมเดลถอดเสียงที่ตัดคำฟุ่มเฟือยและคำซ้ำออกให้เอง รุ่น ASR-Next ที่แยกว่าใครพูดตอนไหน จับอารมณ์และเสียงรบกวนรอบข้างได้ โมเดลอ่านออกเสียงที่สั่งอารมณ์ ความเร็ว และสไตล์ด้วยข้อความ รุ่น TTS-Next ที่สร้างเสียงเอฟเฟกต์และเสียงพื้นหลังได้ด้วย และโมเดลคุยเรียลไทม์ที่ฟังไปพูดไปและพูดแทรกได้ทันที ราคาลดลงราว 70% สำหรับ TTS, 85% สำหรับเรียลไทม์ และสูงสุด 95% สำหรับถอดเสียง",
+    "category": "model_release",
+    "importance": "normal",
+    "url": "https://the-decoder.com/alibaba-launches-qwen-audio-3-1-with-five-new-models-and-slashes-ai-audio-prices-by-up-to-95-percent/"
+  },
+  {
+    "source": "YouTube",
+    "title_th": "YouTube ให้พิมพ์บอก AI ว่าอยากดูอะไร แล้วมันจัดฟีดวิดีโอเฉพาะให้ พร้อมเครื่องมือ AI ช่วยครีเอเตอร์เกลาบท ทดสอบปกคลิป และตัดต่อ",
+    "summary_th": "ผู้ใช้พิมพ์คำอธิบายเช่น 'คลิปคอมเมนต์ฟังสบายๆ ก่อนนอน' แล้ว Gemini จะสร้างฟีดแยกเป็นแท็บบนหน้าแรกให้ สร้างได้หลายฟีด เริ่มทยอยเปิดเดือนหน้า ฝั่งครีเอเตอร์ได้ผู้ช่วยวิเคราะห์บทและดราฟต์ตัดต่อเพื่อแนะนำจังหวะเล่าเรื่องจากสถิติช่องตัวเอง ทดสอบวิดีโอพร้อมกันได้ 3 เวอร์ชัน ปกคลิปที่เลือกโชว์ภาพที่เหมาะกับแต่ละคนจาก 3 ภาพ และแปลไลฟ์สดอังกฤษเป็นสเปนแบบอัตโนมัติ",
+    "category": "product",
+    "importance": "normal",
+    "url": "https://techcrunch.com/2026/09/23/youtube-will-let-you-build-your-own-algorithm-with-ai/"
+  },
+  {
+    "source": "TechCrunch",
+    "title_th": "Enveda ระดมทุน 311 ล้านดอลลาร์ มูลค่าพุ่งเป็น 2 พันล้าน ใช้ AI ขุดหายาใหม่จากพืชและจุลินทรีย์",
+    "summary_th": "รอบ Series E นำโดย Catalio Capital ทำให้มูลค่าบริษัทเพิ่มเท่าตัวจาก 12 เดือนก่อน Enveda ใช้ AI หาสารออกฤทธิ์จากธรรมชาติแทนการสังเคราะห์ในแล็บ ตอนนี้มียาหลายตัวอยู่ในขั้นทดลองกับคน ทั้งยารักษาโรคผิวหนังรุนแรง และยาช่วยคุมน้ำหนักไม่ให้เด้งกลับหลังเลิกใช้ยากลุ่ม GLP-1",
+    "category": "funding",
+    "importance": "normal",
+    "url": "https://techcrunch.com/2026/09/23/enveda-secures-311m-to-bring-more-nature-derived-ai-drugs-into-clinical-trials/"
+  },
+  {
+    "source": "Spaceflight Now",
+    "title_th": "SpaceX ประกอบ Starship ซ้อนบน Super Heavy ครบลำ สูง 124 เมตร พร้อมยิงเข้าวงโคจรจริงครั้งแรกเร็วสุด 28 ก.ย.",
+    "summary_th": "เช้าวันที่ 23 ก.ย. แขนกลของหอปล่อยยกยาน Ship 41 สูง 52 เมตรขึ้นวางบนบูสเตอร์ B21 ที่ Starbase รัฐเท็กซัส ภารกิจ Flight 14 จะปล่อยดาวเทียม Starlink V3 รุ่นใหม่ 26 ดวง ใช้เวลาเกือบ 10 ชั่วโมง ตั้งเป้ายิง 19:15 น. เวลาไทยของวันที่ 28 ก.ย. แต่ยังต้องรอใบอนุญาตจาก FAA",
+    "category": "space",
+    "importance": "normal",
+    "url": "https://spaceflightnow.com/2026/09/23/spacex-stack-starship-and-super-heavy-for-first-orbital-flight/",
+    "context_th": "ต่อจากที่ SpaceX ลากบูสเตอร์ Super Heavy เข้าแท่นปล่อยเมื่อไม่กี่วันก่อน (ข่าว 22 ก.ย.)"
+  },
+  {
+    "source": "Space.com",
+    "title_th": "ภารกิจ Crew-13 ส่ง 4 นักบินอวกาศขึ้น ISS เลื่อนเป็น 1 ต.ค. หลังเจอรอยรั่วสารออกซิไดเซอร์ในยาน Dragon",
+    "summary_th": "เดิมกำหนดยิง 12 ก.ย. แต่ตรวจพบรอยรั่วในระบบขับเคลื่อนของยาน Dragon ตั้งแต่ 29 ส.ค. จนต้องเปลี่ยนวาล์ว ตอนนี้ตั้งเป้าปล่อยจากศูนย์อวกาศเคนเนดี 1 ต.ค. เวลา 22:10 น. ตามเวลาไทย ถึงสถานีราว 9 ชั่วโมงต่อมา ลูกเรือมี Jessica Watkins และ Luke Delaney จาก NASA, Josh Kutryk จากแคนาดา และ Sergey Teteryatnikov จากรัสเซีย จะอยู่บนสถานีราว 7 เดือน",
+    "category": "space",
+    "importance": "normal",
+    "url": "https://www.space.com/space-exploration/launches-spacecraft/spacexs-next-astronaut-launch-for-nasa-now-set-for-oct-1-after-delay"
+  }
+]
