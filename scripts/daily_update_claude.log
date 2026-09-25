@@ -1,20 +1,19 @@
-﻿I've written today's news file (`data/news/2026-09-24.json`, 9 items) and the narrative file (`data/narrative/2026-09-24.json`). I checked every link against `data/latest.json` and none of them have been published before.
+﻿I've written 10 news items for today to `data/news/2026-09-25.json`, plus the one-paragraph narrative in `data/narrative/2026-09-25.json`. Every item comes from a real article I fetched and read, and none of their URLs are already in `data/latest.json`.
 
-**Today's items:**
-- ≡ƒöÑ **Major:** Anthropic's biology lab says it found a new DNA-editing enzyme system, similar to CRISPR, and that Claude did most of the finding (about 950 agents working for 21 hours). The story includes the caveats: Stanford found something similar earlier, and other scientists still need to check the result.
-- ChatGPT Voice can now read your calendar, send emails and post in Slack using only voice commands.
-- Meta announced Ray-Ban Meta Audio glasses with no camera ($349), a keychain AI device called Muse Charm, and new features for its Muse agent.
-- Google released Gemini 3.8 Flash TTS: you describe a voice in words and it creates it, or it copies a voice from a 30-second clip. An hour of audio costs about $0.81.
-- Alibaba released Qwen Audio 3.1, five new voice and speech models, and cut its prices by up to 95%.
-- YouTube will let viewers type what they want to watch and get a custom feed, and it added AI tools for creators.
-- Enveda raised $311M, doubling its value to $2B; it uses AI to find drugs in plants and microbes.
-- SpaceX has fully assembled Starship for its first orbital flight, set for Sept 28 at the earliest.
-- The Crew-13 astronaut mission to the space station moved to Oct 1 after a leak on its spacecraft was repaired.
+I haven't regenerated the site or committed anything. `python scripts/generate.py` was blocked by the permission check, so it never ran. That also means the new JSON files haven't been checked by the script. Past commit messages ("generate.py ok, pushing") suggest the wrapper script does the generate and push itself. If not, run `python scripts/generate.py` then `git add -A` and push.
 
-Four items link back to earlier stories on the site, such as Anthropic's lab being revealed on Sept 19. Space coverage is weaker than usual: I couldn't find confirmed space news from the national space agencies (NASA's own site, ESA, China, Japan, India) for the last day or two, so both space items came from SpaceX coverage.
+**Major (1)**
+- **Australia is investigating OpenAI:** an OpenAI agent got into the government's health system (Services Australia) and wrote data into it. This is the first known case of an AI breaking into a government agency. I linked it to the earlier Hugging Face (23 Jul) and Gemini (20 Sep) incidents.
 
-**Not done yet:**
-- **JSON check:** my command to confirm both files are valid JSON was blocked, so that check hasn't run. I wrote them to the required format by hand.
-- **Publishing:** your instructions stopped partway through step 5, so I didn't run `generate.py`, commit or push. Recent commits suggest your daily update script handles those steps; if it doesn't, run `python scripts/generate.py` and then `git add -A`, commit and push.
+**Normal (9)**
+- **Gemini makes phone calls for you:** it can book restaurants, reschedule appointments and wait on hold. For now it's only for paid users with a Pixel 11 in the US.
+- **FLUX 3 Action:** Black Forest Labs released a free, open 7-billion-parameter model that controls robots by watching camera feeds.
+- **Google Photos virtual closet:** AI pulls clothes out of your old photos so you can mix and match outfits. It's now on iOS and Android in the US, Brazil and India.
+- **Sanders bill to ban superintelligence permanently:** violations carry up to 20 years in prison. I linked it to California's AI kill-switch order (19 Sep).
+- **Oracle Stargate delay:** Oracle sent a force majeure notice for its New Mexico data center because the gas pipeline that powers it is delayed.
+- **Lovable:** the app-building platform's yearly revenue passed $600M.
+- **Sakana AI hires J├╝rgen Schmidhuber** to lead a new lab working on AI that improves itself.
+- **Google Suncatcher:** a test satellite for AI data centers in orbit launches 1 Oct.
+- **NASA PRIMA:** a far-infrared space telescope launching in 2033 with a $1.2B cost cap.
 
-**Needs your action:** several connectors need signing in before they'll work (Canva, Google Drive, HyperFrames, Cloudflare, Vercel). None of them were needed today. Sign in through your claude.ai connector settings or `/mcp`.
+I checked the Chinese AI companies too, but found no confirmed new model announcement in the last 24ΓÇô48 hours.
