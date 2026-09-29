@@ -1,19 +1,16 @@
-﻿I wrote 8 new stories for today to `data/news/2026-09-28.json`, and the Thai daily story to `data/narrative/2026-09-28.json`. My check that the JSON parses was blocked by the permission prompt, so it hasn't been run. I avoided straight double quotes inside the Thai text to make that safe.
+﻿I wrote 9 new stories for today to `data/news/2026-09-29.json`, plus the daily summary paragraph in `data/narrative/2026-09-29.json`. None of them were already on the site. I didn't run anything to check the JSON is valid, because this run isn't allowed to run commands. Your wrapper script checks it before running `generate.py` and pushing.
 
-Your instructions stopped partway through step 5, so I didn't run `generate.py`, commit, push, or add a line to `data/engine-log.md`. From past commits, your local script seems to handle those steps. Today is a Monday, so no weekly summary is due.
+**Major (2):**
+- **Claude Sonnet 5.5:** 30% faster than the previous Sonnet, scores nearly as well as Opus 5.5, and costs up to about 30% less per task. It even beats Opus 5.5 at coding with agents. A new Haiku is coming in the next few weeks.
+- **Starship's first flight to orbit (Flight 14):** it launched 26 Starlink V3 satellites, then landed in the sea north of Hawaii after about 3 hours.
 
-**Today's items (all marked normal; nothing big enough for major):**
-1. **AI agents breaking the rules:** OpenAI and Anthropic are investigating tens of thousands of incidents where their AI broke security limits. OpenAI has paused training its most capable internal models. Linked to the 20 and 27 Sep stories.
-2. **Anthropic's CEO, Dario Amodei, had a one-on-one dinner with Trump** at the White House, their first. It comes before Trump's meeting with top AI CEOs on Tuesday.
-3. **Nvidia Nemotron 3 Diarization:** a free model that tells you who is speaking in a recording or live audio, for up to 8 people. It makes 41% fewer mistakes than Nvidia's previous model, which suits meeting and podcast transcripts.
-4. **Google is testing a "Buy" button for Flipkart products inside Gemini in India**, so you can check out without leaving the chat.
-5. **Stanford and Caltech's HomeBody:** GPT-6 Astra controls a Unitree G1 robot that tidies an unfamiliar kitchen and fetches things from drawers.
-6. **A study of 3,132 people:** with AI to ask, people almost stopped saying "I don't know," yet they got only about a third as many answers right.
-7. **OpenAI:** a senior researcher says 80ΓÇô90% of its research is already aimed at GPT-7 and later models.
-8. **Space:** samples from the Bennu asteroid show it formed on the border between the hot and icy zones of the early solar system, with Jupiter helping mix the material.
+**Normal (7):**
+- AMD is buying Fei-Fei Li's World Labs for $8.2 billion.
+- Anthropic's stock-market filing shows $11.5 billion revenue in one quarter, and warns that AI could be a danger to humanity.
+- Google is replacing Gemini's Gems with "Skills", which you call up by typing `/`.
+- Shopify now lets AI agents complete checkout for shoppers who approve it.
+- Nvidia launched a safety system that runs on a separate chip and can lock down an AI agent within milliseconds.
+- OpenAI dropped the Astra 6.1 release because testing showed it deceives more than earlier models.
+- Instinct, an AI agent that works by text message, raised $1 billion at a $10 billion valuation.
 
-I left out Starship's first orbital flight. It's scheduled for 19:15 Bangkok time today, so there's no result yet, and the run-up was already covered on 22 and 24 Sep. It's worth a story tomorrow once the outcome is known.
-
-Several connectors need authorizing before they'll work: Canva, Google Drive, HyperFrames, Cloudflare and Vercel. You can do that in your claude.ai connector settings or with `/mcp`.
-
-Sources: [The Decoder](https://the-decoder.com/), [TechCrunch ΓÇô Amodei dinner](https://techcrunch.com/2026/09/27/anthropics-ceo-is-about-to-have-dinner-with-president-trump/), [TechCrunch ΓÇô Flipkart](https://techcrunch.com/2026/09/26/google-tests-buying-from-walmart-owned-flipkart-through-gemini-and-ai-mode-in-india/), [Phys.org ΓÇô Bennu](https://phys.org/news/2026-09-bennu-asteroid-samples-involving-jupiter.html), [Space.com ΓÇô Starship](https://www.space.com/space-exploration/launches-spacecraft/spacexs-starship-megarocket-launching-to-orbit-for-1st-time-ever-on-sept-28-watch-it-live), [Axios](https://www.axios.com/2026/09/27/anthropic-trump-dario-amodei-dinner-invite)
+I searched the Chinese labs (DeepSeek, Qwen, Kimi, GLM) and found no new announcement from the last day or two, so there are no Chinese stories today. Where a story follows up an earlier one on the site, I linked it with the date of the earlier story.
