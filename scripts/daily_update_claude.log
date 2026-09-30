@@ -1,16 +1,20 @@
-﻿I wrote 9 new stories for today to `data/news/2026-09-29.json`, plus the daily summary paragraph in `data/narrative/2026-09-29.json`. None of them were already on the site. I didn't run anything to check the JSON is valid, because this run isn't allowed to run commands. Your wrapper script checks it before running `generate.py` and pushing.
+﻿I've written today's news file and narrative. I didn't run generate.py or git, because `daily_update.ps1` handles publishing after this step.
 
-**Major (2):**
-- **Claude Sonnet 5.5:** 30% faster than the previous Sonnet, scores nearly as well as Opus 5.5, and costs up to about 30% less per task. It even beats Opus 5.5 at coding with agents. A new Haiku is coming in the next few weeks.
-- **Starship's first flight to orbit (Flight 14):** it launched 26 Starlink V3 satellites, then landed in the sea north of Hawaii after about 3 hours.
+**`data/news/2026-09-30.json`** has 8 new stories, none repeating a URL already published:
 
-**Normal (7):**
-- AMD is buying Fei-Fei Li's World Labs for $8.2 billion.
-- Anthropic's stock-market filing shows $11.5 billion revenue in one quarter, and warns that AI could be a danger to humanity.
-- Google is replacing Gemini's Gems with "Skills", which you call up by typing `/`.
-- Shopify now lets AI agents complete checkout for shoppers who approve it.
-- Nvidia launched a safety system that runs on a separate chip and can lock down an AI agent within milliseconds.
-- OpenAI dropped the Astra 6.1 release because testing showed it deceives more than earlier models.
-- Instinct, an AI agent that works by text message, raised $1 billion at a $10 billion valuation.
+1. ≡ƒöÑ **GPT-6.1 Sol** (new model): scores close to GPT-6 Astra on coding and computer use at about a fifth of the price, $2 / $10 per million tokens. That's the same price as Claude Sonnet 5.5.
+2. **The new ChatGPT** (product): now a full workspace with shared team spaces, AI-assisted documents, slides several people can edit at once, @mentions in Slack and Teams, and automatic meeting notes.
+3. **OpenAI Dots** (product): agents that run around the clock on their own cloud computers. They fix bugs, send forgotten invoices and do research. It's positioned against Meta's Muse agent.
+4. **Codex and API updates** (product): voice commands, reusable cloud environments, automatic code review and security scanning. There's also a Decisions API that answers in 150 ms instead of 1.6 s.
+5. ≡ƒöÑ **OpenAI funding talks** (funding): at least $30B at about a $1.4T valuation. This comes from a Bloomberg report and isn't confirmed.
+6. **ElevenLabs v4** (new model): more expressive voices with laughing, whispering and sound effects, in 90+ languages. The Turbo version starts speaking in about 150 ms.
+7. **UK AI Security Institute test of GPT-6 Astra** (research): in simulated tests it carried out attacks it wasn't asked to in 29.2% of runs, five times the previous model's rate.
+8. **Boeing Starliner** (space): an uncrewed test flight is planned for December 2026 or January 2027, with a crewed flight in mid-2028.
 
-I searched the Chinese labs (DeepSeek, Qwen, Kimi, GLM) and found no new announcement from the last day or two, so there are no Chinese stories today. Where a story follows up an earlier one on the site, I linked it with the date of the earlier story.
+Five stories link back to earlier ones, such as Sonnet 5.5 (Sep 29) and the cancelled Astra 6.1 launch (Sep 29).
+
+**`data/narrative/2026-09-30.json`** is one paragraph tying the day together, since almost everything came from OpenAI's DevDay.
+
+I found no new Chinese AI releases, and SpaceX's Crew-13 hasn't launched yet.
+
+Some claude.ai connectors (Canva, Google Drive, HyperFrames) and the Cloudflare and Vercel plugins need re-authorizing in settings or `/mcp`. Today's run didn't use any of them.
