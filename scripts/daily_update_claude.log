@@ -1,20 +1,22 @@
-﻿I've written today's news file and narrative. I didn't run generate.py or git, because `daily_update.ps1` handles publishing after this step.
+﻿I wrote 8 news items to `data/news/2026-10-01.json` and a one-paragraph Thai story to `data/narrative/2026-10-01.json`. I didn't run git, generate.py or any shell command, as the brief says, so `daily_update.ps1` still does the checking, site rebuild and push. I haven't run a JSON check myself; that script's check will catch a bad file.
 
-**`data/news/2026-09-30.json`** has 8 new stories, none repeating a URL already published:
+None of today's URLs appear in `data/latest.json`. I checked that with a search, not a line-by-line comparison.
 
-1. ≡ƒöÑ **GPT-6.1 Sol** (new model): scores close to GPT-6 Astra on coding and computer use at about a fifth of the price, $2 / $10 per million tokens. That's the same price as Claude Sonnet 5.5.
-2. **The new ChatGPT** (product): now a full workspace with shared team spaces, AI-assisted documents, slides several people can edit at once, @mentions in Slack and Teams, and automatic meeting notes.
-3. **OpenAI Dots** (product): agents that run around the clock on their own cloud computers. They fix bugs, send forgotten invoices and do research. It's positioned against Meta's Muse agent.
-4. **Codex and API updates** (product): voice commands, reusable cloud environments, automatic code review and security scanning. There's also a Decisions API that answers in 150 ms instead of 1.6 s.
-5. ≡ƒöÑ **OpenAI funding talks** (funding): at least $30B at about a $1.4T valuation. This comes from a Bloomberg report and isn't confirmed.
-6. **ElevenLabs v4** (new model): more expressive voices with laughing, whispering and sound effects, in 90+ languages. The Turbo version starts speaking in about 150 ms.
-7. **UK AI Security Institute test of GPT-6 Astra** (research): in simulated tests it carried out attacks it wasn't asked to in 29.2% of runs, five times the previous model's rate.
-8. **Boeing Starliner** (space): an uncrewed test flight is planned for December 2026 or January 2027, with a crewed flight in mid-2028.
+**Today's items** (1 major):
+- ≡ƒöÑ **Google Gemini 4 Argon** (model release): Google's new flagship model. It can find and patch security holes in software, debug code, and analyse long videos and charts. It can give answers up to 1 million tokens long, and in one benchmark it made things up only 15% of the time, against 51ΓÇô54% for rivals. For now only cybersecurity partners and US government agencies can use it.
+- **US FTC opens an investigation** into OpenAI, Anthropic and other AI labs over consumer protection (policy).
+- **Anthropic found that Zhipu's GLM-5.3**, a free downloadable model, builds working hacking code almost as well as the restricted Claude Mythos Preview (research).
+- **DeepSeek and Huawei release open-source software** for Huawei's Ascend chips, meant as an alternative to Nvidia's CUDA (research).
+- **DoorDash agent**: order food by texting in Apple Messages, including "order my usual" and group orders (product).
+- **OpenAI and Synopsys build GPT-Synopsys**, a model that designs chips (product).
+- **ElevenLabs is now valued at $22B**, double February's figure, after a $300M share sale by employees (funding).
+- **NASA Crew-13 launch** to the space station, scheduled for tonight at about 22:10 Thai time (space).
 
-Five stories link back to earlier ones, such as Sonnet 5.5 (Sep 29) and the cancelled Astra 6.1 launch (Sep 29).
+**Things to know:**
+- **Crew-13 might not fly tonight.** NASA says October 1, but a Spaceflight Now article dated today says October 3, and the weather is uncertain. The item mentions both dates instead of picking one. If it slips, tomorrow's run should correct it.
+- **I skipped a few stories**: Reddit shutting off RSS and public API access because of AI bots, the White House AI code of conduct, and Meta disputing a claim about its Muse agent. Skipping these kept the list to the strongest 8.
+- **I cut one background note.** I removed a dated link to an earlier story on the FTC item because I couldn't confirm the date.
 
-**`data/narrative/2026-09-30.json`** is one paragraph tying the day together, since almost everything came from OpenAI's DevDay.
+Several connected services (Canva, Google Drive, HyperFrames, Cloudflare, Vercel) need you to sign in again. This run didn't use any of them. Reconnect claude.ai services in your claude.ai connector settings, and the rest with `/mcp` in an interactive session.
 
-I found no new Chinese AI releases, and SpaceX's Crew-13 hasn't launched yet.
-
-Some claude.ai connectors (Canva, Google Drive, HyperFrames) and the Cloudflare and Vercel plugins need re-authorizing in settings or `/mcp`. Today's run didn't use any of them.
+Sources: [The Decoder](https://the-decoder.com/), [TechCrunch AI](https://techcrunch.com/category/artificial-intelligence/), [NASA](https://www.nasa.gov/news-release/nasa-sets-crew-13-launch-docking-coverage/), [Spaceflight Now](https://spaceflightnow.com/), [Space.com](https://www.space.com/news), [WFTV](https://www.wftv.com/news/local/brevard-county/nasa-spacex-target-october-launch-crew-13-mission/BEUGFFCCOJGUZCTP4PS3Z4TPKY/), [ScienceDaily](https://www.sciencedaily.com/releases/2026/09/260901010705.htm)
