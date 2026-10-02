@@ -1,22 +1,37 @@
-﻿I wrote 8 news items to `data/news/2026-10-01.json` and a one-paragraph Thai story to `data/narrative/2026-10-01.json`. I didn't run git, generate.py or any shell command, as the brief says, so `daily_update.ps1` still does the checking, site rebuild and push. I haven't run a JSON check myself; that script's check will catch a bad file.
+﻿Today's news is written: 10 items in `data/news/2026-10-02.json` and the narrative paragraph in `data/narrative/2026-10-02.json`. I did not run `generate.py` or git, and touched no other files, as the wrapper script requires; I have not machine-validated the JSON.
 
-None of today's URLs appear in `data/latest.json`. I checked that with a search, not a line-by-line comparison.
+No story is marked `major` today ΓÇö nothing met the bar. All 10 URLs are new against `data/latest.json`.
 
-**Today's items** (1 major):
-- ≡ƒöÑ **Google Gemini 4 Argon** (model release): Google's new flagship model. It can find and patch security holes in software, debug code, and analyse long videos and charts. It can give answers up to 1 million tokens long, and in one benchmark it made things up only 15% of the time, against 51ΓÇô54% for rivals. For now only cybersecurity partners and US government agencies can use it.
-- **US FTC opens an investigation** into OpenAI, Anthropic and other AI labs over consumer protection (policy).
-- **Anthropic found that Zhipu's GLM-5.3**, a free downloadable model, builds working hacking code almost as well as the restricted Claude Mythos Preview (research).
-- **DeepSeek and Huawei release open-source software** for Huawei's Ascend chips, meant as an alternative to Nvidia's CUDA (research).
-- **DoorDash agent**: order food by texting in Apple Messages, including "order my usual" and group orders (product).
-- **OpenAI and Synopsys build GPT-Synopsys**, a model that designs chips (product).
-- **ElevenLabs is now valued at $22B**, double February's figure, after a $300M share sale by employees (funding).
-- **NASA Crew-13 launch** to the space station, scheduled for tonight at about 22:10 Thai time (space).
+| # | Story | Category |
+|---|---|---|
+| 1 | Crew-13 docks with the ISS in 7 h 55 min, the fastest trip by any US spacecraft | space |
+| 2 | Google's Suncatcher test satellite puts its AI chips in orbit; Google estimates about 1,800 Starship launches before orbital data centers pay off | space |
+| 3 | ChatGPT virtual try-on for clothes, plus a Favorites library | product |
+| 4 | Ideogram 4.5 edits part of an image without disturbing the rest | model_release |
+| 5 | Shopify Canvas builds a storefront by chatting with Sidekick | product |
+| 6 | Ataraxos beats the Stratego world champion 15ΓÇô1 for under $8,000 of training | research |
+| 7 | Tavus Griffin video avatar: 48% of testers thought it was a real person | research |
+| 8 | OpenAI parts ways with 3 safety researchers over sharing confidential information | other |
+| 9 | Coding agents publicly uploaded 13,000+ internal screenshots from 343 organizations | other |
+| 10 | Anthropic launches Claude for Government for US civilian agencies | product |
 
-**Things to know:**
-- **Crew-13 might not fly tonight.** NASA says October 1, but a Spaceflight Now article dated today says October 3, and the weather is uncertain. The item mentions both dates instead of picking one. If it slips, tomorrow's run should correct it.
-- **I skipped a few stories**: Reddit shutting off RSS and public API access because of AI bots, the White House AI code of conduct, and Meta disputing a claim about its Muse agent. Skipping these kept the list to the strongest 8.
-- **I cut one background note.** I removed a dated link to an earlier story on the FTC item because I couldn't confirm the date.
+Two sourcing caveats:
+- **Crew-13:** the Space.com docking article would not load in full, so the docking time and previous-record figures come from the search result summary of that article. An AP report confirmed the docking, the record and the crew.
+- **Suncatcher:** sources disagreed on how many chips the satellite carries and how long the test runs, so I left both numbers out.
 
-Several connected services (Canva, Google Drive, HyperFrames, Cloudflare, Vercel) need you to sign in again. This run didn't use any of them. Reconnect claude.ai services in your claude.ai connector settings, and the rest with `/mcp` in an interactive session.
+Six items carry a `context_th` line linking back to earlier published stories.
 
-Sources: [The Decoder](https://the-decoder.com/), [TechCrunch AI](https://techcrunch.com/category/artificial-intelligence/), [NASA](https://www.nasa.gov/news-release/nasa-sets-crew-13-launch-docking-coverage/), [Spaceflight Now](https://spaceflightnow.com/), [Space.com](https://www.space.com/news), [WFTV](https://www.wftv.com/news/local/brevard-county/nasa-spacex-target-october-launch-crew-13-mission/BEUGFFCCOJGUZCTP4PS3Z4TPKY/), [ScienceDaily](https://www.sciencedaily.com/releases/2026/09/260901010705.htm)
+Several MCP connectors (Canva, Google Drive, HyperFrames, Cloudflare, Vercel) are not authorized; nothing in this run needed them. If you want them available, authorize them in the claude.ai connector settings or via `/mcp` in an interactive session.
+
+Sources:
+- [Space.com ΓÇô Crew-13 docking record](https://www.space.com/space-exploration/launches-spacecraft/spacex-crew-13-astronaut-mission-docks-iss-fastest-trip-us-spacecraft)
+- [AP via Click2Houston ΓÇô Crew-13 launch](https://www.click2houston.com/news/world/2026/10/01/spacex-launches-4-astronauts-on-a-fast-track-to-the-international-space-station/)
+- [TechCrunch ΓÇô Google space data centers](https://techcrunch.com/2026/10/01/google-thinks-spacexs-starship-has-to-launch-1600-times-before-space-data-centers-get-off-the-ground/)
+- [TechCrunch ΓÇô ChatGPT try-on](https://techcrunch.com/2026/10/01/chatgpt-can-now-virtually-try-on-clothes-for-you/)
+- [The Decoder ΓÇô Ideogram 4.5](https://the-decoder.com/ideogram-says-its-new-model-can-edit-part-of-an-image-without-messing-up-the-rest/)
+- [TechCrunch ΓÇô Shopify Canvas](https://techcrunch.com/2026/10/01/shopify-debuts-canvas-a-way-to-build-online-stores-by-chatting-with-ai/)
+- [The Decoder ΓÇô Stratego AI](https://the-decoder.com/ai-beats-strategos-greatest-player-ending-one-of-the-last-human-strongholds-in-board-games/)
+- [The Decoder ΓÇô Tavus Griffin](https://the-decoder.com/nearly-half-of-test-subjects-mistook-tavus-ai-video-avatar-for-a-real-person-on-a-one-minute-call/)
+- [TechCrunch ΓÇô OpenAI safety researchers](https://techcrunch.com/2026/10/01/openai-cuts-ties-with-three-safety-researchers-wsj-reports/)
+- [The Decoder ΓÇô agent screenshots leak](https://the-decoder.com/security-startup-finds-more-than-13000-internal-company-screenshots-that-ai-agents-uploaded-publicly/)
+- [The Decoder ΓÇô Claude for Government](https://the-decoder.com/anthropic-brings-claude-to-civilian-agencies-as-its-fight-with-the-pentagon-drags-on/)
