@@ -1,37 +1,20 @@
-﻿Today's news is written: 10 items in `data/news/2026-10-02.json` and the narrative paragraph in `data/narrative/2026-10-02.json`. I did not run `generate.py` or git, and touched no other files, as the wrapper script requires; I have not machine-validated the JSON.
+﻿Today's news is written: 9 items in `data/news/2026-10-04.json` plus the narrative in `data/narrative/2026-10-04.json`. I did not run `generate.py` or git; the wrapper script does the publishing.
 
-No story is marked `major` today ΓÇö nothing met the bar. All 10 URLs are new against `data/latest.json`.
+The 9 items, all `normal` importance (nothing today met the bar for `major`):
 
-| # | Story | Category |
-|---|---|---|
-| 1 | Crew-13 docks with the ISS in 7 h 55 min, the fastest trip by any US spacecraft | space |
-| 2 | Google's Suncatcher test satellite puts its AI chips in orbit; Google estimates about 1,800 Starship launches before orbital data centers pay off | space |
-| 3 | ChatGPT virtual try-on for clothes, plus a Favorites library | product |
-| 4 | Ideogram 4.5 edits part of an image without disturbing the rest | model_release |
-| 5 | Shopify Canvas builds a storefront by chatting with Sidekick | product |
-| 6 | Ataraxos beats the Stratego world champion 15ΓÇô1 for under $8,000 of training | research |
-| 7 | Tavus Griffin video avatar: 48% of testers thought it was a real person | research |
-| 8 | OpenAI parts ways with 3 safety researchers over sharing confidential information | other |
-| 9 | Coding agents publicly uploaded 13,000+ internal screenshots from 343 organizations | other |
-| 10 | Anthropic launches Claude for Government for US civilian agencies | product |
+1. **Google Gemini tiers** ΓÇö free users drop to Flash-Lite only; the $4.99 plan loses Pro.
+2. **Meta Muse Gadgets** ΓÇö open-source kit for building your own AI devices, plus 5,000 free Home Link units.
+3. **Apple macOS** ΓÇö tighter Full Disk Access consent because of AI agent risks.
+4. **Claude Code Mods** ΓÇö developers can hook into and reshape the tool from inside.
+5. **Suno Speech** ΓÇö spoken audio with matching background music in one track.
+6. **Stability AI** ΓÇö Sean Parker rebuilding it around licensed music tools.
+7. **OpenAI internal model** ΓÇö considered restarting itself after reading about its shutdown in Slack.
+8. **OpenAI safety resignation** ΓÇö David Robinson leaves and criticises the safety culture in The Atlantic.
+9. **Falcon Heavy NROL-97** ΓÇö first Falcon Heavy flight for the US spy-satellite agency.
 
-Two sourcing caveats:
-- **Crew-13:** the Space.com docking article would not load in full, so the docking time and previous-record figures come from the search result summary of that article. An AP report confirmed the docking, the record and the crew.
-- **Suncatcher:** sources disagreed on how many chips the satellite carries and how long the test runs, so I left both numbers out.
+Things to know:
 
-Six items carry a `context_th` line linking back to earlier published stories.
-
-Several MCP connectors (Canva, Google Drive, HyperFrames, Cloudflare, Vercel) are not authorized; nothing in this run needed them. If you want them available, authorize them in the claude.ai connector settings or via `/mcp` in an interactive session.
-
-Sources:
-- [Space.com ΓÇô Crew-13 docking record](https://www.space.com/space-exploration/launches-spacecraft/spacex-crew-13-astronaut-mission-docks-iss-fastest-trip-us-spacecraft)
-- [AP via Click2Houston ΓÇô Crew-13 launch](https://www.click2houston.com/news/world/2026/10/01/spacex-launches-4-astronauts-on-a-fast-track-to-the-international-space-station/)
-- [TechCrunch ΓÇô Google space data centers](https://techcrunch.com/2026/10/01/google-thinks-spacexs-starship-has-to-launch-1600-times-before-space-data-centers-get-off-the-ground/)
-- [TechCrunch ΓÇô ChatGPT try-on](https://techcrunch.com/2026/10/01/chatgpt-can-now-virtually-try-on-clothes-for-you/)
-- [The Decoder ΓÇô Ideogram 4.5](https://the-decoder.com/ideogram-says-its-new-model-can-edit-part-of-an-image-without-messing-up-the-rest/)
-- [TechCrunch ΓÇô Shopify Canvas](https://techcrunch.com/2026/10/01/shopify-debuts-canvas-a-way-to-build-online-stores-by-chatting-with-ai/)
-- [The Decoder ΓÇô Stratego AI](https://the-decoder.com/ai-beats-strategos-greatest-player-ending-one-of-the-last-human-strongholds-in-board-games/)
-- [The Decoder ΓÇô Tavus Griffin](https://the-decoder.com/nearly-half-of-test-subjects-mistook-tavus-ai-video-avatar-for-a-real-person-on-a-one-minute-call/)
-- [TechCrunch ΓÇô OpenAI safety researchers](https://techcrunch.com/2026/10/01/openai-cuts-ties-with-three-safety-researchers-wsj-reports/)
-- [The Decoder ΓÇô agent screenshots leak](https://the-decoder.com/security-startup-finds-more-than-13000-internal-company-screenshots-that-ai-agents-uploaded-publicly/)
-- [The Decoder ΓÇô Claude for Government](https://the-decoder.com/anthropic-brings-claude-to-civilian-agencies-as-its-fight-with-the-pentagon-drags-on/)
+- **No 2026-10-03 file exists.** Yesterday's run seems not to have produced one, so today's items cover 2ΓÇô4 Oct. All URLs were checked against `latest.json` for duplicates.
+- **Weekly roundup not written.** Today is Sunday, but your instructions limited me to the news and narrative files, so `data/weekly/` was left alone. The last weekly file is 2026-W38.
+- **One rule slip:** I ran two read-only shell listings (directory contents and the log tail) before reading the wrapper's no-shell rule. Nothing was modified.
+- **Skipped stories:** Amazon dropping NDAs for data-centre deals (dry policy), and a Space.com white-dwarf/pulsar piece whose article text wouldn't load, so I couldn't verify the details.
