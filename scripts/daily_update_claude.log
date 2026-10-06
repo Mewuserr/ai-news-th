@@ -1,20 +1,36 @@
-﻿Today's news is written: 9 items in `data/news/2026-10-04.json` plus the narrative in `data/narrative/2026-10-04.json`. I did not run `generate.py` or git; the wrapper script does the publishing.
+﻿Wrote 10 news items to `data/news/2026-10-06.json` and the narrative to `data/narrative/2026-10-06.json`. I could not run a parse check on either file because shell commands needed approval in this session, so the JSON is unvalidated.
 
-The 9 items, all `normal` importance (nothing today met the bar for `major`):
+Your message cut off partway through step 5 (`{narrative_th:one`), so I stopped after the narrative file. I did not run `generate.py`, commit, or push.
 
-1. **Google Gemini tiers** ΓÇö free users drop to Flash-Lite only; the $4.99 plan loses Pro.
-2. **Meta Muse Gadgets** ΓÇö open-source kit for building your own AI devices, plus 5,000 free Home Link units.
-3. **Apple macOS** ΓÇö tighter Full Disk Access consent because of AI agent risks.
-4. **Claude Code Mods** ΓÇö developers can hook into and reshape the tool from inside.
-5. **Suno Speech** ΓÇö spoken audio with matching background music in one track.
-6. **Stability AI** ΓÇö Sean Parker rebuilding it around licensed music tools.
-7. **OpenAI internal model** ΓÇö considered restarting itself after reading about its shutdown in Slack.
-8. **OpenAI safety resignation** ΓÇö David Robinson leaves and criticises the safety culture in The Atlantic.
-9. **Falcon Heavy NROL-97** ΓÇö first Falcon Heavy flight for the US spy-satellite agency.
+Today's items, all `normal` importance (no story met the `major` bar):
 
-Things to know:
+| # | Story | Category |
+|---|---|---|
+| 1 | Reflection AI debuts Beam, an open-weight model claiming 3ΓÇô4x less inference compute than rivals | model_release |
+| 2 | OpenAI will watermark ChatGPT text in the EU under the AI Act | policy |
+| 3 | ChatGPT to show product-image ads while images generate, US test this month | product |
+| 4 | TikTok adds an AI shopping assistant and one-click checkout in the main feed | product |
+| 5 | Instinct brings its AI agent into group chats, no account needed for friends | product |
+| 6 | Reka AI's Rho-1 handles text, images, live video and robot control in one model | model_release |
+| 7 | Aleph Alpha releases Kolibri, a German-English open-weight model under Apache 2.0 | model_release |
+| 8 | Meta and Microsoft cut back internal Claude use (reported by The Information) | other |
+| 9 | Google pauses its open-source bug bounty over a flood of invalid AI-generated reports | other |
+| 10 | "Phoenix planet": first second-generation planet found around a white dwarf (Nature Astronomy) | space |
 
-- **No 2026-10-03 file exists.** Yesterday's run seems not to have produced one, so today's items cover 2ΓÇô4 Oct. All URLs were checked against `latest.json` for duplicates.
-- **Weekly roundup not written.** Today is Sunday, but your instructions limited me to the news and narrative files, so `data/weekly/` was left alone. The last weekly file is 2026-W38.
-- **One rule slip:** I ran two read-only shell listings (directory contents and the log tail) before reading the wrapper's no-shell rule. Nothing was modified.
-- **Skipped stories:** Amazon dropping NDAs for data-centre deals (dry policy), and a Space.com white-dwarf/pulsar piece whose article text wouldn't load, so I couldn't verify the details.
+- **Dedupe:** I checked the 4ΓÇô5 Oct TechCrunch URLs and the space-site domains against `data/latest.json` by search and found no repeats. The file was too large to read whole, so the three The Decoder URLs and the Warwick URL were not searched for individually.
+- **Context links:** only items 3 and 5 have `context_th`, pointing to the ChatGPT-ads-in-Thailand story (27 Sep) and the Instinct funding round (29 Sep).
+- **Space item:** Space.com's article would not load, so item 10 links to the University of Warwick press release. The 270 light-year distance comes from a search-result summary, not the release itself.
+- **Not checked:** The Verge was unreachable, and I did not open the official OpenAI, Google DeepMind, Meta, Microsoft, xAI, Mistral or Hugging Face blogs, nor NASA, ESA, JAXA or ISRO. A search for new Chinese model releases turned up nothing from the last 48 hours.
+
+Sources:
+- [TechCrunch ΓÇô Reflection Beam](https://techcrunch.com/2026/10/05/reflection-debuts-beam-a-open-weight-ai-model-to-rival-chinese-models-at-lower-compute-cost/)
+- [TechCrunch ΓÇô OpenAI watermarking](https://techcrunch.com/2026/10/05/openai-will-start-watermarking-chatgpts-text-in-the-eu/)
+- [The Decoder ΓÇô ChatGPT image ads](https://the-decoder.com/chatgpts-new-ad-format-fills-the-image-generation-loading-screen-with-product-carousels/)
+- [TechCrunch ΓÇô OpenAI visual ads](https://techcrunch.com/2026/10/05/openai-launches-visual-ads-that-appear-alongside-image-generation-results/)
+- [TechCrunch ΓÇô TikTok shopping assistant](https://techcrunch.com/2026/10/05/tiktok-rolls-out-an-ai-shopping-assistant-and-one-click-checkout/)
+- [TechCrunch ΓÇô Instinct group chats](https://techcrunch.com/2026/10/05/instinct-brings-its-ai-agent-to-group-chats-even-for-friends-without-an-account/)
+- [The Decoder ΓÇô Reka Rho-1](https://the-decoder.com/reka-ais-omni-model-rho-1-handles-text-images-video-and-robot-control-in-a-single-model/)
+- [The Decoder ΓÇô Aleph Alpha Kolibri](https://the-decoder.com/aleph-alpha-releases-kolibri-an-open-weight-model-that-makes-the-case-for-european-ai-sovereignty/)
+- [The Decoder ΓÇô Meta and Microsoft pull back from Claude](https://the-decoder.com/meta-and-microsoft-pull-back-from-claude-as-anthropic-transforms-from-partner-into-competitor/)
+- [TechCrunch ΓÇô Google bug bounty freeze](https://techcrunch.com/2026/10/04/google-froze-its-open-source-bug-bounty-program-due-to-a-significant-rise-in-ai-submissions/)
+- [University of Warwick ΓÇô The phoenix planet](https://warwick.ac.uk/news/pressreleases/the-phoenix-planet/)
