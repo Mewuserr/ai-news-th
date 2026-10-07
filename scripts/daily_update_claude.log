@@ -1,36 +1,38 @@
-﻿Wrote 10 news items to `data/news/2026-10-06.json` and the narrative to `data/narrative/2026-10-06.json`. I could not run a parse check on either file because shell commands needed approval in this session, so the JSON is unvalidated.
+﻿Today's news file and narrative are written, but I could not run a JSON parser on them: every validation command was blocked by the permission mode in this session. I wrote them without any inner double quotes in the Thai text, so they should parse, but that is unconfirmed.
 
-Your message cut off partway through step 5 (`{narrative_th:one`), so I stopped after the narrative file. I did not run `generate.py`, commit, or push.
+Your message was cut off partway through step 5 (`{narrative_th:one`), so I stopped after the narrative file. I did not run `generate.py`, commit, push, or append to `data/engine-log.md`.
 
-Today's items, all `normal` importance (no story met the `major` bar):
+**`data/news/2026-10-07.json`** has 10 items (1 major, 9 normal), none of whose URLs appear in the daily files since 20 Sep. I checked against `data/news/*.json` because `data/latest.json` is too large to read in one go.
 
-| # | Story | Category |
-|---|---|---|
-| 1 | Reflection AI debuts Beam, an open-weight model claiming 3ΓÇô4x less inference compute than rivals | model_release |
-| 2 | OpenAI will watermark ChatGPT text in the EU under the AI Act | policy |
-| 3 | ChatGPT to show product-image ads while images generate, US test this month | product |
-| 4 | TikTok adds an AI shopping assistant and one-click checkout in the main feed | product |
-| 5 | Instinct brings its AI agent into group chats, no account needed for friends | product |
-| 6 | Reka AI's Rho-1 handles text, images, live video and robot control in one model | model_release |
-| 7 | Aleph Alpha releases Kolibri, a German-English open-weight model under Apache 2.0 | model_release |
-| 8 | Meta and Microsoft cut back internal Claude use (reported by The Information) | other |
-| 9 | Google pauses its open-source bug bounty over a flood of invalid AI-generated reports | other |
-| 10 | "Phoenix planet": first second-generation planet found around a white dwarf (Nature Astronomy) | space |
+| # | Story | Category | Importance |
+|---|---|---|---|
+| 1 | Nobel Prize in Physics to Francis Halzen for the IceCube neutrino observatory | space | major |
+| 2 | Mistral Large 4, a trillion-parameter model pitched at security work that Claude and GPT-6 refuse | model_release | normal |
+| 3 | Google Nano Banana 2.1: up to 14 reference images, 4 consistent characters, half the price | product | normal |
+| 4 | Wikimedia confirms OpenAI agents edited wikis and hammered its servers | other | normal |
+| 5 | Underdog, a free on-device AI assistant | product | normal |
+| 6 | Pinterest Beauty Guides turns hair and nail Pins into salon terms with price and time estimates | product | normal |
+| 7 | DeepSeek round of $12ΓÇô15B led by CATL and Tencent (Bloomberg report, unconfirmed by the companies) | funding | normal |
+| 8 | South Korea budgets $3.49B for a homegrown frontier model | policy | normal |
+| 9 | Lambda raising up to $4B, backed by a $35B Anthropic contract | funding | normal |
+| 10 | Crew-12 returning after nearly 8 months; Sophie Adenot sets a European duration record | space | normal |
 
-- **Dedupe:** I checked the 4ΓÇô5 Oct TechCrunch URLs and the space-site domains against `data/latest.json` by search and found no repeats. The file was too large to read whole, so the three The Decoder URLs and the Warwick URL were not searched for individually.
-- **Context links:** only items 3 and 5 have `context_th`, pointing to the ChatGPT-ads-in-Thailand story (27 Sep) and the Instinct funding round (29 Sep).
-- **Space item:** Space.com's article would not load, so item 10 links to the University of Warwick press release. The 270 light-year distance comes from a search-result summary, not the release itself.
-- **Not checked:** The Verge was unreachable, and I did not open the official OpenAI, Google DeepMind, Meta, Microsoft, xAI, Mistral or Hugging Face blogs, nor NASA, ESA, JAXA or ISRO. A search for new Chinese model releases turned up nothing from the last 48 hours.
+Four items carry a `context_th` link to an earlier story (27 Sep or 2 Oct).
+
+**`data/narrative/2026-10-07.json`** is one paragraph tying all ten together.
+
+- **Importance calls:** the DeepSeek and Lambda rounds are billion-dollar size, which your criteria would allow as major, but both rest on anonymous-source reports, so I left them normal.
+- **Crew-12 timing:** the item is written as scheduled, not completed ΓÇö undocking 7 Oct 19:05 and splashdown 8 Oct 22:34 Thai time, per ESA.
+- **Sources I couldn't use:** The Verge and Ars Technica are blocked to the search tool, and Space.com article bodies came back empty. The Nobel and Crew-12 items therefore use Scientific American and ESA instead.
 
 Sources:
-- [TechCrunch ΓÇô Reflection Beam](https://techcrunch.com/2026/10/05/reflection-debuts-beam-a-open-weight-ai-model-to-rival-chinese-models-at-lower-compute-cost/)
-- [TechCrunch ΓÇô OpenAI watermarking](https://techcrunch.com/2026/10/05/openai-will-start-watermarking-chatgpts-text-in-the-eu/)
-- [The Decoder ΓÇô ChatGPT image ads](https://the-decoder.com/chatgpts-new-ad-format-fills-the-image-generation-loading-screen-with-product-carousels/)
-- [TechCrunch ΓÇô OpenAI visual ads](https://techcrunch.com/2026/10/05/openai-launches-visual-ads-that-appear-alongside-image-generation-results/)
-- [TechCrunch ΓÇô TikTok shopping assistant](https://techcrunch.com/2026/10/05/tiktok-rolls-out-an-ai-shopping-assistant-and-one-click-checkout/)
-- [TechCrunch ΓÇô Instinct group chats](https://techcrunch.com/2026/10/05/instinct-brings-its-ai-agent-to-group-chats-even-for-friends-without-an-account/)
-- [The Decoder ΓÇô Reka Rho-1](https://the-decoder.com/reka-ais-omni-model-rho-1-handles-text-images-video-and-robot-control-in-a-single-model/)
-- [The Decoder ΓÇô Aleph Alpha Kolibri](https://the-decoder.com/aleph-alpha-releases-kolibri-an-open-weight-model-that-makes-the-case-for-european-ai-sovereignty/)
-- [The Decoder ΓÇô Meta and Microsoft pull back from Claude](https://the-decoder.com/meta-and-microsoft-pull-back-from-claude-as-anthropic-transforms-from-partner-into-competitor/)
-- [TechCrunch ΓÇô Google bug bounty freeze](https://techcrunch.com/2026/10/04/google-froze-its-open-source-bug-bounty-program-due-to-a-significant-rise-in-ai-submissions/)
-- [University of Warwick ΓÇô The phoenix planet](https://warwick.ac.uk/news/pressreleases/the-phoenix-planet/)
+- [Scientific American ΓÇô Nobel Physics 2026](https://www.scientificamerican.com/article/2026-nobel-prize-in-physics-awarded-to-francis-halzen-for-discovery-of-high-energy-neutrinos/)
+- [The Decoder ΓÇô Mistral Large 4](https://the-decoder.com/mistral-large-4-is-said-to-be-the-most-powerful-open-ai-model-from-europe-and-the-u-s/)
+- [The Decoder ΓÇô Nano Banana 2.1](https://the-decoder.com/googles-new-image-model-nano-banana-2-1-generates-better-images-for-less-money/)
+- [The Decoder ΓÇô Wikimedia / OpenAI agents](https://the-decoder.com/wikimedia-confirms-openais-rogue-ai-agents-edited-wikis-tried-to-compromise-tools-and-hammered-its-infrastructure/)
+- [TechCrunch ΓÇô Underdog](https://techcrunch.com/2026/10/06/silicon-valleys-ai-wunderkind-launches-underdog-the-most-private-instinct-muse-competitor-yet/)
+- [TechCrunch ΓÇô Pinterest Beauty Guides](https://techcrunch.com/2026/10/06/pinterests-ai-now-turns-beauty-pins-into-action-plans/)
+- [The Decoder ΓÇô DeepSeek funding](https://the-decoder.com/catl-and-tencent-back-deepseeks-ballooning-funding-round-as-the-ai-startup-eyes-a-2027-ipo/)
+- [The Decoder ΓÇô South Korea](https://the-decoder.com/south-korea-bets-3-49-billion-on-building-a-homegrown-frontier-ai-model-to-rival-chinas-best/)
+- [TechCrunch ΓÇô Lambda](https://techcrunch.com/2026/10/06/ai-computing-startup-lambda-to-raise-4b-ahead-of-planned-ipo/)
+- [ESA ΓÇô Crew-12 return](https://www.esa.int/Science_Exploration/Human_and_Robotic_Exploration/epsilon/Watch_Sophie_Adenot_return_to_Earth)
