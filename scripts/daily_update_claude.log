@@ -1,20 +1,22 @@
-﻿Today's news file (10 items) and narrative are written to `data/news/2026-10-08.json` and `data/narrative/2026-10-08.json`. I did not run `generate.py`, commit or push, and I couldn't machine-validate the JSON because Python commands need approval in this session.
+﻿Today's news is written: 10 new items in `data/news/2026-10-09.json` and the narrative in `data/narrative/2026-10-09.json`. I could not run a JSON parse check because Python commands are blocked in this session, and I did not run `generate.py`, commit or push.
 
-Your message was cut off partway through step 5, so I wrote the narrative using the schema in `engine-prompt.md` and stopped there. If the missing steps included generate/commit/push or the engine log, those still need to run.
+Your instructions cut off mid-step 5 (at `{narrative_th:one`), so I stopped after the narrative file. I assumed the wrapper script handles the remaining steps, as in previous days' commits.
 
-Items written (one major, nine normal):
+The 10 items, all `normal` importance (nothing today met the `major` bar):
 
-1. **ChatGPT with GPT-6 "Intelligent UI"** (major) ΓÇö answers as interactive charts, buttons, forms and mini apps; rolling out to all users.
-2. **Claude Haiku 5.5** ΓÇö Anthropic's small model at $0.10 per million input tokens, down from $1.00.
-3. **Google's Gemini "coworker" agents** ΓÇö run multi-day tasks and get their own email, calendar and Drive.
-4. **Claude inside Google Docs, Sheets and Slides** ΓÇö beta sidebar on all paid plans.
-5. **Google Playground** ΓÇö type a description to build a browser game, free, US adults only.
-6. **SynthID detector goes public** ΓÇö upload an image, video or audio file to check for Google's watermark.
-7. **Anthropic's expanded Cyber Verification Program** ΓÇö three access tiers for verified security teams.
-8. **South Korean bank breaches** ΓÇö CrowdStrike links a likely single attacker to AI-driven hacking tools.
-9. **Biohub's $1.8 billion push** ΓÇö AI models that predict cell behaviour, with Meta, Google DeepMind and US agencies.
-10. **MIT finds a red dwarf slowly consuming a brown dwarf** ΓÇö about 300 light years away.
+| # | Story | Category |
+|---|---|---|
+| 1 | NASA releases 800+ GB of Artemis II lunar science data | space |
+| 2 | Google's Foresight, an offline meeting note-taker for Mac | product |
+| 3 | Microsoft prices its Nvidia RTX Spark PCs, from $2,600 | product |
+| 4 | Common Sense Media rates ChatGPT for Teens an "unacceptable risk"; OpenAI disputes it | other |
+| 5 | Meta's Muse agent arrives on iPad with new work-tool connectors | product |
+| 6 | Natura's $99 smart ring for talking to AI agents | product |
+| 7 | Manus raises over $500M, its first round since the Meta deal was unwound | funding |
+| 8 | Goodfire's "inside-out" monitors for AI agents | product |
+| 9 | Anthropic commits $150M over three years to the Genesis Mission | policy |
+| 10 | Crew-12 splashes down after 237 days on the space station | space |
 
-- **Dedupe:** `data/latest.json` is too large to read in one go, so I deduped by searching it and the recent daily files for each candidate URL and topic; none matched.
-- **Sourcing:** TechCrunch, The Verge, Ars Technica and openai.com could not be fetched, so the ChatGPT and SynthID items cite The Decoder instead. The space item cites FOX 13's report of the MIT release, not MIT directly.
-- **Skipped:** two SpaceNews stories (Artemis 2 science data, ESA heavy-lift rocket study) were paywalled after the first paragraph, and the Crew-12 splashdown had not happened yet.
+- **Dedupe:** I checked candidates against `data/latest.json` by URL and by topic keyword rather than loading the whole file, which was too large to read in one go. None of the 10 URLs is already published.
+- **Context links:** only the Muse and Crew-12 items carry `context_th`, each pointing to an earlier story that is in `latest.json`.
+- **Sources not reached:** The Verge and openai.com blocked fetching.
