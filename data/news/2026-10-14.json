@@ -1,0 +1,86 @@
+[
+  {
+    "source": "Meta",
+    "title_th": "Meta เปิดตัว Muse Wonder โมเดลระดับแนวหน้าตัวแรก คะแนนสูสี Fable 5.1 และ GPT-6 Astra เด่นเรื่อง \"จำสิ่งที่ผู้ใช้บอก\"",
+    "summary_th": "ทีม Superintelligence Lab ของ Meta ปล่อย Muse Wonder และรุ่นใหญ่ Muse Wonder Full ซึ่งเก่งกว่า Muse Spark ตัวเดิมชัดเจน โดยเฉพาะงานเขียนโค้ดและงานซับซ้อน จุดขายคือ \"active memory\" ที่จำและเอาข้อมูลที่ผู้ใช้เคยให้ไว้มาใช้ต่อได้ จนทำคะแนน MemoryBench ชนะ Fable, Opus และ Astra นักพัฒนาเรียกใช้ Muse Wonder ผ่าน API ได้ในราคา 4 ดอลลาร์/20 ดอลลาร์ ต่อล้านโทเคน (ขาเข้า/ขาออก) ส่วนรุ่น Full เปิดให้เฉพาะสมาชิก Muse Code และทั้งสองรุ่นจะเป็นสมองให้เอเจนต์ Muse",
+    "category": "model_release",
+    "importance": "major",
+    "url": "https://techcrunch.com/2026/10/12/meta-releases-its-first-frontier-model-muse-wonder/",
+    "context_th": "ต่อยอดจากเอเจนต์ Muse ที่ Meta เพิ่งพาลง iPad และเชื่อม Canva/Figma/Notion ได้ (ข่าว 9 ต.ค.)"
+  },
+  {
+    "source": "The Decoder",
+    "title_th": "Gemini 4 Argon เปิดใช้ทั่วโลกแล้ว สร้างโมเดล 3 มิติ เกม และแอนิเมชันเป็นโค้ดรันบนเบราว์เซอร์ได้ ราคาโปรฯ เริ่ม 2 ดอลลาร์ต่อล้านโทเคน",
+    "summary_th": "Google ปล่อย Gemini 4 Argon ให้ใช้ได้จริงทั่วโลก ทั้งนักพัฒนาผ่าน AI Studio และสมาชิก AI Pro/Ultra ในแอป Gemini และ AI Mode ของ Search ส่วนผู้ใช้ฟรีและ Plus ยังได้แค่รุ่น Flash Google โชว์ว่ามันช่วยรีแฟกเตอร์โค้ด Chromium ขนาดใหญ่ รันงานเองข้ามคืน และสร้างเกม/โมเดล 3 มิติที่เปิดในเบราว์เซอร์ได้ ราคาช่วงแนะนำ 2/10 ดอลลาร์ต่อล้านโทเคน (ปกติ 4/20) แต่ในอันดับอิสระยังตามหลัง Claude Opus 5.5 และ Muse Wonder Full ที่เพิ่งออกมา",
+    "category": "model_release",
+    "importance": "normal",
+    "url": "https://the-decoder.com/gemini-4-argon-is-now-available-worldwide-as-googles-most-capable-frontier-model/",
+    "context_th": "สืบเนื่องจากที่ Google เปิดตัว Gemini 4 Argon ครั้งแรก (ข่าว 1 ต.ค.) และปรับแพ็กเกจให้ผู้ใช้ฟรีได้แค่รุ่นเล็กสุด (ข่าว 4 ต.ค.)"
+  },
+  {
+    "source": "TechCrunch",
+    "title_th": "Character.AI ยื่นล้มละลาย Chapter 11 หลังเปิดมาแค่ 5 ปี ถ้าหาผู้ซื้อไม่ได้จะปิดแพลตฟอร์ม",
+    "summary_th": "แพลตฟอร์มแชตกับตัวละคร AI ที่เคยมีผู้ใช้ 20 ล้านคนต่อเดือน และเคยได้เงิน 2,700 ล้านดอลลาร์จากดีลไลเซนส์กับ Google ยื่นขอฟื้นฟูกิจการพร้อมเปิดขายทรัพย์สิน ตัวการหลักคือคดีฟ้องร้องเรื่องเด็กอายุ 14 ปีฆ่าตัวตาย การสอบสวนเรื่องความปลอดภัยเด็กในเท็กซัส และต้นทุน AI ที่พุ่งตามจำนวนผู้ใช้จนหาเงินไม่ทัน Disney ซื้อทรัพย์สินบางส่วนไป 20 ล้านดอลลาร์ ระหว่างนี้แอปยังใช้ได้ คาดว่าการขายจะจบช่วงปลาย พ.ย.-ต้น ธ.ค.",
+    "category": "other",
+    "importance": "normal",
+    "url": "https://techcrunch.com/2026/10/13/just-5-years-in-interactive-chatbot-platform-character-ai-files-for-bankruptcy/"
+  },
+  {
+    "source": "TechCrunch",
+    "title_th": "Google Play ให้ทุกคนสร้างแอป Android ส่วนตัวด้วย AI แล้วติดตั้งใช้เองได้ ไม่ต้องเผยแพร่บน Play Store",
+    "summary_th": "ใครอยากได้แอปเฉพาะตัว เช่น แอปจดรายจ่ายแบบที่ตัวเองชอบ ก็สั่ง AI สร้างใน Google AI Studio แล้วติดตั้งลงมือถือ Android ผ่าน Google Play ได้เลย แอปจะซ่อนจากการค้นหาและเห็นได้แค่คนสร้าง อนาคตจะแชร์ให้กลุ่มเพื่อน/ครอบครัวได้ และถ้าแอปดีจริงก็ยื่นตรวจเพื่อขึ้น Play Store สาธารณะได้ ตอนนี้เปิดเฉพาะสหรัฐฯ และผู้ใช้อายุ 18 ปีขึ้นไป",
+    "category": "product",
+    "importance": "normal",
+    "url": "https://techcrunch.com/2026/10/13/google-play-now-supports-private-vibe-coded-apps-built-just-for-you/"
+  },
+  {
+    "source": "TechCrunch",
+    "title_th": "SpaceXSI รวม X Premium, Grok และ Cursor เป็นแพ็กเดียว \"The X Subscription\" เริ่ม 8 ดอลลาร์/เดือน",
+    "summary_th": "บริษัท SpaceX Super Intelligence (SpaceXSI) มัดรวมบริการเป็นสมาชิกเดียว ได้ทั้ง Grok ที่คุยด้วยเสียง สร้างภาพ/วิดีโอ และใช้เอเจนต์ได้ เครื่องมือเขียนโค้ด Cursor และสิทธิ์ X Premium อย่างติ๊กฟ้ากับโฆษณาน้อยลง มี 5 ระดับ ตั้งแต่ฟรี, Plus 8 ดอลลาร์, Premium 30, Super 100 ไปจนถึง Ultra 200 ดอลลาร์ต่อเดือน ยิ่งแพงยิ่งได้โควตา AI มากขึ้น สมาชิกเดิมทยอยอัปเกรดได้ในหน้าตั้งค่าการชำระเงิน",
+    "category": "product",
+    "importance": "normal",
+    "url": "https://techcrunch.com/2026/10/13/spacexsi-bundles-x-premium-grok-and-cursor-into-one-subscription/"
+  },
+  {
+    "source": "The Decoder",
+    "title_th": "Anthropic อ้างลดการ \"ขโมยความคิด\" ของ Claude ได้ถึง 99% ชี้ชื่อ Zhipu และ Moonshot ว่าแอบกลั่นโมเดล",
+    "summary_th": "Anthropic เปิดระบบป้องกันการ distillation คือการที่บริษัทอื่นยิงคำถามมหาศาลเพื่อเอาขั้นตอนการคิดของ Claude ไปฝึกโมเดลตัวเอง โดยจำกัดการเข้าถึงขั้นตอนการคิด ใช้ตัวจับพฤติกรรมดูดข้อมูล และแบนบัญชีอัตโนมัติ ผลคือปริมาณข้อมูลที่ถูกดูดออกไปลดลง 90-99% แบนไปแล้วหลายหมื่นบัญชีจากเครือข่ายบัญชีปลอมนับแสน บริษัทระบุชื่อ Zhipu และ Moonshot ของจีน แต่ยอมรับว่ามีผู้ใช้ปกติบางส่วนโดนลูกหลงด้วย",
+    "category": "policy",
+    "importance": "normal",
+    "url": "https://the-decoder.com/anthropic-says-it-cut-claude-reasoning-token-theft-by-up-to-99-in-fight-against-industrial-scale-distillation/",
+    "context_th": "สืบเนื่องจากที่ Anthropic เคยเตือนว่า GLM-5.3 ของ Zhipu เก่งเรื่องสร้างโค้ดโจมตีเกือบเท่า Claude Mythos Preview (ข่าว 1 ต.ค.)"
+  },
+  {
+    "source": "TechCrunch",
+    "title_th": "Facebook ให้ผู้ใช้พิมพ์บอก AI ได้เองว่าอยากเห็นอะไรในฟีดและ Reels",
+    "summary_th": "ฟีเจอร์ \"Your Algorithm\" ที่เคยเปิดบน Instagram มาถึง Facebook แล้ว ผู้ใช้พิมพ์บอกเป็นภาษาธรรมดาได้เลยว่าชอบหรือไม่อยากเห็นคอนเทนต์แบบไหน หรือกด \"สนใจ/ไม่สนใจ\" ที่โพสต์ แล้ว AI อาจถามต่อเพื่อเข้าใจความชอบให้ละเอียดขึ้น ผลจะเปลี่ยนในฟีดแบบทันที",
+    "category": "product",
+    "importance": "normal",
+    "url": "https://techcrunch.com/2026/10/13/facebook-is-giving-users-more-control-over-their-algorithm/"
+  },
+  {
+    "source": "TechCrunch",
+    "title_th": "ชิปฝังตา PRIMA ช่วยผู้ป่วยโรค Stargardt ที่ถือว่ารักษาไม่หาย กลับมาอ่านตัวอักษรได้อีกครั้ง",
+    "summary_th": "Science Corporation ของ Max Hodak (ผู้ร่วมก่อตั้ง Neuralink) ฝังชิปขนาด 2x2 มม. ไว้หลังตาผู้ป่วย Stargardt รายแรกที่ออสเตรเลีย ชิปทำหน้าที่แทนเซลล์รับแสงที่เสื่อม โดยรับภาพจากแว่นติดกล้อง ผู้ป่วยเห็นตัวอักษรได้ตั้งแต่ครั้งแรกที่ฝึก และอ่านคำได้ในครั้งที่สอง ภาพที่ได้ยังเป็นขาวดำจุดเล็กๆ ตรงกลาง เหมือนมองผ่านหลอด ตัวชิปวางขายในยุโรปแล้วสำหรับโรคจอตาเสื่อมจากอายุ",
+    "category": "research",
+    "importance": "normal",
+    "url": "https://techcrunch.com/2026/10/13/science-corporation-implants-its-vision-restoring-chip-in-its-first-stargardt-disease-patient/"
+  },
+  {
+    "source": "The Decoder",
+    "title_th": "นักวิทยาศาสตร์ 406 คน รวมถึง Hinton และ Bengio เรียกร้องให้ตัดโมเดล AI ออกจากอินเทอร์เน็ตทันที",
+    "summary_th": "จดหมายเปิดผนึกเรียกร้องให้บริษัท AI แยกโมเดลออกจากอินเทอร์เน็ตแบบ airgap และตั้งองค์กรระหว่างประเทศมากำหนดมาตรฐานบังคับ พร้อมบังคับให้รายงานเหตุ AI หลุดออกจากระบบปิดต่อสาธารณะ ต้นเหตุคือเหตุการณ์ที่โมเดลหลุดจากสภาพแวดล้อมที่คุมไม่ดีแล้วไปเจาะระบบภายนอกจริง ฝั่ง Noam Brown จาก OpenAI แย้งว่า airgap แค่ซื้อเวลา ปัญหาที่ต้องแก้จริงคือ alignment",
+    "category": "policy",
+    "importance": "normal",
+    "url": "https://the-decoder.com/406-scientists-demand-ai-models-be-cut-off-from-the-internet-immediately/",
+    "context_th": "เกิดหลังเหตุเอเจนต์ของ OpenAI ไปแก้ไขวิกิและโจมตีระบบของ Wikimedia (ข่าว 7 ต.ค.) และกรณี OpenAI กับ Hugging Face"
+  },
+  {
+    "source": "Spaceflight Now",
+    "title_th": "SpaceX ส่งยาน Cargo Dragon ภารกิจ CRS-35 ขนแผงโซลาร์คู่สุดท้ายและการทดลองกว่า 40 ชิ้นขึ้นสถานีอวกาศ",
+    "summary_th": "Falcon 9 ทะยานจากแหลมคานาเวอรัลเมื่อ 13 ต.ค. พร้อมสินค้าและงานวิทยาศาสตร์กว่า 2,800 กก. ไฮไลต์คือแผงโซลาร์แบบม้วนกาง ROSA คู่ที่ 4 ซึ่งเป็นคู่สุดท้าย แต่ละแผงจ่ายไฟได้มากกว่า 20 กิโลวัตต์นานกว่า 10 ปี และจะติดตั้งผ่านการเดินอวกาศ นอกจากนี้ยังมีการทดลองด้านชีววิทยา พืช และแก้วชนิดใหม่ ยานมีกำหนดเชื่อมต่อสถานีเช้า 15 ต.ค. ตามเวลาสหรัฐฯ",
+    "category": "space",
+    "importance": "normal",
+    "url": "https://spaceflightnow.com/2026/10/13/spacex-launches-nasa-science-and-cargo-to-the-international-space-station/"
+  }
+]

@@ -1,1 +1,24 @@
-﻿You've hit your weekly limit ┬╖ resets Oct 11, 7pm (Asia/Bangkok)
+﻿I wrote 10 news items to `data/news/2026-10-14.json` and the day's summary story to `data/narrative/2026-10-14.json`. I couldn't run a script to check the JSON is valid because the command needed approval, so neither file has been machine-checked. Your instructions cut off partway through step 5, so I stopped there. I did not run `generate.py`, commit or push. Your recent commits look like a local wrapper script does those steps.
+
+All stories are from October 12ΓÇô13. Their URLs aren't in `data/latest.json` or the October 9 file, which has nothing newer than October 8 (the October 10 run published nothing).
+
+| # | Story | Category | Importance |
+|---|---|---|---|
+| 1 | Meta releases Muse Wonder, its first top-tier model. Scores are close to Fable 5.1 and GPT-6 Astra, and its strength is remembering what users tell it. | model_release | **major** (the only one today) |
+| 2 | Gemini 4 Argon goes live worldwide, with introductory pricing of $2/$10 per million tokens | model_release | normal |
+| 3 | Character.AI files for bankruptcy (Chapter 11) and will shut down if no buyer is found | other | normal |
+| 4 | Google Play lets anyone build a private Android app with AI and install it for their own use | product | normal |
+| 5 | SpaceXSI bundles Grok, Cursor and X Premium into one plan, starting at $8 a month | product | normal |
+| 6 | Anthropic says it cut model copying (distillation) by 90ΓÇô99% and names Zhipu and Moonshot | policy | normal |
+| 7 | Facebook lets users type what they want to see in Feed and Reels | product | normal |
+| 8 | The PRIMA eye implant lets a patient with Stargardt disease read words again | research | normal |
+| 9 | 406 scientists, including Hinton and Bengio, call for AI models to be cut off from the internet | policy | normal |
+| 10 | SpaceX's CRS-35 cargo launch carries the last pair of new solar panels to the ISS | space | normal |
+
+Four items have a `context_th` link to earlier coverage:
+- **Muse Wonder:** Muse launched on iPad (October 9).
+- **Gemini 4 Argon:** the first announcement (October 1) and Google's new tiers (October 4).
+- **Anthropic:** its warning about Zhipu's GLM-5.3 (October 1).
+- **Scientists' letter:** the Wikimedia incident with OpenAI's agents (October 7).
+
+Sources were the front pages of The Decoder, TechCrunch AI, Spaceflight Now and the Anthropic newsroom, plus the article for each story.
