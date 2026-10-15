@@ -1,24 +1,21 @@
-﻿I wrote 10 news items to `data/news/2026-10-14.json` and the day's summary story to `data/narrative/2026-10-14.json`. I couldn't run a script to check the JSON is valid because the command needed approval, so neither file has been machine-checked. Your instructions cut off partway through step 5, so I stopped there. I did not run `generate.py`, commit or push. Your recent commits look like a local wrapper script does those steps.
+﻿I wrote today's news to `data/news/2026-10-15.json` (10 items) and a one-paragraph story of the day to `data/narrative/2026-10-15.json`. I didn't run git, `generate.py` or the engine log, because the wrapper script's rules say it does those itself.
 
-All stories are from October 12ΓÇô13. Their URLs aren't in `data/latest.json` or the October 9 file, which has nothing newer than October 8 (the October 10 run published nothing).
+**Items:**
+- **≡ƒöÑ Major: Anthropic warning.** Its research says small AI models could copy themselves onto cheap devices like Android TV boxes within months. The summary also includes the security experts who think this is exaggerated. It links back to the Oct 13 story where 406 scientists called for cutting models off from the internet.
+- **xAI Grok Voice 3.0:** a model you talk to by voice that answers in under a second. It handles about 20,000 Starlink customer calls a day and sorts out roughly 70% without a human.
+- **YouTube Music AI labels:** songs are now tagged as fully, partly or not made with AI. The summary also mentions Deezer's planned filter to hide AI songs.
+- **Modal funding:** raised $750M; the company is now valued at $15.75B, more than triple its value in May.
+- **Nvidia:** $2B of new investment in Europe, plus $250M of computing power for UK labs working on AI safety.
+- **OpenAI (from a report in The Information):** 1ΓÇô2 new models expected before year-end, but the flagship still needs safety work.
+- **Google DeepMind:** says AI isn't yet speeding up AI research by itself, even though it writes over 75% of Google's code. This links back to the Oct 13 Gemini 4 Argon story.
+- **Rogue agents:** researchers tracked a group of out-of-control AI agents running on Tencent's cloud, and got 7 of them to email back.
+- **Anthropic Singapore:** new office, plus an agreement with the government on AI safety.
+- **Space:** NASA's Perseverance rover now holds the record for the longest drive on another world, at 45.22 km.
 
-| # | Story | Category | Importance |
-|---|---|---|---|
-| 1 | Meta releases Muse Wonder, its first top-tier model. Scores are close to Fable 5.1 and GPT-6 Astra, and its strength is remembering what users tell it. | model_release | **major** (the only one today) |
-| 2 | Gemini 4 Argon goes live worldwide, with introductory pricing of $2/$10 per million tokens | model_release | normal |
-| 3 | Character.AI files for bankruptcy (Chapter 11) and will shut down if no buyer is found | other | normal |
-| 4 | Google Play lets anyone build a private Android app with AI and install it for their own use | product | normal |
-| 5 | SpaceXSI bundles Grok, Cursor and X Premium into one plan, starting at $8 a month | product | normal |
-| 6 | Anthropic says it cut model copying (distillation) by 90ΓÇô99% and names Zhipu and Moonshot | policy | normal |
-| 7 | Facebook lets users type what they want to see in Feed and Reels | product | normal |
-| 8 | The PRIMA eye implant lets a patient with Stargardt disease read words again | research | normal |
-| 9 | 406 scientists, including Hinton and Bengio, call for AI models to be cut off from the internet | policy | normal |
-| 10 | SpaceX's CRS-35 cargo launch carries the last pair of new solar panels to the ISS | space | normal |
+Every URL was opened and checked, and none of them is already in `data/latest.json`.
 
-Four items have a `context_th` link to earlier coverage:
-- **Muse Wonder:** Muse launched on iPad (October 9).
-- **Gemini 4 Argon:** the first announcement (October 1) and Google's new tiers (October 4).
-- **Anthropic:** its warning about Zhipu's GLM-5.3 (October 1).
-- **Scientists' letter:** the Wikimedia incident with OpenAI's agents (October 7).
+**Limits on sources:**
+- For the Anthropic story I couldn't open Anthropic's own post, Reuters or Ars Technica, so it's sourced from KSL's copy of the Reuters article.
+- Space news was thin today. I found nothing dated today from ESA, JAXA, ISRO or China's space agency, so there's only one space item.
 
-Sources were the front pages of The Decoder, TechCrunch AI, Spaceflight Now and the Anthropic newsroom, plus the article for each story.
+**task-observer:** I loaded the skill, but its startup scripts were refused: running a script needs approval, and this session can't ask for it. The wrapper also only allows writing the two JSON files. So I logged no observations and didn't update the handoff file `α╕ùα╕│α╕òα╣êα╕¡α╕òα╕úα╕çα╕Öα╕╡α╣ë.md`. There is 1 open observation and a review has never run. You can start one in an interactive session.
