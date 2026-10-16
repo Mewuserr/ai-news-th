@@ -1,0 +1,85 @@
+[
+  {
+    "source": "Meta (via The Decoder)",
+    "title_th": "Meta กลับมาแจกโมเดลเปิด: Muse Spark Open รันบน Mac Studio ได้",
+    "summary_th": "Meta ปล่อย Muse Spark Open เป็นโมเดล open-weight ตัวใหม่หลังยุค Llama ขนาด 816B พารามิเตอร์ (ทำงานจริงครั้งละ 42B) รับได้ทั้งข้อความ ภาพ วิดีโอ และเสียง อ่านบริบทได้ยาวถึง 1 ล้านโทเคน เน้นงานเขียนโค้ดและงานแบบเอเจนต์ ที่น่าสนใจคือรันในเครื่องได้เองบน Mac Studio สองเครื่อง (แรมเครื่องละ 512GB) Meta อ้างว่าชนะ Qwen 3.8, GLM 5.3 และ Kimi K3 ในหลายการทดสอบ แต่ยังแพ้ด้านโค้ดบางตัว ใช้ฟรีแต่ต้องติดป้าย \"Built with Muse Spark Open\" ดาวน์โหลดได้ที่ Hugging Face",
+    "category": "model_release",
+    "importance": "major",
+    "url": "https://the-decoder.com/muse-spark-open-is-metas-answer-to-qwen-glm-and-kimi-in-the-open-weight-race/",
+    "context_th": "ต่อจากที่ Meta เปิดตัวโมเดลเรือธงแบบเสียเงิน Muse Wonder เมื่อ 12 ต.ค. — รอบนี้เป็นรุ่นเปิดที่เล็กกว่าและยังตามหลังรุ่นเรือธงอยู่มาก"
+  },
+  {
+    "source": "The Decoder",
+    "title_th": "Anthropic รายได้ไตรมาส 3 แตะ 16.8 พันล้านดอลลาร์ เตรียม IPO พฤศจิกายนนี้",
+    "summary_th": "ตามรายงานของ Financial Times และ The Information รายได้ไตรมาส 3 ของ Anthropic อยู่ที่ 16.8 พันล้านดอลลาร์ โตจากไตรมาสก่อนราว 45% ซึ่งช้าลงมากเมื่อเทียบกับไตรมาส 2 ที่โตกว่า 140% บริษัทมีกำไรจากการดำเนินงาน (แบบปรับปรุง) สองไตรมาสติด และมีแผนเข้าตลาดหุ้นช่วงพฤศจิกายนก่อนวันขอบคุณพระเจ้า นักลงทุนบางรายผิดหวังกับตัวเลข และคาดว่าเป้ามูลค่าอาจถูกลดลงต่ำกว่า 1.5 ล้านล้านดอลลาร์",
+    "category": "funding",
+    "importance": "major",
+    "url": "https://the-decoder.com/anthropics-q3-revenue-hits-16-8b-but-growth-slows-ahead-of-planned-november-ipo/",
+    "context_th": "Anthropic ยังบอกนักลงทุนว่ารายได้ 5-7% มาจากการกลั่นโมเดล (distillation) ซึ่งเชื่อมกับข่าว 13 ต.ค. ที่บริษัทประกาศลดการขโมย reasoning token ได้ถึง 99%"
+  },
+  {
+    "source": "Black Forest Labs (via The Decoder)",
+    "title_th": "FLUX 3 Image Klein: โมเดลสร้างภาพแบบเปิด รันบนการ์ดจอ 8GB ได้",
+    "summary_th": "Black Forest Labs ปล่อยโมเดลภาพ FLUX 3 Image Klein ขนาด 5.6B พารามิเตอร์ ทำได้ทั้งสร้างภาพจากข้อความ แก้ภาพแบบแม่นยำระดับพิกเซล ใช้ภาพอ้างอิงได้สูงสุด 10 ภาพ ออกภาพ 4K ได้ในตัว และกำหนดตำแหน่งวัตถุด้วยกรอบได้ รุ่น INT8 รันบนการ์ดจอ NVIDIA แค่ 8GB สร้างภาพได้ในไม่ถึง 9 วินาทีบน RTX 4070 ธุรกิจที่รายได้ต่ำกว่า 5 ล้านดอลลาร์/ปีใช้เชิงพาณิชย์ได้ฟรี ใช้ผ่าน ComfyUI, Hugging Face หรือ API ได้ทันที",
+    "category": "model_release",
+    "importance": "normal",
+    "url": "https://the-decoder.com/black-forest-labs-open-weights-image-model-flux-3-image-klein-runs-on-consumer-gpus-with-just-8-gb-of-vram/"
+  },
+  {
+    "source": "The Decoder",
+    "title_th": "GPT-6-Astra แก้โจทย์วิจัยฟิสิกส์ได้ 49 จาก 50 ข้อ ข้อละไม่ถึง 3 ดอลลาร์",
+    "summary_th": "นักวิจัย 35 คนจาก Harvard, KU Leuven, Google DeepMind และอื่นๆ สร้างชุดทดสอบ TheoPhysEval ที่มีโจทย์ฟิสิกส์ทฤษฎีที่ยังไม่เคยเผยแพร่ 50 ข้อ เอเจนต์ GPT-6-Astra ของ OpenAI (รันใน Codex) ทำได้ 98% โดยไม่มีคนช่วยใบ้ ต้นทุนเฉลี่ยไม่ถึง 3 ดอลลาร์ต่อข้อ ตามมาด้วย Claude Opus 5.5 ที่ 92% ทั้งนี้โจทย์ส่วนใหญ่เป็นการคำนวณตามวิธีที่รู้กันอยู่แล้ว ไม่ใช่การค้นพบใหม่",
+    "category": "research",
+    "importance": "normal",
+    "url": "https://the-decoder.com/gpt-6-astra-solves-49-of-50-physics-research-problems-at-2-40-apiece/"
+  },
+  {
+    "source": "Google (via The Decoder)",
+    "title_th": "Google ดัน Gemini 4 Argon เป็นสมองตัวเดียวสำหรับหุ่นยนต์",
+    "summary_th": "Google โชว์ว่า Gemini 4 Argon ทำได้ครบทั้งสายงานหุ่นยนต์: สั่งหุ่นยนต์ Spot ของ Boston Dynamics โยนกระป๋องลงถังได้ สร้างสนามจำลองให้หุ่นยนต์ฝึกจากรูปถ่ายใบเดียว (เดโมหนึ่งสร้างงาน 77 แบบ ทำให้อัตราสำเร็จจริงขึ้นจาก 56% เป็น 75%) และตรวจวิดีโอสอนงานเพื่อตัดช่วงที่จับของพลาดทิ้ง แต่เดโมยังต้องพึ่งคำสั่งละเอียดจากมนุษย์ ใช้ได้ใน Google AI Studio สำหรับสมาชิก AI Ultra และผ่าน Gemini API แบบเสียเงิน",
+    "category": "product",
+    "importance": "normal",
+    "url": "https://the-decoder.com/google-wants-gemini-4-argon-to-be-the-only-ai-model-robots-need/",
+    "context_th": "ต่อยอดจาก Gemini 4 Argon ที่เปิดใช้ทั่วโลกเมื่อสัปดาห์ก่อน"
+  },
+  {
+    "source": "Nvidia (via The Decoder)",
+    "title_th": "Nvidia ปล่อย Nemotron 3.5 Super VL โมเดลเปิดสำหรับเอเจนต์องค์กร อ่าน PDF/ตาราง/วิดีโอได้ในตัว",
+    "summary_th": "Nvidia เปิดตัว Nemotron 3.5 Super VL โมเดลเปิดขนาด 120B (ใช้งานจริงราว 12B ต่อโทเคน) อ่านได้ทั้งข้อความ ภาพ เอกสาร PDF หลายหน้า ตาราง กราฟ และวิดีโอโดยไม่ต้องมีโมเดลภาพแยก ออกแบบมาให้เอเจนต์ในองค์กรทำงานต่อเนื่องไม่หยุด พร้อมรุ่นเล็ก Bolt ขนาด 74B ที่บีบให้รันได้ในหน่วยความจำ 24GB ใช้กับ Ollama, LM Studio และ llama.cpp ได้ ปล่อยทั้งน้ำหนักโมเดล ชุดข้อมูล และสูตรเทรนบน Hugging Face",
+    "category": "model_release",
+    "importance": "normal",
+    "url": "https://the-decoder.com/nvidias-nemotron-3-5-super-vl-is-an-open-model-built-to-run-enterprise-ai-agents-nonstop/"
+  },
+  {
+    "source": "TechCrunch",
+    "title_th": "Amazon Bee ออกอุปกรณ์ AI จดบทสนทนาใหม่ 2 รุ่น เริ่มต้น 75 ดอลลาร์",
+    "summary_th": "Bee ที่ Amazon ซื้อมาเปิดตัว Bee Frontier (74.99 ดอลลาร์ ใส่ข้อมือหรือหนีบเสื้อ แบตอยู่ได้ 7 วัน กันน้ำ IP67) และ Bee Eclipse (99.99 ดอลลาร์ ขนาดบัตรเครดิต แปะหลังมือถือด้วยแม่เหล็ก) ทั้งคู่ฟังบทสนทนาในชีวิตประจำวันแล้วสรุปเป็นโน้ต รายการสิ่งที่ต้องทำ จดเลกเชอร์ และสร้างนัดในปฏิทินให้อัตโนมัติ เชื่อมกับ Gmail, Outlook, Alexa+ และ Apple Health ได้ เสียงดิบถูกลบทิ้งทันทีหลังประมวลผล ใช้ฟรีได้แบบจำ 14 วัน หรือจ่าย 11.99 ดอลลาร์/เดือนแบบไม่จำกัด",
+    "category": "product",
+    "importance": "normal",
+    "url": "https://techcrunch.com/2026/10/15/amazons-bee-launches-two-new-personal-ai-devices-starting-at-75/"
+  },
+  {
+    "source": "TechCrunch",
+    "title_th": "Bluesky ให้ใครก็ได้สร้างเว็บ เกม และควิซด้วย AI ผ่านแอป Attie",
+    "summary_th": "Bluesky ขยายแอปทดลอง Attie จากเดิมที่ใช้ AI สร้างฟีดเอง ให้ผู้ใช้ทั่วไปสร้างเว็บไซต์ ควิซ เกม และโพลแบบโต้ตอบได้ด้วยการพิมพ์บอก (\"social vibe coding\") โดยไม่ต้องเขียนโค้ดเอง ผลงานเผยแพร่บนเครือข่าย AT Protocol และเข้าถึงผู้ใช้ Bluesky ได้ทันที ผู้สร้างเลือกใช้โมเดล AI ของตัวเองหรือโมเดลเปิดก็ได้ ระบบยังช่วยแนะไอเดียโปรเจกต์จากโปรไฟล์สาธารณะด้วย",
+    "category": "product",
+    "importance": "normal",
+    "url": "https://techcrunch.com/2026/10/15/bluesky-expands-its-ai-powered-attie-app-to-let-anyone-build-websites-games-and-more/"
+  },
+  {
+    "source": "TechCrunch",
+    "title_th": "Anthropic ให้นักวิจัย METR เข้าถึงระบบภายในระดับพนักงาน เพื่อตรวจความเสี่ยง AI อย่างอิสระ",
+    "summary_th": "นักวิจัย 6 คนจากองค์กรตรวจสอบ AI อิสระ METR จะได้แล็ปท็อป ที่นั่งในออฟฟิศ และเครื่องมือภายในใกล้เคียงกับทีมประเมินความเสี่ยงของ Anthropic เอง METR เผยแพร่ผลประเมินความเสี่ยงและเหตุการณ์ของ Anthropic ได้โดยบริษัทไม่มีสิทธิ์สั่งห้าม ทำได้แค่ขอปิดข้อมูลบางหมวด เช่น ข้อมูลลูกค้าหรือสถาปัตยกรรมโมเดล ความเคลื่อนไหวนี้มาหลังจากมีข่าวเอเจนต์ AI ทำงานนอกคำสั่งบ่อยครั้งตั้งแต่ปลายสิงหาคม",
+    "category": "policy",
+    "importance": "normal",
+    "url": "https://techcrunch.com/2026/10/15/anthropic-is-letting-metr-researchers-look-under-the-hood-with-employee-level-access/"
+  },
+  {
+    "source": "Space.com",
+    "title_th": "SpaceX ขอปล่อย Starship สูงสุด 456 ครั้งต่อปีจากเท็กซัส FAA เริ่มทบทวนผลกระทบสิ่งแวดล้อม",
+    "summary_th": "FAA เริ่มจัดทำรายงานผลกระทบสิ่งแวดล้อมสำหรับคำขอของ SpaceX ที่จะเพิ่มเที่ยวบิน Starship ที่ฐาน Starbase เป็นสูงสุด 456 ครั้งและลงจอด 912 ครั้งต่อปี เกือบวันละเที่ยว แบ่งเป็นระยะแรก 100 เที่ยว/ปี ก่อนขยายเต็มที่ภายในไม่กี่ปี ปัจจุบันได้รับอนุญาตแค่ 25 เที่ยว/ปี ประกาศนี้ยังไม่ใช่การอนุมัติ และเปิดรับความเห็นสาธารณะถึง 30 พ.ย.",
+    "category": "space",
+    "importance": "normal",
+    "url": "https://www.space.com/space-exploration/launches-spacecraft/spacex-wants-to-launch-starship-more-than-450-times-per-year-from-south-texas"
+  }
+]
