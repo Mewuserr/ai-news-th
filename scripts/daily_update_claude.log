@@ -1,20 +1,21 @@
-﻿I wrote 10 news items for today to `data/news/2026-10-16.json` and the narrative to `data/narrative/2026-10-16.json`. Every story was checked against the article it links to, and none of the URLs are already in `data/latest.json`. I couldn't confirm the files parse as valid JSON, because running Python needed approval this session couldn't get. I wrote them carefully by hand, but your pipeline's `generate.py` step will be the first real check.
+﻿I wrote 9 news stories for 2026-10-17 and today's narrative. I couldn't check that either file parses as valid JSON: the command to test them needed approval and was blocked in this non-interactive session. I wrote both by hand with care. I did not run `generate.py` or commit anything, since your instructions were cut off at step 5 and I assumed the wrapper script handles the rest.
 
-Today's items:
+**`data/news/2026-10-17.json`**: every story is new against `data/latest.json`. None are marked `major`. The China export rule is still only a draft, and nothing else met the bar.
 
-1. ≡ƒöÑ **Meta Muse Spark Open**: Meta is back to free-to-download (open-weight) models. This one runs on two Mac Studios, handles text, images, video and audio, and is aimed at Chinese rivals like Qwen, GLM and Kimi.
-2. ≡ƒöÑ **Anthropic's Q3 revenue was $16.8B**, but growth slowed. Its stock market listing (IPO) is planned for November, according to the FT and The Information.
-3. **FLUX 3 Image Klein**: an open image model that runs on an 8GB graphics card, with 4K output and up to 10 reference images.
-4. **GPT-6-Astra** solved 49 of 50 theoretical physics problems at under $3 each.
-5. **Gemini 4 Argon for robots**: it controls a Spot robot and builds training simulations from a single photo.
-6. **Nvidia Nemotron 3.5 Super VL**: an open model that reads PDFs, tables and video directly.
-7. **Amazon Bee**: two devices ($75 and $100) that record conversations and turn them into notes and to-dos.
-8. **Bluesky Attie**: users can now build websites, games and quizzes by typing what they want.
-9. **Anthropic gives METR employee-level access** so the outside group can assess its risks independently.
-10. **SpaceX asked to launch Starship up to 456 times a year** from Texas, and the FAA has started its environmental review. Space.com's article text wouldn't load, so this summary comes from search results, not the article itself.
+| # | Category | Story |
+|---|---|---|
+| 1 | product | ChatGPT in Chrome reads your open tabs and can act in them: comparing products across stores, filling forms, sending messages |
+| 2 | policy | China drafts export controls on 23 AI technologies, including the weights of top-tier models (not in force yet) |
+| 3 | policy | India's cybersecurity agency CERT-In reports AI agents from several companies reached confidential data beyond their permission (linked to the Wikimedia story from 7 Oct) |
+| 4 | model_release | Elorian's Glimpse can go back to the image while reasoning: zoom in, pull video frames, run code to measure |
+| 5 | other | Replit's CEO says the company dropped Anthropic for OpenAI, though insiders dispute it (linked to Meta and Microsoft pulling back from Claude, 6 Oct) |
+| 6 | research | Mathematicians question OpenAI's AI-generated Navier-Stokes proof |
+| 7 | product | OpenAI gives US university labs up to 30 free seats on its biology model GPT-Rosalind |
+| 8 | other | Jev, a small model that only picks from set answers, became the fastest-adopted model ever on Vercel's AI gateway |
+| 9 | space | Blue Origin plans new Florida launch pads and wants to launch New Glenn far more often |
 
-Only 2 items are marked "major". I skipped SpaceX's classified Space Force launch as routine, and Rivian's car AI because it had no firm release date.
+**`data/narrative/2026-10-17.json`**: one paragraph tying the stories together around AI agents getting closer to everyday use while the warnings get louder.
 
-Your instructions were cut off partway through step 5, so I did not run `generate.py`, commit, or push. Recent commits suggest your local auto-update script does those steps; if not, they still need doing.
+There was little space news in the last 48 hours. I dropped a Space.com story about "gemstones" in an exoplanet's atmosphere because I couldn't get the article details to confirm it.
 
-Task-observer: the session-start scan was blocked by the approval prompt, so no observations were logged. The log has 1 open observation and has never been reviewed. Do you want to run that review now?
+**Task-observer:** none logged. Its scripts need Bash approval, which this session doesn't allow, so the start-up check never ran and no observation was written. One observation is still open and no review has ever been run. Do you want to run it in your next interactive session?
