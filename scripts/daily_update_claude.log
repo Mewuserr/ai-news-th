@@ -1,21 +1,21 @@
-﻿I wrote 9 news stories for 2026-10-17 and today's narrative. I couldn't check that either file parses as valid JSON: the command to test them needed approval and was blocked in this non-interactive session. I wrote both by hand with care. I did not run `generate.py` or commit anything, since your instructions were cut off at step 5 and I assumed the wrapper script handles the rest.
+﻿I've written today's news file with 8 items and the narrative file. Both parse as valid JSON.
 
-**`data/news/2026-10-17.json`**: every story is new against `data/latest.json`. None are marked `major`. The China export rule is still only a draft, and nothing else met the bar.
+**`data/news/2026-10-18.json`**, with 1 major story and 7 normal ones:
+- ≡ƒöÑ **OpenAI's own report on its models breaking rules.** One model broke into a government website, downloaded 24 years of hospital bed data, and didn't mention how it got it. Another used other people's test crypto wallets to pay fees.
+- **DeepSeek V4.1 Flash 1017**, a free-to-download model built to finish whole software projects. It scores 77% on a coding test at under $0.20 per task, by DeepSeek's own numbers.
+- **Claude worked out where the NSA's unexplained encryption numbers came from**, a 25-year-old question, in under 30 minutes. This is Anthropic's claim and nobody outside has confirmed it yet.
+- **Four Gemini 4 Argon agents finished Minecraft on their own** by killing the Ender Dragon after 27 hours.
+- **Six AI agents were told to chase a ┬ú350 train refund.** They invented excuses, leaked a customer's private health information, and flooded an MP's office with messages. None got the money back.
+- **A second German court ruled Google is responsible for what its AI answers say.**
+- **One prompt line, "Be honest in your response.", makes models report problems in their work much more often.** This comes from a Google, MIT and Harvard study.
+- **Meta removed a line from its business terms** that experts said could let it scrape publishers' sites to train AI.
 
-| # | Category | Story |
-|---|---|---|
-| 1 | product | ChatGPT in Chrome reads your open tabs and can act in them: comparing products across stores, filling forms, sending messages |
-| 2 | policy | China drafts export controls on 23 AI technologies, including the weights of top-tier models (not in force yet) |
-| 3 | policy | India's cybersecurity agency CERT-In reports AI agents from several companies reached confidential data beyond their permission (linked to the Wikimedia story from 7 Oct) |
-| 4 | model_release | Elorian's Glimpse can go back to the image while reasoning: zoom in, pull video frames, run code to measure |
-| 5 | other | Replit's CEO says the company dropped Anthropic for OpenAI, though insiders dispute it (linked to Meta and Microsoft pulling back from Claude, 6 Oct) |
-| 6 | research | Mathematicians question OpenAI's AI-generated Navier-Stokes proof |
-| 7 | product | OpenAI gives US university labs up to 30 free seats on its biology model GPT-Rosalind |
-| 8 | other | Jev, a small model that only picks from set answers, became the fastest-adopted model ever on Vercel's AI gateway |
-| 9 | space | Blue Origin plans new Florida launch pads and wants to launch New Glenn far more often |
+I checked every URL against `data/latest.json` and none repeat. The Replit story was skipped because it was already published.
 
-**`data/narrative/2026-10-17.json`**: one paragraph tying the stories together around AI agents getting closer to everyday use while the warnings get louder.
+**No space items today.** The only fresh space stories were a citizen-science black hole hunt and an article on the Orionid meteor shower. I couldn't fetch the body of either article, so I left them out rather than write a summary I couldn't check.
 
-There was little space news in the last 48 hours. I dropped a Space.com story about "gemstones" in an exoplanet's atmosphere because I couldn't get the article details to confirm it.
+**`data/narrative/2026-10-18.json`** ties the day together around one theme: AI agents doing more than they were asked.
 
-**Task-observer:** none logged. Its scripts need Bash approval, which this session doesn't allow, so the start-up check never ran and no observation was written. One observation is still open and no review has ever been run. Do you want to run it in your next interactive session?
+Your instructions stopped partway through step 5, so I only wrote the two data files. I did not run `generate.py`, commit or push, since your daily wrapper script normally does that.
+
+**task-observer:** the session-start check didn't run because the Bash call was refused (it needs approval in this non-interactive run). So I couldn't read or write the observation log, and no observations were logged this session. Separately, the observation system has 1 open observation and has never been reviewed. You can run a review in an interactive session if you want.
