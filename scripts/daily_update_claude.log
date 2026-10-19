@@ -1,24 +1,18 @@
-﻿I wrote today's news file for 2026-10-19. I didn't run `generate.py` or git, and didn't validate the JSON myself. Your wrapper script `scripts/daily_update.ps1` tells this step not to, and it handles the check, the site rebuild and the push.
+﻿I added 3 new stories to today's news, but the site isn't rebuilt or published yet. This session wasn't allowed to run Python or shell commands, so `generate.py`, the commit/push, and the `data/engine-log.md` line are all still to do.
 
-**Files written:**
-- `data/news/2026-10-19.json`: 7 stories, all marked normal. None was big enough for major today.
-- `data/narrative/2026-10-19.json`: one paragraph tying the day's news together.
+**What changed**
+- `data/news/2026-10-19.json` already had 7 stories from an earlier run. I added 3 to them, for 10 in total (the daily maximum):
+  1. **JAXA MMX (space):** Japan's probe to bring back soil from Phobos, a moon of Mars. It launches on an H3 rocket at about 02:41 on 20 Oct, Thai time. It should reach Mars in 2027, collect at least 10 g of soil in 2030, and return it in 2031.
+  2. **Anthropic (research):** Claude designed 8 quantum circuits on its own, and all of them beat the best published designs. One uses 17 times fewer gates.
+  3. **Engadget (product):** Sam Altman confirmed that OpenAI will build a humanoid robot, with a demo planned for 2027.
+- I rewrote `data/narrative/2026-10-19.json` to cover all 10 stories.
+- I created `α╕ùα╕│α╕òα╣êα╕¡α╕òα╕úα╕çα╕Öα╕╡α╣ë.md` with the remaining steps and 3 checked stories I left out for space:
+  - Schwab and JPMorgan blocking AI agents from moving customer money.
+  - Anthropic's first data center in Canada.
+  - MIT's AI model that reads atomic structure alongside text to find new materials.
 
-None of the 7 is already in `data/latest.json`.
+I left out the reported "aurora" OpenAI models because they're unconfirmed rumor. I didn't run a check on the JSON files, but I edited them carefully.
 
-| # | Story | Category |
-|---|---|---|
-| 1 | Anthropic has nearly stopped hiring junior technical staff. Its AI agents now log 6 times as many work hours as its people (The Decoder) | research |
-| 2 | Anthropic is putting 5% of its shares into a fund for the public good, about 20% of the company in total once other pledges are counted (Anthropic's own blog) | other |
-| 3 | Disney will hire most of Character.AI's staff after the company went bankrupt (TechCrunch) | other |
-| 4 | Anthropic is asking law firms to help set fair rules before AI agents negotiate deals for people (The Decoder) | policy |
-| 5 | Taste-Bench, a new test from Microsoft and City University of Hong Kong: the best AI agent picks the better option only about 60% of the time (The Decoder) | research |
-| 6 | SpaceX plans to launch its Starfall lab capsule plus 31 other payloads at about 17:30 Thai time today (Spaceflight Now) | space |
-| 7 | The Orionid meteor shower peaks around 01:00 Thai time on Oct 22, about 10ΓÇô20 meteors an hour from a dark spot (EarthSky) | space |
+**To finish:** run `python scripts/generate.py`, then `git add -A`, commit and push. Add the line to `data/engine-log.md` before committing.
 
-- **Context lines:** Two stories link back to earlier news. The share fund links to Anthropic's IPO story from Oct 16, and the Disney story links to the Character.AI bankruptcy on Oct 13.
-- **Launch not yet happened:** Story 6 describes a planned launch, so it may need a follow-up if it slips or fails.
-- **Gaps:** No AI product launch from the last 48 hours turned up. I couldn't open the OpenAI, xAI, The Verge or Ars Technica pages. Searches found no new Chinese model release (DeepSeek, Qwen, Kimi, GLM).
-- **No weekly summary:** today is Monday, and that step only runs on Sundays.
-
-**task-observer:** none logged. The script that checks the observation log needs approval, which can't be given in this unattended run. Nothing worth logging came up anyway. The session-start note says 4 observations are open and no review has ever run. You can start one in an interactive session.
+**Observations:** none logged. The task-observer scripts needed approval that this session couldn't give. There are 5 open observations and no review has ever been run; you can start one in an interactive session.
