@@ -1,18 +1,28 @@
-﻿I added 3 new stories to today's news, but the site isn't rebuilt or published yet. This session wasn't allowed to run Python or shell commands, so `generate.py`, the commit/push, and the `data/engine-log.md` line are all still to do.
+﻿Today's news files are written, but the website hasn't been rebuilt or published. This session wasn't allowed to run `python scripts/generate.py` or any git commands. The same thing happened yesterday.
 
-**What changed**
-- `data/news/2026-10-19.json` already had 7 stories from an earlier run. I added 3 to them, for 10 in total (the daily maximum):
-  1. **JAXA MMX (space):** Japan's probe to bring back soil from Phobos, a moon of Mars. It launches on an H3 rocket at about 02:41 on 20 Oct, Thai time. It should reach Mars in 2027, collect at least 10 g of soil in 2030, and return it in 2031.
-  2. **Anthropic (research):** Claude designed 8 quantum circuits on its own, and all of them beat the best published designs. One uses 17 times fewer gates.
-  3. **Engadget (product):** Sam Altman confirmed that OpenAI will build a humanoid robot, with a demo planned for 2027.
-- I rewrote `data/narrative/2026-10-19.json` to cover all 10 stories.
-- I created `α╕ùα╕│α╕òα╣êα╕¡α╕òα╕úα╕çα╕Öα╕╡α╣ë.md` with the remaining steps and 3 checked stories I left out for space:
-  - Schwab and JPMorgan blocking AI agents from moving customer money.
-  - Anthropic's first data center in Canada.
-  - MIT's AI model that reads atomic structure alongside text to find new materials.
+**Written:**
+- `data/news/2026-10-20.json` has 9 stories. One is marked major:
+  - ≡ƒöÑ **Japan's MMX probe launched successfully** on an H3 rocket and separated from it about 71 minutes after liftoff. It's heading to Mars's moon Phobos to bring a soil sample back around 2031. I linked it to yesterday's story, which said the launch was coming.
+  - Kling 4.0 makes 30-second videos in one go, with stereo sound and lips that match speech in more than 10 languages.
+  - MiniMax M3.1 Flash costs $0.15 per million tokens, but it gives wrong answers 93% of the time on one test, because it almost never says "I don't know."
+  - People are using Claude Code to strip ads and pre-installed apps off their smart TVs.
+  - OpenCode was hacked and users' API keys leaked. Some users were charged more than $1,000.
+  - Amazon's TorchNeuron lets developers move AI apps off Nvidia chips by changing one setting.
+  - Anthropic is reportedly in talks with Nscale on a second deal worth about $45 billion (not confirmed yet).
+  - Chip startup Tenstorrent raised $1.5 billion and is now valued at $6.2 billion.
+  - A study found more than 10,000 young cracks in the Moon's surface, showing it has shrunk by about 45 metres.
+- `data/narrative/2026-10-20.json` ties the day's stories together in one paragraph.
+- I checked every link against `data/latest.json`, so none of these stories have been published before.
 
-I left out the reported "aurora" OpenAI models because they're unconfirmed rumor. I didn't run a check on the JSON files, but I edited them carefully.
+**Still to do** (run this on your PC):
+```
+python scripts/generate.py
+git add -A
+git commit -m "α╕éα╣êα╕▓α╕º AI α╕¢α╕úα╕░α╕êα╕│α╕ºα╕▒α╕Öα╕ùα╕╡α╣ê 2026-10-20"
+git push
+```
+Also add a line to `data/engine-log.md`. Yesterday's files (2026-10-19) were never published either, so this push will publish both days.
 
-**To finish:** run `python scripts/generate.py`, then `git add -A`, commit and push. Add the line to `data/engine-log.md` before committing.
+I updated `α╕ùα╕│α╕òα╣êα╕¡α╕òα╕úα╕çα╕Öα╕╡α╣ë.md` with today's status and a few stories I set aside for tomorrow.
 
-**Observations:** none logged. The task-observer scripts needed approval that this session couldn't give. There are 5 open observations and no review has ever been run; you can start one in an interactive session.
+**Task-observer:** I logged no observations, because the logging script needs bash and that was blocked. One is worth logging when bash works: two daily runs in a row couldn't run Python or git, so the news gets written but the site never updates. There are 10 open observations and they have never been reviewed. You can run that review in a session where bash is allowed.
