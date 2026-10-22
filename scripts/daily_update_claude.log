@@ -1,28 +1,21 @@
-﻿Today's news files are written, but the website hasn't been rebuilt or published. This session wasn't allowed to run `python scripts/generate.py` or any git commands. The same thing happened yesterday.
+﻿I wrote 9 news items for today (2026-10-22) and the matching story-style narrative. I didn't run `generate.py`, commit or push.
 
-**Written:**
-- `data/news/2026-10-20.json` has 9 stories. One is marked major:
-  - ≡ƒöÑ **Japan's MMX probe launched successfully** on an H3 rocket and separated from it about 71 minutes after liftoff. It's heading to Mars's moon Phobos to bring a soil sample back around 2031. I linked it to yesterday's story, which said the launch was coming.
-  - Kling 4.0 makes 30-second videos in one go, with stereo sound and lips that match speech in more than 10 languages.
-  - MiniMax M3.1 Flash costs $0.15 per million tokens, but it gives wrong answers 93% of the time on one test, because it almost never says "I don't know."
-  - People are using Claude Code to strip ads and pre-installed apps off their smart TVs.
-  - OpenCode was hacked and users' API keys leaked. Some users were charged more than $1,000.
-  - Amazon's TorchNeuron lets developers move AI apps off Nvidia chips by changing one setting.
-  - Anthropic is reportedly in talks with Nscale on a second deal worth about $45 billion (not confirmed yet).
-  - Chip startup Tenstorrent raised $1.5 billion and is now valued at $6.2 billion.
-  - A study found more than 10,000 young cracks in the Moon's surface, showing it has shrunk by about 45 metres.
-- `data/narrative/2026-10-20.json` ties the day's stories together in one paragraph.
-- I checked every link against `data/latest.json`, so none of these stories have been published before.
+Your message was cut off at step 5, so I stopped once both files were written. Earlier commits suggest your local daily-update script handles the rest. The web page won't change until that script (or someone) runs `python scripts/generate.py` and pushes.
 
-**Still to do** (run this on your PC):
-```
-python scripts/generate.py
-git add -A
-git commit -m "α╕éα╣êα╕▓α╕º AI α╕¢α╕úα╕░α╕êα╕│α╕ºα╕▒α╕Öα╕ùα╕╡α╣ê 2026-10-20"
-git push
-```
-Also add a line to `data/engine-log.md`. Yesterday's files (2026-10-19) were never published either, so this push will publish both days.
+There was no file for 21 Oct, so I took stories from both 20 and 21 Oct and checked every link against `data/latest.json` so nothing repeats.
 
-I updated `α╕ùα╕│α╕òα╣êα╕¡α╕òα╕úα╕çα╕Öα╕╡α╣ë.md` with today's status and a few stories I set aside for tomorrow.
+**Main story (major):** OpenAI's GPT-5.6 Sol and Google's Gemini 4 Argon found a critical flaw in PHP, the language that runs a huge share of websites. It affects millions of sites, and OpenAI released a free checker so site owners can see if they're exposed.
 
-**Task-observer:** I logged no observations, because the logging script needs bash and that was blocked. One is worth logging when bash works: two daily runs in a row couldn't run Python or git, so the news gets written but the site never updates. There are 10 open observations and they have never been reviewed. You can run that review in a session where bash is allowed.
+**The other 8 items:**
+- **Google Cloud:** now offers OpenAI's GPT-6 models, so businesses can use GPT, Gemini and Claude from one bill.
+- **Recursive Flint:** a free coding model that runs offline on a laptop at about 131 tokens per second on a MacBook Pro. The company says its own AI system did most of the work of building it.
+- **Inception Mercury 3:** a very fast model (about 1,068 tokens per second, roughly 4ΓÇô8 times rivals like Claude Haiku 5.5). These are the company's own numbers, with no independent tests yet.
+- **DeepSeek ban:** the US ordered federal agencies to remove DeepSeek from their systems, and China pushed back.
+- **Scorpion-sting research:** Claude designed proteins that bind to scorpion venom. Two outside labs confirmed the binding, but they haven't been tested as an actual treatment.
+- **ChatGPT chat lock:** you can now lock chats behind a 4-digit PIN or Face ID/Touch ID, on every plan including Free.
+- **Anthropic safety bill:** a draft law that would let a court block a model's release if it could kill more than 50 people. It's only a proposal so far.
+- **NASA moon rovers:** the VIPER rover is fully built, and the rovers astronauts will drive are due to NASA at the end of 2027.
+
+The two files are `data/news/2026-10-22.json` and `data/narrative/2026-10-22.json`. I also updated `α╕ùα╕│α╕òα╣êα╕¡α╕òα╕úα╕çα╕Öα╕╡α╣ë.md` with today's status and leftover stories for tomorrow.
+
+**Skill observations:** none logged. The setup script for the observation log needed approval in this session and didn't run, so I couldn't check or write the log. Separately, there are 14 open observations that have never been reviewed. Want to run that review, or carry on?
