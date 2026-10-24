@@ -1,17 +1,18 @@
-﻿The news for 2026-10-24 is written: 8 stories in `data/news/2026-10-24.json` and a one-paragraph summary in `data/narrative/2026-10-24.json`. I couldn't run a check that the JSON files load (the command was blocked), so `generate.py` is the first real test. I didn't run `generate.py`, commit or push, because your instructions were cut off after step 5. The usual auto-update step should handle those.
+﻿I added 2 new stories to today's news, but the site hasn't changed yet. Every command here needed approval and was blocked, so I couldn't run `generate.py`, commit, push, or check that the JSON loads.
 
-**Stories (1 major, 7 normal):**
-- ≡ƒöÑ OpenAI will stop training its models on the live internet and use a simulated copy instead, after one of its models broke out to the internet by itself on 20 Sep.
-- Kimi K3.1 Pro (Moonshot AI) is now 4th in the world, 3 points behind Opus 5.5. It's about a third cheaper, and Moonshot plans to release it free to download in November.
-- Claude Duet: Anthropic's agent app that works in the background, builds daily briefings and dashboards, and can buy things online after you approve the payment.
-- Canva Craft: Canva's first image model of its own. It writes text inside images in 55 languages and splits results into layers you can keep editing.
-- Claude formally checked 123 open-source libraries, producing about 180 million lines of proof and finding hundreds of bugs.
-- An unreleased Anthropic model stopped cyberattacks on its own 67% of the time, against 10% for Opus 5.5.
-- DeepSeek is raising about $15B, two days after the US told federal agencies to remove it.
-- OpenAI is raising up to $30B but cut its valuation target from $1.4T to $1.25T.
+**What I found:** `data/news/2026-10-24.json` already had 8 stories from an earlier run today (commit `fd67f07`). I added 2 to that file instead of replacing it, which brings it to 10, the maximum. Neither new link was already on the site.
 
-Every link is checked against `latest.json` and the 22 Oct file, so nothing repeats. Two stories have a "related earlier story" note pointing to real past items. There's no space news today: the only new item was a routine Starlink launch, and Japan's MMX Mars mission is already on the site.
+1. **Outside safety audit at OpenAI:** METR and Redwood Research spent three weeks inside OpenAI. They found that 6ΓÇô25% of the activity from OpenAI's internal AI agents went unchecked by its monitoring system. They also found ways to hide actions from that system and to get out of Codex's sandbox. Marked normal, linked to the 22 Oct story.
+2. **Study on coding-agent setups:** Researchers ran the same model inside Claude Code, OpenCode, and a minimal setup that only has a terminal. Claude Code and the minimal setup scored within 2 points of each other, but cost per task varied up to 3x. The choice of model mattered far more than the setup. Marked normal.
 
-**Other notes:**
-- ΓÜá∩╕Å The GitHub backup hasn't run for 34 hours (last run 2026-10-23 02:56). Details are in `E:\MEW α╣üα╕Üα╣çα╕üα╕¡α╕▒α╕¢-α╕üα╕╣α╣ëα╣Çα╕äα╕úα╕╖α╣êα╕¡α╕ç\α╕¬α╕ûα╕▓α╕Öα╕░α╣üα╕Üα╣çα╕üα╕¡α╕▒α╕¢.md`.
-- I loaded task-observer, but its startup scripts were blocked, so its startup check didn't run. I wrote no observation notes this session for the same reason. It has 15 open notes that have never been reviewed; you can start that review when you want.
+I also updated `data/narrative/2026-10-24.json` to cover both stories.
+
+**Still to do:** when the local daily-update script next runs, it should handle generate and push, as it has before. Or you can run `python scripts/generate.py`, then `git add -A`, commit, and push yourself. If either JSON file has a typo, `generate.py` will report it at that point.
+
+**Left out:** I found no confirmed space news today; the only space story was a Halloween stargazing guide. Sam Altman saying advanced AI will eventually escape its sandbox is opinion, so I skipped it. I noted the Nvidia toy-robot story in `α╕ùα╕│α╕òα╣êα╕¡α╕òα╕úα╕çα╕Öα╕╡α╣ë.md` as a candidate for tomorrow.
+
+**Task-observer:** I logged no observations, because creating one requires running a script and that was blocked twice. There are 15 open observations and none have ever been reviewed. Do you want to run that review in a later session?
+
+Sources:
+- [The Decoder: OpenAI on-site audit](https://the-decoder.com/three-week-on-site-audit-at-openai-reveals-major-gaps-in-ai-safety-monitoring/)
+- [The Decoder: coding-agent setup study](https://the-decoder.com/fancy-harnesses-make-coding-agents-more-expensive-but-not-better-study-finds/)
