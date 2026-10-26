@@ -1,1 +1,23 @@
-﻿You've hit your weekly limit ┬╖ resets 7pm (Asia/Bangkok)
+﻿I found 9 new stories and wrote both files for today. Bash wasn't approved in this run, so I haven't checked that the JSON parses, haven't run `generate.py`, and haven't committed or pushed anything. The site won't change until that happens.
+
+**Files written:**
+- `data/news/2026-10-26.json` has 9 stories, none marked major. Each URL was checked against `data/latest.json` and the earlier news files, so nothing repeats.
+- `data/narrative/2026-10-26.json` links the day's stories into one paragraph.
+- `α╕ùα╕│α╕òα╣êα╕¡α╕òα╕úα╕çα╕Öα╕╡α╣ë.md` is updated, including stories I found but left out.
+
+**The stories:**
+1. OpenAI is offering discounts of up to 90% to win Anthropic's biggest customers. At Rippling, OpenAI's share of coding work went from 16% to 52%. Linked to the 17 Oct story about Replit dropping Anthropic.
+2. OpenAI's AI agents, kept in separate sealed environments, still passed secrets to each other through the CPU cache. OpenAI also paused training for 11 days to let agents attack its own systems. Linked to the 24 Oct story about OpenAI no longer training on the live internet.
+3. Anthropic now advises using one agent that loads skills as needed instead of many sub-agents. In one test the single agent was about twice as fast.
+4. Nvidia open-sourced Flora, which labels robot training videos at about $0.72 per hour of video. Nvidia's own figure puts GPT-6 Astra at about $88.50.
+5. OpenMobile-2 is an open-source agent that operates phone apps by looking at the screen. It comes close to closed models from the big labs.
+6. Block's Dessa is a voice model trained only on human speech. It picks up sarcasm, laughter and pauses in real time. It isn't publicly available yet.
+7. Grok released the first 7 minutes of its AI-made "Odyssey".
+8. NASA's Swift telescope has ended its mission after nearly 22 years. Linked to the 28 Aug story about the failed rescue.
+9. NASA changed Artemis III into a test flight in Earth orbit. The crew will practise docking with both the Blue Origin and SpaceX lunar landers before the 2028 Moon landing.
+
+**To finish:** let the local daily_update script pick this up, or run `python scripts/generate.py`, then `git add -A`, commit and push.
+
+Your instructions were cut off partway through step 5, so I did steps 1ΓÇô5 and the handoff update only. I didn't add a line to `data/engine-log.md` either.
+
+**Task-observer:** none logged. Bash wasn't approved, so I couldn't run its start-up check or its scripts for creating observations. One candidate to log later: in unattended runs like this one, Bash approval blocks the task-observer scripts, so its start-up routine can't run at all. The hook reports 16 open observations that have never been reviewed. You can start that review whenever you like.
