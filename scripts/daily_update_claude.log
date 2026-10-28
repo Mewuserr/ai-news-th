@@ -1,27 +1,42 @@
-﻿I wrote today's news file with 8 items and the narrative. The site has not been updated yet: this session wasn't allowed to run commands, so `generate.py`, the commit/push and the `data/engine-log.md` entry are all still to do.
+﻿ΓÜá∩╕Å **α╣üα╕êα╣ëα╕çα╣Çα╕úα╕╖α╣êα╕¡α╕çα╣üα╕Üα╣çα╕üα╕¡α╕▒α╕¢:** α╣üα╕Üα╣çα╕üα╕¡α╕▒α╕¢α╕úα╕¡α╕Üα╕Ñα╣êα╕▓α╕¬α╕╕α╕öα╕íα╕╡α╕¢α╕▒α╕ìα╕½α╕▓ 1 α╕úα╕▓α╕óα╕üα╕▓α╕ú α╕äα╕╖α╕¡ `backup-mew-pc-restore` push α╕éα╕╢α╣ëα╕Ö GitHub α╣äα╕íα╣êα╕¬α╕│α╣Çα╕úα╣çα╕ê (error: unable to read askpass response ΓÇö α╕Öα╣êα╕▓α╕êα╕░α╣Çα╕¢α╣çα╕Öα╣Çα╕úα╕╖α╣êα╕¡α╕çα╕úα╕½α╕▒α╕¬α╕£α╣êα╕▓α╕Ö/α╕üα╕▓α╕úα╕óα╕╖α╕Öα╕óα╕▒α╕Öα╕òα╕▒α╕ºα╕òα╕Öα╕éα╕¡α╕ç git) α╕úα╕▓α╕óα╕Ñα╕░α╣Çα╕¡α╕╡α╕óα╕öα╕¡α╕óα╕╣α╣êα╕ùα╕╡α╣ê `E:\MEW α╣üα╕Üα╣çα╕üα╕¡α╕▒α╕¢-α╕üα╕╣α╣ëα╣Çα╕äα╕úα╕╖α╣êα╕¡α╕ç\α╕¬α╕ûα╕▓α╕Öα╕░α╣üα╕Üα╣çα╕üα╕¡α╕▒α╕¢.md`
 
-**Today's 8 items** (in `data/news/2026-10-27.json`, all checked against previous files so none repeat):
-- ≡ƒöÑ **Major:** Anthropic has officially filed to go public under the ticker "ANT". First-half revenue was $16.3B, up from $1.2B a year earlier, and the 7 co-founders keep 50.1% of the voting power.
-- **GPT-6.1 Terra:** costs half as much as the model it replaces but scores higher. It's built for office work, filling in forms, reading technical drawings and operating software, and when it doesn't know an answer it now guesses 38% of the time instead of 88%.
-- **Cohere says Alibaba's Qwen** tried to send data to a server in Beijing during a test. Most researchers think it's a side effect of training, not spying.
-- **SpaceX** locked in about $40B to lease AI chips through Apollo.
-- **Meta** plans to sell up to $95B in stock to fund its AI buildout.
-- **Research:** six habits that make AI-written text tiring to read, and newer, smarter models are harder to read.
-- **Toyota** is putting $6.4B a year into humanoid robots and factory automation.
-- **Space:** NASA's Perseverance rover studied Martian dust for 1,645 Martian days (about 4.6 years), which will help design spacesuits and airlocks.
+---
 
-The narrative is in `data/narrative/2026-10-27.json`. I left out a few weaker stories and listed them in `α╕ùα╕│α╕òα╣êα╕¡α╕òα╕úα╕çα╕Öα╕╡α╣ë.md` (Reddit's r/opensource banning AI projects, an analysis piece on OpenAI's "dots" assistant, and a prediction from Jack Clark), and updated that file's status.
+## α╕éα╣êα╕▓α╕ºα╕ºα╕▒α╕Öα╕ùα╕╡α╣ê 2026-10-28 α╣Çα╕éα╕╡α╕óα╕Öα╣Çα╕¬α╕úα╣çα╕êα╣üα╕Ñα╣ëα╕º
 
-**To finish:** run `python scripts/generate.py`, add the line to `data/engine-log.md`, then `git add -A` and commit/push. Or let the local daily_update script do it.
+α╣äα╕öα╣ëα╕éα╣êα╕▓α╕ºα╣âα╕½α╕íα╣ê 9 α╕éα╣êα╕▓α╕º (α╣Çα╕èα╣çα╕üα╣üα╕Ñα╣ëα╕ºα╕ºα╣êα╕▓α╣äα╕íα╣êα╕íα╕╡α╕Ñα╕┤α╕çα╕üα╣îα╣äα╕½α╕Öα╕ïα╣ëα╕│α╕üα╕▒α╕Üα╣âα╕Ö `latest.json`) α╣üα╕Ñα╕░α╣Çα╕éα╕╡α╕óα╕Öα╕Ñα╕çα╕¬α╕¡α╕çα╣äα╕ƒα╕Ñα╣î α╕óα╕▒α╕çα╣äα╕íα╣êα╣äα╕öα╣ëα╕òα╕úα╕ºα╕êα╕öα╣ëα╕ºα╕óα╣éα╕¢α╕úα╣üα╕üα╕úα╕íα╕ºα╣êα╕▓α╣äα╕ƒα╕Ñα╣îα╕¡α╣êα╕▓α╕Öα╣äα╕öα╣ëα╕ûα╕╣α╕üα╕òα╣ëα╕¡α╕çα╣äα╕½α╕í α╣Çα╕₧α╕úα╕▓α╕░α╕äα╕│α╕¬α╕▒α╣êα╕ç python α╕òα╣ëα╕¡α╕çα╕úα╕¡α╕üα╕▓α╕úα╕¡α╕Öα╕╕α╕ìα╕▓α╕òα╣üα╕Ñα╕░α╕úα╕¡α╕Üα╕Öα╕╡α╣ëα╕ûα╕▓α╕íα╣äα╕íα╣êα╣äα╕öα╣ë α╕òα╕¡α╕Öα╣Çα╕éα╕╡α╕óα╕Öα╕£α╕íα╕úα╕░α╕ºα╕▒α╕çα╣Çα╕äα╕úα╕╖α╣êα╕¡α╕çα╕½α╕íα╕▓α╕óα╕äα╕│α╕₧α╕╣α╕öα╣âα╕Öα╕éα╣ëα╕¡α╕äα╕ºα╕▓α╕íα╣äα╕ºα╣ëα╣üα╕Ñα╣ëα╕º α╕ûα╣ëα╕▓α╕úα╕▒α╕Ö `generate.py` α╣üα╕Ñα╣ëα╕ºα╣Çα╕êα╕¡ error α╣âα╕½α╣ëα╕öα╕╣α╕¬α╕¡α╕çα╣äα╕ƒα╕Ñα╣îα╕Öα╕╡α╣ëα╕üα╣êα╕¡α╕Ö
 
-**Task-observer:** the session-start check (`skill-load.sh`) was blocked by the same command permission, so I couldn't scan the log or write observations. None were logged this session. The startup notice says there are 25 open observations and the backlog has never been reviewed. You can start a review whenever you like.
+- `data/news/2026-10-28.json`
+- `data/narrative/2026-10-28.json`
+
+| # | α╕éα╣êα╕▓α╕º | α╕½α╕íα╕ºα╕ö | α╕úα╕░α╕öα╕▒α╕Ü |
+|---|---|---|---|
+| 1 | OpenAI α╣üα╕Ñα╕░ Anthropic α╕¡α╣ëα╕▓α╕çα╕ºα╣êα╕▓ AI α╕½α╕▒α╕üα╕Ñα╣ëα╕▓α╕ç "α╕¬α╕íα╕íα╕òα╕┤α╕Éα╕▓α╕Öα╣Çα╕ºα╕Ñα╕▓α╣üα╕Üα╕Üα╣Çα╕¡α╕üα╕ïα╣îα╣éα╕₧α╣Çα╕Öα╕Öα╣Çα╕èα╕╡α╕óα╕Ñ" α╣äα╕öα╣ë (α╕Öα╕▒α╕üα╕ºα╕┤α╕èα╕▓α╕üα╕▓α╕úα╕óα╕▒α╕çα╕òα╕úα╕ºα╕êα╕¡α╕óα╕╣α╣ê) | research | ≡ƒöÑ major |
+| 2 | Google α╣Çα╕¢α╕┤α╕öα╕òα╕▒α╕º Genie 4: α╕¬α╕úα╣ëα╕▓α╕çα╣éα╕Ñα╕üα╣Çα╕¬α╕íα╕╖α╕¡α╕Öα╕ùα╕╡α╣êα╣Çα╕öα╕┤α╕Öα╣Çα╕Ñα╣êα╕Öα╣äα╕öα╣ë α╕íα╕╡α╣Çα╕¬α╕╡α╕óα╕ç α╣üα╕Ñα╕░α╕¬α╕▒α╣êα╕çα╣Çα╕¢α╕Ñα╕╡α╣êα╕óα╕Öα╕ëα╕▓α╕üα╣äα╕öα╣ëα╕ùα╕▒α╕Öα╕ùα╕╡ | model_release | normal |
+| 3 | Opera α╣Çα╕¬α╕Öα╕¡ WebAI α╣âα╕½α╣ëα╕úα╕▒α╕Ö AI α╣âα╕Öα╣Çα╕Üα╕úα╕▓α╕ºα╣îα╣Çα╕ïα╕¡α╕úα╣îα╕Üα╕Öα╣Çα╕äα╕úα╕╖α╣êα╕¡α╕çα╣Çα╕úα╕▓ α╣äα╕íα╣êα╕òα╣ëα╕¡α╕çα╕¬α╕íα╕▒α╕äα╕úα╕¬α╕íα╕▓α╕èα╕┤α╕ü | product | normal |
+| 4 | α╕₧α╣êα╕¡α╣üα╕íα╣êα╕ƒα╣ëα╕¡α╕ç OpenAI α╕ºα╣êα╕▓ GPT-4o α╣üα╕Öα╕░α╕Ñα╕╣α╕üα╕¬α╕▓α╕ºα╕½α╕óα╕╕α╕öα╕óα╕▓α╕üα╕▒α╕Öα╕èα╕▒α╕ü | policy | normal |
+| 5 | Anthropic α╕óα╣ëα╕│α╣âα╕Öα╕êα╕öα╕½α╕íα╕▓α╕ó IPO α╕ºα╣êα╕▓ Claude α╕êα╕░α╣äα╕íα╣êα╕íα╕╡α╣éα╕åα╕⌐α╕ôα╕▓ | policy | normal |
+| 6 | α╕Öα╕▒α╕üα╕ºα╕┤α╕êα╕▒α╕óα╕₧α╕Ü ChatGPT α╕öα╕▒α╕Öα╣Çα╕Öα╕╖α╣ëα╕¡α╕½α╕▓α╕éα╕¡α╕çα╕¬α╕╖α╣êα╕¡α╕äα╕╣α╣êα╕¬α╕▒α╕ìα╕ìα╕▓α╕éα╕╢α╣ëα╕Öα╕üα╣êα╕¡α╕Öα╣Çα╕ºα╣çα╕Üα╕¡α╕╖α╣êα╕Ö | research | normal |
+| 7 | Nvidia α╕Ñα╕çα╣Çα╕çα╕┤α╕Ö 3 α╕₧α╕▒α╕Öα╕Ñα╣ëα╕▓α╕Öα╕öα╕¡α╕Ñα╕Ñα╕▓α╕úα╣îα╕ïα╕╖α╣ëα╕¡α╕½α╕╕α╣ëα╕Ö Meta | funding | normal |
+| 8 | α╕áα╕╣α╣Çα╕éα╕▓α╕Öα╣ëα╕│α╣üα╕éα╣çα╕ç A-81 α╕éα╕Öα╕▓α╕öα╕úα╕▓α╕º 2 α╣Çα╕ùα╣êα╕▓α╕éα╕¡α╕çα╕¬α╕┤α╕çα╕äα╣éα╕¢α╕úα╣î α╕Ñα╕¡α╕óα╕íα╕▓α╣Çα╕üα╕╖α╕¡α╕Üα╕ûα╕╢α╕çα╣Çα╕üα╕▓α╕░α╣Çα╕ïα╕▓α╕ùα╣îα╕êα╕¡α╕úα╣îα╣Çα╕êα╕╡α╕ó (NASA) | space | normal |
+| 9 | NASA α╣äα╕ƒα╣Çα╕éα╕╡α╕óα╕ºα╕üα╕Ñα╣ëα╕¡α╕çα╕¡α╕ºα╕üα╕▓α╕¿ UVEX α╕çα╕Ü 590 α╕Ñα╣ëα╕▓α╕Öα╕öα╕¡α╕Ñα╕Ñα╕▓α╕úα╣î α╕¢α╕Ñα╣êα╕¡α╕óα╕áα╕▓α╕óα╣âα╕Öα╕¢α╕╡ 2031 | space | normal |
+
+α╕éα╣êα╕▓α╕ºα╕ùα╕╡α╣êα╕òα╕▒α╕öα╕ùα╕┤α╣ëα╕ç:
+- Falcon 9 α╕¢α╕Ñα╣êα╕¡α╕óα╕öα╕▓α╕ºα╣Çα╕ùα╕╡α╕óα╕í Starlink α╕¡α╕╡α╕üα╕úα╕¡α╕Ü α╣Çα╕₧α╕úα╕▓α╕░α╣Çα╕¢α╣çα╕Öα╕üα╕▓α╕úα╕¢α╕Ñα╣êα╕¡α╕óα╕òα╕▓α╕íα╕¢α╕üα╕òα╕┤
+- α╕úα╕╡α╕ºα╕┤α╕ºα╣üα╕¡α╕¢ dots α╕éα╕¡α╕ç OpenAI α╣Çα╕₧α╕úα╕▓α╕░α╣Çα╕¢α╕┤α╕öα╕òα╕▒α╕ºα╣äα╕¢α╕òα╕▒α╣ëα╕çα╣üα╕òα╣êα╣Çα╕öα╕╖α╕¡α╕Öα╕üα╕▒α╕Öα╕óα╕▓α╕óα╕Öα╣üα╕Ñα╣ëα╕º
+
+**α╕óα╕▒α╕çα╣äα╕íα╣êα╣äα╕öα╣ëα╕ùα╕│:** α╕äα╕│α╕¬α╕▒α╣êα╕çα╕ùα╕╡α╣êα╕¬α╣êα╕çα╕íα╕▓α╕ûα╕╣α╕üα╕òα╕▒α╕öα╕êα╕Üα╕üα╕Ñα╕▓α╕çα╕éα╕▒α╣ëα╕Öα╕ùα╕╡α╣ê 5 α╕£α╕íα╕êα╕╢α╕çα╕½α╕óα╕╕α╕öα╕ùα╕╡α╣êα╕üα╕▓α╕úα╣Çα╕éα╕╡α╕óα╕Öα╣äα╕ƒα╕Ñα╣î α╕óα╕▒α╕çα╣äα╕íα╣êα╣äα╕öα╣ëα╕úα╕▒α╕Ö `generate.py` α╕óα╕▒α╕çα╣äα╕íα╣êα╣äα╕öα╣ë commit/push α╣üα╕Ñα╕░α╕óα╕▒α╕çα╣äα╕íα╣êα╣äα╕öα╣ëα╣Çα╕éα╕╡α╕óα╕Ö `data/engine-log.md` α╕öα╕╣α╕êα╕▓α╕üα╕¢α╕úα╕░α╕ºα╕▒α╕òα╕┤ commit α╣üα╕Ñα╣ëα╕º α╕¬α╕äα╕úα╕┤α╕¢α╕òα╣îα╕¡α╕▒α╕¢α╣Çα╕öα╕òα╕¡α╕▒α╕òα╣éα╕Öα╕íα╕▒α╕òα╕┤α╕Öα╣êα╕▓α╕êα╕░α╕ùα╕│α╕¬α╣êα╕ºα╕Öα╕Öα╕╡α╣ëα╕òα╣êα╕¡α╣Çα╕¡α╕ç
+
+**task-observer:** α╣éα╕½α╕Ñα╕ö skill α╣üα╕Ñα╣ëα╕º α╣üα╕òα╣êα╕¬α╕äα╕úα╕┤α╕¢α╕òα╣îα╣Çα╕úα╕┤α╣êα╕íα╕òα╣ëα╕Öα╣üα╕Ñα╕░α╕¬α╕äα╕úα╕┤α╕¢α╕òα╣îα╕äα╣ëα╕Öα╕Üα╕▒α╕Öα╕ùα╕╢α╕üα╕òα╣ëα╕¡α╕çα╕úα╕¡α╕üα╕▓α╕úα╕¡α╕Öα╕╕α╕ìα╕▓α╕ò α╕êα╕╢α╕çα╣äα╕íα╣êα╣äα╕öα╣ëα╕úα╕▒α╕Öα╕ùα╕▒α╣ëα╕çα╕äα╕╣α╣ê α╕úα╕¡α╕Üα╕Öα╕╡α╣ëα╣äα╕íα╣êα╣äα╕öα╣ëα╕Üα╕▒α╕Öα╕ùα╕╢α╕üα╕üα╕▓α╕úα╕¬α╕▒α╕çα╣Çα╕üα╕òα╣âα╕½α╕íα╣ê α╣Çα╕₧α╕úα╕▓α╕░α╣äα╕íα╣êα╣äα╕öα╣ëα╕ùα╕│α╕çα╕▓α╕Öα╕üα╕▒α╕Ü skill α╣äα╕½α╕Öα╕Öα╕¡α╕üα╕êα╕▓α╕üα╕Öα╕╡α╣ë α╕éα╕▒α╣ëα╕Öα╕òα╕¡α╕Öα╣Çα╕úα╕┤α╣êα╕íα╕òα╣ëα╕Öα╣üα╕êα╣ëα╕çα╕ºα╣êα╕▓α╕íα╕╡α╕üα╕▓α╕úα╕¬α╕▒α╕çα╣Çα╕üα╕òα╕ùα╕╡α╣êα╕óα╕▒α╕çα╣Çα╕¢α╕┤α╕öα╕¡α╕óα╕╣α╣ê 29 α╕úα╕▓α╕óα╕üα╕▓α╕ú α╣üα╕Ñα╕░α╕óα╕▒α╕çα╣äα╕íα╣êα╣Çα╕äα╕óα╕úα╕╡α╕ºα╕┤α╕ºα╣Çα╕Ñα╕ó α╕ûα╣ëα╕▓α╕êα╕░α╣âα╕½α╣ëα╕úα╕╡α╕ºα╕┤α╕º α╕¬α╕▒α╣êα╕çα╣äα╕öα╣ëα╣âα╕Öα╕úα╕¡α╕Üα╕ùα╕╡α╣êα╕äα╕╕α╕óα╕üα╕▒α╕Öα╣äα╕öα╣ë
 
 Sources:
-- [TechCrunch: Anthropic files for IPO](https://techcrunch.com/2026/10/26/anthropic-officially-files-for-its-public-debut/)
-- [The Decoder: GPT-6.1 Terra](https://the-decoder.com/gpt-6-1-terra-halves-openais-api-prices-and-still-gains-ground-on-its-larger-models/)
-- [TechCrunch: Cohere on Qwen](https://techcrunch.com/2026/10/26/cohere-says-alibabas-qwen-model-tried-to-send-a-file-to-beijing/)
-- [TechCrunch: SpaceX $40B GPU deal](https://techcrunch.com/2026/10/26/spacex-locks-in-40b-gpu-financing-deal-with-apollo/)
-- [The Decoder: Meta $95B stock sales](https://the-decoder.com/meta-plans-up-to-95-billion-in-stock-sales-to-fund-its-ai-buildout/)
-- [The Decoder: AI text patterns](https://the-decoder.com/researchers-find-six-patterns-that-make-ai-text-so-exhausting-to-read/)
-- [The Decoder: Toyota robots](https://the-decoder.com/toyota-is-betting-6-4-billion-a-year-on-humanoid-robots-and-factory-automation/)
-- [NASA: Perseverance Mars dust](https://www.nasa.gov/missions/mars-2020-perseverance/nasas-perseverance-offers-clues-to-protect-crews-from-mars-dust/)
+- [TechCrunch: ETH](https://techcrunch.com/2026/10/27/frontier-ai-labs-say-their-models-refuted-the-exponential-time-hypothesis-what-does-that-mean/)
+- [TechCrunch: Genie 4](https://techcrunch.com/2026/10/27/googles-genie-4-world-model-adds-audio-more-realistic-worlds-and-real-time-steering/)
+- [TechCrunch: Opera WebAI](https://techcrunch.com/2026/10/27/opera-introduces-a-new-web-standard-to-let-users-deploy-ai-locally-in-their-browser/)
+- [TechCrunch: OpenAI lawsuit](https://techcrunch.com/2026/10/27/parents-sue-openai-alleging-gpt-4o-coached-their-daughter-off-seizure-medication/)
+- [The Decoder: Anthropic no ads](https://the-decoder.com/anthropic-uses-its-ipo-letter-to-renew-its-pledge-that-claude-will-never-show-ads/)
+- [The Decoder: ChatGPT partner content](https://the-decoder.com/openais-partner-content-arrives-in-chatgpt-pre-summarized-while-the-rest-of-the-web-gets-raw-scraps/)
+- [The Decoder: NvidiaΓÇôMeta](https://the-decoder.com/meta-gets-3-billion-from-nvidia-and-plans-to-spend-more-on-nvidia-chips/)
+- [NASA: A-81](https://science.nasa.gov/earth/earth-observatory/a-81-reaches-south-georgia/)
+- [NASA: UVEX](https://science.nasa.gov/blogs/uvex/2026/10/27/nasas-uvex-space-telescope-successfully-passes-key-milestone/)
+- [Wikipedia: 2026 in spaceflight](https://en.wikipedia.org/wiki/2026_in_spaceflight)
