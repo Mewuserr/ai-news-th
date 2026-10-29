@@ -8,6 +8,11 @@
 **Repo:** https://github.com/Mewuserr/ai-news-th (แยกต่างหาก ไม่เกี่ยวกับ repo อื่นของผู้ใช้)
 **โฟลเดอร์ในเครื่อง:** `E:\ai-news-th`
 
+## ⚠️ กฎ: repo นี้สำหรับ MEW Station (ข่าว) เท่านั้น (บันทึก 2026-10-29)
+- **ห้ามใส่โปรเจกต์อื่นลงใน repo นี้** ถ้าผู้ใช้ขอทำแอป/เว็บใหม่ที่ไม่เกี่ยวกับข่าว ต้องแยก repo ของมันเอง และ**ถามผู้ใช้ก่อนเสมอว่าจะเก็บไว้ที่ไหน** อย่าใส่ลง repo ที่ session บังเอิญเปิดอยู่
+- ที่มาของกฎ: วันที่ 2026-10-28 Claude สร้างแอปฟิตเนส **MewFit** แล้วใส่ไว้ในโฟลเดอร์ `mewfit/` ของ repo นี้ เพราะเป็น repo เดียวที่ session นั้นเข้าถึงได้และมี GitHub Pages อยู่แล้ว โดยไม่ได้ถามผู้ใช้ ผู้ใช้ไม่ต้องการให้ปนกัน
+- สถานะ MewFit: อยู่แค่ใน branch `claude/cool-babbage-hfkpoz` **ไม่เคย merge เข้า main** เว็บข่าวไม่ได้รับผลกระทบ กำลังย้ายไป repo ใหม่ `Mewuserr/mewfit` (เว็บจะอยู่ที่ https://mewuserr.github.io/mewfit/) — รอผู้ใช้สร้าง repo เปล่าเอง (Claude สร้างให้ไม่ได้ ติด 403) พอย้ายเสร็จให้ลบ `mewfit/` ออกจาก branch นี้ และ**ห้าม merge branch นี้เข้า main จนกว่าจะลบ `mewfit/` ออกแล้ว**
+
 ## สถาปัตยกรรม
 - **เครื่องยนต์ข่าวรายวัน = รันบนเครื่อง PC** (ตั้งแต่ 2026-07-15) ผ่าน **Windows Task Scheduler** task `MEW Station Daily News` ทุกวัน **06:00 น.** (StartWhenAvailable = ถ้าเปิดคอมสาย จะรันชดเชยให้เมื่อเปิด) → เรียก `scripts/daily_update.ps1`: ให้ headless `claude -p` ค้นข่าว+เขียน `data/news/{today}.json` (+narrative) เท่านั้น แล้วสคริปต์ธรรมดา `generate.py` + `git commit` + `git push` (เครื่องนี้มี git credential ที่ push ได้จริง) → GitHub Pages deploy อัตโนมัติ
 - **ทำไมย้ายมารันบนเครื่อง:** cloud routine เดิม (`ai-news-th-daily-engine` + `-backup`) ยิงตรงเวลาทุกวันจริง แต่ push ขึ้น GitHub **ไม่ได้เลย** เพราะ clone repo มาแบบอ่านอย่างเดียว ไม่มี credential — เป็นสาเหตุที่ข่าวไม่อัปเดตมาหลายวันแบบเงียบๆ. ตอนนี้ **ปิด cloud routine ทั้ง 2 ตัวแล้ว** (enabled=false ผ่าน RemoteTrigger). ถ้าจะกลับไปใช้คลาวด์ต้องฝัง GitHub PAT ให้มัน push ได้ก่อน
