@@ -5,35 +5,46 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>MewFit</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="MewFit เทรนเนอร์ส่วนตัวที่บ้าน: ตารางฝึกที่ปรับระดับเอง แผนอาหารไทยตามแคลอรี่ ตารางชีวิต และความรู้จากงานวิจัย">
+<meta name="description" content="MewFit เทรนเนอร์ส่วนตัวที่บ้าน: ตารางฝึกที่ปรับระดับเอง ท่าเคลื่อนไหวสาธิต แผนอาหารไทยตามแคลอรี่ ตารางชีวิต และความรู้จากงานวิจัย">
 <meta name="theme-color" content="#2443E6">
 <link rel="manifest" href="manifest.json" data-pages>
 <link rel="icon" href="icon.svg" type="image/svg+xml" data-pages>
-<link rel="apple-touch-icon" href="../apple-touch-icon.png" data-pages>
+<link rel="apple-touch-icon" href="apple-touch-icon.png" data-pages>
+<meta name="apple-mobile-web-app-capable" content="yes" data-pages>
+<meta name="apple-mobile-web-app-title" content="MewFit" data-pages>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans+Thai:wght@400;500;600&family=Kanit:ital,wght@0,500;0,700;1,800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans+Thai:wght@400;500;600&family=Kanit:ital,wght@0,500;0,600;0,700;1,700;1,800&display=swap">
 <style>
-/* Layout: one-column app shell (max 980px). Sticky top bar; bottom tab bar on phones, header tabs on desktop.
-   Cards only for blocks you act on. Numbers in mono so they line up like a training log. */
+/* Layout: one-column app shell (max 1000px). A dark-blue "brand surface" hero carries the day's session;
+   white cards hold tools; animated stick athlete demonstrates every move. Mono numerals read like a training log. */
 :root{
-  --bg:#EDEFEA; --surface:#FFFFFF; --sunk:#E2E5DE; --ink:#121815; --muted:#56605A; --line:#D3D7CF;
-  --accent:#2443E6; --accent-ink:#FFFFFF; --accent-soft:#DDE3FF; --hot:#D92E64;
-  --good:#16804E; --warn:#A86400; --bad:#C2303A; --shadow:0 1px 0 rgba(18,24,21,.04),0 10px 24px -16px rgba(18,24,21,.35);
+  --bg:#EEF0EB; --surface:#FFFFFF; --sunk:#E4E7E0; --ink:#11161A; --muted:#58615E; --line:#D5D9D2;
+  --accent:#2443E6; --accent-ink:#FFFFFF; --accent-soft:#E0E6FF; --hot:#E3336D; --hot-soft:#FFE3EC;
+  --good:#13804D; --warn:#A36000; --bad:#C2303A;
+  --hero:#0F1A5E; --hero-fg:#FFFFFF; --hero-muted:#C2C9F3; --hero-line:#2C3A8C;
+  --fig:#11161A; --prop:#B4BAB4; --figbg:#F4F5F1;
+  --shadow:0 1px 0 rgba(17,22,26,.04),0 14px 30px -20px rgba(17,22,26,.45);
   --fd:'Kanit','Leelawadee UI','Noto Sans Thai',system-ui,sans-serif;
   --fb:'IBM Plex Sans Thai','Leelawadee UI','Noto Sans Thai',system-ui,sans-serif;
   --fm:'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace;
-  --r:14px;
+  --r:20px;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#0E1113; --surface:#171B1E; --sunk:#101416; --ink:#E8ECE7; --muted:#99A39C; --line:#283036;
-  --accent:#7A90FF; --accent-ink:#0A0F2A; --accent-soft:#1D2652; --hot:#FF6894;
-  --good:#4CC98C; --warn:#E8A847; --bad:#F2707A; --shadow:0 10px 24px -16px rgba(0,0,0,.8); color-scheme:dark;
+  --bg:#0C0F12; --surface:#161A1E; --sunk:#0F1316; --ink:#E9EDE9; --muted:#9AA39E; --line:#262E33;
+  --accent:#7D93FF; --accent-ink:#0A0F2A; --accent-soft:#1C2553; --hot:#FF6B97; --hot-soft:#3A1824;
+  --good:#4FCB8E; --warn:#EAAA4A; --bad:#F2737C;
+  --hero:#17216B; --hero-fg:#FFFFFF; --hero-muted:#BFC7F5; --hero-line:#33429A;
+  --fig:#E9EDE9; --prop:#465056; --figbg:#11161A;
+  --shadow:0 14px 30px -20px rgba(0,0,0,.85); color-scheme:dark;
 }}
 :root[data-theme="dark"]{
-  --bg:#0E1113; --surface:#171B1E; --sunk:#101416; --ink:#E8ECE7; --muted:#99A39C; --line:#283036;
-  --accent:#7A90FF; --accent-ink:#0A0F2A; --accent-soft:#1D2652; --hot:#FF6894;
-  --good:#4CC98C; --warn:#E8A847; --bad:#F2707A; --shadow:0 10px 24px -16px rgba(0,0,0,.8); color-scheme:dark;
+  --bg:#0C0F12; --surface:#161A1E; --sunk:#0F1316; --ink:#E9EDE9; --muted:#9AA39E; --line:#262E33;
+  --accent:#7D93FF; --accent-ink:#0A0F2A; --accent-soft:#1C2553; --hot:#FF6B97; --hot-soft:#3A1824;
+  --good:#4FCB8E; --warn:#EAAA4A; --bad:#F2737C;
+  --hero:#17216B; --hero-fg:#FFFFFF; --hero-muted:#BFC7F5; --hero-line:#33429A;
+  --fig:#E9EDE9; --prop:#465056; --figbg:#11161A;
+  --shadow:0 14px 30px -20px rgba(0,0,0,.85); color-scheme:dark;
 }
 [hidden]{display:none!important}
 *{box-sizing:border-box}
@@ -41,78 +52,119 @@ html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--ink);font:400 15px/1.6 var(--fb)}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--surface)}
 h1,h2,h3{font-family:var(--fd);font-weight:700;line-height:1.2;margin:0;text-wrap:balance}
-h1{font-size:1.75rem} h2{font-size:1.25rem} h3{font-size:1.05rem}
+h1{font-size:clamp(1.6rem,4.4vw,2.2rem)} h2{font-size:1.25rem} h3{font-size:1.05rem}
 p{margin:0}
 a{color:var(--accent)}
-button,input,select,textarea{font:inherit;color:inherit}
+button,input,select,textarea,output{font:inherit;color:inherit}
 :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .num,.mono{font-family:var(--fm);font-variant-numeric:tabular-nums}
-.muted{color:var(--muted)}
-.small{font-size:.85rem}
-.eyebrow{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.muted{color:var(--muted)} .small{font-size:.85rem}
+.eyebrow{font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
 
-/* top bar */
+/* top bar + logo */
 .top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--surface);border-bottom:1px solid var(--line)}
-.top-in{max-width:980px;margin:0 auto;display:flex;align-items:center;gap:16px;min-height:56px;
+.top-in{max-width:1000px;margin:0 auto;display:flex;align-items:center;gap:16px;min-height:58px;
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
-.brand{display:flex;align-items:baseline;gap:2px;text-decoration:none;color:var(--ink);font-family:var(--fd)}
-.brand .m{font-style:italic;font-weight:800;font-size:1.45rem;color:var(--accent);letter-spacing:-.02em}
-.brand .f{font-style:italic;font-weight:800;font-size:1.45rem;letter-spacing:-.02em}
-.brand small{margin-left:8px;font-size:.78rem;color:var(--muted);font-family:var(--fb);font-weight:500}
-.tabs{display:none;gap:4px;margin-left:auto}
-.tabs a,.top-mini a{text-decoration:none;color:var(--muted);padding:6px 10px;border-radius:999px;font-weight:500;font-size:.92rem}
+.brand{display:flex;align-items:center;gap:9px;text-decoration:none;color:var(--ink)}
+.logo{width:34px;height:34px;flex:none;display:block}
+.logo .lb{fill:var(--accent)} .logo .lm{stroke:var(--accent-ink)} .logo .ln{fill:var(--hot)}
+.wm{font-family:var(--fd);font-style:italic;font-weight:800;font-size:1.42rem;letter-spacing:-.02em;line-height:1}
+.wm em{font-style:italic;color:var(--accent)}
+.tabs{display:none;gap:2px;margin-left:auto}
+.tabs a,.top-mini a{text-decoration:none;color:var(--muted);padding:7px 11px;border-radius:999px;font-weight:500;font-size:.92rem}
+.tabs a:hover{color:var(--ink)}
 .tabs a[aria-current="page"],.top-mini a[aria-current="page"]{background:var(--accent-soft);color:var(--ink)}
 .top-mini{margin-left:auto;display:flex;gap:2px}
-@media (min-width:860px){.tabs{display:flex}.top-mini{display:none}}
+@media (min-width:880px){.tabs{display:flex}.top-mini{display:none}}
+body.v-start .tabs,body.v-start .top-mini,body.v-start .bottom{display:none!important}
 
-main{max-width:980px;margin:0 auto;padding-block:20px calc(96px + env(safe-area-inset-bottom,0px));
+main{max-width:1000px;margin:0 auto;padding-block:20px calc(110px + env(safe-area-inset-bottom,0px));
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
-@media (min-width:860px){main{padding-block:28px 64px}}
+@media (min-width:880px){main{padding-block:28px 72px}}
 .view{display:flex;flex-direction:column;gap:16px}
-.view-head{display:flex;flex-direction:column;gap:4px;margin-bottom:4px}
+.view-head{display:flex;flex-direction:column;gap:6px;margin-bottom:2px}
+.view-head p{max-width:62ch}
 
-/* bottom nav */
+/* bottom nav with raised train button */
 .bottom{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--surface);border-top:1px solid var(--line);
-  display:grid;grid-template-columns:repeat(5,1fr);padding-bottom:env(safe-area-inset-bottom,0px);
+  display:grid;grid-template-columns:repeat(5,1fr);align-items:end;padding-bottom:env(safe-area-inset-bottom,0px);
   padding-left:env(safe-area-inset-left,0px);padding-right:env(safe-area-inset-right,0px)}
 .bottom a{display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 0 7px;text-decoration:none;color:var(--muted);font-size:.72rem;font-weight:500}
-.bottom svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.bottom svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
 .bottom a[aria-current="page"]{color:var(--accent)}
-@media (min-width:860px){.bottom{display:none}}
+.bottom a.mid .ic{width:52px;height:52px;margin-top:-22px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;box-shadow:0 8px 18px -8px var(--accent);border:4px solid var(--surface)}
+.bottom a.mid svg{width:24px;height:24px}
+.bottom a.mid[aria-current="page"]{color:var(--ink)}
+@media (min-width:880px){.bottom{display:none}}
 
 /* surfaces */
-.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:12px;min-width:0}
-.card.flat{box-shadow:none;background:transparent}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:14px;min-width:0}
 .grid{display:grid;gap:16px}
-@media (min-width:720px){.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}}
+@media (min-width:740px){.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}}
 .row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
 .between{justify-content:space-between}
-.stack{display:flex;flex-direction:column;gap:8px}
+.stack{display:flex;flex-direction:column;gap:8px;min-width:0}
 
-.btn{appearance:none;border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:9px 14px;font-weight:600;cursor:pointer;line-height:1.2;text-decoration:none;display:inline-flex;align-items:center;gap:6px;color:var(--ink)}
-.btn:hover{border-color:var(--muted)}
+.btn{appearance:none;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:9px 16px;font-weight:600;cursor:pointer;line-height:1.2;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:6px;color:var(--ink);transition:transform .12s,filter .12s}
+.btn:hover{border-color:var(--muted)} .btn:active{transform:scale(.97)}
 .btn.pri{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
 .btn.pri:hover{filter:brightness(1.08)}
+.btn.hot{background:var(--hot);border-color:var(--hot);color:#fff}
 .btn.ghost{background:transparent}
-.btn.sm{padding:6px 10px;font-size:.85rem;border-radius:8px}
-.btn.big{padding:13px 20px;font-size:1.05rem}
+.btn.sm{padding:6px 12px;font-size:.85rem}
+.btn.big{padding:14px 22px;font-size:1.05rem}
+.btn.wide{width:100%}
 .btn.danger{color:var(--bad);border-color:var(--bad);background:transparent}
-.btn[disabled]{opacity:.45;cursor:not-allowed}
+.btn[disabled]{opacity:.4;cursor:not-allowed}
 
-.chip{display:inline-flex;align-items:center;gap:4px;font-size:.78rem;font-weight:600;padding:3px 9px;border-radius:999px;background:var(--sunk);color:var(--muted);white-space:nowrap}
-.chip.acc{background:var(--accent-soft);color:var(--ink)}
+.chip{display:inline-flex;align-items:center;gap:4px;font-size:.78rem;font-weight:600;padding:3px 10px;border-radius:999px;background:var(--sunk);color:var(--muted);white-space:nowrap}
+.chip.acc{background:var(--accent-soft);color:var(--ink)} .chip.hot{background:var(--hot-soft);color:var(--hot)}
 .chip.good{color:var(--good)} .chip.warn{color:var(--warn)} .chip.bad{color:var(--bad)}
 .chips{display:flex;flex-wrap:wrap;gap:6px}
 button.chip{border:1px solid transparent;cursor:pointer}
 button.chip[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+.banner{border:1px dashed var(--accent);background:var(--accent-soft);border-radius:16px;padding:12px 14px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+.note{border-radius:14px;padding:12px 14px;background:var(--hot-soft);color:var(--ink);font-size:.9rem}
+.note.ok{background:var(--accent-soft)}
 
-.banner{border:1px dashed var(--accent);background:var(--accent-soft);border-radius:var(--r);padding:12px 14px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+/* hero brand surface */
+.hero{position:relative;overflow:hidden;background:var(--hero);color:var(--hero-fg);border-radius:24px;padding:22px;display:grid;gap:12px;
+  grid-template-columns:1fr;box-shadow:var(--shadow);
+  background-image:repeating-linear-gradient(-58deg,transparent 0 22px,rgba(255,255,255,.035) 22px 44px)}
+@media (min-width:640px){.hero{grid-template-columns:1.25fr 1fr;padding:28px;align-items:center}}
+.hero .eyebrow{color:var(--hero-muted)}
+.hero p{color:var(--hero-muted);max-width:52ch}
+.hero-txt{display:flex;flex-direction:column;gap:10px;min-width:0}
+.hero h1{font-style:italic;font-weight:800}
+.hero .btn{border-color:var(--hero-line);background:transparent;color:var(--hero-fg)}
+.hero .btn.pri{background:var(--hero-fg);border-color:var(--hero-fg);color:var(--hero)}
+.hero .btn.hot{background:var(--hot);border-color:var(--hot);color:#fff}
+.hero-sess{display:flex;flex-direction:column;border-left:3px solid var(--hot);padding-left:12px}
+.hero-sess b{font-family:var(--fd);font-size:1.2rem}
+.hero-sess span{color:var(--hero-muted);font-size:.9rem}
+.hero-fig{background:rgba(255,255,255,.06);border-radius:18px;padding:6px;--fig:var(--hero-fg);--prop:var(--hero-line)}
+.hero-fig .gr{stroke:var(--hero-line)}
+@media (max-width:639px){.hero-fig{max-width:250px;width:100%;justify-self:center}}
 
-/* hero */
-.hero h1{font-size:clamp(1.5rem,4vw,2.1rem)}
-.coach{display:flex;gap:12px;align-items:flex-start}
-.coach .av{flex:none;width:42px;height:42px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;font-family:var(--fd);font-style:italic;font-weight:800}
-.coach p{max-width:62ch}
+/* animated figure */
+.fig{width:100%;height:auto;display:block}
+.fig .l{fill:none;stroke:var(--fig);stroke-width:7;stroke-linecap:round;stroke-linejoin:round}
+.fig .far{opacity:.32} .fig.front .far{opacity:1}
+.fig .hd{fill:var(--fig)} .fig .db{fill:var(--hot)}
+.fig .gr{stroke:var(--prop);stroke-width:2}
+.fig .pf{fill:var(--prop)} .fig .ps{stroke:var(--prop);stroke-linecap:round}
+.fig .tw{stroke:var(--hot);stroke-width:3;stroke-dasharray:4 3}
+.figbox{background:var(--figbg);border-radius:14px;padding:4px;border:1px solid var(--line)}
+.mini{width:84px;flex:none}
+
+/* rings */
+.ringwrap{display:grid;grid-template-columns:128px 1fr;gap:18px;align-items:center}
+.rings{width:128px;height:128px}
+.legend{display:flex;flex-direction:column;gap:10px;min-width:0}
+.legend div{display:grid;grid-template-columns:10px 1fr auto;gap:8px;align-items:baseline}
+.legend i{width:10px;height:10px;border-radius:50%;display:block;align-self:center}
+.legend b{font-family:var(--fm);font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
+.legend b small{color:var(--muted);font-weight:500}
 
 /* metrics */
 .metric{display:flex;flex-direction:column;gap:6px}
@@ -120,74 +172,136 @@ button.chip[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink
 .metric .val{font-family:var(--fm);font-weight:600;font-size:1.05rem}
 .bar{height:8px;border-radius:999px;background:var(--sunk);overflow:hidden}
 .bar i{display:block;height:100%;background:var(--accent);border-radius:inherit;transition:width .3s}
-.bar.over i{background:var(--warn)}
-.bar.ok i{background:var(--good)}
-.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px}
-.kpi{background:var(--sunk);border-radius:10px;padding:10px 12px;display:flex;flex-direction:column;gap:2px;min-width:0}
+.bar.over i{background:var(--warn)} .bar.ok i{background:var(--good)}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:10px}
+.kpi{background:var(--sunk);border-radius:14px;padding:11px 13px;display:flex;flex-direction:column;gap:2px;min-width:0}
 .kpi b{font-family:var(--fm);font-size:1.3rem;font-weight:600;font-variant-numeric:tabular-nums}
 .kpi span{font-size:.8rem;color:var(--muted)}
 
 /* week strip */
 .week{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
-.wd{border-radius:10px;padding:8px 4px;text-align:center;background:var(--sunk);display:flex;flex-direction:column;gap:2px;min-width:0;border:1px solid transparent}
+.wd{border-radius:12px;padding:8px 2px;text-align:center;background:var(--sunk);display:flex;flex-direction:column;gap:2px;min-width:0;border:1.5px solid transparent}
 .wd b{font-family:var(--fd);font-size:.95rem}
-.wd span{font-size:.68rem;color:var(--muted);line-height:1.25;overflow-wrap:anywhere}
+.wd span{font-size:.66rem;color:var(--muted);line-height:1.25;overflow-wrap:anywhere}
 .wd.train{background:var(--accent-soft)}
 .wd.today{border-color:var(--accent)}
-.wd.done{background:var(--accent);color:var(--accent-ink)}
-.wd.done span{color:var(--accent-ink)}
+.wd.done{background:var(--accent);color:var(--accent-ink)} .wd.done span{color:var(--accent-ink)}
 button.wd{cursor:pointer;font:inherit;color:inherit}
 button.wd[aria-pressed="true"]{outline:2px solid var(--ink);outline-offset:1px}
 
+/* tools */
+.tools{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.tool{all:unset;cursor:pointer;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:14px;display:flex;flex-direction:column;gap:4px;min-width:0;box-shadow:var(--shadow)}
+.tool:hover{border-color:var(--accent)} .tool:focus-visible{outline:2px solid var(--accent)}
+.tool b{font-family:var(--fd);font-size:1rem;line-height:1.25}
+.tool span{font-size:.78rem;color:var(--muted)}
+.tool .t-ic{width:34px;height:34px;border-radius:10px;background:var(--accent-soft);display:grid;place-items:center;margin-bottom:4px}
+.tool .t-ic svg{width:20px;height:20px;stroke:var(--accent);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+@media (max-width:420px){.tools{grid-template-columns:1fr 1fr}.tools .tool:last-child{grid-column:span 2}}
+
 /* counters */
 .counter{display:flex;align-items:center;gap:10px}
-.counter .btn{width:38px;height:38px;justify-content:center;padding:0;font-size:1.2rem}
-.glasses{display:flex;flex-wrap:wrap;gap:4px}
-.glasses i{width:14px;height:20px;border:1.5px solid var(--accent);border-radius:2px 2px 5px 5px;display:block}
-.glasses i.on{background:var(--accent)}
+.counter .btn{width:40px;height:40px;padding:0;font-size:1.2rem}
+.glasses{display:flex;flex-wrap:wrap;gap:4px;flex:1}
+.glasses i{width:13px;height:19px;border:1.5px solid var(--good);border-radius:2px 2px 5px 5px;display:block}
+.glasses i.on{background:var(--good)}
 
 /* forms */
-label.f{display:flex;flex-direction:column;gap:4px;font-size:.88rem;font-weight:500;min-width:0}
+label.f{display:flex;flex-direction:column;gap:5px;font-size:.88rem;font-weight:500;min-width:0}
 input[type=text],input[type=number],input[type=date],input[type=time],input[type=search],select,textarea{
-  width:100%;border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:9px 11px;min-width:0}
+  width:100%;border:1px solid var(--line);background:var(--surface);border-radius:12px;padding:10px 12px;min-width:0}
 textarea{font-family:var(--fm);font-size:.8rem;min-height:90px;resize:vertical}
-.fgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.fgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px}
 .seg{display:flex;flex-wrap:wrap;gap:6px}
 .seg label{cursor:pointer}
-.seg input{position:absolute;opacity:0;pointer-events:none}
-.seg span{display:inline-block;padding:7px 12px;border-radius:10px;border:1px solid var(--line);font-size:.9rem;font-weight:500}
+.seg input,.opt input{position:absolute;opacity:0;pointer-events:none}
+.seg span{display:inline-block;padding:8px 14px;border-radius:999px;border:1px solid var(--line);font-size:.9rem;font-weight:500;background:var(--surface)}
 .seg input:checked+span{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
-.seg input:focus-visible+span{outline:2px solid var(--accent);outline-offset:2px}
+.seg input:focus-visible+span,.opt input:focus-visible+div{outline:2px solid var(--accent);outline-offset:2px}
 fieldset{border:0;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;min-width:0}
-legend{font-weight:600;font-size:.9rem;padding:0;margin-bottom:6px}
+legend{font-weight:600;font-size:.92rem;padding:0;margin-bottom:6px}
+.opts{display:grid;gap:10px}
+@media (min-width:640px){.opts.two{grid-template-columns:1fr 1fr}}
+.opt{cursor:pointer;display:block}
+.opt>div{border:1.5px solid var(--line);border-radius:16px;padding:14px 16px;display:flex;flex-direction:column;gap:2px;background:var(--surface);transition:border-color .15s}
+.opt b{font-family:var(--fd);font-size:1.05rem;font-weight:600}
+.opt span{font-size:.86rem;color:var(--muted)}
+.opt input:checked+div{border-color:var(--accent);background:var(--accent-soft)}
+.opt .tag{align-self:flex-start;margin-bottom:2px}
 
-/* workout */
-.ex{border:1px solid var(--line);border-radius:var(--r);background:var(--surface);padding:14px;display:flex;flex-direction:column;gap:10px}
-.ex.complete{border-color:var(--good)}
-.ex-h{display:flex;gap:12px;align-items:flex-start}
-.ex-i{flex:none;width:30px;height:30px;border-radius:8px;background:var(--sunk);display:grid;place-items:center;font-family:var(--fm);font-weight:600}
-.ex.complete .ex-i{background:var(--good);color:var(--surface)}
-.ex-h div{min-width:0}
-.ex .en{font-size:.82rem;color:var(--muted)}
-.ladder{display:flex;gap:3px;margin-top:4px}
-.ladder i{height:5px;flex:1;max-width:22px;border-radius:3px;background:var(--sunk)}
+/* onboarding */
+.ob{max-width:620px;width:100%;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+.ob-prog{display:grid;grid-template-columns:repeat(8,1fr);gap:4px}
+.ob-prog i{height:5px;border-radius:3px;background:var(--line)}
+.ob-prog i.on{background:var(--accent)}
+.ob-why{display:flex;gap:8px;font-size:.88rem;color:var(--muted);background:var(--sunk);border-radius:12px;padding:10px 12px}
+.ob-why b{color:var(--ink);white-space:nowrap}
+.ob-nav{position:sticky;bottom:0;background:var(--bg);padding-block:12px calc(12px + env(safe-area-inset-bottom,0px));display:flex;gap:10px;border-top:1px solid var(--line);z-index:5}
+.ob-nav .btn.pri{flex:1}
+.ob-hero{display:flex;flex-direction:column;align-items:flex-start;gap:14px}
+.ob-hero .logo{width:72px;height:72px}
+.ob-hero h1{font-size:clamp(1.9rem,6vw,2.6rem);font-style:italic;font-weight:800}
+.feat{display:grid;gap:10px}
+.feat>div{display:grid;grid-template-columns:40px 1fr;gap:12px;align-items:start}
+.feat>div>div{min-width:0}
+.feat .n{font-size:.8rem;width:40px;height:40px;border-radius:12px;background:var(--accent-soft);display:grid;place-items:center;font-family:var(--fd);font-weight:700;color:var(--accent)}
+.feat p{color:var(--muted);font-size:.9rem}
+.need{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.need li{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px solid var(--line);font-size:.92rem}
+.need li span:last-child{color:var(--muted);text-align:right}
+.yn{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+.yn p{font-size:.93rem}
+.yn .seg span{padding:6px 14px}
+.bignum input{font-family:var(--fm);font-size:1.25rem;font-weight:600;padding:12px 14px}
+
+/* workout player */
+.player .pl-stage{position:relative}
+.pl-k{position:absolute;top:10px;left:10px}
+.pl-name{font-size:clamp(1.4rem,5vw,1.9rem)}
+.ladder{display:flex;gap:3px;margin-top:2px}
+.ladder i{height:5px;flex:1;max-width:24px;border-radius:3px;background:var(--sunk)}
 .ladder i.on{background:var(--accent)}
-.sets{display:grid;grid-template-columns:repeat(auto-fill,minmax(78px,1fr));gap:8px}
-.sets label{display:flex;flex-direction:column;gap:3px;font-size:.75rem;color:var(--muted)}
-.sets input{text-align:center;font-family:var(--fm);font-size:1.1rem;font-weight:600;padding:8px 4px}
-.sets input.hit{border-color:var(--good);color:var(--good)}
-details{border-top:1px solid var(--line);padding-top:8px}
-summary{cursor:pointer;font-weight:600;font-size:.88rem;color:var(--accent)}
-details ul{margin:8px 0 6px;padding-left:20px;display:flex;flex-direction:column;gap:4px}
-.warnline{font-size:.85rem;color:var(--warn)}
-.plan-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
-.plan-list li{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid var(--line)}
-.plan-list li:last-child{border-bottom:0}
-.plan-list li span:first-child{min-width:0}
+.pl-target{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.pl-target div{background:var(--sunk);border-radius:14px;padding:10px;display:flex;flex-direction:column;min-width:0}
+.pl-target b{font-family:var(--fm);font-size:1.1rem;font-weight:600;overflow-wrap:anywhere}
+.pl-target span{font-size:.75rem;color:var(--muted)}
+.stepper{display:grid;grid-template-columns:64px 1fr 64px;gap:10px;align-items:center}
+.stepper .btn{height:64px;font-size:1.8rem;padding:0}
+.stepper output{text-align:center;font-family:var(--fm);font-weight:600;font-size:3.2rem;line-height:1;font-variant-numeric:tabular-nums}
+.setdots{display:flex;gap:8px;flex-wrap:wrap}
+.sd{all:unset;cursor:pointer;min-width:40px;height:40px;padding:0 6px;box-sizing:border-box;border-radius:12px;border:1.5px dashed var(--line);display:grid;place-items:center;font-family:var(--fm);font-weight:600;color:var(--muted)}
+.sd.on{border:1.5px solid var(--good);color:var(--good);background:var(--surface)}
+.sd.cur{border-color:var(--accent);border-style:solid;color:var(--accent)}
+.sd:focus-visible{outline:2px solid var(--accent)}
+.pl-rest{background:var(--hero);color:var(--hero-fg);border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center}
+.pl-rest .eyebrow{color:var(--hero-muted)}
+.pl-rest b{font-family:var(--fm);font-size:3.6rem;line-height:1;font-variant-numeric:tabular-nums}
+.pl-rest p{color:var(--hero-muted)}
+.pl-rest .btn{border-color:var(--hero-line);background:transparent;color:var(--hero-fg)}
+.pl-rest .btn.pri{background:var(--hero-fg);color:var(--hero);border-color:var(--hero-fg)}
+.pl-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.pl-list button{all:unset;cursor:pointer;box-sizing:border-box;width:100%;display:grid;grid-template-columns:28px 1fr auto;gap:10px;align-items:center;padding:8px 10px;border-radius:12px}
+.pl-list button:hover,.pl-list button.cur{background:var(--accent-soft)}
+.pl-list .st{width:28px;height:28px;border-radius:8px;background:var(--sunk);display:grid;place-items:center;font-family:var(--fm);font-weight:600;font-size:.85rem}
+.pl-list .st.ok{background:var(--good);color:var(--surface)}
+.pl-list span{min-width:0}
 
-/* food */
-.food-res{display:flex;flex-direction:column;max-height:300px;overflow:auto;border:1px solid var(--line);border-radius:10px}
-.food-res button{all:unset;display:flex;justify-content:space-between;gap:10px;padding:9px 12px;border-bottom:1px solid var(--line);cursor:pointer}
+/* lists, tables */
+details{border-top:1px solid var(--line);padding-top:10px}
+summary{cursor:pointer;font-weight:600;font-size:.9rem;color:var(--accent)}
+details ul{margin:8px 0 6px;padding-left:20px;display:flex;flex-direction:column;gap:4px}
+.warnline{font-size:.86rem;color:var(--warn)}
+.plan-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.plan-list li{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--line)}
+.plan-list li:last-child{border-bottom:0}
+.plan-list li>span:first-child{min-width:0}
+.mv{display:flex;gap:12px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line)}
+.mv:last-child{border-bottom:0}
+.mv>div{min-width:0;flex:1}
+.mv>.figbox{flex:none;width:96px}
+.mv h3{font-size:1rem}
+.food-res{display:flex;flex-direction:column;max-height:300px;overflow:auto;border:1px solid var(--line);border-radius:14px}
+.food-res button{all:unset;display:flex;justify-content:space-between;gap:10px;padding:10px 12px;border-bottom:1px solid var(--line);cursor:pointer}
 .food-res button:hover,.food-res button:focus-visible{background:var(--accent-soft)}
 .food-res button span:first-child{min-width:0}
 .log-list{list-style:none;margin:0;padding:0}
@@ -202,59 +316,61 @@ table{border-collapse:collapse;width:100%;font-size:.9rem}
 th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
 th{font-size:.78rem;color:var(--muted);font-weight:600}
 td.n{font-family:var(--fm);font-variant-numeric:tabular-nums;white-space:nowrap}
-
-/* timeline */
 .tl{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
-.tl li{display:grid;grid-template-columns:62px 14px 1fr;gap:10px;align-items:start;padding:7px 0}
+.tl li{display:grid;grid-template-columns:58px 14px 1fr;gap:10px;align-items:start;padding:7px 0}
 .tl time{font-family:var(--fm);font-weight:600;font-size:.92rem;padding-top:1px}
 .tl .dot{width:10px;height:10px;border-radius:50%;background:var(--line);margin-top:7px}
-.tl li.k-train .dot{background:var(--accent)}
-.tl li.k-food .dot{background:var(--good)}
-.tl li.k-sleep .dot{background:var(--hot)}
-.tl b{font-weight:600}
-.tl p{color:var(--muted);font-size:.88rem}
-.tl li>div{min-width:0}
-
-/* learn */
+.tl li.k-train .dot{background:var(--accent)} .tl li.k-food .dot{background:var(--good)} .tl li.k-sleep .dot{background:var(--hot)}
+.tl b{font-weight:600} .tl p{color:var(--muted);font-size:.88rem} .tl li>div{min-width:0}
 .tips{display:grid;gap:12px}
-@media (min-width:720px){.tips{grid-template-columns:1fr 1fr}}
-.tip{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:8px;min-width:0}
+@media (min-width:740px){.tips{grid-template-columns:1fr 1fr}}
+.tip{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:16px;display:flex;flex-direction:column;gap:8px;min-width:0}
 .tip .src{font-size:.78rem;color:var(--muted);border-top:1px solid var(--line);padding-top:8px;margin-top:auto}
 .tip.myth h3::before{content:"ความเชื่อ: ";color:var(--bad)}
 .verdict{font-weight:600;color:var(--good)}
-
-/* chart */
 .chart svg{width:100%;height:auto;display:block}
 .chart .ax{fill:var(--muted);font:500 15px var(--fm)}
 .chart .grid-l{stroke:var(--line);stroke-width:1}
+.coach{display:flex;gap:12px;align-items:flex-start}
+.coach .av{flex:none;width:40px;height:40px}
+.coach p{max-width:62ch}
+.setrow{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--line)}
+.setrow:last-child{border-bottom:0}
+.setrow>div{min-width:0}
 
-/* rest bar + toast + overlay */
+/* rest bar, toast, overlays */
 .restbar{position:fixed;z-index:25;left:max(12px,env(safe-area-inset-left,0px));right:max(12px,env(safe-area-inset-right,0px));
-  bottom:calc(70px + env(safe-area-inset-bottom,0px));max-width:560px;margin:0 auto;background:var(--ink);color:var(--bg);
-  border-radius:14px;padding:10px 12px;display:flex;align-items:center;gap:10px;box-shadow:var(--shadow)}
+  bottom:calc(76px + env(safe-area-inset-bottom,0px));max-width:560px;margin:0 auto;background:var(--hero);color:var(--hero-fg);
+  border-radius:16px;padding:10px 12px;display:flex;align-items:center;gap:10px;box-shadow:var(--shadow)}
 .restbar b{font-family:var(--fm);font-size:1.5rem;font-variant-numeric:tabular-nums}
-.restbar .btn{background:transparent;color:var(--bg);border-color:var(--muted)}
-.restbar .grow{flex:1;min-width:0;font-size:.85rem}
-@media (min-width:860px){.restbar{bottom:20px}}
-body.resting main{padding-bottom:calc(170px + env(safe-area-inset-bottom,0px))}
+.restbar .btn{background:transparent;color:var(--hero-fg);border-color:var(--hero-line)}
+.restbar .grow{flex:1;min-width:0;font-size:.85rem;color:var(--hero-muted)}
+@media (min-width:880px){.restbar{bottom:20px}}
+body.v-train .restbar,body.v-start .restbar{display:none!important}
+body.resting:not(.v-train) main{padding-bottom:calc(180px + env(safe-area-inset-bottom,0px))}
 .toast{position:fixed;z-index:60;left:50%;transform:translate(-50%,20px);top:calc(70px + env(safe-area-inset-top,0px));background:var(--ink);color:var(--bg);
-  padding:10px 16px;border-radius:12px;font-weight:500;opacity:0;pointer-events:none;transition:.25s;max-width:min(92vw,520px)}
+  padding:10px 16px;border-radius:14px;font-weight:500;opacity:0;pointer-events:none;transition:.25s;max-width:min(92vw,520px)}
 .toast.on{opacity:1;transform:translate(-50%,0)}
-.hiit{position:fixed;inset:0;z-index:50;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;text-align:center;
-  padding:calc(24px + env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) calc(24px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
-.hiit .phase{font-family:var(--fd);font-size:1rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-.hiit .phase.work{color:var(--accent)}
-.hiit .clock{font-family:var(--fm);font-weight:600;font-size:clamp(4.5rem,22vw,9rem);line-height:1;font-variant-numeric:tabular-nums}
+.hiit{position:fixed;inset:0;z-index:50;background:var(--hero);color:var(--hero-fg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;
+  padding:calc(20px + env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) calc(20px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));
+  --fig:var(--hero-fg);--prop:var(--hero-line)}
+.hiit .phase{font-family:var(--fd);font-size:1rem;letter-spacing:.12em;text-transform:uppercase;color:var(--hero-muted)}
+.hiit .phase.work{color:var(--hot)}
+.hiit .clock{font-family:var(--fm);font-weight:600;font-size:clamp(4rem,20vw,8rem);line-height:1;font-variant-numeric:tabular-nums}
 .hiit h2{font-size:clamp(1.4rem,5vw,2.2rem)}
-.hiit .ring{width:100%;max-width:420px}
-.modal-bg{position:fixed;inset:0;z-index:55;background:rgba(0,0,0,.45);display:grid;place-items:center;padding:16px}
-.modal{background:var(--surface);color:var(--ink);border-radius:var(--r);padding:20px;max-width:460px;width:100%;display:flex;flex-direction:column;gap:12px;max-height:85vh;overflow:auto}
+.hiit p{color:var(--hero-muted)}
+.hiit .ring{width:100%;max-width:420px;background:var(--hero-line)} .hiit .ring i{background:var(--hot)}
+.hiit #h-figbox{width:min(300px,70vw)}
+.hiit .btn{border-color:var(--hero-line);background:transparent;color:var(--hero-fg)}
+.hiit .btn.pri{background:var(--hero-fg);color:var(--hero);border-color:var(--hero-fg)}
+.modal-bg{position:fixed;inset:0;z-index:55;background:rgba(0,0,0,.5);display:grid;place-items:center;padding:16px}
+.modal{background:var(--surface);color:var(--ink);border-radius:var(--r);padding:22px;max-width:460px;width:100%;display:flex;flex-direction:column;gap:12px;max-height:85vh;overflow:auto}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 </head>
 <body>
 <header class="top"><div class="top-in">
-  <a class="brand" href="#today" aria-label="MewFit หน้าแรก"><span class="m">MEW</span><span class="f">FIT</span><small>โค้ชมิว</small></a>
+  <a class="brand" href="#today" aria-label="MewFit หน้าแรก"><span class="wm">Mew<em>Fit</em></span></a>
   <nav class="tabs" aria-label="เมนูหลัก">
     <a href="#today">วันนี้</a><a href="#train">ฝึก</a><a href="#eat">กิน</a><a href="#plan">ตารางชีวิต</a><a href="#progress">ความคืบหน้า</a><a href="#learn">ความรู้</a><a href="#profile">โปรไฟล์</a>
   </nav>
@@ -262,8 +378,10 @@ body.resting main{padding-bottom:calc(170px + env(safe-area-inset-bottom,0px))}
 </div></header>
 
 <main id="app">
-  <section id="v-today" class="view" aria-label="วันนี้"></section>
+  <section id="v-start" class="view" aria-label="ตั้งค่าเริ่มต้น" hidden></section>
+  <section id="v-today" class="view" aria-label="วันนี้" hidden></section>
   <section id="v-train" class="view" aria-label="ฝึก" hidden></section>
+  <section id="v-moves" class="view" aria-label="คลังท่า" hidden></section>
   <section id="v-eat" class="view" aria-label="กิน" hidden></section>
   <section id="v-plan" class="view" aria-label="ตารางชีวิต" hidden></section>
   <section id="v-progress" class="view" aria-label="ความคืบหน้า" hidden></section>
@@ -273,27 +391,31 @@ body.resting main{padding-bottom:calc(170px + env(safe-area-inset-bottom,0px))}
 
 <nav class="bottom" aria-label="เมนูหลัก">
   <a href="#today"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>วันนี้</a>
-  <a href="#train"><svg viewBox="0 0 24 24"><path d="M6 7v10M3 9v6M18 7v10M21 9v6M6 12h12"/></svg>ฝึก</a>
   <a href="#eat"><svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="7"/><path d="M12 6V3M9 13h6"/></svg>กิน</a>
+  <a href="#train" class="mid"><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 7v10M3 9v6M18 7v10M21 9v6M6 12h12"/></svg></span>ฝึก</a>
   <a href="#plan"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>ตาราง</a>
   <a href="#progress"><svg viewBox="0 0 24 24"><path d="M3 20h18M5 16l5-5 4 3 6-7"/></svg>ผลลัพธ์</a>
 </nav>
 
 <div id="restbar" class="restbar" hidden>
   <b id="rest-t">1:15</b><span class="grow" id="rest-l">พักก่อนเซตถัดไป</span>
-  <button class="btn sm" data-act="rest-add">+15 วิ</button><button class="btn sm" data-act="rest-skip">ข้าม</button>
+  <a class="btn sm" href="#train">กลับไปฝึก</a><button class="btn sm" data-act="rest-skip">ข้าม</button>
 </div>
 
-<div id="hiit" class="hiit" hidden role="dialog" aria-modal="true" aria-label="จับเวลาอินเทอร์วัล">
+<div id="hiit" class="hiit" hidden role="dialog" aria-modal="true" aria-label="จับเวลา">
+  <span class="eyebrow" id="h-title" style="color:var(--hero-muted)"></span>
   <div class="phase" id="h-phase">เตรียมตัว</div>
+  <div id="h-figbox"></div>
   <div class="clock" id="h-clock">0:10</div>
   <h2 id="h-name">พร้อมไหม</h2>
-  <p class="muted" id="h-next"></p>
+  <p id="h-next"></p>
   <div class="bar ring"><i id="h-bar" style="width:0%"></i></div>
   <div class="row" style="justify-content:center">
-    <button class="btn big" data-act="h-pause" id="h-pause">หยุดชั่วคราว</button>
-    <button class="btn big ghost" data-act="h-stop">ออก</button>
+    <button class="btn big pri" data-act="h-pause" id="h-pause">หยุดชั่วคราว</button>
+    <button class="btn big" data-act="h-skip">ข้าม</button>
+    <button class="btn big" data-act="h-stop">ออก</button>
   </div>
+  <button class="btn sm" data-act="voice" id="h-voice">เสียงพากย์</button>
 </div>
 
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
@@ -301,7 +423,6 @@ body.resting main{padding-bottom:calc(170px + env(safe-area-inset-bottom,0px))}
 <script>
 (() => {
 'use strict';
-
 /* ---------- helpers ---------- */
 const $ = (s, el = document) => el.querySelector(s);
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -324,14 +445,27 @@ const WEEK_ORDER = [1, 2, 3, 4, 5, 6, 0];
 const mondayOf = s => { const d = parseISO(s); const k = (d.getDay() + 6) % 7; d.setDate(d.getDate() - k); return iso(d); };
 function rng(seed) { let x = seed >>> 0 || 1; return () => { x ^= x << 13; x ^= x >>> 17; x ^= x << 5; return ((x >>> 0) % 1e6) / 1e6; }; }
 
+
 /* ---------- state ---------- */
 const KEY = 'mewfit.v1';
-const DEMO = { name: '', sex: 'm', age: 28, height: 172, weight: 75, activity: 'light', goal: 'cut', level: 'beginner',
+const APP_URL = 'https://mewuserr.github.io/ai-news-th/mewfit/';
+const DEMO = { name: '', sex: 'm', age: 28, height: 172, weight: 75, waist: null, activity: 'light', goal: 'cut', level: 'beginner',
   days: [1, 3, 5], minutes: 30, eq: { db: false, band: false, bar: false }, wake: '06:30', bed: '22:30',
-  workStart: '09:00', workEnd: '18:00', trainTime: 'evening', whey: false, finisher: true };
-const fresh = () => ({ v: 1, profile: null, levels: {}, calAdjust: 0, workouts: [], weights: [], body: [], food: {}, habits: {}, session: null, mealSeed: 7 });
+  workStart: '09:00', workEnd: '18:00', noWork: false, trainTime: 'evening', whey: false, finisher: true, caution: false, par: [], baseline: {} };
+const fresh = () => ({ v: 2, profile: null, seenDemo: false, guideDone: false, voice: true, levels: {}, calAdjust: 0, workouts: [], weights: [], body: [], food: {}, habits: {}, session: null, mealSeed: 7 });
 let S = load();
-function load() { try { const raw = localStorage.getItem(KEY); if (raw) return Object.assign(fresh(), JSON.parse(raw)); } catch (e) {} return fresh(); }
+function load() {
+  try {
+    const raw = localStorage.getItem(KEY);
+    if (raw) {
+      const o = Object.assign(fresh(), JSON.parse(raw));
+      if (o.profile) o.profile = Object.assign({}, DEMO, o.profile);
+      if (o.session && !o.session.cur) o.session.cur = { i: 0, s: 0 };
+      return o;
+    }
+  } catch (e) {}
+  return fresh();
+}
 function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
 const P = () => S.profile || DEMO;
 const isDemo = () => !S.profile;
@@ -480,7 +614,7 @@ const SEVEN = ['กระโดดตบ', 'นั่งพิงกำแพง
 function ladder(pt, p = P()) { return LAD[pt].filter(x => (!x.eq || p.eq[x.eq]) && (!x.noeq || !p.eq[x.noeq])); }
 function curEx(pt, p = P()) {
   const L = ladder(pt, p); let i = L.findIndex(x => x.id === S.levels[pt]);
-  if (i < 0) i = Math.round({ beginner: .3, intermediate: .55, advanced: .8 }[p.level] * (L.length - 1));
+  if (i < 0) i = p.caution ? 0 : Math.round(({ beginner: .3, intermediate: .55, advanced: .8 }[p.level] || .3) * (L.length - 1));
   return { e: L[i], i, n: L.length };
 }
 function weekNo(s) { const d = parseISO(mondayOf(s)); return Math.floor(d.getTime() / (7 * 864e5)); }
@@ -490,12 +624,13 @@ function weekMap(p = P(), ref = iso()) {
   if (days.length === 3 && weekNo(ref) % 2) seq = ['FB', 'FA', 'FB'];
   const m = {}; days.forEach((d, i) => { m[d] = seq[i]; }); return m;
 }
-function setsFor(p) { if (p.level === 'advanced') return 4; if (p.level === 'beginner' && S.workouts.length < 6) return 2; return 3; }
+function isDeload() { if (S.workouts.length < 8) return false; const wk = Math.floor(dayDiff(S.workouts[0].date, iso()) / 7); return wk > 0 && (wk + 1) % 6 === 0; }
+function setsFor(p) { let n = p.level === 'advanced' ? 4 : (p.level === 'beginner' && S.workouts.length < 6) ? 2 : 3; if (isDeload()) n = Math.max(2, n - 1); return n; }
 function buildSession(tid) {
   const p = P(), t = TPL[tid], sets = setsFor(p);
   const n = clamp(Math.floor((p.minutes - 6) / (sets * 2)), 3, t.s.length);
-  return { date: iso(), tid, start: Date.now(), ex: t.s.slice(0, n).map(pt => ({ pt, id: curEx(pt, p).e.id, sets, reps: Array(sets).fill('') })),
-    fin: !!p.finisher && (p.goal === 'cut' || p.goal === 'recomp') };
+  return { date: iso(), tid, start: Date.now(), cur: { i: 0, s: 0 }, ex: t.s.slice(0, n).map(pt => ({ pt, id: curEx(pt, p).e.id, sets, reps: Array(sets).fill('') })),
+    fin: !!p.finisher && !p.caution && (p.goal === 'cut' || p.goal === 'recomp') };
 }
 function estMin(tid) { const p = P(), sets = setsFor(p), n = clamp(Math.floor((p.minutes - 6) / (sets * 2)), 3, TPL[tid].s.length); return 6 + n * sets * 2 + (p.finisher && (p.goal === 'cut' || p.goal === 'recomp') ? 4 : 0); }
 
@@ -685,7 +820,7 @@ function timeline(p, tid) {
     bf = w + 40 + p.minutes + 20;
   }
   add(bf, 'มื้อเช้า เน้นโปรตีน', `ตั้งเป้าโปรตีนราว ${c.perMeal} กรัม เช่น ไข่ต้ม 2 ฟอง + นมหนึ่งกล่อง`, 'food');
-  add(ws, 'เริ่มงาน', 'ตั้งเตือนลุกเดิน 2–3 นาทีทุก 50–60 นาที วางขวดน้ำไว้บนโต๊ะ');
+  add(ws, p.noWork ? 'เริ่มกิจกรรมหลักของวัน' : 'เริ่มงาน', 'ตั้งเตือนลุกเดิน 2–3 นาทีทุก 50–60 นาที วางขวดน้ำไว้บนโต๊ะ');
   let lunch = clamp(ws + 180, ws + 120, ws + 240);
   if (training && p.trainTime === 'lunch') {
     add(lunch, `ฝึกช่วงพักเที่ยง ~${Math.min(p.minutes, 35)} นาที`, 'วันยุ่งให้เลือกวงจร 7 นาทีแทน', 'train');
@@ -696,7 +831,7 @@ function timeline(p, tid) {
   add(b - 480, 'กาแฟแก้วสุดท้ายของวัน', 'หลังจากนี้งดคาเฟอีน เพื่อให้หลับลึก');
   const snack = we - 90;
   add(snack, training && p.trainTime === 'evening' ? 'ของว่างก่อนฝึก' : 'ของว่างโปรตีน', 'โยเกิร์ต นมถั่วเหลือง หรืออกไก่ซอง', 'food');
-  add(we, 'เลิกงาน', 'ถ้าเดินทางได้ ลงรถก่อนหนึ่งป้ายแล้วเดินต่อ');
+  add(we, p.noWork ? 'จบกิจกรรมหลักของวัน' : 'เลิกงาน', 'ถ้าเดินทางได้ ลงรถก่อนหนึ่งป้ายแล้วเดินต่อ');
   let dinner = we + 75;
   if (training && p.trainTime === 'evening') {
     add(we + 45, `ฝึก: ${tid ? TPL[tid].n : 'ตามตาราง'} ~${p.minutes} นาที`, 'วอร์มอัพ 5 นาที แล้วทำตามหน้าฝึก', 'train');
@@ -709,22 +844,120 @@ function timeline(p, tid) {
   return it.sort((x, y) => ((x.t - w + 1440) % 1440) - ((y.t - w + 1440) % 1440));
 }
 
-/* ---------- UI shell ---------- */
-const VIEWS = ['today', 'train', 'eat', 'plan', 'progress', 'learn', 'profile'];
-const ui = { learnCat: 'all', planDay: new Date().getDay(), foodQ: '', resetAsk: false };
-const view = () => { const h = location.hash.slice(1); return VIEWS.includes(h) ? h : 'today'; };
-function render() {
-  const v = view();
-  VIEWS.forEach(n => { $('#v-' + n).hidden = n !== v; });
-  document.querySelectorAll('.tabs a,.bottom a,.top-mini a').forEach(a => { if (a.getAttribute('href') === '#' + v) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); });
-  ({ today: rToday, train: rTrain, eat: rEat, plan: rPlan, progress: rProgress, learn: rLearn, profile: rProfile })[v]();
-}
-let toastT;
-function toast(msg) { const t = $('#toast'); t.textContent = msg; t.classList.add('on'); clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove('on'), 2600); }
-const demoBanner = () => isDemo() ? `<div class="banner"><span><b>นี่คือตัวอย่าง</b> ตัวเลขทั้งหมดคำนวณจากผู้ชาย 28 ปี 172 ซม. 75 กก. ตั้งโปรไฟล์ของคุณ 1 นาที แล้วทุกอย่างจะปรับตามคุณ</span><a class="btn pri sm" href="#profile">ตั้งโปรไฟล์ของฉัน</a></div>` : '';
-const bar = (v, max, cls = '') => { const pc = max ? clamp(v / max * 100, 0, 100) : 0; const over = v > max * 1.08; return `<div class="bar ${over ? 'over' : (pc >= 92 ? 'ok' : '')} ${cls}"><i style="width:${pc}%"></i></div>`; };
-const metric = (label, v, max, unit) => `<div class="metric"><div class="top-line"><span>${label}</span><span class="val">${fmt(v)}<span class="muted small"> / ${fmt(max)} ${unit}</span></span></div>${bar(v, max)}</div>`;
 
+
+/* ---------- logo ---------- */
+const LOGO = '<svg class="logo" viewBox="0 0 64 64" aria-hidden="true"><rect class="lb" width="64" height="64" rx="17"/><g transform="skewX(-7) translate(4 0)"><path class="lm" d="M15 47V23l10-9 7 15 7-15 10 9v24" fill="none" stroke-width="7.5" stroke-linejoin="round" stroke-linecap="round"/></g><circle class="ln" cx="34" cy="44" r="4.2"/></svg>';
+document.querySelector('.brand').insertAdjacentHTML('afterbegin', LOGO);
+const AV = '<span class="av">' + LOGO + '</span>';
+
+/* ---------- moving figures: side-view stick athlete, two key poses ----------
+   pose = head, shoulder, elbow, hand, hip, knee, foot, [far elbow, far hand, far knee, far foot] */
+const Q = s => { const a = s.trim().split(/\s+/).map(p => p.split(',').map(Number)); if (a.length === 7) a.push(a[2], a[3], a[5], a[6]); return a; };
+const FG = (a, b, props = [], o = {}) => Object.assign({ a: Q(a), b: b ? Q(b) : null, props }, o);
+const STAND = '122,14 121,28 124,48 126,68 120,70 121,99 120,127';
+const FIG = {
+  pushup: FG('182,78 166,88 167,107 168,126 97,108 68,117 40,126', '178,104 162,112 144,102 168,126 96,119 68,123 40,126'),
+  pushup_knee: FG('172,74 156,84 157,105 158,126 105,104 72,124 44,118', '168,100 152,108 136,100 158,126 104,117 72,124 44,118'),
+  pushup_incline: FG('176,58 162,68 164,82 166,96 102,98 72,113 44,127', '170,80 156,88 140,80 166,96 100,106 71,117 44,127', ['box:150,96,36,32']),
+  pushup_wall: FG('160,38 150,50 168,52 188,52 125,88 112,108 100,127', '174,40 164,52 170,68 188,52 133,90 116,109 100,127', ['wall:190']),
+  pike: FG('150,108 140,96 146,112 150,126 105,62 84,94 64,126', '156,120 146,108 134,104 150,126 106,66 85,96 64,126'),
+  handstand: FG('127,104 122,90 121,108 120,126 126,52 131,30 137,8', '128,118 122,104 108,110 120,126 126,64 131,42 137,20', ['wall:141']),
+  ohp: FG('121,14 121,28 134,46 130,30 120,70 121,99 120,127', '121,14 121,28 126,10 125,-8 120,70 121,99 120,127', ['db']),
+  row_table: FG('166,106 150,104 150,88 150,72 98,114 68,121 40,127', '164,82 148,82 128,78 150,72 96,104 67,116 40,127', ['table:70,190,70']),
+  row_towel: FG('93,40 100,52 140,62 175,66 122,88 136,107 150,127', '110,36 116,48 106,66 140,60 130,86 140,106 150,127', ['door:190', 'towel:190,64']),
+  row_bent: FG('162,72 148,74 148,96 148,116 100,84 103,105 100,127', '162,72 148,74 130,66 136,88 100,84 103,105 100,127', ['db']),
+  hang: FG('126,40 125,52 125,36 125,20 125,98 126,114 112,122', '126,14 125,30 108,30 125,20 125,78 126,96 112,104', ['bar:90,160,20']),
+  hangstill: FG('126,40 125,52 125,36 125,20 125,98 126,114 112,122', null, ['bar:90,160,20']),
+  yraise: FG('162,116 148,118 170,120 190,121 100,120 70,123 40,124', '163,108 148,112 170,104 190,96 100,120 70,122 40,122'),
+  superman: FG('162,116 148,118 170,120 190,121 100,120 70,123 40,124', '164,104 148,110 168,100 188,90 100,120 70,116 42,110'),
+  squat: FG('122,14 121,28 138,40 156,42 120,70 121,99 120,127', '124,45 118,58 138,60 158,58 100,98 134,96 120,127'),
+  squat_box: FG('122,14 121,28 138,40 156,42 120,70 121,99 120,127', '124,45 118,58 138,60 158,58 100,98 134,96 120,127', ['box:70,98,30,30']),
+  goblet: FG('122,14 121,28 128,44 128,34 120,70 121,99 120,127', '124,45 118,58 126,72 128,62 100,98 134,96 120,127', ['db']),
+  split: FG('121,14 120,28 124,48 128,66 120,70 140,98 150,127 124,48 128,66 104,98 88,126', '121,36 120,50 124,70 128,88 120,92 148,96 150,127 124,70 128,88 110,124 88,126'),
+  bulgarian: FG('121,14 120,28 124,48 128,66 120,70 140,98 150,127 124,48 128,66 102,92 84,104', '121,36 120,50 124,70 128,88 120,92 148,96 150,127 124,70 128,88 108,116 84,104', ['box:60,104,32,24']),
+  pistol: FG('122,14 121,28 138,40 156,42 120,70 121,99 120,127 138,40 156,42 130,98 140,118', '126,47 120,60 140,62 160,60 104,100 130,96 120,127 140,62 160,60 136,100 168,100'),
+  bridge: FG('42,118 58,122 80,124 100,125 104,122 130,96 148,127', '42,118 58,120 80,124 100,125 106,96 134,94 148,127'),
+  thrust: FG('48,94 62,100 76,108 90,112 92,118 126,98 140,127', '48,92 62,98 76,104 92,100 100,96 130,96 140,127', ['box:18,98,44,30']),
+  legcurl: FG('42,118 58,122 80,124 100,125 104,104 140,112 176,124', '42,118 58,122 80,124 100,125 106,96 134,92 148,124'),
+  rdl: FG(STAND, '164,56 150,60 150,80 150,98 106,72 123,99 120,127', ['db']),
+  plank: FG('166,100 150,104 150,126 172,126 100,112 70,119 40,126', null),
+  sideplank: FG('166,90 150,96 150,126 170,126 100,109 72,117 40,126 152,74 154,52 72,117 40,126', null),
+  deadbug: FG('42,116 58,120 60,96 62,72 106,120 108,92 132,92 60,96 62,72 108,92 132,92', '42,116 58,120 36,112 16,116 106,120 108,92 132,92 60,96 62,72 134,112 164,118'),
+  crunch: FG('42,118 58,122 80,124 100,125 106,122 124,96 146,100', '42,118 58,122 80,124 100,125 102,114 92,84 114,76'),
+  hollow: FG('50,104 62,110 44,100 24,96 106,124 140,116 172,108', null),
+  calf: FG(STAND, '122,6 121,20 124,40 126,60 120,62 121,91 121,119'),
+  dip: FG('106,42 102,56 100,72 98,88 108,94 140,96 160,127', '108,66 104,80 84,74 98,88 110,118 140,108 160,127', ['box:58,88,42,40']),
+  curl: FG('122,14 121,28 122,50 124,72 120,70 121,99 120,127', '122,14 121,28 122,50 138,34 120,70 121,99 120,127', ['db']),
+  jack: FG('120,14 120,28 112,48 110,68 120,70 116,99 116,127 128,48 130,68 124,99 124,127', '120,8 120,22 104,8 96,-8 120,64 108,94 100,123 136,8 144,-8 132,94 140,123', [], { front: 1 }),
+  knees: FG('122,14 121,28 112,46 104,60 120,70 121,99 120,127 132,46 140,58 121,99 120,127', '122,10 121,24 132,42 140,54 120,66 140,64 140,94 112,42 104,56 121,95 120,123'),
+  climber: FG('182,78 166,88 167,107 168,126 97,108 68,117 40,126 167,107 168,126 68,117 40,126', '182,78 166,88 167,107 168,126 97,108 68,117 40,126 167,107 168,126 128,110 110,124'),
+  wallsit: FG('112,42 110,56 122,70 126,86 108,100 140,100 140,127', null, ['wall:96'])
+};
+const ANIM = {
+  p_wall: 'pushup_wall', p_incline: 'pushup_incline', p_knee: 'pushup_knee', p_std: 'pushup', p_close: 'pushup', p_decline: 'pushup', p_archer: 'pushup',
+  v_incpike: 'pike', v_pike: 'pike', v_db: 'ohp', v_elev: 'pike', v_wall: 'handstand', v_hspu: 'handstand',
+  r_band: 'row_bent', r_towel: 'row_towel', r_db: 'row_bent', r_tablek: 'row_table', r_table: 'row_table', r_tablef: 'row_table',
+  u_hang: 'hangstill', u_scap: 'hang', u_neg: 'hang', u_chin: 'hang', u_pull: 'hang', y_ytw: 'yraise', y_band: 'ohp', y_super: 'superman',
+  s_box: 'squat_box', s_bw: 'squat', s_goblet: 'goblet', s_pause: 'squat', s_cossack: 'squat', s_apistol: 'pistol', s_pistol: 'pistol',
+  l_split: 'split', l_rev: 'split', l_walk: 'split', l_bulg: 'bulgarian', l_shrimp: 'bulgarian',
+  h_bridge: 'bridge', h_slb: 'bridge', h_rdl: 'rdl', h_thrust: 'thrust', h_slt: 'thrust', h_curl: 'legcurl',
+  c_bug: 'deadbug', c_plank: 'plank', c_tap: 'plank', c_hollow: 'hollow', c_rev: 'crunch', c_side: 'sideplank', c_bike: 'crunch', c_vup: 'crunch',
+  k_calf: 'calf', k_step: 'calf', k_single: 'calf', d_bent: 'dip', d_str: 'dip', d_elev: 'dip', b_towel: 'curl', b_band: 'curl', b_db: 'curl'
+};
+function propsSVG(props) {
+  return props.map(pr => {
+    const [k, v] = pr.split(':'), n = v ? v.split(',').map(Number) : [];
+    if (k === 'wall') return `<rect x="${n[0]}" y="-26" width="8" height="154" class="pf"/>`;
+    if (k === 'door') return `<rect x="${n[0]}" y="-26" width="12" height="154" class="pf"/>`;
+    if (k === 'box') return `<rect x="${n[0]}" y="${n[1]}" width="${n[2]}" height="${n[3]}" rx="4" class="pf"/>`;
+    if (k === 'bar') return `<line x1="${n[0]}" x2="${n[1]}" y1="${n[2]}" y2="${n[2]}" class="ps" stroke-width="5"/>`;
+    if (k === 'table') return `<rect x="${n[0]}" y="${n[2] - 5}" width="${n[1] - n[0]}" height="8" rx="3" class="pf"/><line x1="${n[0] + 6}" x2="${n[0] + 6}" y1="${n[2]}" y2="128" class="ps" stroke-width="5"/><line x1="${n[1] - 6}" x2="${n[1] - 6}" y1="${n[2]}" y2="128" class="ps" stroke-width="5"/>`;
+    return '';
+  }).join('');
+}
+function figSVG(key, cls = '') {
+  const f = FIG[key]; if (!f) return '';
+  const db = f.props.includes('db'), tw = f.props.some(p => p.startsWith('towel'));
+  return `<svg class="fig ${f.front ? 'front' : ''} ${cls}" viewBox="0 -26 240 158" data-fig="${key}" aria-hidden="true"><line x1="0" x2="240" y1="129" y2="129" class="gr"/>${propsSVG(f.props)}${tw ? '<line class="tw"/>' : ''}<g class="far"><polyline class="l a2"/><polyline class="l g2"/></g><polyline class="l t"/><polyline class="l g"/><polyline class="l a"/><circle class="hd" r="8.5"/>${db ? '<circle class="db" r="5.5"/><circle class="db" r="5.5"/>' : ''}</svg>`;
+}
+function drawFig(svg, t) {
+  const f = FIG[svg.dataset.fig]; if (!f) return;
+  const q = f.b ? f.a.map((p, i) => [p[0] + (f.b[i][0] - p[0]) * t, p[1] + (f.b[i][1] - p[1]) * t]) : f.a.map((p, i) => i < 2 || i === 4 ? [p[0], p[1] - t * 1.6] : p);
+  const [hd, sh, el, ha, hp, kn, ft, el2, ha2, kn2, ft2] = q, pts = (...a) => a.map(p => p[0].toFixed(1) + ',' + p[1].toFixed(1)).join(' ');
+  const c = svg._c || (svg._c = { a: svg.querySelector('.a'), g: svg.querySelector('.g'), t: svg.querySelector('.t'), a2: svg.querySelector('.a2'), g2: svg.querySelector('.g2'), hd: svg.querySelector('.hd'), db: svg.querySelectorAll('.db'), tw: svg.querySelector('.tw') });
+  c.t.setAttribute('points', pts(sh, hp)); c.a.setAttribute('points', pts(sh, el, ha)); c.g.setAttribute('points', pts(hp, kn, ft));
+  c.a2.setAttribute('points', pts(sh, el2, ha2)); c.g2.setAttribute('points', pts(hp, kn2, ft2));
+  c.hd.setAttribute('cx', hd[0].toFixed(1)); c.hd.setAttribute('cy', hd[1].toFixed(1));
+  if (c.db.length) { c.db[0].setAttribute('cx', ha[0]); c.db[0].setAttribute('cy', ha[1]); c.db[1].setAttribute('cx', ha2[0]); c.db[1].setAttribute('cy', ha2[1]); }
+  if (c.tw) { const an = f.props.find(p => p.startsWith('towel')).split(':')[1].split(','); c.tw.setAttribute('x1', ha[0]); c.tw.setAttribute('y1', ha[1]); c.tw.setAttribute('x2', an[0]); c.tw.setAttribute('y2', an[1]); }
+}
+const reduceMotion = !!(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches);
+const figVis = new Set();
+const figIO = 'IntersectionObserver' in window ? new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) figVis.add(e.target); else figVis.delete(e.target); })) : null;
+function mountFigs(root) {
+  root.querySelectorAll('svg.fig').forEach(svg => {
+    svg._c = null; drawFig(svg, reduceMotion ? 1 : 0);
+    if (reduceMotion) return;
+    if (figIO) figIO.observe(svg); else figVis.add(svg);
+  });
+}
+function figLoop(now) {
+  const ph = (now % 2600) / 2600, tri = ph < .5 ? ph * 2 : 2 - ph * 2, x = clamp((tri - .12) / .76, 0, 1), t = x * x * (3 - 2 * x);
+  figVis.forEach(svg => { if (!svg.isConnected) { figVis.delete(svg); if (figIO) figIO.unobserve(svg); return; } drawFig(svg, t); });
+  requestAnimationFrame(figLoop);
+}
+if (!reduceMotion) requestAnimationFrame(figLoop);
+
+/* ---------- small UI pieces ---------- */
+const VIEWS = ['start', 'today', 'train', 'moves', 'eat', 'plan', 'progress', 'learn', 'profile'];
+const ui = { learnCat: 'all', planDay: new Date().getDay(), foodQ: '', resetAsk: false, cancelAsk: false, ob: null, stepVal: null, sw: null };
+let toastT;
+function toast(msg) { const t = $('#toast'); t.textContent = msg; t.classList.add('on'); clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove('on'), 2800); }
+const demoBanner = () => isDemo() ? `<div class="banner"><span><b>กำลังดูตัวอย่าง</b> ตัวเลขทั้งหมดคำนวณจากผู้ชาย 28 ปี 172 ซม. 75 กก.</span><a class="btn pri sm" href="#start">ตั้งค่าของฉัน 3 นาที</a></div>` : '';
+const bar = (v, max) => { const pc = max ? clamp(v / max * 100, 0, 100) : 0; return `<div class="bar ${v > max * 1.08 ? 'over' : (pc >= 92 ? 'ok' : '')}"><i style="width:${pc}%"></i></div>`; };
+const metric = (label, v, max, unit) => `<div class="metric"><div class="top-line"><span>${label}</span><span class="val">${fmt(v)}<span class="muted small"> / ${fmt(max)} ${unit}</span></span></div>${bar(v, max)}</div>`;
+const ladderBar = (n, k) => `<div class="ladder" aria-hidden="true">${Array.from({ length: n }, (_, j) => `<i class="${j <= k ? 'on' : ''}"></i>`).join('')}</div>`;
 function weekStrip(p, opts = {}) {
   const map = weekMap(p), today = iso(), mon = mondayOf(today);
   return `<div class="week">${WEEK_ORDER.map((d, i) => {
@@ -735,114 +968,693 @@ function weekStrip(p, opts = {}) {
     return `<div class="${cls}"><b>${DAY_S[d]}</b><span>${done ? 'เสร็จ ✓' : esc(label)}</span></div>`;
   }).join('')}</div>`;
 }
+function ringsSVG(items) {
+  const R = [54, 40, 26];
+  return `<svg viewBox="0 0 128 128" class="rings" role="img" aria-label="ความคืบหน้าวันนี้">${items.map((it, i) => {
+    const r = R[i], C = 2 * Math.PI * r, pc = clamp(it.v / (it.max || 1), 0, 1);
+    return `<circle cx="64" cy="64" r="${r}" fill="none" stroke="var(--sunk)" stroke-width="11"/><circle cx="64" cy="64" r="${r}" fill="none" stroke="${it.c}" stroke-width="11" stroke-linecap="round" stroke-dasharray="${(C * pc).toFixed(1)} ${C.toFixed(1)}" transform="rotate(-90 64 64)" ${pc === 0 ? 'opacity="0"' : ''}/>`;
+  }).join('')}</svg>`;
+}
+const ICON = {
+  bolt: '<svg viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg>',
+  stretch: '<svg viewBox="0 0 24 24"><circle cx="12" cy="4.5" r="2"/><path d="M4 9l8 2 8-2M12 11v5l-4 6M12 16l4 6"/></svg>',
+  scale: '<svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M8 9a4 4 0 0 1 8 0M12 9l1.5-2"/></svg>',
+  fire: '<svg viewBox="0 0 24 24"><path d="M12 22c4 0 7-3 7-7 0-4-3-6-4-10-2 2-3 4-3 6-1-1-2-2-2-4-2 2-5 5-5 8 0 4 3 7 7 7z"/></svg>'
+};
+const tool = (act, ic, t, s, href) => href ? `<a class="tool" href="${href}"><span class="t-ic">${ICON[ic]}</span><b>${t}</b><span>${s}</span></a>` : `<button class="tool" data-act="${act}"><span class="t-ic">${ICON[ic]}</span><b>${t}</b><span>${s}</span></button>`;
 
-/* ---------- views ---------- */
+/* ---------- router ---------- */
+const view = () => {
+  const h = location.hash.slice(1);
+  let v = VIEWS.includes(h) ? h : (S.profile || S.seenDemo ? 'today' : 'start');
+  if (!S.profile && !S.seenDemo && !['start', 'learn', 'moves'].includes(v)) v = 'start';
+  return v;
+};
+function render() {
+  const v = view();
+  document.body.className = 'v-' + v + (rest.on ? ' resting' : '');
+  VIEWS.forEach(n => { $('#v-' + n).hidden = n !== v; });
+  const navKey = v === 'moves' ? 'train' : v;
+  document.querySelectorAll('.tabs a,.bottom a,.top-mini a').forEach(a => { if (a.getAttribute('href') === '#' + navKey) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); });
+  ({ start: rStart, today: rToday, train: rTrain, moves: rMoves, eat: rEat, plan: rPlan, progress: rProgress, learn: rLearn, profile: rProfile })[v]();
+  mountFigs($('#v-' + v));
+}
+
+/* ---------- onboarding wizard ---------- */
+const OB = [
+  { k: 'welcome' },
+  { k: 'safety', t: 'เช็คความปลอดภัยก่อนเริ่ม', why: 'คำถามคัดกรองตามแบบ PAR-Q+ ที่เทรนเนอร์ใช้ก่อนให้ลูกค้าเริ่มออกกำลังกาย ถ้ามีข้อไหนตอบ "ใช่" แอปจะเริ่มท่าที่ง่ายที่สุดให้' },
+  { k: 'body', t: 'ข้อมูลร่างกาย', why: 'ใช้คำนวณพลังงานที่ร่างกายเผาผลาญต่อวันและเป้าโปรตีน ช่องที่มี * ต้องกรอก' },
+  { k: 'goal', t: 'อยากได้หุ่นแบบไหน', why: 'ตัดสินว่าจะกินน้อยกว่า มากกว่า หรือเท่ากับที่ร่างกายใช้ และควรเปลี่ยนเร็วแค่ไหนต่อสัปดาห์' },
+  { k: 'life', t: 'ปกติวันหนึ่งขยับแค่ไหน', why: 'คนที่เดินทั้งวันใช้พลังงานมากกว่าคนนั่งโต๊ะได้ 300–600 kcal ไม่ต้องนับการฝึกในแอป' },
+  { k: 'train', t: 'ฝึกได้แค่ไหน', why: 'ตารางที่ทำได้ทุกสัปดาห์ดีกว่าตารางหนักที่ทำได้สองสัปดาห์แล้วเลิก' },
+  { k: 'test', t: 'ทดสอบความฟิต 3 นาที', why: 'ทำตอนนี้หรือตอบตามที่จำได้ ใช้เลือกท่าแรกให้ยากพอดี ข้ามได้ ระบบจะใช้ระดับประสบการณ์แทน' },
+  { k: 'day', t: 'ตารางเวลาของคุณ', why: 'ใช้จัดตารางชีวิต: เวลากิน เวลาฝึก กาแฟแก้วสุดท้าย และเตือนให้นอนพอ' },
+  { k: 'done', t: 'แผนของคุณพร้อมแล้ว' }
+];
+const PARQ = [
+  'แพทย์เคยบอกว่าคุณมีโรคหัวใจ หรือความดันโลหิตสูง',
+  'คุณเคยเจ็บหน้าอกขณะพัก ระหว่างทำกิจวัตร หรือตอนออกกำลังกาย',
+  'คุณเคยเวียนศีรษะจนเสียการทรงตัว หรือหมดสติ ในช่วง 12 เดือนที่ผ่านมา',
+  'คุณมีโรคเรื้อรังอื่นที่แพทย์วินิจฉัย เช่น เบาหวาน โรคไต หอบหืด',
+  'คุณกินยารักษาโรคเรื้อรังเป็นประจำ',
+  'คุณมีปัญหากระดูก ข้อต่อ หรือกล้ามเนื้อ ที่อาจแย่ลงถ้าออกกำลังกายเพิ่ม',
+  'แพทย์เคยบอกให้ออกกำลังกายภายใต้การดูแลเท่านั้น',
+  'คุณกำลังตั้งครรภ์ หรือคลอดบุตรมาไม่ถึง 6 เดือน'
+];
+const TESTS = {
+  push: { q: 'วิดพื้นท่ามาตรฐานได้กี่ครั้งติดกัน', h: 'ลงจนอกห่างพื้นหนึ่งกำปั้น ลำตัวตรง', o: ['0', '1–5', '6–15', '16–30', '30+'], fig: 'pushup' },
+  squat: { q: 'สควอทได้กี่ครั้งติดกันโดยฟอร์มดี', h: 'ลงจนต้นขาขนานพื้น ส้นเท้าติดพื้น', o: ['ไม่ถึง 10', '10–25', '26–50', '50+'], fig: 'squat' },
+  plank: { q: 'แพลงก์ค้างได้กี่วินาที', h: 'ศอกใต้ไหล่ จับเวลาจนสะโพกตก', o: ['ไม่ถึง 20', '20–60', '61–120', '120+'], fig: 'plank' },
+  pull: { q: 'ดึงข้อได้กี่ครั้ง', h: 'แขนเหยียดสุดจนคางพ้นบาร์', o: ['0', '1–3', '4–8', '9+'], fig: 'hang', bar: 1 }
+};
+const TEST_MAP = {
+  push: { push: ['p_incline', 'p_knee', 'p_std', 'p_close', 'p_decline'], vpush: ['v_incpike', 'v_incpike', 'v_pike', 'v_elev', 'v_elev'], pull: ['r_towel', 'r_towel', 'r_tablek', 'r_table', 'r_tablef'], dip: ['d_bent', 'd_bent', 'd_bent', 'd_str', 'd_elev'] },
+  squat: { squat: ['s_box', 's_bw', 's_pause', 's_cossack'], lunge: ['l_split', 'l_split', 'l_rev', 'l_bulg'], hinge: ['h_bridge', 'h_bridge', 'h_slb', 'h_thrust'], calf: ['k_calf', 'k_calf', 'k_step', 'k_step'] },
+  plank: { core1: ['c_bug', 'c_plank', 'c_tap', 'c_hollow'], core2: ['c_rev', 'c_rev', 'c_side', 'c_bike'] },
+  pull: { vpull: ['u_scap', 'u_neg', 'u_chin', 'u_pull'] }
+};
+function levelsFrom(p) {
+  if (p.caution) return {};
+  const L = {};
+  Object.entries(p.baseline || {}).forEach(([k, idx]) => { const m = TEST_MAP[k]; if (!m) return; Object.entries(m).forEach(([pt, arr]) => { L[pt] = arr[clamp(idx, 0, arr.length - 1)]; }); });
+  return L;
+}
+function startOb(step = 0, edit = false) {
+  const base = S.profile ? JSON.parse(JSON.stringify(S.profile)) : Object.assign(JSON.parse(JSON.stringify(DEMO)), { age: '', height: '', weight: '', goal: '', activity: '', level: '', trainTime: '', days: [], baseline: {}, par: [] });
+  ui.ob = { step, edit, d: base, par: (base.par || []).slice(), testChanged: false };
+}
+const obProfile = () => { const d = ui.ob.d; return Object.assign({}, DEMO, d, { age: +d.age, height: +d.height, weight: +d.weight, caution: ui.ob.par.some(v => v === 'y') }); };
+function readOb() {
+  const o = ui.ob, d = o.d, root = $('#v-start');
+  const rv = n => { const c = root.querySelector(`input[name="${n}"]:checked`); return c ? c.value : null; };
+  ['sex', 'goal', 'activity', 'level', 'trainTime'].forEach(n => { if (root.querySelector(`input[name="${n}"]`)) d[n] = rv(n) || ''; });
+  if (root.querySelector('input[name="minutes"]')) d.minutes = +rv('minutes') || d.minutes;
+  [['ob-name', 'name'], ['ob-age', 'age'], ['ob-height', 'height'], ['ob-weight', 'weight'], ['ob-waist', 'waist'], ['ob-wake', 'wake'], ['ob-bed', 'bed'], ['ob-ws', 'workStart'], ['ob-we', 'workEnd']].forEach(([id, k]) => {
+    const el = $('#' + id); if (!el) return;
+    d[k] = ['age', 'height', 'weight', 'waist'].includes(k) ? (el.value === '' ? '' : +el.value) : el.value;
+  });
+  if (root.querySelector('input[name="days"]')) d.days = [...root.querySelectorAll('input[name="days"]:checked')].map(i => +i.value);
+  if (root.querySelector('input[name="eq"]')) { d.eq = { db: false, band: false, bar: false }; root.querySelectorAll('input[name="eq"]:checked').forEach(i => { d.eq[i.value] = true; }); }
+  ['whey', 'finisher', 'noWork'].forEach(k => { const el = $('#ob-' + k); if (el) d[k] = el.checked; });
+  PARQ.forEach((_, i) => { const v = rv('par' + i); if (v) o.par[i] = v; });
+  Object.keys(TESTS).forEach(k => { const v = rv('t_' + k); if (v != null) { d.baseline = d.baseline || {}; if (d.baseline[k] !== +v) o.testChanged = true; d.baseline[k] = +v; } });
+}
+function obError() {
+  const o = ui.ob, d = o.d, k = OB[o.step].k;
+  if (k === 'safety' && PARQ.some((_, i) => !o.par[i])) return 'ตอบให้ครบทุกข้อก่อน (ใช่ หรือ ไม่ใช่)';
+  if (k === 'body') {
+    if (!d.sex) return 'เลือกเพศก่อน';
+    if (!(d.age >= 14 && d.age <= 90)) return 'อายุต้องอยู่ระหว่าง 14–90 ปี';
+    if (!(d.height >= 120 && d.height <= 230)) return 'ใส่ส่วนสูงเป็นเซนติเมตร เช่น 170';
+    if (!(d.weight >= 30 && d.weight <= 250)) return 'ใส่น้ำหนักเป็นกิโลกรัม เช่น 68.5';
+  }
+  if (k === 'goal' && !GOALS[d.goal]) return 'เลือกเป้าหมายหนึ่งข้อ';
+  if (k === 'life' && !ACT[d.activity]) return 'เลือกแบบที่ใกล้กับชีวิตคุณที่สุด';
+  if (k === 'train') {
+    if (!LEVELS[d.level]) return 'เลือกประสบการณ์การฝึก';
+    if (!d.days.length) return 'เลือกวันฝึกอย่างน้อย 1 วัน';
+    if (!d.trainTime) return 'เลือกช่วงเวลาที่สะดวกฝึก';
+  }
+  if (k === 'day' && (!d.wake || !d.bed)) return 'ใส่เวลาตื่นและเวลานอน';
+  return '';
+}
+function obGo(dir) {
+  readOb();
+  if (dir > 0) { const err = obError(); if (err) { toast(err); return; } }
+  ui.ob.step = clamp(ui.ob.step + dir, 0, OB.length - 1); rStart(); mountFigs($('#v-start')); window.scrollTo(0, 0);
+}
+function finishOb() {
+  readOb();
+  const err = obError(); if (err) { toast(err); return; }
+  const o = ui.ob, wasNew = !S.profile, prof = obProfile();
+  prof.weight = r1(prof.weight); prof.waist = prof.waist ? +prof.waist : null; prof.par = o.par.slice();
+  if (prof.caution) prof.finisher = false;
+  S.profile = prof; S.seenDemo = true;
+  if (wasNew || o.testChanged || prof.caution) S.levels = levelsFrom(prof);
+  if (wasNew) {
+    S.weights = S.weights.filter(w => w.d !== iso()); S.weights.push({ d: iso(), kg: prof.weight });
+    if (prof.waist) S.body.push({ d: iso(), waist: prof.waist, neck: null, hip: null });
+  }
+  save(); ui.ob = null; location.hash = 'today'; render();
+  toast(wasNew ? 'เริ่มกันเลย! โค้ชมิวจัดแผนให้แล้ว' : 'บันทึกแล้ว คำนวณใหม่ให้แล้ว');
+}
+const optCard = (name, val, cur, title, desc, tag = '') => `<label class="opt"><input type="radio" name="${name}" value="${val}" ${String(cur) === String(val) ? 'checked' : ''}><div>${tag}<b>${title}</b>${desc ? `<span>${desc}</span>` : ''}</div></label>`;
+const segR = (name, opts, cur) => `<div class="seg">${Object.entries(opts).map(([k, l]) => `<label><input type="radio" name="${name}" value="${k}" ${String(cur) === String(k) ? 'checked' : ''}><span>${l}</span></label>`).join('')}</div>`;
+function rStart() {
+  if (!ui.ob) startOb(0, !!S.profile);
+  const o = ui.ob, d = o.d, st = OB[o.step], el = $('#v-start');
+  if (st.k === 'welcome') {
+    el.innerHTML = `<div class="ob">
+      <div class="ob-hero">${LOGO}<span class="eyebrow">MewFit · โค้ชมิว</span><h1>เทรนเนอร์ส่วนตัว<br>ที่บ้านของคุณ</h1>
+        <p class="muted">ตอบคำถาม 7 ขั้น ใช้เวลาราว 3 นาที แล้วโค้ชมิวจะจัดตารางฝึก แผนอาหาร และตารางชีวิตที่พอดีกับคุณ</p></div>
+      <div class="figbox">${figSVG('pushup')}</div>
+      <div class="feat">
+        <div><span class="n">1</span><div><b>ตารางฝึกที่ฉลาดขึ้นทุกครั้ง</b><p>ทุกท่ามีขั้นง่ายถึงยาก มีภาพเคลื่อนไหวสาธิต ทำได้ครบเป้าแล้วเลื่อนขั้นให้เอง ไม่ต้องมีอุปกรณ์</p></div></div>
+        <div><span class="n">2</span><div><b>กินแบบคนไทย</b><p>แคลอรี่และโปรตีนที่ควรกิน พร้อมเมนูจากร้านตามสั่งและร้านสะดวกซื้อ</p></div></div>
+        <div><span class="n">3</span><div><b>โค้ชดูผลให้ทุกสัปดาห์</b><p>ชั่งน้ำหนักแล้วโค้ชบอกว่าต้องปรับอาหารไหม ทุกคำแนะนำมีงานวิจัยรองรับ</p></div></div>
+      </div>
+      <div class="card"><h3>สิ่งที่จะถาม</h3><ul class="need">
+        <li><span>อายุ เพศ ส่วนสูง น้ำหนัก</span><span>จำเป็น · คำนวณแคลอรี่</span></li>
+        <li><span>เป้าหมาย และกิจกรรมประจำวัน</span><span>จำเป็น · ตั้งเป้าอาหาร</span></li>
+        <li><span>วันที่ว่าง เวลาต่อครั้ง อุปกรณ์</span><span>จำเป็น · จัดตารางฝึก</span></li>
+        <li><span>คำถามสุขภาพ 8 ข้อ</span><span>จำเป็น · ความปลอดภัย</span></li>
+        <li><span>ทดสอบวิดพื้น สควอท แพลงก์</span><span>ไม่บังคับ · เลือกท่าแรก</span></li>
+        <li><span>เวลาตื่น นอน ทำงาน</span><span>จำเป็น · ตารางชีวิต</span></li>
+        <li><span>รอบเอว ชื่อเล่น</span><span>ไม่บังคับ</span></li></ul>
+        <p class="small muted">ข้อมูลเก็บในเครื่องของคุณเท่านั้น ไม่ต้องสมัครสมาชิก ไม่มีใครเห็น</p></div>
+      <div class="ob-nav"><button class="btn pri big" data-act="ob-next">เริ่มตั้งค่า</button>${S.profile ? '<a class="btn big" href="#today">ยกเลิก</a>' : '<button class="btn big" data-act="ob-demo">ดูตัวอย่างก่อน</button>'}</div></div>`;
+    return;
+  }
+  const n = o.step, bmi = d.height && d.weight ? d.weight / Math.pow(d.height / 100, 2) : 0;
+  let body = '';
+  if (st.k === 'safety') {
+    const yes = o.par.some(v => v === 'y');
+    body = `<div>${PARQ.map((q, i) => `<div class="yn"><p>${q}</p>${segR('par' + i, { n: 'ไม่ใช่', y: 'ใช่' }, o.par[i] || '')}</div>`).join('')}</div>
+      ${yes ? '<div class="note"><b>ควรปรึกษาแพทย์ก่อนเพิ่มความหนัก</b> ใช้ MewFit ต่อได้ แอปจะเริ่มทุกท่าที่ขั้นง่ายที่สุดและปิดช่วงกระโดด หยุดทันทีถ้าเจ็บหน้าอก หายใจไม่ทัน หรือเวียนศีรษะ</div>' : (o.par.filter(Boolean).length === PARQ.length ? '<div class="note ok">ผ่านการคัดกรองเบื้องต้น เริ่มออกกำลังกายระดับปานกลางได้ ค่อยๆ เพิ่มความหนัก</div>' : '')}`;
+  } else if (st.k === 'body') {
+    body = `<fieldset><legend>เพศ * <span class="muted small">(สูตรคำนวณพลังงานต่างกันตามเพศ)</span></legend>${segR('sex', { m: 'ชาย', f: 'หญิง' }, d.sex)}</fieldset>
+      <div class="fgrid bignum">
+        <label class="f">อายุ (ปี) *<input type="number" id="ob-age" inputmode="numeric" min="14" max="90" value="${esc(d.age)}" placeholder="28"></label>
+        <label class="f">ส่วนสูง (ซม.) *<input type="number" id="ob-height" inputmode="numeric" min="120" max="230" value="${esc(d.height)}" placeholder="170"></label>
+        <label class="f">น้ำหนัก (กก.) *<input type="number" id="ob-weight" inputmode="decimal" step="0.1" min="30" max="250" value="${esc(d.weight)}" placeholder="68.5"></label>
+        <label class="f">รอบเอว (ซม.)<input type="number" id="ob-waist" inputmode="decimal" step="0.5" value="${esc(d.waist || '')}" placeholder="ไม่บังคับ"></label>
+      </div>
+      <label class="f">ชื่อเล่น ให้โค้ชเรียก<input type="text" id="ob-name" maxlength="20" value="${esc(d.name)}" placeholder="ไม่บังคับ"></label>
+      <p class="small muted" id="ob-live">${bmi ? `BMI ${r1(bmi)} · ${bmi < 18.5 ? 'ผอม' : bmi < 23 ? 'ปกติ (เกณฑ์เอเชีย)' : bmi < 25 ? 'ท้วม' : 'เกิน'}` : 'ชั่งน้ำหนักตอนเช้าหลังเข้าห้องน้ำจะแม่นที่สุด'}</p>`;
+  } else if (st.k === 'goal') {
+    const rec = bmi >= 25 ? 'cut' : bmi && bmi < 18.5 ? 'bulk' : '';
+    const g = { cut: 'ลดไขมันโดยรักษากล้าม เห็นกล้ามชัดขึ้น ลด 0.5–1% ของน้ำหนักต่อสัปดาห์', recomp: 'เหมาะกับมือใหม่ ไขมันลดช้าๆ กล้ามเพิ่มไปพร้อมกัน น้ำหนักแทบไม่เปลี่ยน', bulk: 'อยากตัวใหญ่ขึ้น แขนอกหลังใหญ่ขึ้น กินเกินเล็กน้อยให้ไขมันพอกน้อยที่สุด', maintain: 'พอใจน้ำหนักแล้ว อยากแข็งแรง ฟิต สุขภาพดี' };
+    body = `<div class="opts">${Object.entries(GOALS).map(([k, v]) => optCard('goal', k, d.goal, v.l, g[k], k === rec ? '<span class="chip hot tag">แนะนำจาก BMI ของคุณ</span>' : '')).join('')}</div>`;
+  } else if (st.k === 'life') {
+    const ex = { sedentary: 'ทำงานออฟฟิศ ขับรถ เดินน้อยกว่า 5,000 ก้าว', light: 'ออฟฟิศแต่เดินบ้าง หรือออกกำลัง 1–3 วัน ราว 5,000–7,500 ก้าว', moderate: 'ยืนหรือเดินทั้งวัน เช่น พนักงานขาย ครู พยาบาล ราว 7,500–10,000 ก้าว', high: 'งานใช้แรง เช่น ก่อสร้าง ขนของ หรือเดินเกิน 12,000 ก้าว' };
+    body = `<div class="opts">${Object.entries(ACT).map(([k, v]) => optCard('activity', k, d.activity, v.l, ex[k])).join('')}</div>`;
+  } else if (st.k === 'train') {
+    body = `<fieldset><legend>ประสบการณ์การฝึกแรงต้าน</legend><div class="opts">${Object.entries(LEVELS).map(([k, v]) => optCard('level', k, d.level, v.split(' (')[0], v.includes('(') ? v.split(' (')[1].replace(')', '') : '')).join('')}</div></fieldset>
+      <fieldset><legend>วันที่ฝึกได้ <span class="muted small">แนะนำ 3 วัน เว้นวันพักระหว่างกัน</span></legend>
+        <div class="row"><button class="btn sm" data-act="ob-days" data-v="2,5">2 วัน</button><button class="btn sm" data-act="ob-days" data-v="1,3,5">3 วัน</button><button class="btn sm" data-act="ob-days" data-v="1,2,4,5">4 วัน</button><button class="btn sm" data-act="ob-days" data-v="1,2,3,4,5,6">6 วัน</button></div>
+        <div class="seg">${WEEK_ORDER.map(x => `<label><input type="checkbox" name="days" value="${x}" ${d.days.includes(x) ? 'checked' : ''}><span>${DAY_L[x]}</span></label>`).join('')}</div>
+        <p class="small muted">${d.days.length ? `ตารางที่จะได้: ${(SEQ[d.days.length] || []).map(t => TPL[t].n.split(':')[0]).join(' · ')}` : ''}</p></fieldset>
+      <fieldset><legend>เวลาต่อครั้ง (รวมวอร์มอัพ)</legend>${segR('minutes', { 20: '20 นาที', 30: '30 นาที', 45: '45 นาที', 60: '60 นาที' }, d.minutes)}</fieldset>
+      <fieldset><legend>สะดวกฝึกช่วงไหน</legend>${segR('trainTime', { morning: 'เช้าก่อนงาน', lunch: 'พักเที่ยง', evening: 'เย็นหลังเลิกงาน' }, d.trainTime)}</fieldset>
+      <fieldset><legend>อุปกรณ์ที่มี <span class="muted small">ไม่มีเลยก็ฝึกครบทุกส่วน</span></legend><div class="seg">
+        <label><input type="checkbox" name="eq" value="db" ${d.eq.db ? 'checked' : ''}><span>ดัมเบล</span></label>
+        <label><input type="checkbox" name="eq" value="band" ${d.eq.band ? 'checked' : ''}><span>ยางยืดแรงต้าน</span></label>
+        <label><input type="checkbox" name="eq" value="bar" ${d.eq.bar ? 'checked' : ''}><span>บาร์โหนติดประตู</span></label></div></fieldset>
+      <fieldset><legend>ตัวเลือกเพิ่ม</legend><div class="seg">
+        <label><input type="checkbox" id="ob-finisher" ${d.finisher ? 'checked' : ''}><span>คาร์ดิโอ 4 นาทีท้ายการฝึก</span></label>
+        <label><input type="checkbox" id="ob-whey" ${d.whey ? 'checked' : ''}><span>ใช้เวย์โปรตีนได้</span></label></div></fieldset>`;
+  } else if (st.k === 'test') {
+    body = `<div class="stack" style="gap:18px">${Object.entries(TESTS).filter(([, t]) => !t.bar || d.eq.bar).map(([k, t]) => `
+      <fieldset><div class="row" style="flex-wrap:nowrap;gap:12px"><div class="figbox mini">${figSVG(t.fig)}</div><div class="stack" style="gap:2px"><legend style="margin:0">${t.q}</legend><span class="small muted">${t.h}</span></div></div>
+      <div class="seg">${t.o.map((l, i) => `<label><input type="radio" name="t_${k}" value="${i}" ${d.baseline && d.baseline[k] === i ? 'checked' : ''}><span>${l}</span></label>`).join('')}</div></fieldset>`).join('')}</div>
+      <p class="small muted">พักระหว่างทดสอบแต่ละท่า 1–2 นาที ถ้าเจ็บให้หยุดแล้วเลือกตัวเลือกแรก</p>`;
+  } else if (st.k === 'day') {
+    const sh = d.wake && d.bed ? ((toMin(d.wake) - toMin(d.bed) + 1440) % 1440) / 60 : 0;
+    body = `<div class="fgrid bignum">
+        <label class="f">ตื่นนอน<input type="time" id="ob-wake" value="${esc(d.wake)}"></label>
+        <label class="f">เข้านอน<input type="time" id="ob-bed" value="${esc(d.bed)}"></label></div>
+      <p class="small ${sh && sh < 7 ? 'warnline' : 'muted'}" id="ob-live">${sh ? `ช่วงนอน ${r1(sh)} ชั่วโมง ${sh < 7 ? '· น้อยกว่า 7 ชั่วโมง การลดไขมันและสร้างกล้ามจะได้ผลน้อยลง' : '· ดีมาก'}` : ''}</p>
+      <div class="seg"><label><input type="checkbox" id="ob-noWork" ${d.noWork ? 'checked' : ''}><span>ไม่มีเวลางานหรือเรียนประจำ</span></label></div>
+      ${d.noWork ? '' : `<div class="fgrid bignum"><label class="f">เริ่มงานหรือเรียน<input type="time" id="ob-ws" value="${esc(d.workStart)}"></label><label class="f">เลิกงาน<input type="time" id="ob-we" value="${esc(d.workEnd)}"></label></div>`}`;
+  } else if (st.k === 'done') {
+    const p = obProfile(), c = calc(p), map = weekMap(p), lv = o.testChanged || !S.profile || p.caution ? levelsFrom(p) : S.levels;
+    const startEx = pt => { const L = ladder(pt, p); let i = L.findIndex(x => x.id === lv[pt]); if (i < 0) i = p.caution ? 0 : Math.round(({ beginner: .3, intermediate: .55, advanced: .8 }[p.level] || .3) * (L.length - 1)); return L[i]; };
+    body = `<div class="hero" style="grid-template-columns:1fr"><div class="hero-txt"><span class="eyebrow">เป้าต่อวัน · ${GOALS[p.goal].l}</span>
+        <div class="kpis">${[[fmt(c.kcal), 'kcal'], [c.protein + ' g', 'โปรตีน'], [c.carb + ' g', 'คาร์บ'], [c.fat + ' g', 'ไขมัน']].map(([v, l]) => `<div class="kpi" style="background:rgba(255,255,255,.08)"><b>${v}</b><span style="color:var(--hero-muted)">${l}</span></div>`).join('')}</div>
+        <p>เผาผลาญราว ${fmt(c.tdee)} kcal ต่อวัน · น้ำ ${(c.water / 1000).toFixed(1)} ลิตร · เดิน ${fmt(c.steps)} ก้าว · น้ำหนักควรเปลี่ยน ${c.rateKg[0]} ถึง ${c.rateKg[1]} กก. ต่อสัปดาห์</p></div></div>
+      <div class="card"><h3>ตารางฝึกต่อสัปดาห์</h3>${weekStrip(p)}<p class="small muted">${p.minutes} นาทีต่อครั้ง · ช่วง${{ morning: 'เช้า', lunch: 'พักเที่ยง', evening: 'เย็น' }[p.trainTime]}</p></div>
+      <div class="card"><h3>ท่าเริ่มต้นของคุณ</h3>${p.caution ? '<p class="note">เริ่มที่ขั้นง่ายที่สุดทุกท่าตามผลคัดกรองสุขภาพ</p>' : ''}
+        ${['push', 'pull', 'squat', 'hinge', 'core1'].map(pt => { const e = startEx(pt); return `<div class="mv"><div class="figbox mini">${figSVG(ANIM[e.id])}</div><div><span class="eyebrow">${PT_L[pt]}</span><h3>${esc(e.n)}</h3></div></div>`; }).join('')}</div>`;
+  }
+  const yes = o.par.some(v => v === 'y');
+  el.innerHTML = `<div class="ob">
+    <div class="ob-prog" aria-hidden="true">${OB.slice(1).map((_, i) => `<i class="${i < n ? 'on' : ''}"></i>`).join('')}</div>
+    <div class="stack" style="gap:6px"><span class="eyebrow">ขั้น ${n}/${OB.length - 1}${st.k === 'test' ? ' · ไม่บังคับ' : ''}</span><h1>${st.t}</h1></div>
+    ${st.why ? `<div class="ob-why"><b>ทำไมถาม</b><span>${st.why}</span></div>` : ''}
+    ${body}
+    <div class="ob-nav">${n > 1 || o.edit ? '<button class="btn big" data-act="ob-back">ย้อนกลับ</button>' : '<button class="btn big" data-act="ob-back">ย้อนกลับ</button>'}
+      ${st.k === 'done' ? `<button class="btn pri big" data-act="ob-finish">${S.profile ? 'บันทึกการเปลี่ยนแปลง' : 'เริ่มใช้ MewFit'}</button>`
+        : st.k === 'test' ? '<button class="btn big ghost" data-act="ob-next">ข้าม</button><button class="btn pri big" data-act="ob-next">ต่อไป</button>'
+        : `<button class="btn pri big" data-act="ob-next">ต่อไป</button>`}
+      ${o.edit && st.k !== 'done' ? '<button class="btn big" data-act="ob-finish">บันทึกเลย</button>' : ''}</div>
+  </div>`;
+  void yes;
+}
+function obLive() {
+  const o = ui.ob, d = o.d, el = $('#ob-live'); if (!el) return;
+  if (OB[o.step].k === 'body') { const bmi = d.height && d.weight ? d.weight / Math.pow(d.height / 100, 2) : 0; el.textContent = bmi ? `BMI ${r1(bmi)} · ${bmi < 18.5 ? 'ผอม' : bmi < 23 ? 'ปกติ (เกณฑ์เอเชีย)' : bmi < 25 ? 'ท้วม' : 'เกิน'}` : ''; }
+  if (OB[o.step].k === 'day') { const sh = d.wake && d.bed ? ((toMin(d.wake) - toMin(d.bed) + 1440) % 1440) / 60 : 0; el.textContent = sh ? `ช่วงนอน ${r1(sh)} ชั่วโมง ${sh < 7 ? '· น้อยกว่า 7 ชั่วโมง การลดไขมันและสร้างกล้ามจะได้ผลน้อยลง' : '· ดีมาก'}` : ''; el.className = 'small ' + (sh && sh < 7 ? 'warnline' : 'muted'); }
+}
+
+/* ---------- today ---------- */
 function rToday() {
   const p = P(), c = calc(), d = iso(), dow = new Date().getDay(), tid = weekMap(p)[dow];
   const done = S.workouts.find(w => w.date === d), tot = dayTotals(d), h = habit(d);
   const hr = new Date().getHours(), hi = hr < 11 ? 'อรุณสวัสดิ์' : hr < 17 ? 'สวัสดีตอนบ่าย' : 'สวัสดีตอนเย็น';
   const name = p.name ? ` คุณ${esc(p.name)}` : '';
+  const live = S.session && S.session.date === d, sess = tid ? buildSession(tid) : null;
   const tr = trend(weightsSorted()), adv = coachAdvice(tr);
   let msg;
-  if (S.session && S.session.date === d) msg = 'คุณมีการฝึกค้างอยู่ กดทำต่อได้เลย บันทึกไว้แล้วทุกเซต';
-  else if (done) msg = `เยี่ยมมาก ฝึกเสร็จแล้ววันนี้ มื้อถัดไปให้มีโปรตีนราว ${c.perMeal} กรัม แล้วนอนให้ได้ 7 ชั่วโมงขึ้นไป`;
-  else if (tid) msg = `วันนี้คือวัน${TPL[tid].n} ใช้เวลาราว ${estMin(tid)} นาที ทำเสร็จก่อนมื้อเย็นจะดีที่สุด`;
-  else msg = `วันนี้วันพัก กล้ามเนื้อโตตอนพัก ไม่ใช่ตอนฝึก เดินให้ได้ ${fmt(c.steps)} ก้าว และกินโปรตีนให้ถึงเป้า`;
+  if (live) msg = 'คุณมีการฝึกค้างอยู่ ทุกเซตที่บันทึกไว้ยังอยู่ครบ กดฝึกต่อได้เลย';
+  else if (done) msg = `เยี่ยมมาก ฝึกเสร็จแล้ว มื้อถัดไปให้มีโปรตีนราว ${c.perMeal} กรัม แล้วนอนให้ได้ 7 ชั่วโมงขึ้นไป`;
+  else if (tid) msg = isDeload() ? 'สัปดาห์นี้เป็นสัปดาห์ผ่อน ลดเซตลงหนึ่งเซต ให้ร่างกายฟื้นตัวเต็มที่ก่อนรอบใหม่' : 'กล้ามโตเมื่อทำได้มากกว่าครั้งก่อนนิดเดียว วันนี้ลองเพิ่มอีก 1 ครั้งในแต่ละเซต';
+  else msg = `วันพัก กล้ามเนื้อซ่อมแซมตัวเองวันนี้ เดินให้ได้ ${fmt(c.steps)} ก้าว กินโปรตีนให้ถึงเป้า หรือยืดเหยียดเบาๆ 8 นาที`;
+  if (tr && tr.pct != null && adv.delta && !isDemo()) msg += ' · <a href="#progress" style="color:var(--hero-fg)">โค้ชมีคำแนะนำเรื่องแคลอรี่</a>';
   const tip = TIPS[(Math.floor(Date.now() / 864e5)) % TIPS.length];
   const wkDone = (weekCounts()[mondayOf(d)] || 0), wkNeed = p.days.length;
+  const guide = S.profile && !S.guideDone ? `<article class="card"><div class="row between"><h2>ใช้ MewFit ทุกวันแบบนี้</h2><button class="btn sm" data-act="guide-done">เข้าใจแล้ว</button></div>
+    <div class="feat"><div><span class="n">เช้า</span><div><b>ชั่งน้ำหนักหลังเข้าห้องน้ำ</b><p>กดเครื่องมือ "ชั่งน้ำหนัก" ด้านล่าง ทำ 3–7 วันต่อสัปดาห์</p></div></div>
+    <div><span class="n">ฝึก</span><div><b>กดเริ่มฝึกในวันที่มีตาราง</b><p>ทำทีละท่าตามภาพ กดบันทึกทุกเซต ตัวจับเวลาพักจะขึ้นเอง</p></div></div>
+    <div><span class="n">กิน</span><div><b>บันทึกอาหารหรือกดใช้แผนทั้งวัน</b><p>สำคัญที่สุดคือให้โปรตีนถึงเป้า วงแหวนสีชมพู</p></div></div>
+    <div><span class="n">ค่ำ</span><div><b>ติ๊กน้ำ ก้าวเดิน และชั่วโมงนอน</b><p>นิสัยเล็กๆ เหล่านี้ทำให้ผลออกเร็วขึ้น</p></div></div></div></article>` : '';
+  let btns;
+  if (live) btns = '<a class="btn hot big" href="#train">ฝึกต่อ</a>';
+  else if (done) btns = `<span class="chip good" style="background:rgba(255,255,255,.12)">เสร็จแล้ว ${done.mins} นาที · ${done.sets} เซต</span><button class="btn" data-act="stretch">ยืดเหยียด 8 นาที</button>`;
+  else if (tid) btns = `<button class="btn hot big" data-act="start" data-tid="${tid}">เริ่มฝึก</button><a class="btn" href="#train">ดูท่าวันนี้</a>`;
+  else btns = '<button class="btn pri" data-act="stretch">ยืดเหยียด 8 นาที</button><button class="btn" data-act="seven">วงจร 7 นาที</button>';
   $('#v-today').innerHTML = `
   ${demoBanner()}
-  <div class="view-head"><span class="eyebrow">${DAY_L[dow]} ${thDate(d)}</span><h1>${hi}${name}</h1></div>
-  <div class="coach"><div class="av" aria-hidden="true">M</div><p>${msg}${tr && tr.pct != null && adv.delta ? ' <a href="#progress">โค้ชมีคำแนะนำเรื่องแคลอรี่</a>' : ''}</p></div>
+  <section class="hero">
+    <div class="hero-txt">
+      <span class="eyebrow">${DAY_L[dow]} ${thDate(d)}${isDeload() ? ' · สัปดาห์ผ่อน' : ''}</span>
+      <h1>${hi}${name}</h1>
+      ${tid ? `<div class="hero-sess"><b>${esc(TPL[tid].n)}</b><span>${sess.ex.length} ท่า · ${sess.ex[0].sets} เซต · ราว ${estMin(tid)} นาที</span></div>` : '<div class="hero-sess"><b>วันพัก</b><span>ฟื้นตัว เดินเยอะๆ</span></div>'}
+      <p>${msg}</p>
+      <div class="row">${btns}</div>
+    </div>
+    <div class="hero-fig">${figSVG(tid ? ANIM[sess.ex[0].id] : 'bridge')}</div>
+  </section>
+  ${guide}
   <div class="grid g2">
     <article class="card">
-      <div class="row between"><h2>${tid ? 'การฝึกวันนี้' : 'วันพัก'}</h2>${tid ? `<span class="chip acc">${esc(TPL[tid].n)}</span>` : '<span class="chip">ฟื้นตัว</span>'}</div>
-      ${tid ? `<p class="muted">${buildSession(tid).ex.map(e => esc(EXM[e.id].n)).join(' · ')}</p>
-        <div class="row">${done ? `<span class="chip good">เสร็จแล้ว ${done.mins} นาที</span><a class="btn sm" href="#progress">ดูบันทึก</a>`
-          : `<a class="btn pri big" href="#train" data-act="${S.session && S.session.date === d ? '' : 'start'}" data-tid="${tid}">${S.session && S.session.date === d ? 'ฝึกต่อ' : 'เริ่มฝึก'} · ${estMin(tid)} นาที</a>`}</div>`
-      : `<p class="muted">อยากขยับเพิ่ม? เดินเร็ว 30 นาที หรือวงจร 7 นาทีแบบเบาๆ ก็ได้ ไม่กระทบการฟื้นตัว</p><div class="row"><button class="btn" data-act="seven">วงจร 7 นาที</button><a class="btn ghost" href="#train">ฝึกเพิ่มนอกตาราง</a></div>`}
-      <div class="stack"><span class="small muted">สัปดาห์นี้ ${wkDone}/${wkNeed} ครั้ง · ทำครบติดกัน ${weekStreak()} สัปดาห์</span>${weekStrip(p)}</div>
+      <div class="row between"><h2>วันนี้</h2><a class="btn sm" href="#eat">บันทึกอาหาร</a></div>
+      <div class="ringwrap">${ringsSVG([{ v: tot.k, max: c.kcal, c: 'var(--accent)' }, { v: tot.p, max: c.protein, c: 'var(--hot)' }, { v: h.water, max: c.glasses, c: 'var(--good)' }])}
+        <div class="legend">
+          <div><i style="background:var(--accent)"></i><span>แคลอรี่</span><b>${fmt(tot.k)}<small> / ${fmt(c.kcal)}</small></b></div>
+          <div><i style="background:var(--hot)"></i><span>โปรตีน</span><b>${fmt(tot.p)}<small> / ${c.protein} g</small></b></div>
+          <div><i style="background:var(--good)"></i><span>น้ำ</span><b>${h.water}<small> / ${c.glasses} แก้ว</small></b></div>
+        </div></div>
     </article>
     <article class="card">
-      <div class="row between"><h2>พลังงานวันนี้</h2><a class="btn sm" href="#eat">บันทึกอาหาร</a></div>
-      ${metric('แคลอรี่', tot.k, c.kcal, 'kcal')}
-      ${metric('โปรตีน', tot.p, c.protein, 'g')}
-      <div class="kpis"><div class="kpi"><b>${fmt(tot.c)}<small class="muted"> / ${c.carb}</small></b><span>คาร์บ (g)</span></div><div class="kpi"><b>${fmt(tot.f)}<small class="muted"> / ${c.fat}</small></b><span>ไขมัน (g)</span></div></div>
+      <h2>นิสัยประจำวัน</h2>
+      <div class="stack"><span class="small"><b>น้ำ</b> <span class="muted">แก้วละ 250 ml</span></span>
+        <div class="counter"><button class="btn" data-act="water" data-n="-1" aria-label="ลดน้ำหนึ่งแก้ว">−</button><div class="glasses">${Array.from({ length: c.glasses }, (_, i) => `<i class="${i < h.water ? 'on' : ''}"></i>`).join('')}</div><button class="btn pri" data-act="water" data-n="1" aria-label="เพิ่มน้ำหนึ่งแก้ว">+</button></div></div>
+      <div class="fgrid">
+        <label class="f">ก้าวเดิน <span class="muted small">เป้า ${fmt(c.steps)}</span><input type="number" inputmode="numeric" id="h-steps" data-habit="steps" min="0" value="${esc(h.steps)}" placeholder="8500"></label>
+        <label class="f">นอนเมื่อคืน (ชม.) <span class="muted small">เป้า 7–9</span><input type="number" inputmode="decimal" step="0.5" id="h-sleep" data-habit="sleep" min="0" max="16" value="${esc(h.sleep)}" placeholder="7.5"></label>
+      </div>
     </article>
   </div>
   <article class="card">
-    <h2>นิสัยประจำวัน</h2>
-    <div class="grid g3">
-      <div class="stack"><span><b>น้ำ</b> <span class="muted small">${h.water}/${c.glasses} แก้ว (แก้วละ 250 ml)</span></span>
-        <div class="counter"><button class="btn" data-act="water" data-n="-1" aria-label="ลดน้ำหนึ่งแก้ว">−</button><div class="glasses">${Array.from({ length: c.glasses }, (_, i) => `<i class="${i < h.water ? 'on' : ''}"></i>`).join('')}</div><button class="btn" data-act="water" data-n="1" aria-label="เพิ่มน้ำหนึ่งแก้ว">+</button></div></div>
-      <label class="f">ก้าวเดินวันนี้ <span class="muted small">เป้า ${fmt(c.steps)}</span><input type="number" inputmode="numeric" id="h-steps" data-habit="steps" min="0" value="${esc(h.steps)}" placeholder="เช่น 8500"></label>
-      <label class="f">นอนเมื่อคืน (ชั่วโมง) <span class="muted small">เป้า 7–9</span><input type="number" inputmode="decimal" step="0.5" id="h-sleep" data-habit="sleep" min="0" max="16" value="${esc(h.sleep)}" placeholder="เช่น 7.5"></label>
-    </div>
+    <div class="row between"><h2>สัปดาห์นี้</h2><span class="chip ${wkDone >= wkNeed ? 'good' : 'acc'}">${wkDone}/${wkNeed} ครั้ง · ครบติดกัน ${weekStreak()} สัปดาห์</span></div>
+    ${weekStrip(p)}
   </article>
-  <article class="card flat" style="padding:0;box-shadow:none;border:0">
-    <span class="eyebrow">เคล็ดลับวันนี้</span>
-    <div class="tip"><h3>${esc(tip.t)}</h3><p>${esc(tip.b)}</p><p class="src">ที่มา: ${esc(tip.s)}</p></div>
-  </article>`;
+  <div class="tools">
+    ${tool('seven', 'bolt', 'วงจร 7 นาที', '12 ท่า ไม่ใช้อุปกรณ์')}
+    ${tool('stretch', 'stretch', 'ยืดเหยียด 8 นาที', 'วันพักหรือก่อนนอน')}
+    ${tool('', 'scale', 'ชั่งน้ำหนัก', 'บันทึกทุกเช้า', '#progress')}
+  </div>
+  <div class="tip"><span class="eyebrow">เคล็ดลับวันนี้ · ${TIP_CAT[tip.c]}</span><h3>${esc(tip.t)}</h3><p>${esc(tip.b)}</p><p class="src">ที่มา: ${esc(tip.s)}</p></div>`;
 }
 
-function exCard(x, i, live) {
-  const e = EXM[x.id], L = ladder(x.pt), k = L.findIndex(y => y.id === x.id);
-  const unit = e.t ? 'วินาที' : 'ครั้ง', side = /ข้างละ|สลับ/.test(e.cues.join(' ')) ? ' ต่อข้าง' : '';
-  const filled = x.reps.filter(v => v !== '' && v != null).length, complete = live && filled === x.sets;
-  return `<article class="ex ${complete ? 'complete' : ''}" id="ex-${i}">
-    <div class="ex-h"><span class="ex-i">${complete ? '✓' : i + 1}</span><div>
-      <h3>${esc(e.n)}</h3><p class="en">${esc(e.en)} · ${PT_L[x.pt]} · ขั้น ${k + 1}/${L.length}</p>
-      <div class="ladder" aria-hidden="true">${L.map((_, j) => `<i class="${j <= k ? 'on' : ''}"></i>`).join('')}</div></div></div>
-    <p><b>${x.sets} เซต × ${e.r[0]}–${e.r[1]} ${unit}${side}</b> <span class="muted small">· พัก ${e.t ? 45 : 75} วินาที · เหลือแรง 1–3 ครั้ง</span></p>
-    ${live ? `<div class="sets">${x.reps.map((v, s) => `<label>เซต ${s + 1}<input type="number" inputmode="numeric" min="0" id="set-${i}-${s}" data-set="${i}-${s}" value="${esc(v)}" placeholder="${e.r[1]}" class="${+v >= e.r[1] ? 'hit' : ''}"></label>`).join('')}</div>` : ''}
-    <details><summary>วิธีทำและจุดที่ต้องระวัง</summary><ul>${e.cues.map(q => `<li>${esc(q)}</li>`).join('')}</ul>
-      <p class="warnline">ระวัง: ${esc(e.mis)}</p>
-      <p class="small"><a href="https://www.youtube.com/results?search_query=${encodeURIComponent(e.en + ' proper form')}" target="_blank" rel="noopener">ดูวิดีโอท่านี้บน YouTube ↗</a></p></details>
-    ${live ? `<div class="row"><button class="btn sm" data-act="easier" data-i="${i}" ${k <= 0 ? 'disabled' : ''}>ง่ายลงหนึ่งขั้น</button><button class="btn sm" data-act="harder" data-i="${i}" ${k >= L.length - 1 ? 'disabled' : ''}>ยากขึ้นหนึ่งขั้น</button></div>` : ''}
-  </article>`;
+/* ---------- train: overview + player ---------- */
+const sessionDone = s => s.ex.every(x => x.skip || x.reps.every(v => v !== ''));
+function lastPerf(id) { for (let i = S.workouts.length - 1; i >= 0; i--) { const e = (S.workouts[i].ex || []).find(x => x.id === id); if (e && e.reps.some(v => v !== '')) return e.reps; } return null; }
+function defVal(x, s, prev) {
+  const e = EXM[x.id];
+  if (x.reps[s] !== '') return +x.reps[s];
+  if (prev && prev[s] !== '' && prev[s] != null) return +prev[s];
+  if (s > 0 && x.reps[s - 1] !== '') return +x.reps[s - 1];
+  return Math.round((e.r[0] + e.r[1]) / 2);
 }
-
+function advance(s) {
+  const c = s.cur, order = [...s.ex.keys()].slice(c.i).concat([...s.ex.keys()].slice(0, c.i));
+  for (const i of order) { const x = s.ex[i]; if (x.skip) continue; const j = x.reps.findIndex(v => v === ''); if (j >= 0) { c.i = i; c.s = j; return; } }
+}
 function rTrain() {
-  const p = P(), d = iso(), s = S.session;
-  if (s) {
-    const t = TPL[s.tid], el = Math.round((Date.now() - s.start) / 60000);
-    $('#v-train').innerHTML = `
-    <div class="view-head"><span class="eyebrow">กำลังฝึก · เริ่ม ${el} นาทีที่แล้ว${s.date !== d ? ` (${thDate(s.date)})` : ''}</span><h1>${esc(t.n)}</h1>
-      <p class="muted">กรอกจำนวนครั้งที่ทำได้จริงหลังจบแต่ละเซต ตัวจับเวลาพักจะเริ่มเอง ทำได้ถึงเพดานทุกเซต ครั้งหน้าจะเลื่อนขั้นให้</p></div>
-    <details class="card" ${s.ex.every(x => x.reps.every(v => v === '')) ? 'open' : ''}><summary>วอร์มอัพ 5 นาที (ทำก่อนทุกครั้ง)</summary><ul>${WARM.map(w => `<li>${w}</li>`).join('')}</ul></details>
-    ${s.ex.map((x, i) => exCard(x, i, true)).join('')}
-    ${s.fin ? `<article class="card"><div class="row between"><h3>ฟินิชเชอร์ 4 นาที</h3><span class="chip">ไม่บังคับ</span></div><p class="muted">ทำ 20 วินาที พัก 10 วินาที 8 รอบ สลับท่า${p.level === 'beginner' ? 'แบบไม่กระโดด' : ''} เผาพลังงานเพิ่มโดยไม่กินเวลา</p><div class="row"><button class="btn" data-act="finisher">เริ่มจับเวลา</button></div></article>` : ''}
-    <details class="card"><summary>คูลดาวน์ 3 นาที</summary><ul>${COOL.map(w => `<li>${w}</li>`).join('')}</ul></details>
-    <div class="row"><button class="btn pri big" data-act="finish">จบการฝึกและบันทึก</button><button class="btn danger" data-act="cancel">ยกเลิก</button></div>`;
-    return;
-  }
-  const tid = weekMap(p)[new Date().getDay()];
-  const doneToday = S.workouts.some(w => w.date === d);
+  if (S.session) { rPlayer(); return; }
+  const p = P(), d = iso(), tid = weekMap(p)[new Date().getDay()], doneToday = S.workouts.some(w => w.date === d);
+  const sess = tid ? buildSession(tid) : null;
   $('#v-train').innerHTML = `
   ${demoBanner()}
-  <div class="view-head"><span class="eyebrow">ฝึกที่บ้าน · ${p.days.length} วันต่อสัปดาห์ · ${p.minutes} นาที</span><h1>ฝึก</h1>
-    <p class="muted">ทุกท่าเป็นบันได ง่ายไปยาก เริ่มตามระดับของคุณ ทำได้ถึงเพดานทุกเซตแล้วระบบจะเลื่อนขั้นให้เอง</p></div>
+  <div class="view-head"><span class="eyebrow">ฝึกที่บ้าน · ${p.days.length} วันต่อสัปดาห์ · ${p.minutes} นาที${isDeload() ? ' · สัปดาห์ผ่อน' : ''}</span><h1>ฝึก</h1></div>
+  ${tid ? `<section class="hero">
+    <div class="hero-txt"><span class="eyebrow">วันนี้${doneToday ? ' · ฝึกแล้ว' : ''}</span><h1>${esc(TPL[tid].n)}</h1>
+      <p>${sess.ex.length} ท่า × ${sess.ex[0].sets} เซต · ราว ${estMin(tid)} นาที รวมวอร์มอัพ ${sess.fin ? '· มีคาร์ดิโอท้าย 4 นาที' : ''}</p>
+      <div class="row"><button class="btn hot big" data-act="start" data-tid="${tid}">เริ่มฝึก</button><button class="btn" data-act="warm">วอร์มอัพ 5 นาที</button></div></div>
+    <div class="hero-fig">${figSVG(ANIM[sess.ex[0].id])}</div></section>
+  <article class="card"><h2>ท่าวันนี้</h2>
+    ${sess.ex.map(x => { const e = EXM[x.id], L = ladder(x.pt), k = L.findIndex(y => y.id === x.id), pv = lastPerf(x.id); return `<div class="mv"><div class="figbox mini">${figSVG(ANIM[x.id])}</div><div><span class="eyebrow">${PT_L[x.pt]} · ขั้น ${k + 1}/${L.length}</span><h3>${esc(e.n)}</h3><p class="small muted">${x.sets} เซต × ${e.r[0]}–${e.r[1]} ${e.t ? 'วินาที' : 'ครั้ง'}${pv ? ' · ครั้งก่อน ' + pv.filter(v => v !== '').join('·') : ''}</p></div></div>`; }).join('')}
+  </article>` : `<section class="hero"><div class="hero-txt"><span class="eyebrow">วันนี้</span><h1>วันพัก</h1><p>กล้ามเนื้อซ่อมแซมตัวเองในวันพัก ยืดเหยียดหรือเดินเบาๆ ช่วยให้ฟื้นตัวเร็วขึ้น อยากฝึกเพิ่มก็เลือกด้านล่างได้</p>
+    <div class="row"><button class="btn pri" data-act="stretch">ยืดเหยียด 8 นาที</button><button class="btn" data-act="seven">วงจร 7 นาที</button></div></div><div class="hero-fig">${figSVG('bridge')}</div></section>`}
+  <div class="tools">
+    ${tool('warm', 'fire', 'วอร์มอัพ', '5 นาที ก่อนฝึกทุกครั้ง')}
+    ${tool('seven', 'bolt', 'วงจร 7 นาที', 'วันที่เวลาน้อย')}
+    ${tool('stretch', 'stretch', 'ยืดเหยียด', '8 นาที หลังฝึกหรือวันพัก')}
+  </div>
   <article class="card">
-    <div class="row between"><h2>${tid ? 'วันนี้: ' + esc(TPL[tid].n) : 'วันนี้วันพัก'}</h2>${doneToday ? '<span class="chip good">ฝึกแล้ววันนี้</span>' : ''}</div>
-    ${tid ? `<ol class="plan-list">${buildSession(tid).ex.map(x => { const e = EXM[x.id]; return `<li><span>${esc(e.n)} <span class="muted small">${PT_L[x.pt]}</span></span><span class="mono small">${x.sets}×${e.r[0]}–${e.r[1]}${e.t ? 's' : ''}</span></li>`; }).join('')}</ol>
-      <div class="row"><button class="btn pri big" data-act="start" data-tid="${tid}">เริ่มฝึก · ${estMin(tid)} นาที</button></div>` : '<p class="muted">เลือกฝึกเพิ่มด้านล่างได้ถ้ายังไม่เหนื่อย หรือเดินเบาๆ ก็พอ</p>'}
-  </article>
-  <article class="card">
-    <h2>ฝึกนอกตาราง</h2>
+    <div class="row between"><h2>ฝึกนอกตาราง</h2><a class="btn sm" href="#moves">คลังท่าทั้งหมด</a></div>
     <div class="row">${Object.entries(TPL).map(([k, t]) => `<button class="btn sm" data-act="start" data-tid="${k}">${esc(t.n)}</button>`).join('')}</div>
-    <div class="row between" style="border-top:1px solid var(--line);padding-top:12px"><div><b>วงจร 7 นาที</b><p class="small muted">12 ท่า ท่าละ 30 วินาที พัก 10 วินาที ใช้แค่เก้าอี้กับกำแพง</p></div><button class="btn" data-act="seven">เริ่มจับเวลา</button></div>
   </article>
-  <article class="card">
-    <h2>ตารางสัปดาห์นี้</h2>${weekStrip(p)}
-    <p class="small muted">เปลี่ยนวันฝึก เวลาต่อครั้ง และอุปกรณ์ได้ในหน้า <a href="#profile">โปรไฟล์</a></p>
+  <article class="card"><h2>ตารางสัปดาห์นี้</h2>${weekStrip(p)}<p class="small muted">เปลี่ยนวัน เวลา หรืออุปกรณ์ได้ที่ <a href="#profile">โปรไฟล์</a></p></article>
+  <article class="card"><h2>ระดับของคุณ</h2>
+    ${Object.keys(LAD).map(pt => { const c = curEx(pt); return `<div class="setrow"><div><span class="small muted">${PT_L[pt]}</span><br><b>${esc(c.e.n)}</b></div><div style="width:110px">${ladderBar(c.n, c.i)}<span class="small muted mono">ขั้น ${c.i + 1}/${c.n}</span></div></div>`; }).join('')}
   </article>
-  <article class="card">
-    <h2>ระดับของคุณในแต่ละท่า</h2>
-    <div class="tbl-wrap"><table><thead><tr><th>กลุ่มท่า</th><th>ท่าปัจจุบัน</th><th>ขั้น</th></tr></thead><tbody>
-    ${Object.keys(LAD).map(pt => { const c = curEx(pt); return `<tr><td>${PT_L[pt]}</td><td>${esc(c.e.n)}</td><td class="n">${c.i + 1}/${c.n}</td></tr>`; }).join('')}
-    </tbody></table></div>
-  </article>`;
+  <article class="card"><h2>กติกาของโค้ชมิว</h2><ul class="plan-list">
+    <li><span>ทำทุกเซตถึงเพดานของช่วงครั้ง</span><span class="chip good">ครั้งหน้าเลื่อนขั้น</span></li>
+    <li><span>ทุกเซตได้ต่ำกว่าขั้นต่ำ</span><span class="chip warn">ครั้งหน้าลดขั้น</span></li>
+    <li><span>จบเซตตอนเหลือแรงอีก 1–3 ครั้ง</span><span class="chip">ไม่ต้องหมดแรง</span></li>
+    <li><span>ทุกสัปดาห์ที่ 6</span><span class="chip acc">สัปดาห์ผ่อน ลด 1 เซต</span></li>
+    <li><span>เจ็บแปลบที่ข้อต่อ</span><span class="chip bad">หยุดท่านั้นทันที</span></li></ul></article>`;
 }
+function rPlayer() {
+  const s = S.session, c = s.cur, done = sessionDone(s), p = P();
+  const elapsed = Math.round((Date.now() - s.start) / 60000);
+  let main;
+  if (done) {
+    main = `<article class="card" style="align-items:flex-start"><span class="chip good">ครบทุกท่าแล้ว</span><h2>เยี่ยมมาก เหลืออีกนิดเดียว</h2>
+      <p class="muted">${s.fin ? 'ถ้ายังไหว ทำคาร์ดิโอ 4 นาที แล้ว' : ''}ยืดเหยียด 3 นาที จากนั้นกดจบการฝึกเพื่อบันทึกและดูว่าท่าไหนได้เลื่อนขั้น</p>
+      <div class="row">${s.fin ? '<button class="btn" data-act="finisher">คาร์ดิโอ 4 นาที</button>' : ''}<button class="btn" data-act="cool">ยืดเหยียดหลังฝึก</button><button class="btn pri big" data-act="finish">จบการฝึกและบันทึก</button></div></article>`;
+  } else {
+    const x = s.ex[c.i], e = EXM[x.id], L = ladder(x.pt), k = L.findIndex(y => y.id === x.id), prev = lastPerf(x.id), unit = e.t ? 'วินาที' : 'ครั้ง';
+    const side = /ข้างละ|สลับ/.test(e.cues.join(' ')) ? ' ต่อข้าง' : '';
+    if (ui.stepVal == null) ui.stepVal = defVal(x, c.s, prev);
+    main = `<article class="card player">
+      <div class="pl-stage figbox">${figSVG(ANIM[x.id], 'big')}<span class="chip acc pl-k">ท่า ${c.i + 1}/${s.ex.length}</span></div>
+      <div class="stack" style="gap:4px"><span class="eyebrow">${PT_L[x.pt]} · ขั้น ${k + 1}/${L.length}</span><h2 class="pl-name">${esc(e.n)}</h2><span class="small muted">${esc(e.en)}</span>${ladderBar(L.length, k)}</div>
+      <div class="pl-target"><div><b>${c.s + 1}/${x.sets}</b><span>เซต</span></div><div><b>${e.r[0]}–${e.r[1]}</b><span>${unit}${side}</span></div><div><b>${prev ? prev.filter(v => v !== '').join('·') : '–'}</b><span>ครั้งก่อน</span></div></div>
+      ${rest.on ? `<div class="pl-rest"><span class="eyebrow">พัก หายใจลึกๆ</span><b id="pl-rest-t">${mmss((rest.end - Date.now()) / 1000)}</b><p>${esc(rest.label)}</p><div class="row"><button class="btn sm" data-act="rest-add">+15 วินาที</button><button class="btn sm pri" data-act="rest-skip">พร้อมแล้ว</button></div></div>`
+        : `<div class="stepper"><button class="btn" data-act="step" data-n="-1" aria-label="ลด">−</button><output id="step-v" aria-live="polite">${ui.stepVal}</output><button class="btn" data-act="step" data-n="1" aria-label="เพิ่ม">+</button></div>
+          ${e.t ? `<button class="btn" data-act="sw" id="sw-b">${ui.sw ? 'หยุดจับเวลา' : 'เริ่มจับเวลาให้'}</button>` : ''}
+          <button class="btn pri big wide" data-act="log-set" id="log-b">บันทึกเซต ${c.s + 1}: ${ui.stepVal} ${unit}</button>`}
+      <div class="setdots">${x.reps.map((v, j) => `<button class="sd ${v !== '' ? 'on' : ''} ${j === c.s ? 'cur' : ''}" data-act="goto" data-i="${c.i}" data-s="${j}" aria-label="เซต ${j + 1}">${v !== '' ? v : j + 1}</button>`).join('')}</div>
+      <details ${S.workouts.length < 3 ? 'open' : ''}><summary>วิธีทำและจุดที่ต้องระวัง</summary><ul>${e.cues.map(q => `<li>${esc(q)}</li>`).join('')}</ul>
+        <p class="warnline">ระวัง: ${esc(e.mis)}</p><p class="small muted">หายใจออกตอนออกแรง หายใจเข้าตอนผ่อน ทำช้าๆ คุมได้ทุกครั้ง</p>
+        <p class="small"><a href="https://www.youtube.com/results?search_query=${encodeURIComponent(e.en + ' proper form')}" target="_blank" rel="noopener">ดูวิดีโอท่านี้บน YouTube ↗</a></p></details>
+      <div class="row"><button class="btn sm" data-act="easier" data-i="${c.i}" ${k <= 0 ? 'disabled' : ''}>ง่ายลง</button><button class="btn sm" data-act="harder" data-i="${c.i}" ${k >= L.length - 1 ? 'disabled' : ''}>ยากขึ้น</button><button class="btn sm" data-act="pain">รู้สึกเจ็บ</button><button class="btn sm ghost" data-act="skip-ex">ข้ามท่านี้</button></div>
+    </article>`;
+  }
+  $('#v-train').innerHTML = `
+  <div class="view-head"><span class="eyebrow">กำลังฝึก · ${elapsed} นาที${s.date !== iso() ? ' · เริ่ม ' + thDate(s.date) : ''}${isDeload() ? ' · สัปดาห์ผ่อน' : ''}</span><h1>${esc(TPL[s.tid].n)}</h1></div>
+  ${s.ex.every(x => x.reps.every(v => v === '')) && !rest.on ? `<div class="banner"><span>ยังไม่ได้วอร์มอัพ? 5 นาทีช่วยลดการบาดเจ็บและทำให้เซตแรกแรงขึ้น</span><button class="btn sm pri" data-act="warm">วอร์มอัพ 5 นาที</button></div>` : ''}
+  ${main}
+  <article class="card"><h3>ลำดับวันนี้</h3><ol class="pl-list">${s.ex.map((x, i) => { const f = x.reps.filter(v => v !== '').length, ok = x.skip || f === x.sets; const j = Math.max(0, x.reps.findIndex(v => v === '')); return `<li><button data-act="goto" data-i="${i}" data-s="${ok ? 0 : j}" class="${i === c.i && !done ? 'cur' : ''}"><span class="st ${ok ? 'ok' : ''}">${ok ? '✓' : i + 1}</span><span>${esc(EXM[x.id].n)}</span><span class="mono small muted">${x.skip ? 'ข้าม' : f + '/' + x.sets}</span></button></li>`; }).join('')}</ol></article>
+  <div class="row">${done ? '' : '<button class="btn pri" data-act="finish">จบการฝึกตอนนี้</button>'}<button class="btn danger" data-act="cancel">${ui.cancelAsk ? 'กดอีกครั้งเพื่อทิ้งการฝึกนี้' : 'ยกเลิกการฝึก'}</button></div>
+  <p class="small muted">หยุดทันทีถ้าเจ็บหน้าอก หายใจไม่ทัน เวียนศีรษะ หรือเจ็บแปลบที่ข้อต่อ${p.caution ? ' · คุณตอบ "ใช่" ในคำถามสุขภาพ ควรได้รับอนุญาตจากแพทย์ก่อนเพิ่มความหนัก' : ''}</p>`;
+}
+function rMoves() {
+  const p = P();
+  $('#v-moves').innerHTML = `
+  <div class="view-head"><span class="eyebrow">${Object.values(LAD).reduce((a, l) => a + l.length, 0)} ท่า · เรียงจากง่ายไปยาก</span><h1>คลังท่า</h1>
+    <p class="muted">ทุกกลุ่มท่าเป็นบันได ทำขั้นปัจจุบันให้ได้ถึงเพดานทุกเซตก่อนขึ้นขั้นถัดไป ท่าที่ต้องใช้อุปกรณ์จะแสดงเฉพาะเมื่อคุณมี</p></div>
+  ${Object.keys(LAD).map(pt => { const cur = curEx(pt).e.id; return `<article class="card"><h2>${PT_L[pt]}</h2>
+    ${LAD[pt].map((e, i) => { const has = (!e.eq || p.eq[e.eq]) && (!e.noeq || !p.eq[e.noeq]); return `<div class="mv" style="${has ? '' : 'opacity:.55'}"><div class="figbox mini">${figSVG(ANIM[e.id])}</div><div>
+      <div class="row" style="gap:6px"><span class="small muted mono">${i + 1}</span><h3>${esc(e.n)}</h3>${e.id === cur ? '<span class="chip acc">ระดับของคุณ</span>' : ''}${e.eq ? `<span class="chip">${{ db: 'ดัมเบล', band: 'ยางยืด', bar: 'บาร์โหน' }[e.eq]}</span>` : ''}${e.noeq ? '<span class="chip">ไม่มีบาร์</span>' : ''}</div>
+      <p class="small muted">${esc(e.en)} · ${e.r[0]}–${e.r[1]} ${e.t ? 'วินาที' : 'ครั้ง'}</p>
+      <details><summary>วิธีทำ</summary><ul>${e.cues.map(q => `<li>${esc(q)}</li>`).join('')}</ul><p class="warnline">ระวัง: ${esc(e.mis)}</p></details></div></div>`; }).join('')}</article>`; }).join('')}`;
+}
+
+/* ---------- profile ---------- */
+function rProfile() {
+  const p = P(), c = calc();
+  if (isDemo()) {
+    $('#v-profile').innerHTML = `<div class="view-head"><h1>โปรไฟล์</h1><p class="muted">ยังไม่ได้ตั้งค่า ตอนนี้ตัวเลขทั้งหมดเป็นตัวอย่าง</p></div>
+      <section class="hero"><div class="hero-txt"><h2 style="color:var(--hero-fg)">ตั้งค่า 3 นาที ได้แผนของคุณเอง</h2><p>ตอบคำถาม 7 ขั้น: สุขภาพ ร่างกาย เป้าหมาย ชีวิตประจำวัน การฝึก ทดสอบความฟิต และตารางเวลา</p><div class="row"><a class="btn hot big" href="#start">เริ่มตั้งค่า</a></div></div><div class="hero-fig">${figSVG('squat')}</div></section>
+      ${shareCard()}`;
+    return;
+  }
+  const row = (step, title, val) => `<div class="setrow"><div><span class="small muted">${title}</span><br><b>${val}</b></div><button class="btn sm" data-act="ob-edit" data-step="${step}">แก้ไข</button></div>`;
+  const eqs = Object.entries(p.eq).filter(([, v]) => v).map(([k]) => ({ db: 'ดัมเบล', band: 'ยางยืด', bar: 'บาร์โหน' }[k])).join(' ') || 'ไม่มีอุปกรณ์';
+  const tests = Object.entries(p.baseline || {}).map(([k, i]) => `${{ push: 'วิดพื้น', squat: 'สควอท', plank: 'แพลงก์', pull: 'ดึงข้อ' }[k]} ${TESTS[k].o[i]}`).join(' · ') || 'ยังไม่ได้ทดสอบ';
+  $('#v-profile').innerHTML = `
+  <div class="view-head"><span class="eyebrow">บันทึกไว้ในเครื่องนี้เท่านั้น</span><h1>${p.name ? 'คุณ' + esc(p.name) : 'โปรไฟล์'}</h1></div>
+  <div class="kpis"><div class="kpi"><b>${fmt(c.kcal)}</b><span>kcal ต่อวัน</span></div><div class="kpi"><b>${c.protein} g</b><span>โปรตีน</span></div><div class="kpi"><b>${c.bmi}</b><span>BMI</span></div><div class="kpi"><b>${fmt(c.tdee)}</b><span>เผาผลาญต่อวัน</span></div></div>
+  <article class="card"><h2>ข้อมูลที่ใช้คำนวณ</h2>
+    ${row(2, 'ร่างกาย', `${p.sex === 'm' ? 'ชาย' : 'หญิง'} ${p.age} ปี · ${p.height} ซม. · ${p.weight} กก.`)}
+    ${row(3, 'เป้าหมาย', GOALS[p.goal].l)}
+    ${row(4, 'กิจกรรมประจำวัน', ACT[p.activity].l)}
+    ${row(5, 'การฝึก', `${p.days.map(x => DAY_S[x]).join(' ')} · ${p.minutes} นาที · ${eqs}`)}
+    ${row(6, 'ทดสอบความฟิต (ตั้งระดับเริ่มต้นใหม่)', tests)}
+    ${row(7, 'เวลา', `ตื่น ${p.wake} · นอน ${p.bed}${p.noWork ? '' : ` · งาน ${p.workStart}–${p.workEnd}`}`)}
+    ${row(1, 'คัดกรองสุขภาพ', p.caution ? 'มีข้อที่ควรระวัง เริ่มขั้นง่ายสุด' : 'ผ่าน')}
+  </article>
+  <article class="card"><h2>การตั้งค่า</h2>
+    <div class="setrow"><div><b>เสียงพากย์ไทยในตัวจับเวลา</b><br><span class="small muted">ใช้เสียงของเครื่อง ถ้าเครื่องไม่มีเสียงไทยจะใช้เสียงบี๊บแทน</span></div><button class="btn sm ${S.voice ? 'pri' : ''}" data-act="voice">${S.voice ? 'เปิดอยู่' : 'ปิดอยู่'}</button></div>
+    <div class="setrow"><div><b>คู่มือการใช้งานหน้าแรก</b><br><span class="small muted">แสดงวิธีใช้ MewFit ในแต่ละวันอีกครั้ง</span></div><button class="btn sm" data-act="guide-show">แสดงอีกครั้ง</button></div>
+  </article>
+  ${shareCard()}
+  <article class="card"><h2>ลบข้อมูล</h2>
+    ${ui.resetAsk ? `<p>ลบโปรไฟล์ บันทึกการฝึก อาหาร และน้ำหนักทั้งหมดในเครื่องนี้ กู้คืนไม่ได้ ยกเว้นคุณคัดลอกข้อมูลสำรองไว้แล้วในหน้าความคืบหน้า</p><div class="row"><button class="btn danger" data-act="reset-yes">ยืนยัน ลบทั้งหมด</button><button class="btn" data-act="reset-no">ยกเลิก</button></div>`
+      : `<div class="row"><button class="btn danger" data-act="reset-ask">ลบข้อมูลทั้งหมด</button></div>`}
+  </article>
+  <p class="small muted">MewFit ให้ข้อมูลทั่วไป ไม่ใช่คำแนะนำทางการแพทย์</p>`;
+}
+const shareCard = () => `<article class="card"><h2>ชวนเพื่อนมาฝึก</h2>
+  <p class="muted small">ส่งลิงก์นี้ให้ใครก็ได้ แต่ละคนตอบคำถามตั้งค่าของตัวเอง ข้อมูลแยกกันอยู่ในเครื่องของแต่ละคน ไม่ต้องสมัคร ไม่มีค่าใช้จ่าย</p>
+  <div class="row"><input type="text" id="share-url" readonly value="${APP_URL}" style="flex:1 1 220px" aria-label="ลิงก์ MewFit"><button class="btn pri" data-act="copy-link">คัดลอกลิงก์</button></div>
+  <ol class="small" style="margin:0;padding-left:20px;display:grid;gap:4px"><li>เปิดลิงก์ในมือถือ ตอบคำถาม 7 ขั้น ราว 3 นาที</li><li>iPhone: กดปุ่มแชร์ใน Safari แล้วเลือก "เพิ่มไปยังหน้าจอโฮม" · Android: เมนู ⋮ ใน Chrome แล้วเลือก "เพิ่มลงในหน้าจอหลัก"</li><li>เปิดจากไอคอน MewFit ได้เหมือนแอป ใช้ได้แม้ไม่มีเน็ต</li></ol></article>`;
+
+/* ---------- workout actions ---------- */
+let wakeLock = null;
+async function lockScreen() { try { if ('wakeLock' in navigator && !wakeLock) { wakeLock = await navigator.wakeLock.request('screen'); wakeLock.addEventListener('release', () => { wakeLock = null; }); } } catch (e) {} }
+function unlockScreen() { try { wakeLock && wakeLock.release(); } catch (e) {} wakeLock = null; }
+function startSession(tid) {
+  if (S.session && S.session.date === iso()) { location.hash = 'train'; return; }
+  S.session = buildSession(tid); ui.stepVal = null; ui.cancelAsk = false; save(); lockScreen();
+  if (location.hash !== '#train') location.hash = 'train'; else render();
+  window.scrollTo(0, 0);
+}
+function shiftLevel(i, dir, quiet) {
+  const x = S.session.ex[i], L = ladder(x.pt), k = L.findIndex(y => y.id === x.id), n = clamp(k + dir, 0, L.length - 1);
+  if (n === k) return false;
+  x.id = L[n].id; S.levels[x.pt] = x.id; x.reps = Array(x.sets).fill(''); S.session.cur = { i, s: 0 }; ui.stepVal = null; stopRest(); save(); render();
+  if (!quiet) toast(`${dir > 0 ? 'ยากขึ้น' : 'ง่ายลง'}: ${L[n].n}`);
+  return true;
+}
+function stopSW() { if (ui.sw) { clearInterval(ui.sw.iv); ui.sw = null; } }
+function logSet() {
+  const s = S.session, c = s.cur, x = s.ex[c.i], e = EXM[x.id];
+  stopSW(); x.reps[c.s] = Math.max(0, Math.round(ui.stepVal || 0)); ui.stepVal = null; ui.cancelAsk = false;
+  const prevI = c.i; advance(s); save(); beep(760, .1);
+  if (!sessionDone(s)) {
+    const nx = s.ex[s.cur.i], label = s.cur.i === prevI ? `ต่อไป: ${e.n} เซต ${s.cur.s + 1}` : `ต่อไป: ${EXM[nx.id].n}`;
+    startRest(e.t ? 45 : (s.cur.i === prevI ? 75 : 90), label);
+  } else { stopRest(); toast('ครบทุกเซตแล้ว'); }
+  render(); window.scrollTo(0, 0);
+}
+function finishSession() {
+  const s = S.session; if (!s) return;
+  const ups = [], downs = []; let reps = 0, sets = 0;
+  s.ex.forEach(x => {
+    const e = EXM[x.id], L = ladder(x.pt), k = L.findIndex(y => y.id === x.id);
+    const v = x.reps.filter(n => n !== '').map(Number); reps += v.reduce((a, b) => a + b, 0); sets += v.length;
+    if (!v.length || x.skip) return;
+    if (v.length === x.sets && Math.min(...v) >= e.r[1]) {
+      if (k < L.length - 1) { S.levels[x.pt] = L[k + 1].id; ups.push(`${e.n} → ${L[k + 1].n}`); }
+      else { S.levels[x.pt] = x.id; ups.push(`${e.n}: ขั้นสูงสุดแล้ว ครั้งหน้าลงช้า 3 วินาทีหรือเพิ่มอีกหนึ่งเซต`); }
+    } else if (Math.max(...v) < e.r[0] && k > 0) { S.levels[x.pt] = L[k - 1].id; downs.push(`${e.n} → ${L[k - 1].n}`); }
+    else S.levels[x.pt] = x.id;
+  });
+  if (!sets) { toast('ยังไม่ได้บันทึกเซตไหนเลย'); return; }
+  const mins = Math.min(180, Math.max(1, Math.round((Date.now() - s.start) / 60000)));
+  S.workouts.push({ date: s.date, tid: s.tid, name: TPL[s.tid].n, mins, sets, reps, ups, ex: s.ex.map(x => ({ id: x.id, reps: x.reps })) });
+  S.session = null; ui.stepVal = null; save(); unlockScreen(); stopRest(); stopSW();
+  showModal(`<span class="chip good" style="align-self:flex-start">บันทึกแล้ว</span><h2>เสร็จแล้ว เก่งมาก</h2><div class="kpis"><div class="kpi"><b>${sets}</b><span>เซต</span></div><div class="kpi"><b>${fmt(reps)}</b><span>ครั้งรวม</span></div><div class="kpi"><b>${mins}</b><span>นาที</span></div></div>
+    ${ups.length ? `<div><b>เลื่อนขั้นครั้งหน้า</b><ul>${ups.map(u => `<li>${esc(u)}</li>`).join('')}</ul></div>` : '<p class="muted">ครั้งหน้าพยายามเพิ่มอีก 1–2 ครั้งในแต่ละเซต ทำได้ถึงเพดานทุกเซตเมื่อไหร่ ระบบจะเลื่อนขั้นให้</p>'}
+    ${downs.length ? `<div><b>ปรับให้ง่ายลงก่อน</b><ul>${downs.map(u => `<li>${esc(u)}</li>`).join('')}</ul></div>` : ''}
+    <p class="small muted">ภายใน 2 ชั่วโมง กินโปรตีนราว ${calc().perMeal} กรัม และดื่มน้ำเพิ่ม 500 ml</p>`);
+  location.hash = 'today'; render();
+}
+
+/* ---------- rest timer ---------- */
+const rest = { on: false, end: 0, iv: null, label: '' };
+function startRest(sec, label) {
+  rest.on = true; rest.end = Date.now() + sec * 1000; rest.label = label || 'พักก่อนเซตถัดไป';
+  $('#rest-l').textContent = rest.label; $('#restbar').hidden = false; document.body.classList.add('resting');
+  clearInterval(rest.iv); rest.iv = setInterval(tickRest, 250); tickRest();
+}
+function tickRest() {
+  const left = (rest.end - Date.now()) / 1000, t = mmss(left);
+  $('#rest-t').textContent = t; const pt = $('#pl-rest-t'); if (pt) pt.textContent = t;
+  if (left <= 0) {
+    stopRest(); beep(880, .25); setTimeout(() => beep(1175, .3), 300);
+    try { navigator.vibrate && navigator.vibrate([200, 100, 200]); } catch (e) {}
+    speak('หมดเวลาพัก ลุยเซตต่อไป');
+    if (view() === 'train') render(); else toast('หมดเวลาพัก ไปเซตต่อไป');
+  }
+}
+function stopRest() { clearInterval(rest.iv); rest.on = false; $('#restbar').hidden = true; document.body.classList.remove('resting'); }
+
+/* ---------- audio + voice ---------- */
+let actx = null;
+function audio() { try { actx = actx || new (window.AudioContext || window.webkitAudioContext)(); if (actx.state === 'suspended') actx.resume(); } catch (e) { actx = null; } return actx; }
+function beep(f = 660, d = .15) { const a = audio(); if (!a) return; try { const o = a.createOscillator(), g = a.createGain(); o.frequency.value = f; o.type = 'sine'; g.gain.setValueAtTime(.0001, a.currentTime); g.gain.exponentialRampToValueAtTime(.3, a.currentTime + .02); g.gain.exponentialRampToValueAtTime(.0001, a.currentTime + d); o.connect(g).connect(a.destination); o.start(); o.stop(a.currentTime + d + .02); } catch (e) {} }
+let thVoice = null;
+function loadVoices() { try { thVoice = speechSynthesis.getVoices().find(v => /^th/i.test(v.lang)) || null; } catch (e) {} }
+if ('speechSynthesis' in window) { loadVoices(); try { speechSynthesis.onvoiceschanged = loadVoices; } catch (e) {} }
+function speak(t) { if (!S.voice || !thVoice) return; try { speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(t); u.voice = thVoice; u.lang = thVoice.lang; u.rate = 1.05; speechSynthesis.speak(u); } catch (e) {} }
+
+/* ---------- guided timers ---------- */
+const H = { prog: [], i: 0, end: 0, left: 0, paused: false, iv: null, total: 0, fig: '' };
+function seqProg(title, items, gap) {
+  const pr = [{ n: 'เตรียมตัว', s: 10, k: 'prep', f: items[0][2] }];
+  items.forEach(([n, s, f], i) => { pr.push({ n, s, k: 'work', f }); if (i < items.length - 1 && gap) pr.push({ n: 'พัก', s: gap, k: 'rest', next: items[i + 1][0], f: items[i + 1][2] }); });
+  pr.title = title; return pr;
+}
+const SEVEN_F = ['jack', 'wallsit', 'pushup', 'crunch', 'split', 'squat', 'dip', 'plank', 'knees', 'split', 'pushup', 'sideplank'];
+const PROGS = {
+  seven: () => seqProg('วงจร 7 นาที', SEVEN.map((n, i) => [n, 30, SEVEN_F[i]]), 10),
+  warm: () => seqProg('วอร์มอัพ 5 นาที', [['ย่ำเท้ากางแขน', 45, 'jack'], ['หมุนไหล่และแขน ไปหน้าและหลัง', 40, 'jack'], ['ยกเข่าสลับ', 40, 'knees'], ['สควอทช้าๆ', 45, 'squat'], ['ลันจ์ถอยหลังสลับ', 45, 'split'], ['ยกสะโพก', 40, 'bridge'], ['วิดพื้นแบบง่าย', 30, 'pushup_incline']], 5),
+  cool: () => seqProg('ยืดเหยียดหลังฝึก', [['ยืดสะโพกด้านหน้า ข้างซ้าย', 30, 'split'], ['ยืดสะโพกด้านหน้า ข้างขวา', 30, 'split'], ['ก้มยืดต้นขาด้านหลัง', 40, 'rdl'], ['ยืดอกที่ขอบประตู', 40, null], ['ท่าเด็ก หายใจลึกๆ', 50, null]], 5),
+  stretch: () => seqProg('ยืดเหยียด 8 นาที', [['ท่าแมว-วัว คลายหลัง', 45, null], ['ยืดอกที่ขอบประตู', 45, null], ['ยืดสะโพกด้านหน้า ข้างซ้าย', 45, 'split'], ['ยืดสะโพกด้านหน้า ข้างขวา', 45, 'split'], ['ก้มยืดต้นขาด้านหลัง', 45, 'rdl'], ['ยกสะโพกค้างไว้', 40, 'bridge'], ['นอนบิดลำตัว ข้างละ 20 วินาที', 45, null], ['ท่าเด็ก หายใจลึกๆ', 60, null]], 8),
+  finisher: () => {
+    const easy = P().level === 'beginner' || P().caution;
+    const mv = easy ? [['ย่ำเท้ากางแขน', 'jack'], ['ยกเข่าสลับช้าๆ', 'knees'], ['สควอท', 'squat'], ['แพลงก์', 'plank']] : [['กระโดดตบ', 'jack'], ['เมาท์เทนไคลม์เบอร์', 'climber'], ['วิ่งยกเข่าสูง', 'knees'], ['สควอทกระโดด', 'squat']];
+    return seqProg('คาร์ดิโอ 4 นาที', Array.from({ length: 8 }, (_, i) => [mv[i % 4][0], 20, mv[i % 4][1]]), 10);
+  }
+};
+function hStart(prog) {
+  audio(); stopRest(); H.prog = prog; H.i = 0; H.paused = false; H.fig = null; H.total = prog.reduce((a, b) => a + b.s, 0);
+  $('#h-title').textContent = prog.title || ''; $('#hiit').hidden = false; $('#h-pause').textContent = 'หยุดชั่วคราว';
+  $('#h-voice').textContent = S.voice ? 'เสียงพากย์: เปิด' : 'เสียงพากย์: ปิด';
+  hPhase(); lockScreen(); clearInterval(H.iv); H.iv = setInterval(hTick, 200);
+}
+function hPhase() {
+  const ph = H.prog[H.i]; H.end = Date.now() + ph.s * 1000; H.lastBeep = null;
+  beep(ph.k === 'work' ? 990 : 520, .2);
+  if (ph.k === 'work') speak(ph.n); else if (ph.k === 'rest') speak('พัก ต่อไป ' + ph.next); else speak('เตรียมตัว ' + (H.prog[1] ? H.prog[1].n : ''));
+  if (H.fig !== (ph.f || '')) { H.fig = ph.f || ''; const box = $('#h-figbox'); box.innerHTML = ph.f ? figSVG(ph.f) : ''; mountFigs(box); }
+  hDraw();
+}
+function hDraw() {
+  const ph = H.prog[H.i], left = H.paused ? H.left : (H.end - Date.now()) / 1000;
+  $('#h-phase').textContent = ph.k === 'work' ? 'ลุย' : ph.k === 'rest' ? 'พัก' : 'เตรียมตัว'; $('#h-phase').className = 'phase ' + ph.k;
+  $('#h-clock').textContent = mmss(left);
+  $('#h-name').textContent = ph.k === 'rest' ? 'ต่อไป: ' + ph.next : ph.k === 'prep' ? 'ท่าแรก: ' + (H.prog[1] ? H.prog[1].n : '') : ph.n;
+  const nx = H.prog.slice(H.i + 1).find(x => x.k === 'work'); $('#h-next').textContent = ph.k === 'work' && nx ? 'ถัดไป: ' + nx.n : '';
+  const doneS = H.prog.slice(0, H.i).reduce((a, b) => a + b.s, 0) + (ph.s - Math.max(0, left));
+  $('#h-bar').style.width = clamp(doneS / H.total * 100, 0, 100) + '%';
+}
+function hTick() {
+  if (H.paused) return;
+  const left = (H.end - Date.now()) / 1000;
+  if (left <= 3.2 && left > 0 && Math.ceil(left) !== H.lastBeep) { H.lastBeep = Math.ceil(left); beep(440, .08); }
+  if (left <= 0) { hNext(); return; }
+  hDraw();
+}
+function hNext() { H.i++; if (H.i >= H.prog.length) { hStop(true); return; } hPhase(); }
+function hStop(done) {
+  clearInterval(H.iv); $('#hiit').hidden = true; $('#h-figbox').innerHTML = ''; try { speechSynthesis.cancel(); } catch (e) {}
+  if (!S.session) unlockScreen();
+  if (done) { beep(990, .2); setTimeout(() => beep(1320, .3), 250); speak('เสร็จแล้ว เยี่ยมมาก'); toast('จบแล้ว เยี่ยมมาก'); }
+}
+
+/* ---------- modal + clipboard ---------- */
+function showModal(html) { const m = document.createElement('div'); m.className = 'modal-bg'; m.innerHTML = `<div class="modal" role="dialog" aria-modal="true">${html}<div class="row"><button class="btn pri" data-act="modal-close">ตกลง</button></div></div>`; document.body.appendChild(m); m.querySelector('[data-act=modal-close]').focus(); }
+function copyText(text, fallbackEl) {
+  const fb = () => { if (fallbackEl) { fallbackEl.focus(); fallbackEl.select(); } toast('เลือกข้อความแล้ว กดคัดลอกเองได้เลย'); };
+  try { navigator.clipboard.writeText(text).then(() => toast('คัดลอกแล้ว'), fb); } catch (e) { fb(); }
+}
+
+/* ---------- events ---------- */
+document.addEventListener('click', ev => {
+  const el = ev.target.closest('[data-act]'); if (!el) return;
+  const a = el.dataset.act; if (!a) return;
+  const d = iso();
+  switch (a) {
+    /* onboarding */
+    case 'ob-next': obGo(1); break;
+    case 'ob-back': if (ui.ob.step === 0 || (ui.ob.edit && ui.ob.step <= 1)) { ui.ob = null; location.hash = S.profile ? 'profile' : 'start'; render(); } else obGo(-1); break;
+    case 'ob-finish': finishOb(); break;
+    case 'ob-demo': S.seenDemo = true; save(); ui.ob = null; location.hash = 'today'; render(); break;
+    case 'ob-days': readOb(); ui.ob.d.days = el.dataset.v.split(',').map(Number); rStart(); break;
+    case 'ob-edit': startOb(+el.dataset.step, true); location.hash = 'start'; render(); break;
+    case 'guide-done': S.guideDone = true; save(); render(); break;
+    case 'guide-show': S.guideDone = false; save(); location.hash = 'today'; break;
+    case 'voice': S.voice = !S.voice; save(); $('#h-voice').textContent = S.voice ? 'เสียงพากย์: เปิด' : 'เสียงพากย์: ปิด'; if (!$('#hiit').hidden) { if (S.voice && !thVoice) toast('เครื่องนี้ไม่มีเสียงพากย์ภาษาไทย ใช้เสียงบี๊บแทน'); } else render(); break;
+    case 'copy-link': copyText(APP_URL, $('#share-url')); break;
+    /* training */
+    case 'start': ev.preventDefault(); audio(); startSession(el.dataset.tid); break;
+    case 'easier': shiftLevel(+el.dataset.i, -1); break;
+    case 'harder': shiftLevel(+el.dataset.i, 1); break;
+    case 'pain': {
+      const i = S.session.cur.i;
+      if (!shiftLevel(i, -1, true)) { S.session.ex[i].skip = true; advance(S.session); save(); render(); }
+      showModal('<h2>ปลอดภัยไว้ก่อน</h2><p>โค้ชเปลี่ยนเป็นท่าที่ง่ายลงให้แล้ว ถ้ายังเจ็บให้ข้ามท่านี้ไปเลยวันนี้</p><ul><li>ปวดเมื่อยกล้ามเนื้อแบบตึงๆ เป็นเรื่องปกติ</li><li>เจ็บแปลบ เจ็บที่ข้อต่อ หรือชา ให้หยุดท่านั้น</li><li>เจ็บนานเกิน 2–3 วัน หรือบวม ควรพบแพทย์หรือนักกายภาพบำบัด</li></ul>');
+      break;
+    }
+    case 'skip-ex': { const s = S.session; s.ex[s.cur.i].skip = true; ui.stepVal = null; stopRest(); advance(s); save(); render(); break; }
+    case 'goto': { const s = S.session; if (!s) break; const i = +el.dataset.i; s.ex[i].skip = false; s.cur = { i, s: +el.dataset.s }; ui.stepVal = null; stopRest(); stopSW(); save(); render(); window.scrollTo(0, 0); break; }
+    case 'step': { const s = S.session, e = EXM[s.ex[s.cur.i].id]; stopSW(); ui.stepVal = Math.max(0, (ui.stepVal || 0) + (+el.dataset.n) * (e.t ? 5 : 1)); $('#step-v').textContent = ui.stepVal; $('#log-b').textContent = `บันทึกเซต ${s.cur.s + 1}: ${ui.stepVal} ${e.t ? 'วินาที' : 'ครั้ง'}`; const sb = $('#sw-b'); if (sb) sb.textContent = 'เริ่มจับเวลาให้'; break; }
+    case 'sw': {
+      const s = S.session, e = EXM[s.ex[s.cur.i].id];
+      if (ui.sw) { stopSW(); el.textContent = 'เริ่มจับเวลาให้'; beep(660, .15); break; }
+      audio(); beep(990, .15); const t0 = Date.now(); el.textContent = 'หยุดจับเวลา';
+      ui.sw = { iv: setInterval(() => { ui.stepVal = Math.floor((Date.now() - t0) / 1000); const v = $('#step-v'); if (!v) { stopSW(); return; } v.textContent = ui.stepVal; $('#log-b').textContent = `บันทึกเซต ${s.cur.s + 1}: ${ui.stepVal} วินาที`; if (ui.stepVal === e.r[1]) beep(880, .2); }, 250) };
+      break;
+    }
+    case 'log-set': logSet(); break;
+    case 'finish': finishSession(); break;
+    case 'cancel': if (!ui.cancelAsk) { ui.cancelAsk = true; render(); break; } S.session = null; ui.cancelAsk = false; ui.stepVal = null; save(); stopRest(); stopSW(); unlockScreen(); render(); toast('ทิ้งการฝึกนี้แล้ว'); break;
+    case 'rest-add': rest.end += 15000; tickRest(); break;
+    case 'rest-skip': stopRest(); if (view() === 'train') render(); break;
+    case 'seven': case 'warm': case 'cool': case 'stretch': case 'finisher': hStart(PROGS[a]()); break;
+    case 'h-pause': if (H.paused) { H.paused = false; H.end = Date.now() + H.left * 1000; el.textContent = 'หยุดชั่วคราว'; } else { H.paused = true; H.left = (H.end - Date.now()) / 1000; el.textContent = 'ทำต่อ'; } break;
+    case 'h-skip': if (H.paused) { H.paused = false; $('#h-pause').textContent = 'หยุดชั่วคราว'; } hNext(); break;
+    case 'h-stop': hStop(false); break;
+    /* daily */
+    case 'water': { const h = habit(d); h.water = clamp(h.water + +el.dataset.n, 0, 30); save(); render(); break; }
+    case 'food-add': { const f = FM[el.dataset.id]; (S.food[d] = S.food[d] || []).push({ id: f.id, n: f.n, q: 1, k: f.k, p: f.p, c: f.c, f: f.f }); save(); render(); toast('เพิ่ม ' + f.n); break; }
+    case 'food-del': dayFood(d).splice(+el.dataset.i, 1); save(); render(); break;
+    case 'food-custom': {
+      const n = $('#cf-n').value.trim(), k = +$('#cf-k').value, p = +$('#cf-p').value || 0;
+      if (!n || !(k > 0)) { toast('ใส่ชื่ออาหารและแคลอรี่ก่อน'); break; }
+      (S.food[d] = S.food[d] || []).push({ id: null, n, q: 1, k, p, c: 0, f: 0 }); save(); render(); toast('เพิ่ม ' + n); break;
+    }
+    case 'meal-new': S.mealSeed = (S.mealSeed || 1) + 1; save(); render(); break;
+    case 'meal-log': { const plan = genMealPlan(); const arr = (S.food[d] = S.food[d] || []); Object.values(plan).forEach(items => items.forEach(([id, q]) => { const f = FM[id]; arr.push({ id, n: f.n, q, k: f.k, p: f.p, c: f.c, f: f.f }); })); save(); render(); toast('บันทึกแผนทั้งวันแล้ว ลบรายการที่ไม่ได้กินออกได้'); break; }
+    case 'plan-day': ui.planDay = +el.dataset.d; render(); break;
+    case 'copy-plan': { const p = P(), tid = weekMap(p)[ui.planDay]; copyText(`MewFit วัน${DAY_L[ui.planDay]} (${tid ? TPL[tid].n : 'วันพัก'})\n` + timeline(p, tid).map(x => `${toHM(x.t)}  ${x.title}`).join('\n')); break; }
+    case 'w-add': {
+      const kg = +$('#w-kg').value, wd = $('#w-d').value || d;
+      if (!(kg >= 25 && kg <= 300)) { toast('ใส่น้ำหนักเป็นกิโลกรัม เช่น 72.4'); break; }
+      S.weights = S.weights.filter(w => w.d !== wd); S.weights.push({ d: wd, kg: r1(kg) });
+      if (S.profile && wd >= S.weights.reduce((m, w) => w.d > m ? w.d : m, '')) S.profile.weight = r1(kg);
+      save(); render(); toast('บันทึกน้ำหนักแล้ว'); break;
+    }
+    case 'w-del': S.weights = S.weights.filter(w => w.d !== el.dataset.d); save(); render(); break;
+    case 'b-add': {
+      const waist = +$('#b-waist').value, neck = +$('#b-neck').value, hip = $('#b-hip') ? +$('#b-hip').value : 0;
+      if (!(waist > 30)) { toast('ใส่รอบเอวเป็นเซนติเมตร'); break; }
+      S.body = S.body.filter(b => b.d !== d); S.body.push({ d, waist, neck: neck || null, hip: hip || null }); save(); render(); toast('บันทึกสัดส่วนแล้ว'); break;
+    }
+    case 'adjust': S.calAdjust = clamp((S.calAdjust || 0) + +el.dataset.n, -500, 500); save(); render(); toast(`เป้าแคลอรี่ใหม่ ${fmt(calc().kcal)} kcal`); break;
+    case 'copy-backup': copyText(JSON.stringify(S), $('#backup')); break;
+    case 'restore': {
+      try { const o = JSON.parse($('#restore').value); if (!o || typeof o !== 'object' || !('workouts' in o)) throw 0; S = Object.assign(fresh(), o); if (S.profile) S.profile = Object.assign({}, DEMO, S.profile); save(); render(); toast('กู้คืนข้อมูลแล้ว'); }
+      catch (e) { toast('ข้อความไม่ถูกต้อง ต้องเป็นข้อมูลสำรองจาก MewFit'); }
+      break;
+    }
+    case 'learn-cat': ui.learnCat = el.dataset.c; render(); break;
+    case 'reset-ask': ui.resetAsk = true; render(); break;
+    case 'reset-no': ui.resetAsk = false; render(); break;
+    case 'reset-yes': S = fresh(); save(); ui.resetAsk = false; ui.ob = null; stopRest(); location.hash = 'start'; render(); toast('ลบข้อมูลทั้งหมดแล้ว'); break;
+    case 'modal-close': el.closest('.modal-bg').remove(); break;
+  }
+});
+document.addEventListener('input', ev => {
+  const t = ev.target;
+  if (t.id === 'food-q') { ui.foodQ = t.value; const q = t.value.trim().toLowerCase(); $('#food-res').innerHTML = foodRes((q ? FOOD.filter(f => f.n.toLowerCase().includes(q)) : FOOD.filter(f => ['dish', 'protein'].includes(f.cat))).slice(0, 40)); }
+  if (t.dataset.habit) { habit(iso())[t.dataset.habit] = t.value; save(); }
+  if (ui.ob && t.closest('#v-start') && (t.type === 'number' || t.type === 'time' || t.type === 'text')) { readOb(); obLive(); }
+});
+document.addEventListener('change', ev => {
+  const t = ev.target;
+  if (ui.ob && t.closest('#v-start') && (t.type === 'radio' || t.type === 'checkbox')) { const y = window.scrollY; readOb(); rStart(); mountFigs($('#v-start')); window.scrollTo(0, y); }
+});
+window.addEventListener('hashchange', () => { if (location.hash !== '#start' && ui.ob && !ui.ob.edit && S.profile) ui.ob = null; render(); window.scrollTo(0, 0); });
+document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible' && (S.session || !$('#hiit').hidden)) lockScreen(); });
 
 function rEat() {
   const p = P(), c = calc(), d = iso(), tot = dayTotals(d), log = dayFood(d), plan = genMealPlan();
@@ -957,7 +1769,7 @@ function rProgress() {
       <div class="kpi"><b>${tr && tr.wk != null ? (tr.wk > 0 ? '+' : '') + r1(tr.wk) : '–'}</b><span>เปลี่ยนต่อสัปดาห์ (กก.)</span></div>
       <div class="kpi"><b class="num">${c.rateKg[0]}…${c.rateKg[1]}</b><span>เป้าต่อสัปดาห์ (กก.)</span></div>
     </div>
-    <div class="coach"><div class="av" aria-hidden="true">M</div><div class="stack"><p>${esc(adv.msg)}</p>${adv.delta && !demoW ? `<div class="row"><button class="btn sm pri" data-act="adjust" data-n="${adv.delta}">ปรับเป้าแคลอรี่ ${adv.delta > 0 ? '+' : ''}${adv.delta} kcal</button>${S.calAdjust ? `<span class="small muted">ปรับสะสมแล้ว ${S.calAdjust > 0 ? '+' : ''}${S.calAdjust} kcal</span>` : ''}</div>` : ''}</div></div>
+    <div class="coach">${AV}<div class="stack"><p>${esc(adv.msg)}</p>${adv.delta && !demoW ? `<div class="row"><button class="btn sm pri" data-act="adjust" data-n="${adv.delta}">ปรับเป้าแคลอรี่ ${adv.delta > 0 ? '+' : ''}${adv.delta} kcal</button>${S.calAdjust ? `<span class="small muted">ปรับสะสมแล้ว ${S.calAdjust > 0 ? '+' : ''}${S.calAdjust} kcal</span>` : ''}</div>` : ''}</div></div>
     ${S.weights.length ? `<details><summary>รายการที่บันทึก (${S.weights.length})</summary><ul class="log-list">${S.weights.slice().sort((a, z) => a.d < z.d ? 1 : -1).slice(0, 30).map(w => `<li><span>${thDate(w.d)}</span><span class="mono">${w.kg} กก.</span><button class="btn sm ghost" data-act="w-del" data-d="${w.d}">ลบ</button></li>`).join('')}</ul></details>` : ''}
   </article>
   <article class="card">
@@ -1002,242 +1814,7 @@ function rLearn() {
   <p class="small muted">MewFit ให้ข้อมูลทั่วไป ไม่ใช่คำแนะนำทางการแพทย์ ถ้ามีโรคประจำตัว ตั้งครรภ์ หรือเจ็บระหว่างฝึก ให้ปรึกษาแพทย์หรือนักกายภาพก่อน</p>`;
 }
 
-function rProfile() {
-  const p = P(), c = calc();
-  const seg = (name, opts, val) => `<div class="seg">${Object.entries(opts).map(([k, l]) => `<label><input type="radio" name="${name}" value="${k}" ${String(val) === k ? 'checked' : ''}><span>${l}</span></label>`).join('')}</div>`;
-  $('#v-profile').innerHTML = `
-  <div class="view-head"><span class="eyebrow">${isDemo() ? 'ยังไม่ได้ตั้งค่า กำลังแสดงตัวอย่าง' : 'บันทึกไว้ในเครื่องนี้'}</span><h1>โปรไฟล์</h1>
-    <p class="muted">ข้อมูลใช้คำนวณแคลอรี่ ตารางฝึก และตารางชีวิต เก็บในเครื่องคุณเท่านั้น</p></div>
-  <form id="pf" class="stack" style="gap:16px">
-    <article class="card"><h2>ตัวคุณ</h2>
-      <div class="fgrid">
-        <label class="f">ชื่อเล่น<input type="text" id="pf-name" value="${esc(p.name)}" placeholder="เช่น มิว" maxlength="20"></label>
-        <label class="f">อายุ (ปี)<input type="number" id="pf-age" value="${p.age}" min="14" max="90" required></label>
-        <label class="f">ส่วนสูง (ซม.)<input type="number" id="pf-height" value="${p.height}" min="120" max="230" required></label>
-        <label class="f">น้ำหนัก (กก.)<input type="number" id="pf-weight" value="${p.weight}" step="0.1" min="30" max="250" required></label>
-      </div>
-      <fieldset><legend>เพศ (ใช้คำนวณพลังงาน)</legend>${seg('sex', { m: 'ชาย', f: 'หญิง' }, p.sex)}</fieldset>
-      <fieldset><legend>กิจกรรมประจำวัน (ไม่รวมการฝึกในแอป)</legend>${seg('activity', Object.fromEntries(Object.entries(ACT).map(([k, v]) => [k, v.l])), p.activity)}</fieldset>
-    </article>
-    <article class="card"><h2>เป้าหมายและการฝึก</h2>
-      <fieldset><legend>เป้าหมาย</legend>${seg('goal', Object.fromEntries(Object.entries(GOALS).map(([k, v]) => [k, v.l])), p.goal)}</fieldset>
-      <fieldset><legend>ประสบการณ์</legend>${seg('level', LEVELS, p.level)}</fieldset>
-      <fieldset><legend>วันฝึก (แนะนำ 3–4 วัน เว้นวันพักระหว่างกัน)</legend><div class="seg">${WEEK_ORDER.map(d => `<label><input type="checkbox" name="days" value="${d}" ${p.days.includes(d) ? 'checked' : ''}><span>${DAY_L[d]}</span></label>`).join('')}</div></fieldset>
-      <fieldset><legend>เวลาต่อครั้ง</legend>${seg('minutes', { 20: '20 นาที', 30: '30 นาที', 45: '45 นาที', 60: '60 นาที' }, p.minutes)}</fieldset>
-      <fieldset><legend>อุปกรณ์ที่มี (ไม่มีก็ฝึกได้ครบ)</legend><div class="seg">
-        <label><input type="checkbox" name="eq" value="db" ${p.eq.db ? 'checked' : ''}><span>ดัมเบล</span></label>
-        <label><input type="checkbox" name="eq" value="band" ${p.eq.band ? 'checked' : ''}><span>ยางยืดแรงต้าน</span></label>
-        <label><input type="checkbox" name="eq" value="bar" ${p.eq.bar ? 'checked' : ''}><span>บาร์โหนติดประตู</span></label></div></fieldset>
-      <fieldset><legend>ตัวเลือกเพิ่ม</legend><div class="seg">
-        <label><input type="checkbox" id="pf-finisher" ${p.finisher ? 'checked' : ''}><span>ฟินิชเชอร์ 4 นาทีท้ายเซสชัน (ช่วงลดไขมัน)</span></label>
-        <label><input type="checkbox" id="pf-whey" ${p.whey ? 'checked' : ''}><span>ใช้เวย์โปรตีนได้</span></label></div></fieldset>
-    </article>
-    <article class="card"><h2>เวลาในแต่ละวัน</h2>
-      <div class="fgrid">
-        <label class="f">ตื่นนอน<input type="time" id="pf-wake" value="${p.wake}" required></label>
-        <label class="f">เข้านอน<input type="time" id="pf-bed" value="${p.bed}" required></label>
-        <label class="f">เริ่มงานหรือเรียน<input type="time" id="pf-ws" value="${p.workStart}" required></label>
-        <label class="f">เลิกงาน<input type="time" id="pf-we" value="${p.workEnd}" required></label>
-      </div>
-      <fieldset><legend>ชอบฝึกช่วงไหน</legend>${seg('trainTime', { morning: 'เช้าก่อนงาน', lunch: 'พักเที่ยง', evening: 'เย็นหลังเลิกงาน' }, p.trainTime)}</fieldset>
-    </article>
-    <div class="row"><button class="btn pri big" type="submit">บันทึกโปรไฟล์</button>${!isDemo() ? `<span class="small muted">ตอนนี้: ${fmt(c.kcal)} kcal · โปรตีน ${c.protein} g</span>` : ''}</div>
-  </form>
-  <article class="card">
-    <h2>ใช้งานบนมือถือแบบแอป</h2>
-    <p class="small muted">เปิดหน้านี้ใน Safari หรือ Chrome แล้วเลือก "เพิ่มลงในหน้าจอโฮม" จะได้ไอคอน MewFit เปิดได้เหมือนแอป ส่งลิงก์ให้เพื่อนได้เลย แต่ละคนจะมีข้อมูลของตัวเองแยกกันในเครื่องของเขา</p>
-  </article>
-  <article class="card">
-    <h2>ลบข้อมูล</h2>
-    ${ui.resetAsk ? `<p>ลบโปรไฟล์ บันทึกการฝึก อาหาร และน้ำหนักทั้งหมดในเครื่องนี้ กู้คืนไม่ได้ ยกเว้นคุณคัดลอกข้อมูลสำรองไว้แล้ว</p><div class="row"><button class="btn danger" data-act="reset-yes">ยืนยัน ลบทั้งหมด</button><button class="btn" data-act="reset-no">ยกเลิก</button></div>`
-      : `<div class="row"><button class="btn danger" data-act="reset-ask">ลบข้อมูลทั้งหมด</button></div>`}
-  </article>`;
-}
 
-/* ---------- workout actions ---------- */
-let wakeLock = null;
-async function lockScreen() { try { if ('wakeLock' in navigator) wakeLock = await navigator.wakeLock.request('screen'); } catch (e) {} }
-function unlockScreen() { try { wakeLock && wakeLock.release(); } catch (e) {} wakeLock = null; }
-
-function startSession(tid) {
-  if (S.session && S.session.date === iso()) { location.hash = 'train'; return; }
-  S.session = buildSession(tid); save(); lockScreen();
-  if (location.hash !== '#train') location.hash = 'train'; else render();
-}
-function shiftLevel(i, dir) {
-  const x = S.session.ex[i], L = ladder(x.pt), k = L.findIndex(y => y.id === x.id), n = clamp(k + dir, 0, L.length - 1);
-  x.id = L[n].id; S.levels[x.pt] = x.id; x.reps = Array(x.sets).fill(''); save(); render();
-  toast(`${dir > 0 ? 'ยากขึ้น' : 'ง่ายลง'}: ${L[n].n}`);
-}
-function finishSession() {
-  const s = S.session; if (!s) return;
-  const ups = [], downs = []; let reps = 0, sets = 0;
-  s.ex.forEach(x => {
-    const e = EXM[x.id], L = ladder(x.pt), k = L.findIndex(y => y.id === x.id);
-    const v = x.reps.map(Number).filter(n => n > 0); reps += v.reduce((a, b) => a + b, 0); sets += v.length;
-    if (!v.length) return;
-    if (v.length === x.sets && Math.min(...v) >= e.r[1]) {
-      if (k < L.length - 1) { S.levels[x.pt] = L[k + 1].id; ups.push(`${e.n} → ${L[k + 1].n}`); }
-      else { S.levels[x.pt] = x.id; ups.push(`${e.n}: ขั้นสูงสุดแล้ว ครั้งหน้าลงช้า 3 วินาทีหรือเพิ่มอีกหนึ่งเซต`); }
-    } else if (Math.max(...v) < e.r[0] && k > 0) { S.levels[x.pt] = L[k - 1].id; downs.push(`${e.n} → ${L[k - 1].n}`); }
-    else S.levels[x.pt] = x.id;
-  });
-  if (!sets) { toast('ยังไม่ได้กรอกเซตไหนเลย กรอกจำนวนครั้งก่อนจบ'); return; }
-  const mins = Math.max(1, Math.round((Date.now() - s.start) / 60000));
-  S.workouts.push({ date: s.date, tid: s.tid, name: TPL[s.tid].n, mins: Math.min(mins, 180), sets, reps, ups, ex: s.ex.map(x => ({ id: x.id, reps: x.reps })) });
-  S.session = null; save(); unlockScreen(); stopRest();
-  showModal(`<h2>เสร็จแล้ว เก่งมาก</h2><p>${sets} เซต · ${fmt(reps)} ครั้ง · ${Math.min(mins, 180)} นาที</p>
-    ${ups.length ? `<div><b>เลื่อนขั้นครั้งหน้า</b><ul>${ups.map(u => `<li>${esc(u)}</li>`).join('')}</ul></div>` : '<p class="muted">ครั้งหน้าพยายามเพิ่มอีก 1–2 ครั้งในแต่ละเซต ทำได้ถึงเพดานทุกเซตเมื่อไหร่ระบบจะเลื่อนขั้นให้</p>'}
-    ${downs.length ? `<div><b>ปรับให้ง่ายลงก่อน</b><ul>${downs.map(u => `<li>${esc(u)}</li>`).join('')}</ul></div>` : ''}
-    <p class="small muted">ภายใน 2 ชั่วโมงกินโปรตีนราว ${calc().perMeal} กรัม แล้วดื่มน้ำเพิ่ม 500 ml</p>`);
-  location.hash = 'today'; render();
-}
-
-/* ---------- rest timer ---------- */
-let rest = { end: 0, iv: null };
-function startRest(sec, label) {
-  rest.end = Date.now() + sec * 1000; $('#rest-l').textContent = label || 'พักก่อนเซตถัดไป'; $('#restbar').hidden = false; document.body.classList.add('resting');
-  clearInterval(rest.iv); tickRest(); rest.iv = setInterval(tickRest, 250);
-}
-function tickRest() {
-  const left = (rest.end - Date.now()) / 1000; $('#rest-t').textContent = mmss(left);
-  if (left <= 0) { stopRest(); beep(880, 0.25); setTimeout(() => beep(880, 0.25), 300); try { navigator.vibrate && navigator.vibrate([200, 100, 200]); } catch (e) {} toast('หมดเวลาพัก ไปเซตต่อไป'); }
-}
-function stopRest() { clearInterval(rest.iv); $('#restbar').hidden = true; document.body.classList.remove('resting'); }
-
-/* ---------- audio ---------- */
-let actx = null;
-function audio() { try { actx = actx || new (window.AudioContext || window.webkitAudioContext)(); if (actx.state === 'suspended') actx.resume(); } catch (e) { actx = null; } return actx; }
-function beep(f = 660, d = 0.15) { const a = audio(); if (!a) return; try { const o = a.createOscillator(), g = a.createGain(); o.frequency.value = f; o.type = 'sine'; g.gain.setValueAtTime(0.0001, a.currentTime); g.gain.exponentialRampToValueAtTime(0.3, a.currentTime + 0.02); g.gain.exponentialRampToValueAtTime(0.0001, a.currentTime + d); o.connect(g).connect(a.destination); o.start(); o.stop(a.currentTime + d + 0.02); } catch (e) {} }
-
-/* ---------- interval timer (7-minute circuit, finisher) ---------- */
-const H = { prog: [], i: 0, end: 0, left: 0, paused: false, iv: null, total: 0 };
-function sevenProgram() { const pr = [{ n: 'เตรียมตัว', s: 10, k: 'prep' }]; SEVEN.forEach((n, i) => { pr.push({ n, s: 30, k: 'work' }); if (i < SEVEN.length - 1) pr.push({ n: 'พัก', s: 10, k: 'rest', next: SEVEN[i + 1] }); }); return pr; }
-function finisherProgram() {
-  const moves = P().level === 'beginner' ? ['ย่ำเท้ากางแขน', 'แพลงก์ดึงเข่าช้า', 'ยกเข่าสูงเดินอยู่กับที่', 'สควอท'] : ['กระโดดตบ', 'เมาท์เทนไคลม์เบอร์', 'วิ่งยกเข่าสูง', 'สควอทกระโดด'];
-  const pr = [{ n: 'เตรียมตัว', s: 10, k: 'prep' }];
-  for (let i = 0; i < 8; i++) { pr.push({ n: moves[i % 4], s: 20, k: 'work' }); if (i < 7) pr.push({ n: 'พัก', s: 10, k: 'rest', next: moves[(i + 1) % 4] }); }
-  return pr;
-}
-function hStart(prog) { audio(); H.prog = prog; H.i = 0; H.paused = false; H.total = prog.reduce((a, b) => a + b.s, 0); $('#hiit').hidden = false; $('#h-pause').textContent = 'หยุดชั่วคราว'; hPhase(); lockScreen(); clearInterval(H.iv); H.iv = setInterval(hTick, 200); }
-function hPhase() { const ph = H.prog[H.i]; H.end = Date.now() + ph.s * 1000; beep(ph.k === 'work' ? 990 : 520, 0.2); hDraw(); }
-function hDraw() {
-  const ph = H.prog[H.i], left = H.paused ? H.left : (H.end - Date.now()) / 1000;
-  $('#h-phase').textContent = ph.k === 'work' ? 'ลุย' : ph.k === 'rest' ? 'พัก' : 'เตรียมตัว'; $('#h-phase').className = 'phase ' + ph.k;
-  $('#h-clock').textContent = mmss(left);
-  $('#h-name').textContent = ph.k === 'rest' ? 'ต่อไป: ' + ph.next : ph.k === 'prep' ? 'ท่าแรก: ' + (H.prog[1] ? H.prog[1].n : '') : ph.n;
-  const nx = H.prog.slice(H.i + 1).find(x => x.k === 'work'); $('#h-next').textContent = ph.k === 'work' && nx ? 'ถัดไป: ' + nx.n : '';
-  const doneS = H.prog.slice(0, H.i).reduce((a, b) => a + b.s, 0) + (ph.s - Math.max(0, left));
-  $('#h-bar').style.width = clamp(doneS / H.total * 100, 0, 100) + '%';
-}
-function hTick() {
-  if (H.paused) return;
-  const left = (H.end - Date.now()) / 1000;
-  if (left <= 3.2 && left > 0 && Math.ceil(left) !== H.lastBeep) { H.lastBeep = Math.ceil(left); beep(440, 0.08); }
-  if (left <= 0) { H.i++; if (H.i >= H.prog.length) { hStop(true); return; } hPhase(); return; }
-  hDraw();
-}
-function hStop(done) { clearInterval(H.iv); $('#hiit').hidden = true; unlockScreen(); if (done) { beep(990, .2); setTimeout(() => beep(1320, .3), 250); toast('จบแล้ว เยี่ยมมาก'); } }
-
-/* ---------- modal ---------- */
-function showModal(html) { const m = document.createElement('div'); m.className = 'modal-bg'; m.innerHTML = `<div class="modal" role="dialog" aria-modal="true">${html}<div class="row"><button class="btn pri" data-act="modal-close">ตกลง</button></div></div>`; document.body.appendChild(m); m.querySelector('button').focus(); }
-
-/* ---------- events ---------- */
-function copyText(text, fallbackEl) {
-  const fb = () => { if (fallbackEl) { fallbackEl.focus(); fallbackEl.select(); } toast('เลือกข้อความแล้ว กดคัดลอกเองได้เลย'); };
-  try { navigator.clipboard.writeText(text).then(() => toast('คัดลอกแล้ว'), fb); } catch (e) { fb(); }
-}
-document.addEventListener('click', ev => {
-  const el = ev.target.closest('[data-act]'); if (!el) return;
-  const a = el.dataset.act; if (!a) return;
-  const d = iso();
-  switch (a) {
-    case 'start': ev.preventDefault(); audio(); startSession(el.dataset.tid); break;
-    case 'easier': shiftLevel(+el.dataset.i, -1); break;
-    case 'harder': shiftLevel(+el.dataset.i, 1); break;
-    case 'finish': finishSession(); break;
-    case 'cancel': S.session = null; save(); stopRest(); unlockScreen(); render(); toast('ยกเลิกการฝึกแล้ว'); break;
-    case 'rest-add': rest.end += 15000; tickRest(); break;
-    case 'rest-skip': stopRest(); break;
-    case 'seven': hStart(sevenProgram()); break;
-    case 'finisher': hStart(finisherProgram()); break;
-    case 'h-pause': if (H.paused) { H.paused = false; H.end = Date.now() + H.left * 1000; el.textContent = 'หยุดชั่วคราว'; } else { H.paused = true; H.left = (H.end - Date.now()) / 1000; el.textContent = 'ทำต่อ'; } break;
-    case 'h-stop': hStop(false); break;
-    case 'water': { const h = habit(d); h.water = clamp(h.water + +el.dataset.n, 0, 20); save(); render(); break; }
-    case 'food-add': { const f = FM[el.dataset.id]; (S.food[d] = S.food[d] || []).push({ id: f.id, n: f.n, q: 1, k: f.k, p: f.p, c: f.c, f: f.f }); save(); render(); toast('เพิ่ม ' + f.n); break; }
-    case 'food-del': dayFood(d).splice(+el.dataset.i, 1); save(); render(); break;
-    case 'food-custom': {
-      const n = $('#cf-n').value.trim(), k = +$('#cf-k').value, p = +$('#cf-p').value || 0;
-      if (!n || !(k > 0)) { toast('ใส่ชื่ออาหารและแคลอรี่ก่อน'); break; }
-      (S.food[d] = S.food[d] || []).push({ id: null, n, q: 1, k, p, c: 0, f: 0 }); save(); render(); toast('เพิ่ม ' + n); break;
-    }
-    case 'meal-new': S.mealSeed = (S.mealSeed || 1) + 1; save(); render(); break;
-    case 'meal-log': { const plan = genMealPlan(); const arr = (S.food[d] = S.food[d] || []); Object.values(plan).forEach(items => items.forEach(([id, q]) => { const f = FM[id]; arr.push({ id, n: f.n, q, k: f.k, p: f.p, c: f.c, f: f.f }); })); save(); render(); toast('บันทึกแผนทั้งวันแล้ว ลบรายการที่ไม่ได้กินออกได้'); break; }
-    case 'plan-day': ui.planDay = +el.dataset.d; render(); break;
-    case 'copy-plan': { const p = P(), tid = weekMap(p)[ui.planDay]; const txt = `MewFit วัน${DAY_L[ui.planDay]} (${tid ? TPL[tid].n : 'วันพัก'})\n` + timeline(p, tid).map(x => `${toHM(x.t)}  ${x.title}`).join('\n'); copyText(txt); break; }
-    case 'w-add': {
-      const kg = +$('#w-kg').value, wd = $('#w-d').value || d;
-      if (!(kg >= 25 && kg <= 300)) { toast('ใส่น้ำหนักเป็นกิโลกรัม เช่น 72.4'); break; }
-      S.weights = S.weights.filter(w => w.d !== wd); S.weights.push({ d: wd, kg: r1(kg) });
-      if (S.profile && wd >= S.weights.reduce((m, w) => w.d > m ? w.d : m, '')) S.profile.weight = r1(kg);
-      save(); render(); toast('บันทึกน้ำหนักแล้ว'); break;
-    }
-    case 'w-del': S.weights = S.weights.filter(w => w.d !== el.dataset.d); save(); render(); break;
-    case 'b-add': {
-      const waist = +$('#b-waist').value, neck = +$('#b-neck').value, hip = $('#b-hip') ? +$('#b-hip').value : 0;
-      if (!(waist > 30)) { toast('ใส่รอบเอวเป็นเซนติเมตร'); break; }
-      S.body = S.body.filter(b => b.d !== d); S.body.push({ d, waist, neck: neck || null, hip: hip || null }); save(); render(); toast('บันทึกสัดส่วนแล้ว'); break;
-    }
-    case 'adjust': S.calAdjust = clamp((S.calAdjust || 0) + +el.dataset.n, -500, 500); save(); render(); toast(`เป้าแคลอรี่ใหม่ ${fmt(calc().kcal)} kcal`); break;
-    case 'copy-backup': copyText(JSON.stringify(S), $('#backup')); break;
-    case 'restore': {
-      try { const o = JSON.parse($('#restore').value); if (!o || typeof o !== 'object' || !('workouts' in o)) throw 0; S = Object.assign(fresh(), o); save(); render(); toast('กู้คืนข้อมูลแล้ว'); }
-      catch (e) { toast('ข้อความไม่ถูกต้อง ต้องเป็นข้อมูลสำรองจาก MewFit'); }
-      break;
-    }
-    case 'learn-cat': ui.learnCat = el.dataset.c; render(); break;
-    case 'reset-ask': ui.resetAsk = true; render(); break;
-    case 'reset-no': ui.resetAsk = false; render(); break;
-    case 'reset-yes': S = fresh(); save(); ui.resetAsk = false; stopRest(); location.hash = 'today'; render(); toast('ลบข้อมูลทั้งหมดแล้ว'); break;
-    case 'modal-close': el.closest('.modal-bg').remove(); break;
-  }
-});
-document.addEventListener('input', ev => {
-  const t = ev.target;
-  if (t.id === 'food-q') { ui.foodQ = t.value; const q = t.value.trim().toLowerCase(); $('#food-res').innerHTML = foodRes((q ? FOOD.filter(f => f.n.toLowerCase().includes(q)) : FOOD.filter(f => ['dish', 'protein'].includes(f.cat))).slice(0, 40)); }
-  if (t.dataset.habit) { habit(iso())[t.dataset.habit] = t.value; save(); }
-});
-document.addEventListener('change', ev => {
-  const t = ev.target;
-  if (t.dataset.set && S.session) {
-    const [i, s] = t.dataset.set.split('-').map(Number), x = S.session.ex[i], e = EXM[x.id];
-    x.reps[s] = t.value === '' ? '' : Math.max(0, Math.round(+t.value)); save();
-    t.classList.toggle('hit', +t.value >= e.r[1]);
-    const card = $('#ex-' + i), full = x.reps.every(v => v !== '');
-    card.classList.toggle('complete', full); card.querySelector('.ex-i').textContent = full ? '✓' : i + 1;
-    const last = i === S.session.ex.length - 1 && s === x.sets - 1;
-    if (t.value !== '' && !last) startRest(e.t ? 45 : 75, full ? `ต่อไป: ${EXM[S.session.ex[i + 1] ? S.session.ex[i + 1].id : x.id].n}` : `${e.n} เซต ${s + 2}`);
-  }
-});
-document.addEventListener('submit', ev => {
-  if (ev.target.id !== 'pf') return;
-  ev.preventDefault();
-  const f = ev.target, val = n => { const c = f.querySelector(`input[name="${n}"]:checked`); return c ? c.value : null; };
-  const days = [...f.querySelectorAll('input[name="days"]:checked')].map(i => +i.value);
-  if (!days.length) { toast('เลือกวันฝึกอย่างน้อย 1 วัน'); return; }
-  const num = (id, lo, hi) => { const v = +$('#' + id).value; return v >= lo && v <= hi ? v : null; };
-  const age = num('pf-age', 14, 90), height = num('pf-height', 120, 230), weight = num('pf-weight', 30, 250);
-  if (!age || !height || !weight) { toast('ตรวจอายุ ส่วนสูง และน้ำหนักอีกครั้ง'); return; }
-  const eq = { db: false, band: false, bar: false }; f.querySelectorAll('input[name="eq"]:checked').forEach(i => { eq[i.value] = true; });
-  const wasDemo = isDemo();
-  S.profile = { name: $('#pf-name').value.trim(), sex: val('sex'), age, height, weight: r1(weight), activity: val('activity'), goal: val('goal'), level: val('level'),
-    days, minutes: +val('minutes'), eq, wake: $('#pf-wake').value, bed: $('#pf-bed').value, workStart: $('#pf-ws').value, workEnd: $('#pf-we').value,
-    trainTime: val('trainTime'), whey: $('#pf-whey').checked, finisher: $('#pf-finisher').checked };
-  if (wasDemo && !S.weights.length) S.weights.push({ d: iso(), kg: r1(weight) });
-  save(); toast('บันทึกแล้ว โค้ชมิวคำนวณใหม่ให้แล้ว'); location.hash = 'today'; render();
-});
-window.addEventListener('hashchange', () => { render(); window.scrollTo(0, 0); });
-document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible' && (S.session || !$('#hiit').hidden)) lockScreen(); });
 
 render();
 if ('serviceWorker' in navigator && /github\.io$|^localhost$|^127\./.test(location.hostname)) navigator.serviceWorker.register('sw.js').catch(() => {});
