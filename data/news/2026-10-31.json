@@ -1,0 +1,84 @@
+[
+  {
+    "source": "The Decoder",
+    "title_th": "OpenAI ระดมทุนได้แค่ 1.1 หมื่นล้านดอลลาร์ ไม่ถึงครึ่งของเป้า 3 หมื่นล้าน หลังนักลงทุนรายใหญ่เริ่มถอย",
+    "summary_th": "รายงานจาก Wall Street Journal ระบุว่า OpenAI ปิดรอบระดมทุนล่าสุดได้ราว 11,000 ล้านดอลลาร์ ต่ำกว่าเป้า 30,000 ล้านอยู่มาก และได้มูลค่าบริษัท 1.25 ล้านล้านดอลลาร์ ต่ำกว่าที่หวังไว้ 1.4 ล้านล้าน สาเหตุหลักคือนักลงทุนใหญ่ระวังตัวขึ้นช่วงหุ้นเทคร่วงหลังผลประกอบการ Google, Amazon และ Intel ออกมาไม่สวย ตอนนี้ OpenAI หันไปหาเงินอีกสูงสุด 20,000 ล้านจากกลุ่ม family office และเศรษฐีรายบุคคล และวางแผน IPO ต้นปีหน้า ขณะที่ Anthropic คู่แข่งอาจเข้าตลาดได้เร็วสุดเดือนพฤศจิกายนนี้",
+    "category": "funding",
+    "importance": "major",
+    "url": "https://the-decoder.com/openai-raises-just-11-billion-of-its-30-billion-target-as-big-investors-lose-their-ai-appetite/",
+    "context_th": "สืบเนื่องจากข่าวที่ OpenAI ลดเป้ามูลค่าบริษัทและตั้งเป้าระดมทุนสูงสุด 3 หมื่นล้านดอลลาร์ (ข่าว 24 ต.ค.)"
+  },
+  {
+    "source": "The Decoder",
+    "title_th": "Claude Sonnet 5 เลือกยีนบำบัดและผ่าตัดสมองหนูทดลองเองทั้งหมด โดยมีสัตวแพทย์คุมแค่ปุ่มหยุดฉุกเฉิน",
+    "summary_th": "CEO สตาร์ทอัพ Exin Therapeutics (นักศึกษาปริญญาเอก Oxford) เล่าว่าให้เอเจนต์ Claude Sonnet 5 เลือกจากยีนบำบัด 19 แบบ เพื่อลดอาการชักในหนูโรคลมชัก — AI เลือกตัวยา จุดเป้าหมายในสมอง และคำนวณพิกัดฉีดเองจากงานวิจัย 3 ฉบับ แล้วคุมเครื่องผ่าตัดอัตโนมัติผ่านกล้อง ระหว่างทางเมื่อพิกัดคลาดเคลื่อน AI ปฏิเสธทำต่อและถูกต้องจริง ส่วน Opus 5.5 และ Opus 5 ปฏิเสธทำตั้งแต่แรก หนูฟื้นตัวดี แต่ผลยังไม่ผ่าน peer review และยังไม่มีข้อมูลว่าลดอาการชักได้แค่ไหน",
+    "category": "research",
+    "importance": "normal",
+    "url": "https://the-decoder.com/a-claude-model-autonomously-chose-a-gene-therapy-and-operated-on-a-mouse-brain-with-no-human-decision-making/"
+  },
+  {
+    "source": "TechCrunch",
+    "title_th": "ดาวเทียม \"ดาต้าเซ็นเตอร์ในอวกาศ\" ดวงแรกของ Google ออนไลน์แล้ว งานแรกคือให้ Gemma 4 แต่งกลอนไฮกุ",
+    "summary_th": "ดาวเทียมต้นแบบโครงการ Suncatcher ที่ Planet Labs สร้างให้ Google ผ่านการทดสอบราว 3 สัปดาห์และทำงานปกติแล้ว บนดาวเทียมมีชิป TPU 4 ตัว (เปิดใช้ได้ทีละตัว) ผลิตไฟได้สูงสุด 1 กิโลวัตต์ รันได้ครั้งละประมาณ 20 นาที งานแรกคือให้โมเดล Gemma 4 แต่งไฮกุเรื่องการอยู่ในอวกาศ ตอนนี้กำลังทดสอบว่าชิปทนความร้อนและรังสีอวกาศได้แค่ไหน และมีแผนยิงอีก 2 ดวงที่ใช้ TPU รุ่นใหม่พร้อมทดสอบลิงก์เลเซอร์ระหว่างดาวเทียมในปี 2027",
+    "category": "space",
+    "importance": "normal",
+    "url": "https://techcrunch.com/2026/10/30/googles-first-data-center-satellite-is-online-and-writing-poetry/",
+    "context_th": "ต่อจากข่าวที่ Google ประกาศเตรียมยิงดาวเทียมทดลองโครงการ Suncatcher (ข่าว 25 ก.ย.)"
+  },
+  {
+    "source": "The Decoder",
+    "title_th": "โมเดลโอเพนเวท GLM 5.3 สร้างชุดเจาะช่องโหว่ Firefox ได้เองทั้งหมดในไม่ถึง 48 ชั่วโมง ค่าใช้จ่ายราว 1,000 ดอลลาร์",
+    "summary_th": "ทีมวิจัย Epoch AI ทดสอบช่วง \"patch gap\" (ช่วงที่โค้ดแก้บั๊กเปิดเผยแล้วแต่ผู้ใช้ยังไม่ได้อัปเดต) โดยให้ GLM 5.3 ของ Zhipu ไล่ดูโค้ด Firefox หาช่องโหว่และสร้าง exploit หลายขั้นเอง ผลคือสร้างหน้าเว็บอันตรายที่แค่เปิดก็ขโมยไฟล์ในเครื่องส่งไปให้ผู้โจมตีได้ เร็วสุด 12 ชั่วโมง ค่า API ราว 1,000 ดอลลาร์ และไม่มีระบบกันความปลอดภัยไหนสะกิดเลย Mozilla แก้ช่องโหว่แล้วใน Firefox 159.0 ส่วน Chrome ลองใช้เงินถึง 100,000 ดอลลาร์ก็ยังเจาะไม่สำเร็จ",
+    "category": "research",
+    "importance": "normal",
+    "url": "https://the-decoder.com/open-weight-model-glm-5-3-built-full-firefox-exploit-chains-with-zero-human-input-in-under-48-hours/"
+  },
+  {
+    "source": "The Decoder",
+    "title_th": "Microsoft เสนอโครงการสมัครใจลาออกให้พนักงานราว 60,000 คน แต่เว้นทีมที่สำคัญต่อ AI",
+    "summary_th": "Microsoft เสนอแพ็กเกจลาออกโดยสมัครใจให้พนักงานราวหนึ่งในสี่ของบริษัท ครอบคลุมฝ่าย Xbox, Windows, Copilot และการเงินในสหรัฐฯ แคนาดา อินเดีย และอังกฤษ แต่ไม่รวมทีมดาต้าเซ็นเตอร์ ฝ่ายขาย ไซเบอร์ซีเคียวริตี้ และควอนตัม ซึ่งเป็นหัวใจของกลยุทธ์ AI นี่เป็นรอบที่สองของปีนี้ ขณะที่บริษัทยังวางงบลงทุนโครงสร้างพื้นฐาน AI ปี 2026 ไว้ราว 170,000 ล้านดอลลาร์",
+    "category": "other",
+    "importance": "normal",
+    "url": "https://the-decoder.com/microsoft-offers-a-quarter-of-its-workforce-voluntary-severance-while-shielding-ai-critical-teams/"
+  },
+  {
+    "source": "TechCrunch",
+    "title_th": "Zest เปิดตัว AI ผู้ช่วยหาร้านอาหารและจองโต๊ะผ่าน SMS ใส่ในกรุ๊ปแชตให้โหวตเลือกร้านได้ด้วย",
+    "summary_th": "แค่ส่งข้อความหา \"restaurant concierge\" ของ Zest ก็บอกได้ว่าอยากกินอะไร ไปกับใคร แพ้อาหารอะไร หรืออยู่ย่านไหน แล้ว AI จะแนะนำร้าน ส่งเมนู ตอบคำถามอย่างร้านคนเยอะไหมหรือมี Wi-Fi ไหม และจองโต๊ะให้ผ่าน OpenTable, Resy และ SevenRooms ถ้าดึงเข้ากรุ๊ปแชต มันจะรวมรสนิยมของทุกคน เปิดโหวตในแชต แล้วจองโต๊ะให้ทั้งแก๊งเลย",
+    "category": "product",
+    "importance": "normal",
+    "url": "https://techcrunch.com/2026/10/30/zests-new-ai-agent-finds-restaurants-and-books-reservations-over-text/"
+  },
+  {
+    "source": "The Decoder",
+    "title_th": "Google DeepMind ทำแผนที่ป่าทั่วโลกความละเอียด 10 เมตร แยกป่าธรรมชาติออกจากสวนปลูกได้",
+    "summary_th": "DeepMind ร่วมกับ World Resources Institute เปิดตัวแผนที่ ForTy ใช้ AI กับภาพดาวเทียมแบ่งพื้นที่ทั่วโลกปี 2020 เป็น 6 ประเภท เช่น ป่าดิบ ป่าฟื้นตัวตามธรรมชาติ สวนป่าปลูก และพืชยืนต้นอย่างปาล์มน้ำมัน ยางพารา โกโก้ ความแม่นยำโดยรวม 90% (ป่าดิบราว 89% แต่สวนพืชยังแยกถูกแค่ครึ่งเดียว) เปิดให้ใช้ฟรีบน Google Earth Engine จุดประสงค์หลักคือช่วยบริษัทพิสูจน์ว่าสินค้าไม่ได้มาจากการตัดไม้ทำลายป่าตามกฎหมายใหม่ของ EU",
+    "category": "research",
+    "importance": "normal",
+    "url": "https://the-decoder.com/google-deepmind-creates-a-global-map-of-forests-with-satellite-data-and-ai/"
+  },
+  {
+    "source": "The Decoder",
+    "title_th": "ส่วนขยาย Claude Code ปลอมหลุดเข้า marketplace ของ Cursor พยายามขโมยข้อมูลและเปิดทางควบคุมเครื่อง",
+    "summary_th": "Cursor แจ้งว่ามีส่วนขยายปลอมที่แอบอ้างเป็น Claude Code อยู่ใน marketplace ราว 11 ชั่วโมง อาจมีผู้ใช้โดนถึง 5,000 คน ตัวมันพยายามเก็บชื่อเครื่อง ชื่อผู้ใช้ ระบบปฏิบัติการ และ IP สาธารณะ พร้อมพยายามเปิดช่องให้ผู้โจมตีรีโมตเข้าเครื่อง (แต่ต้องใช้สิทธิ์แอดมินจึงน่าจะไม่สำเร็จในเครื่องส่วนใหญ่) Cursor ถอดส่วนขยายออกแล้ว และยืนยันว่าไม่เกี่ยวกับ Anthropic ใครติดตั้ง Claude Code ใน Cursor ช่วงนี้ควรตรวจสอบเครื่องตัวเอง",
+    "category": "other",
+    "importance": "normal",
+    "url": "https://the-decoder.com/malicious-claude-code-extension-in-cursors-marketplace-attempted-remote-access-and-data-theft/"
+  },
+  {
+    "source": "NASA",
+    "title_th": "NASA เปิดรับข้อเสนอจากเอกชนให้ไปซ่อมบำรุงและดันวงโคจรกล้อง Hubble ยืดอายุใช้งาน",
+    "summary_th": "NASA ออกเอกสารขอข้อมูล (RFI) จากบริษัทเอกชนที่สามารถทำภารกิจในอวกาศให้กล้องโทรทรรศน์ Hubble ได้ 3 แบบ คือดันกล้องขึ้นวงโคจรที่สูงขึ้นเพื่อยืดอายุ อัปเกรดความสามารถ หรือพากลับเข้าชั้นบรรยากาศอย่างควบคุมได้ตอนปลดระวาง เพราะ Hubble ไม่มีเครื่องยนต์ของตัวเองและกำลังถูกแรงต้านอากาศดึงต่ำลงเรื่อยๆ คาดว่าจะตกราวปี 2033-2034 ภารกิจจึงต้องเกิดภายในปี 2032 รับข้อเสนอถึง 30 พ.ย.",
+    "category": "space",
+    "importance": "normal",
+    "url": "https://science.nasa.gov/missions/hubble/nasa-explores-potential-commercial-servicing-for-hubble-telescope/"
+  },
+  {
+    "source": "NASA",
+    "title_th": "นักบินอวกาศเดินนอกสถานี ISS กว่า 7 ชั่วโมง ติดตั้งแผงโซลาร์แบบม้วนแผงที่ 7 จาก 8",
+    "summary_th": "Anil Menon จาก NASA และ Joshua Kutryk จากองค์การอวกาศแคนาดา (เดินอวกาศครั้งแรก) ใช้เวลา 7 ชั่วโมง 11 นาทีติดตั้งและกางแผงโซลาร์แบบม้วน (roll-out solar array) บนสถานีอวกาศนานาชาติ เพื่อเพิ่มพลังงานให้งานสำคัญ รวมถึงการพาสถานีออกจากวงโคจรในอนาคต แผงสุดท้ายจะติดตั้งในการเดินอวกาศ 5 พ.ย. เมื่อครบ 8 แผงจะเพิ่มกำลังไฟได้สูงสุด 30% จากราว 160 เป็น 215 กิโลวัตต์",
+    "category": "space",
+    "importance": "normal",
+    "url": "https://www.nasa.gov/blogs/spacestation/2026/10/29/spacewalkers-install-roll-out-solar-arrays-for-power-generation/"
+  }
+]

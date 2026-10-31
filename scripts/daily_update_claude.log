@@ -1,23 +1,19 @@
-﻿I wrote today's 10 news items and the narrative. I couldn't validate the JSON or run the site build, because this session isn't allowed to run Python or Bash without approval.
+﻿I wrote today's news file and narrative. I didn't run `generate.py`, commit or push. My understanding is that the `daily_update.ps1` wrapper does those steps after this run, as it did in recent commits, but I didn't check that. I also couldn't run the JSON syntax check because it needs approval this session. Both files were written carefully by hand, but they haven't been machine-checked.
 
-**Files written:**
-- `data/news/2026-10-30.json`: 10 items, none already in `data/latest.json`.
-- `data/narrative/2026-10-30.json`: one paragraph tying the day's stories together.
+**`data/news/2026-10-31.json`** has 10 items, none repeating a URL in `latest.json`:
+- ≡ƒöÑ **major:** OpenAI raised only $11B of its $30B target, at a $1.25T valuation. Linked to the 24 Oct story about OpenAI lowering its valuation target.
+- Claude Sonnet 5 chose a gene therapy and ran surgery on a mouse's brain itself. This hasn't been peer-reviewed yet.
+- Google's first Suncatcher data-center satellite is online, and its first job was having Gemma 4 write a haiku. Linked to the 25 Sep story.
+- Researchers had the open-weight model GLM 5.3 build Firefox exploits on its own for about $1,000. Mozilla has fixed the flaw in Firefox 159.0.
+- Microsoft offered voluntary severance to about 60,000 staff but left out its AI-critical teams.
+- Zest launched an AI that finds restaurants and books tables over text message, and can run a vote in a group chat.
+- DeepMind released a free 10-meter-resolution global forest map, called ForTy.
+- A fake Claude Code extension was in Cursor's marketplace for about 11 hours and may have reached up to 5,000 users.
+- NASA is asking private companies for ideas to boost Hubble's orbit or service it.
+- A 7-hour ISS spacewalk installed the 7th of 8 new solar arrays.
 
-**Today's items:**
-1. ≡ƒöÑ **Major ΓÇö Gemini 4 Carbon (Google DeepMind):** ranks #1 on the Artificial Analysis index (59, up from Argon's 50). It still trails Claude Opus 5.5 on agentic coding, and its hallucination rate rose from 4% to 11%. It's rolling out gradually, starting with cybersecurity experts.
-2. **Mistral Large 4 "Le Chonk":** a trillion-parameter model whose weights are free to download, aimed at cybersecurity.
-3. **Chrome autofill now pulls from Gmail:** fills in things like flight confirmation numbers, tracking numbers and membership IDs.
-4. **Meta Style Sketch:** an outfit-planning app, available only in Thailand, Singapore and Indonesia so far.
-5. **Android Studio opens to outside coding agents:** more than 40, including Claude and Codex, plus the XREAL AURA glasses.
-6. **OpenAI doubles Pro plan usage limits.**
-7. **Anthropic study:** experts sided with the AI's randomly assigned position 86% of the time.
-8. **Chinese labs now distill from GPT-6 Astra instead of Claude.**
-9. **Teghaza 001:** a Martian meteorite over 4.1 billion years old.
-10. **Voyager 1:** lost contact for two days before its signal returned; it will be one light-day from Earth on Nov 18.
+**`data/narrative/2026-10-31.json`** is one Thai paragraph that ties the day's stories together.
 
-Five items have a `context_th` line linking them to earlier stories. I only added links that appear in earlier entries of `latest.json`.
+**Task-observer:** I opened it and checked the workspace: 39 observations are open and none has ever been reviewed. Would you like to run that review in a later session? The script that loads observations for each skill needed approval, so it didn't run. I logged no new observations because nothing in this run needed a skill change.
 
-**Not done:** I didn't run `generate.py`, commit or push. Your earlier daily commits look like an outside script handles those steps after the news files are written. Your instructions were cut off at step 5, so if this run was supposed to build and push too, it still needs doing.
-
-**Task-observer:** its session-start scripts were also blocked, so I couldn't run its startup checks, read the open observations, or offer the review the startup notice mentioned (38 open, never reviewed). I wrote no observation records this session.
+Sources: [The Decoder](https://the-decoder.com/), [TechCrunch AI](https://techcrunch.com/category/artificial-intelligence/), [NASA News](https://www.nasa.gov/news/), [Space.com](https://www.space.com/news), plus the article links in the JSON file.
