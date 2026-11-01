@@ -1,19 +1,20 @@
-﻿I wrote today's news file and narrative. I didn't run `generate.py`, commit or push. My understanding is that the `daily_update.ps1` wrapper does those steps after this run, as it did in recent commits, but I didn't check that. I also couldn't run the JSON syntax check because it needs approval this session. Both files were written carefully by hand, but they haven't been machine-checked.
+﻿I wrote 9 news items for today, plus the narrative paragraph.
 
-**`data/news/2026-10-31.json`** has 10 items, none repeating a URL in `latest.json`:
-- ≡ƒöÑ **major:** OpenAI raised only $11B of its $30B target, at a $1.25T valuation. Linked to the 24 Oct story about OpenAI lowering its valuation target.
-- Claude Sonnet 5 chose a gene therapy and ran surgery on a mouse's brain itself. This hasn't been peer-reviewed yet.
-- Google's first Suncatcher data-center satellite is online, and its first job was having Gemma 4 write a haiku. Linked to the 25 Sep story.
-- Researchers had the open-weight model GLM 5.3 build Firefox exploits on its own for about $1,000. Mozilla has fixed the flaw in Firefox 159.0.
-- Microsoft offered voluntary severance to about 60,000 staff but left out its AI-critical teams.
-- Zest launched an AI that finds restaurants and books tables over text message, and can run a vote in a group chat.
-- DeepMind released a free 10-meter-resolution global forest map, called ForTy.
-- A fake Claude Code extension was in Cursor's marketplace for about 11 hours and may have reached up to 5,000 users.
-- NASA is asking private companies for ideas to boost Hubble's orbit or service it.
-- A 7-hour ISS spacewalk installed the 7th of 8 new solar arrays.
+**`data/news/2026-11-01.json`** has 9 items, all marked `normal`. Nothing today was big enough to rank as major.
+- **ChatGPT pricing:** starting in December, the Chat and Work modes merge, and Plus, Pro and Business plans share one token budget with Codex.
+- **ChatGPT account limits:** OpenAI now limits how many paid accounts can share one card or one device.
+- **Claude watermark:** Anthropic is adding its hidden text watermark to older Claude models. On Opus 4.6 and Sonnet 4.6, changing `temperature`, `top_p` or `top_k` is enough to avoid it.
+- **OpenAI training data:** from Nov 29, OpenAI will train models on Daybreak Blue session data. After pushback it promised a separate opt-out.
+- **Adobe EditAgent (research):** an agent that edits images step by step and checks its own results before handing them over.
+- **Google StreamVibe (research):** a video assistant that watches you work and only speaks up when you need help.
+- **Vals AI study:** tested 25 models on questions about China. Their answers lean more toward the Chinese government's line when the question is asked in Chinese.
+- **xAI lawsuit:** a judge refused to dismiss the NAACP case over the gas turbines powering the Colossus data center, so it goes ahead.
+- **NASA Lucy:** the spacecraft is the first to reach the Trojan asteroid region that shares Jupiter's orbit.
 
-**`data/narrative/2026-10-31.json`** is one Thai paragraph that ties the day's stories together.
+Four items have `context_th` notes, each linked to an earlier story I confirmed in the repo: Aug 11, Aug 12, Sep 2 and Oct 30. I checked every URL against `latest.json`, and none were published before. Some stories I left out: Japan's MMX Mars-moon probe, already covered on Oct 19ΓÇô20; an Apple CEO interview with nothing concrete in it; and a Space.com piece on Swift's reentry that I couldn't read.
 
-**Task-observer:** I opened it and checked the workspace: 39 observations are open and none has ever been reviewed. Would you like to run that review in a later session? The script that loads observations for each skill needed approval, so it didn't run. I logged no new observations because nothing in this run needed a skill change.
+Today is Sunday, so `engine-prompt.md` calls for a weekly summary file. I didn't write it, because the wrapper only lets me write the two daily files. The wrapper script handles `generate.py`, the log and the push.
 
-Sources: [The Decoder](https://the-decoder.com/), [TechCrunch AI](https://techcrunch.com/category/artificial-intelligence/), [NASA News](https://www.nasa.gov/news/), [Space.com](https://www.space.com/news), plus the article links in the JSON file.
+**task-observer:** its startup check and logging scripts were blocked here because shell commands need approval. So the backlog check didn't run, and I logged no observations. The startup message reports 40 open observations and no review run yet; you can start one in an interactive session. For the same file-limit reason, I didn't update `α╕ùα╕│α╕òα╣êα╕¡α╕òα╕úα╕çα╕Öα╕╡α╣ë.md` (the handoff notes file).
+
+Sources: [The Decoder](https://the-decoder.com/), [TechCrunch AI](https://techcrunch.com/category/artificial-intelligence/), [NASA](https://www.nasa.gov/news/recently-published/), [JAXA MMX](https://global.jaxa.jp/press/2026/10/20261020-1_e.html)
