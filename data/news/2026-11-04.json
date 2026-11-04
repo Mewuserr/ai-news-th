@@ -1,0 +1,66 @@
+[
+  {
+    "source": "TechCrunch",
+    "title_th": "Fal บริษัทรันโมเดล AI ทำภาพ-วิดีโอ-เสียง ระดมทุนรวม 1,650 ล้านดอลลาร์ มูลค่าพุ่งเท่าตัวเป็น 1.6 หมื่นล้าน",
+    "summary_th": "Fal สตาร์ทอัปที่รับรันโมเดล AI สร้างวิดีโอ ภาพ และเสียงให้ลูกค้าผ่านคลาวด์ ประกาศระดมทุนรอบ Series E และ F รวม 1,650 ล้านดอลลาร์ รอบล่าสุด 1,300 ล้านนำโดย Bessemer โดยมี Nvidia และ T. Rowe Price ร่วมด้วย มูลค่าบริษัทขึ้นเป็น 16,000 ล้านดอลลาร์ เพิ่มจาก 8,000 ล้านเมื่อเดือน เม.ย. และรายได้ต่อปีแตะ 800 ล้านดอลลาร์แล้ว สะท้อนว่าความต้องการ \"รันโมเดล\" (โดยเฉพาะโมเดลโอเพนซอร์ส) กำลังโตเร็วมาก แม้ทั้งวงการจะยังกำไรบางเพราะค่าชิปแพง",
+    "category": "funding",
+    "importance": "major",
+    "url": "https://techcrunch.com/2026/11/03/ai-inference-startup-fal-doubles-its-valuation-to-16b-as-demand-surges/"
+  },
+  {
+    "source": "Anthropic / TechCrunch",
+    "title_th": "Anthropic เปิดโค้ด FlashProve ระบบพิสูจน์ได้ว่าคำตอบมาจากโมเดล AI ตัวไหนจริง — กันผู้ให้บริการแอบสลับไปใช้โมเดลถูกกว่า",
+    "summary_th": "FlashProve ให้แต่ละแล็บเผยแพร่ \"ลายนิ้วมือ\" ของโมเดลที่ออกมา แล้วใช้การเข้ารหัสตรวจได้ว่าผลลัพธ์ชิ้นหนึ่งมาจากโมเดลนั้นจริงหรือเปล่า คล้ายการเซ็นอีเมล โดยไม่ต้องเปิดเผยน้ำหนักโมเดล และเบาพอจะตรวจบนเครื่องตัวเองได้ ใช้จับได้ว่าบริษัทแอบเปลี่ยนไปใช้โมเดลถูกกว่าเพื่อประหยัดต้นทุนไหม หรือพิสูจน์ว่างานสแกนโค้ดหาช่องโหว่ทำโดยโมเดลระดับท็อปจริง ตอนนี้ปล่อยสเปกและโค้ดบน GitHub แบบโอเพนซอร์สแล้ว แต่ยังเป็นงานวิจัยกลางทาง ไม่มีแผนนำไปใช้จริงที่แล็บไหน",
+    "category": "research",
+    "importance": "normal",
+    "url": "https://techcrunch.com/2026/11/03/anthropic-is-working-on-a-system-to-prove-ai-models-identity/"
+  },
+  {
+    "source": "The Decoder",
+    "title_th": "OpenAI เผย GPT-6 Astra ออกแบบอุปกรณ์ฮาร์ดแวร์ทั้งชิ้นเองในไม่ถึงสัปดาห์ ตั้งแต่ตัวเครื่อง แผงวงจร ไปจนเฟิร์มแวร์",
+    "summary_th": "ทีมฮาร์ดแวร์ของ OpenAI ทำอุปกรณ์สำหรับพูดคุยสั่งงานเอเจนต์เขียนโค้ด Codex เป็นโปรเจกต์ข้างเคียง โดยให้ GPT-6 Astra ทำทุกขั้น ทั้งออกแบบเคส เลือกชิ้นส่วนและเดินลายวงจร PCB เขียนเฟิร์มแวร์ และหน้าจอใช้งาน ส่งโรงงานผลิตต้นแบบได้ในไม่ถึงเดือน แต่ต้องแก้หลายรอบเพราะ AI ยังไม่ค่อยคิดถึงข้อจำกัดการผลิตและค่าความคลาดเคลื่อน OpenAI ยังบอกว่ามีโมเดลภายในที่ยังไม่เปิดตัวทำคะแนน BenchCAD 2.0 ได้ 0.875 เทียบกับ Astra ที่ 0.594 — ตัวเลขทั้งหมดเป็นการอ้างของ OpenAI เอง",
+    "category": "research",
+    "importance": "normal",
+    "url": "https://the-decoder.com/openai-says-gpt-6-astra-designed-a-hardware-device-from-scratch-in-under-a-week/"
+  },
+  {
+    "source": "TechCrunch",
+    "title_th": "Netflix เปิดแท็บ AI Discover ช่วยหาเรื่องดูตามอารมณ์ตอนนั้น — \"ขอเบาๆ\" \"ขอหลอนๆ\" หรือ \"มีเวลาแป๊บเดียว\"",
+    "summary_th": "แท็บใหม่ให้เลือกธีมที่ตรงกับอารมณ์หรือเวลาที่มี เช่น something light, scare me, family movie night หรือ quick watches แล้วแนะนำเรื่องพร้อมคลิปตัวอย่าง กดย่อยธีมให้แคบลงหรือกด \"something different\" เพื่อเริ่มใหม่ได้ แต่ละเรื่องยังมีปุ่ม Tune Your Recommendations ไว้บอกว่าชอบหรือไม่อยากเห็นอีก ระบบเรียนรู้จากการกดแบบเรียลไทม์ เริ่มเปิดในสหรัฐฯ บนทีวีที่ใช้ภาษาอังกฤษก่อน และจะขยายเพิ่มในอีกไม่กี่สัปดาห์",
+    "category": "product",
+    "importance": "normal",
+    "url": "https://techcrunch.com/2026/11/03/netflixs-new-ai-discover-tab-helps-you-find-something-to-watch-based-on-your-mood/"
+  },
+  {
+    "source": "The Decoder",
+    "title_th": "Claude API มีฟีเจอร์ Message Threads ไม่ต้องส่งประวัติแชตทั้งก้อนทุกครั้ง — บทสนทนายาวๆ เริ่มตอบเร็วขึ้นราว 35%",
+    "summary_th": "เดิมนักพัฒนาต้องส่งประวัติบทสนทนาทั้งหมดไปใหม่ทุกครั้งที่เรียก API แต่ Message Threads (เบต้าสาธารณะ) ส่งแค่ส่วนที่เพิ่มขึ้นมา Anthropic บอกว่าคำขอขนาด 5 แสนถึง 1 ล้านโทเคนได้คำตอบคำแรกเร็วขึ้นราว 35% เหมาะกับเอเจนต์เขียนโค้ด เอเจนต์ควบคุมคอมพิวเตอร์ และงานที่อ่านเอกสารหรือภาพจำนวนมาก จำนวนโทเคนที่คิดเงินยังเท่าเดิม เธรดถูกเข้ารหัสเก็บในหน่วยความจำและหมดอายุถ้าไม่มีการใช้ 5 นาที ใช้ได้ทั้งบน Claude platform, AWS, Microsoft Foundry และ Google Cloud",
+    "category": "product",
+    "importance": "normal",
+    "url": "https://the-decoder.com/anthropics-message-threads-cut-time-to-first-token-by-35-percent-for-long-conversations/"
+  },
+  {
+    "source": "The Decoder",
+    "title_th": "Anthropic สั่ง Claude Code ห้ามก๊อปเกมของคนอื่น หลังมีเกมโคลนอย่าง Halo และ GTA Vice City ทำจาก AI เต็มเน็ต",
+    "summary_th": "Addy Osmani พนักงาน Anthropic ยืนยันว่า system prompt ของ Opus 5.5 ใน Claude Code มีประโยคเพิ่มมาที่ห้ามสร้างเกมที่มีอยู่แล้วซ้ำ แม้จะเปลี่ยนชื่อหรืออ้างว่าเป็นของใหม่ก็ตาม หลังมีคนใช้ Opus 5.5 และ GPT-6 Astra ทำพอร์ตเกมดังลงเบราว์เซอร์แบบไม่เป็นทางการเป็นร้อยเกม ยังสร้างเกมของตัวเอง เกมแนวเดียวกัน หรือใช้ asset ของตัวเองได้ตามปกติ แต่มีผู้ใช้บางคนบ่นว่าโปรเจกต์ต้นฉบับของตัวเองก็โดนบล็อกด้วย และ Anthropic บอกว่าจะปรับกฎต่อไป",
+    "category": "policy",
+    "importance": "normal",
+    "url": "https://the-decoder.com/anthropic-cracks-down-on-game-cloning-in-claude-code-after-wave-of-ai-built-knockoffs/"
+  },
+  {
+    "source": "TechCrunch",
+    "title_th": "Apple บังคับแอปหาคู่และแอปแฟน AI อย่าง Character.AI และ Replika ต้องเรต 18+ บน App Store",
+    "summary_th": "Apple ปรับกฎ App Store ให้แอปที่มีฟีเจอร์หาคู่หรือความสัมพันธ์เชิงโรแมนติก รวมถึงแอปเพื่อนคุย AI ที่มีเนื้อหาทางเพศหรือโรแมนติก ต้องจัดเรต 18+ แม้ฟีเจอร์นี้จะเป็นแค่ส่วนหนึ่งของแอปก็ตาม และแอปที่แชร์ตำแหน่งจริงของผู้ใช้ให้คนอื่นเห็นต้องแจ้งให้ชัด นักพัฒนาต้องใส่ข้อมูลระบุเนื้อหาแบบใหม่ตั้งแต่ 16 พ.ย. นี้ เป็นส่วนหนึ่งของการคุมการใช้งานของเด็กที่ Apple ทยอยออกมา",
+    "category": "policy",
+    "importance": "normal",
+    "url": "https://techcrunch.com/2026/11/03/apple-restricts-dating-apps-and-ai-companions-to-users-18-and-up/"
+  },
+  {
+    "source": "The Decoder",
+    "title_th": "เอเจนต์ AI เข้าคุมกล้องโทรทรรศน์วิทยุ Allen ของ SETI ทั้งหันกล้องและวิเคราะห์สัญญาณสด งานหลายสัปดาห์เหลือไม่กี่ชั่วโมง",
+    "summary_th": "ที่ Allen Telescope Array ในแคลิฟอร์เนียตอนเหนือ นักวิจัยแค่พิมพ์สั่ง แล้วเอเจนต์ AI จะบังคับกล้องและวิเคราะห์สัญญาณวิทยุที่เข้ามาแบบเรียลไทม์บนแพลตฟอร์ม Holoscan ของ Nvidia ซึ่งรับข้อมูลได้ถึง 2.4 เทราบิตต่อวินาที ทีมบอกว่าเป็นครั้งแรกที่ใช้ AI จับพัลซาร์ในเนบิวลาปูได้แบบสดๆ และต่อไปอยากลองโมเดลโอเพนซอร์สที่รันในตัวเครื่อง เผื่อใช้กับเซนเซอร์บนด้านไกลของดวงจันทร์ในอนาคต ส่วนสัญญาณจากสิ่งมีชีวิตนอกโลกยังไม่เจอ",
+    "category": "space",
+    "importance": "normal",
+    "url": "https://the-decoder.com/ai-agents-take-over-at-setis-allen-telescope-array-scanning-for-extraterrestrial-intelligence/"
+  }
+]
