@@ -1,0 +1,85 @@
+[
+  {
+    "source": "TechCrunch",
+    "title_th": "Anthropic ตั้งราคา IPO หุ้นละ 70-78 ดอลลาร์ มูลค่าบริษัทสูงสุดราว 1.4 ล้านล้านดอลลาร์",
+    "summary_th": "Anthropic เปิด roadshow ขายหุ้น IPO แล้ว โดยเสนอขายหุ้นสามัญคลาส A จำนวน 825 ล้านหุ้นในช่วงราคา 70-78 ดอลลาร์ ระดมทุนจากการเสนอขายได้ราว 5.8-6.4 หมื่นล้านดอลลาร์ และถ้ารวมดีลขายหุ้นคลาส N แบบไม่มีสิทธิ์โหวตให้บริษัทชิปและบริษัทเทคอีก 2.6 หมื่นล้าน เงินสุทธิจะอยู่ที่ราว 8.5-9.4 หมื่นล้านดอลลาร์ ถ้าขายได้ที่ราคาสูงสุด มูลค่าบริษัทจะอยู่ที่ราว 1.404 ล้านล้านดอลลาร์ ซึ่งสูงกว่ารอบระดมทุนเดือนพฤษภาคม (965 พันล้าน) แต่ต่ำกว่าเป้าราว 2 ล้านล้านที่เคยมีรายงาน หุ้นจะเข้าซื้อขายใน Nasdaq ด้วยชื่อย่อ \"ANT\" ราววันที่ 19 พ.ย. และกันหุ้นให้นักลงทุนรายย่อยได้ถึง 20%",
+    "category": "funding",
+    "importance": "major",
+    "url": "https://techcrunch.com/2026/11/10/anthropic-sets-ipo-price-range-of-70-to-78-per-share-to-reach-an-implied-valuation-of-1-404-trillion/",
+    "context_th": "สืบเนื่องจากข่าว 9 พ.ย. ที่ Anthropic ยืนยันเดินหน้า IPO ก่อนวันขอบคุณพระเจ้าแม้ตลาดหุ้นเทคกำลังขาลง"
+  },
+  {
+    "source": "TechCrunch",
+    "title_th": "Claude เข้าประชุม Google Meet ได้แล้ว ร่างแผน ตอบแชต ดึงข้อมูลให้ระหว่างที่ทุกคนคุยกัน",
+    "summary_th": "Anthropic เปิดตัว Claude Meetings ให้ Claude เข้าร่วมวิดีโอคอลเป็นผู้เข้าร่วมคนหนึ่งที่ทุกคนเห็น ระหว่างที่คุยกัน Claude ร่างแผนงานตามที่ทีมพูด วาดไทม์ไลน์บนไวท์บอร์ด ตอบคำถามในแชต และดึงตัวเลขจากแอปงานที่เชื่อมไว้ เช่น ยอดขายปีที่แล้ว พอจบคอลจะได้บันทึกการประชุมกับรายการงานที่ต้องทำใน claude.ai ตอนนี้เป็นเบต้าสำหรับแพ็กเกจ Team/Enterprise และใช้ได้กับ Google Meet เท่านั้น ถ้ามีคนนอกองค์กรเข้าคอล Claude จะออกเองอัตโนมัติ วันเดียวกันยังเปิดตัว Claude Sheets (บอกให้ Claude สร้างสเปรดชีตใช้ร่วมกันได้ เช่น ตารางติดตามแคมเปญ), Claude Whiteboards (กระดานวางแผนที่แปลงเป็นเอกสารหรือสไลด์ได้) และ Claude Data ที่ต่อคลังข้อมูล/CRM แล้วทำแดชบอร์ดหรือวิดีโอเล่าข้อมูลให้",
+    "category": "product",
+    "importance": "normal",
+    "url": "https://techcrunch.com/2026/11/10/anthropic-launches-claude-meetings-to-turn-workplace-discussions-into-plans-and-tasks/"
+  },
+  {
+    "source": "The Decoder",
+    "title_th": "8 ประเทศและแล็บ AI ชั้นนำลงนาม \"ปฏิญญาปารีส\" รับปากทำกลไกปิดโมเดลฉุกเฉิน",
+    "summary_th": "ตัวแทน 8 ประเทศร่วมรับรอง Paris Call for AI Safety and Security เมื่อ 9 พ.ย. (เยอรมนีไม่ได้ลงนาม) พร้อมผู้นำบริษัท AI อย่าง Sam Altman (OpenAI), Dario Amodei (Anthropic), Brad Smith (Microsoft) และ Arthur Mensch (Mistral) บริษัทรับปากจะเปิดเผยความเสี่ยงที่รู้ ยอมให้ตรวจสอบอิสระ แชร์ข้อมูลเหตุการณ์ด้านความปลอดภัยร้ายแรง เผยผลทดสอบโมเดลในรูปแบบมาตรฐาน และทำกลไกสั่งปิดโมเดลที่ตัวเองควบคุม แต่ทั้งหมดเป็นคำมั่นทางการเมือง ไม่มีผลบังคับ ไม่มีกำหนดเวลา และไม่มีบทลงโทษ",
+    "category": "policy",
+    "importance": "normal",
+    "url": "https://the-decoder.com/eight-countries-and-top-ai-labs-agree-to-shutdown-mechanisms-in-new-paris-declaration/"
+  },
+  {
+    "source": "The Decoder",
+    "title_th": "Claude Fable 5.2 ทำงานฟรีแลนซ์จริงผ่านมาตรฐานลูกค้าได้ 41% จากที่ AI ดีที่สุดเมื่อปีก่อนทำได้แค่ 2.5%",
+    "summary_th": "ผลทดสอบ Remote Labor Index ของ Scale Labs กับ CAIS ซึ่งใช้งานจริง 240 ชิ้นจากฟรีแลนซ์บน Upwork (มูลค่ารวมราว 144,000 ดอลลาร์) วัดว่า AI ส่งงานที่ลูกค้ายอมรับได้กี่ชิ้น Fable 5.2 ทำได้ 41.3% นำห่างอันดับสอง Claude Opus 5.5 (21.25%) และ GPT 6 Astra ของ OpenAI (20.83%) ส่วน Gemini Argon 4 ได้ 17.08% ตอนเปิดตัวชุดทดสอบเมื่อราวปีก่อน ระบบที่ดีที่สุดทำได้แค่ 2.5% แปลว่างานรับจ้างจริงที่ AI ทำจนจบได้เพิ่มขึ้นราว 16 เท่าในปีเดียว",
+    "category": "research",
+    "importance": "normal",
+    "url": "https://the-decoder.com/anthropics-fable-5-2-completes-41-percent-of-real-freelance-jobs-up-from-2-5-percent-a-year-ago/",
+    "context_th": "ต่อจากข่าว 9 พ.ย. ที่ Anthropic เปิดตัว Claude Fable 5.2 และ Mythos 5.2"
+  },
+  {
+    "source": "The Decoder",
+    "title_th": "Gemini Robotics 2.5 ของ DeepMind คุมหุ่นยนต์คัดแยกชิ้นส่วนในโรงงาน Mercedes-Benz สำเร็จ 96%",
+    "summary_th": "Google DeepMind เปิดตัว Gemini Robotics 2.5 โมเดลที่ดูภาพ เข้าใจคำสั่งภาษาคน แล้วแปลงเป็นการขยับแขนกลได้ ทดสอบกว่า 200 งาน สำเร็จมากกว่ารุ่นก่อน 30-100% และเร็วขึ้น 20-30% ในการทดลองบนไลน์ผลิตจริงของ Mercedes-Benz ที่ฮังการีและเยอรมนี หุ่นยนต์ฮิวแมนนอยด์ Apollo 2 ของ Apptronik หยิบชิ้นส่วนโลหะจากถังมาวางลงถาดตามลำดับที่รถแต่ละคันต้องใช้ สำเร็จ 96% นอกจากนี้ยังหลบสิ่งกีดขวางและคนได้ปลอดภัยขึ้น และ DeepMind ปล่อยชุดทดสอบ ASIMOV-Jailbreak แบบโอเพนซอร์สไว้วัดว่าหุ่นยนต์ถูกหลอกให้ทำสิ่งอันตรายได้ง่ายแค่ไหน (ตัวเลขทั้งหมดบริษัทรายงานเอง)",
+    "category": "model_release",
+    "importance": "normal",
+    "url": "https://the-decoder.com/google-deepminds-gemini-robotics-2-5-scores-96-percent-sorting-metal-parts-in-a-mercedes-benz-assembly-pilot/"
+  },
+  {
+    "source": "TechCrunch",
+    "title_th": "Adobe อัด AI ใหม่ทั้ง Photoshop, Premiere, Firefly และเปิด MCP ให้ ChatGPT/Claude/Gemini สั่งงานโปรแกรม Adobe ได้",
+    "summary_th": "Photoshop ได้ฟีเจอร์ปรับแสงในภาพใหม่ (relight) และแถบเลื่อนปรับสไตล์ภาพจากพรอมต์ Premiere ได้ระบบเกรดสีระดับมืออาชีพและเครื่องมือลบวัตถุออกจากวิดีโอ ส่วน Firefly ได้เครื่องมือแก้เฉพาะบางส่วนของภาพโดยไม่กระทบส่วนอื่น เครื่องมือประกอบวิดีโอจากคลิป ภาพ และเสียงเอฟเฟกต์ ปุ่มลัดอย่างลบพื้นหลังหรือทำภาพปกวิดีโอ และ Builder (เบต้าแบบปิด) สำหรับทำต้นแบบดีไซน์ ที่น่าสนใจคือ MCP แบบรันในเครื่อง ที่เปิดให้แชตบอตอย่าง ChatGPT, Claude และ Gemini เรียกใช้ฟีเจอร์ของ Illustrator, Photoshop, After Effects และ Premiere ได้โดยตรง",
+    "category": "product",
+    "importance": "normal",
+    "url": "https://techcrunch.com/2026/11/10/adobe-adds-more-ai-to-its-products-and-launches-an-mcp/"
+  },
+  {
+    "source": "TechCrunch",
+    "title_th": "AI DJ ของ Spotify มีเสียงและบุคลิกให้เลือกเพิ่ม และสั่งให้พูดน้อยลงได้",
+    "summary_th": "ผู้ใช้ Spotify Premium เลือกเสียง DJ ได้หลากหลายขึ้น ภาษาอังกฤษมีสำเนียงอังกฤษ อเมริกัน ไอริช ออสเตรเลีย และอินเดีย และมีบุคลิกต่างกัน เช่น Casey สบายๆ อบอุ่น, Tess ตรงๆ มีความแสบ, Lane สำเนียงใต้ไฟแรง ส่วนภาษาสเปนได้เสียงใหม่ Nico กับ Fabi ที่สำคัญคือปิดคำพูดคั่นระหว่างเพลงได้แล้ว DJ จะทักแค่สั้นๆ ตอนเริ่มกับตอนปิด เหมาะเปิดเป็นเพลงพื้นหลังในปาร์ตี้ เริ่มทยอยปล่อยใน 95 กว่าประเทศที่รองรับ DJ ตั้งค่าได้โดยค้นคำว่า \"DJ\" ในแอปแล้วกดเมนูสามจุด",
+    "category": "product",
+    "importance": "normal",
+    "url": "https://techcrunch.com/2026/11/10/spotifys-ai-dj-gets-new-voices-personalities-and-an-option-for-less-chatter/"
+  },
+  {
+    "source": "TechCrunch",
+    "title_th": "เอเจนต์ Muse ของ Meta ใช้บน Apple Watch และนาฬิกา Wear OS ได้แล้ว",
+    "summary_th": "Meta ขยาย Muse ผู้ช่วย AI ของตัวเองมาอยู่บนสมาร์ตวอทช์ทั้ง Apple Watch และนาฬิกา Android (Wear OS) ใช้ได้ 3 แบบ คือโทรคุยด้วยเสียง พิมพ์ข้อความ หรือพูดให้พิมพ์ตาม ทำให้สั่งงานหรือถามเรื่องต่างๆ ได้จากข้อมือโดยไม่ต้องหยิบมือถือ แต่ Meta ยังไม่ได้บอกว่าเปิดในประเทศไหนบ้าง และงานอย่างจองร้านหรือสั่งซื้อของที่ Muse ทำได้บนมือถือจะใช้บนนาฬิกาได้ด้วยหรือไม่",
+    "category": "product",
+    "importance": "normal",
+    "url": "https://techcrunch.com/2026/11/10/metas-ai-agent-muse-lands-on-apple-watch-and-wear-os/",
+    "context_th": "ต่อเนื่องจากที่ Meta เพิ่งเปิดตัว Spaces สำหรับทำงานร่วมกับ Muse (ข่าว 6 พ.ย.) และวิดีโอคอลกับอวตาร Muse (ข่าว 5 พ.ย.)"
+  },
+  {
+    "source": "TechCrunch",
+    "title_th": "ผู้บริหาร Hugging Face เตือน การโจมตีไซเบอร์อาจทำให้ AI โอเพนซอร์ส \"เปิด\" น้อยลง",
+    "summary_th": "Irene Solaiman หัวหน้าฝ่ายนโยบายของ Hugging Face บอกว่าจุดเด่นของแพลตฟอร์ม AI แบบเปิด ทั้งการเข้าถึงง่ายและชุดข้อมูลขนาดใหญ่ ก็ทำให้ถูกโจมตีง่ายด้วย เธอยกเหตุการณ์อย่างการโจมตีเครื่องมือเขียนโค้ด OpenCode เพื่อขโมย API key เมื่อเดือนตุลาคม และกรณี Fireworks ที่ผู้โจมตีเข้าถึงน้ำหนักโมเดลและชุดข้อมูลของลูกค้า ถ้าแนวโน้มนี้ต่อไป แพลตฟอร์มอาจต้องจำกัดคนอัปโหลด หรือบังคับยืนยันตัวตนเข้มขึ้น ซึ่งจะทำให้นักวิจัยอิสระกับมือสมัครเล่นเข้าร่วมยากขึ้น ตอนนี้ Hugging Face เพิ่มการเฝ้าระวัง หมุนเปลี่ยนโทเคนแอดมินถี่ขึ้น และคุมเครือข่ายเข้มขึ้น",
+    "category": "other",
+    "importance": "normal",
+    "url": "https://techcrunch.com/2026/11/10/cyberattacks-threaten-to-make-open-source-ai-a-little-less-open-hugging-face-exec-warns/"
+  },
+  {
+    "source": "NASA",
+    "title_th": "NASA ชี้คลื่นความโน้มถ่วงช่วยหาดาวเคราะห์กลุ่มใหม่ที่โคจรรอบดาวแคระขาวคู่ได้",
+    "summary_th": "งานวิจัย 2 ชิ้นของนักดาราศาสตร์ NASA ที่ตีพิมพ์ใน The Astrophysical Journal เสนอว่ากล้อง LISA (เสาอากาศเลเซอร์ตรวจคลื่นความโน้มถ่วงในอวกาศ นำโดย ESA กำหนดส่งกลางทศวรรษ 2030) จะจับดาวเคราะห์ได้จากการที่มันดึงดาวแคระขาวคู่ให้ส่ายเล็กน้อย ซึ่งทำให้สัญญาณคลื่นความโน้มถ่วงเพี้ยนไปเป็นจังหวะ หลักการคล้ายวิธีจับการส่ายของดาวที่ใช้กันอยู่ LISA น่าจะจับดาวเคราะห์ขนาดเท่าดาวพฤหัสได้ไกลหลายพันปีแสง และกล้อง Webb ช่วยยืนยันได้ในระยะราว 500 ปีแสง ถ้าสำเร็จจะเป็นดาวเคราะห์กลุ่มใหม่ที่ไม่เคยเจอมาก่อน เพราะยังไม่เคยพบดาวเคราะห์รอบดาวแคระขาวคู่เลย",
+    "category": "space",
+    "importance": "normal",
+    "url": "https://science.nasa.gov/missions/lisa/gravitational-waves-can-reveal-new-worlds/"
+  }
+]
