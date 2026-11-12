@@ -1,0 +1,77 @@
+[
+  {
+    "source": "TechCrunch",
+    "title_th": "บอร์ด Nvidia มีรายงานว่าเตรียมปลด Jensen Huang หุ้นร่วง 8% หลังเวลาทำการ",
+    "summary_th": "Wall Street Journal รายงานว่าบอร์ด Nvidia กำลังเตรียมปลด Jensen Huang ผู้ร่วมก่อตั้งที่เป็นซีอีโอมา 33 ปี และอาจประชุมตัดสินได้เร็วที่สุดวันพุธนี้ ก่อนหน้านั้น Huang ยอมรับว่ามีความสัมพันธ์นอกสมรสกับผู้หญิงที่หน่วยข่าวกรองสหรัฐฯ เชื่อว่าเป็นสายลับจีน แล้ว New York Times ก็รายงานต่อว่าเขามีความสัมพันธ์กับผู้บริหารที่เป็นลูกน้องโดยตรงด้วย หุ้น Nvidia ตกราว 8% หลังปิดตลาด และลดลงราว 11% ในรอบ 5 วัน ปัญหาคือบริษัทไม่มีแผนสืบทอดตำแหน่งที่ชัดเจน (Huang มีลูกน้องรายงานตรงราว 60 คน) Bloomberg รายงานว่าตอนนี้จ้างบริษัทภายนอกหาผู้สมัครซีอีโอแล้ว และสภาคองเกรสก็จะเรียก Huang ไปชี้แจงด้วย",
+    "category": "other",
+    "importance": "major",
+    "url": "https://techcrunch.com/2026/11/11/nvidias-stock-drops-as-board-reportedly-preps-to-oust-ceo-jensen-huang/",
+    "context_th": "สืบเนื่องจากข่าว Jensen Huang มีความสัมพันธ์กับผู้หญิงที่ถูกกล่าวหาว่าเป็นสายลับจีน ซึ่งทำให้ธุรกิจของ Nvidia ในจีนถูกจับตา (ข่าว 9 พ.ย.)"
+  },
+  {
+    "source": "Google DeepMind (via The Decoder)",
+    "title_th": "AlphaProof Code ของ DeepMind พิสูจน์ความปลอดภัยของโค้ดเข้ารหัส Signal ได้ใน 4 สัปดาห์ จากปกติที่ใช้เวลาเป็นปี",
+    "summary_th": "DeepMind เปิดตัว AlphaProof Code ระบบที่พิสูจน์ทางคณิตศาสตร์ได้ว่าซอฟต์แวร์ทำงานตรงตามข้อกำหนดด้านความปลอดภัย ไม่ใช่แค่สุ่มทดสอบหาบั๊ก ทีมทดลองกับแกนเข้ารหัสของ Signal ที่รันอยู่บนมือถือผู้ใช้จริง ผู้เชี่ยวชาญเป็นคนเขียนข้อกำหนดความปลอดภัย จากนั้นเอเจนต์บน Gemini Carbon เขียนบทพิสูจน์ภาษา Lean ไปกว่า 6 ล้านบรรทัด ส่งให้คนตรวจแค่ราว 1% และจับบั๊กสองตัวที่ทีมแอบฝังไว้ได้ทันที DeepMind บอกว่าจะขยายไปใช้กับโครงข่ายไฟฟ้าและอุปกรณ์การแพทย์ต่อ",
+    "category": "research",
+    "importance": "normal",
+    "url": "https://the-decoder.com/google-deepminds-alphaproof-code-verified-signals-cryptographic-core-in-four-weeks-instead-of-years/"
+  },
+  {
+    "source": "Google (via The Decoder)",
+    "title_th": "Google เปิดตัว Gemini Decision 1 โมเดลตอบคำถามแบบเลือกตอบ ส่งไปทีละ 1,000 ข้อได้ในรอบเดียว",
+    "summary_th": "Gemini Decision 1 ไม่ได้มีไว้เขียนข้อความยาว แต่ทำมาเพื่อ \"ตัดสินใจเร็วๆ\" เช่น ตอบใช่/ไม่ใช่ เลือกข้อที่ถูก หรือให้คะแนนเป็นสเกล ส่งคำถามแยกกันได้ถึง 1,000 ข้อในครั้งเดียว รับได้ทั้งข้อความ รูป เสียง วิดีโอ และ PDF แล้วตอบกลับเป็นความน่าจะเป็นพร้อมค่าความมั่นใจภายใน 0.15-0.25 วินาที เหมาะกับงานคัดกรองเนื้อหา แยกหมวดอีเมล หรือเลือกว่าจะส่งงานให้โมเดลไหนทำ ราคา 0.10 ดอลลาร์ต่อล้านโทเคนขาเข้า และไม่คิดค่าโทเคนขาออก (ถูกกว่า Gemini 3.5 Flash-Lite ราว 5 เท่า) ใช้ได้แล้วใน Google AI Studio",
+    "category": "model_release",
+    "importance": "normal",
+    "url": "https://the-decoder.com/google-joins-the-decision-model-wave-with-gemini-decision-1-scoring-1000-questions-in-a-single-pass/"
+  },
+  {
+    "source": "DeepL (via The Decoder)",
+    "title_th": "DeepL ออกโมเดลเสียง Aure แปลภาษาสดได้ทั้งน้ำเสียง อารมณ์ และจังหวะการพูด จับได้แม้แต่ประชด",
+    "summary_th": "ระบบแปลเสียงรุ่นเดิมของ DeepL จำเสียงผู้พูดจากตัวอย่างช่วงแรกแล้วใช้เสียงนั้นไปตลอด เลยตามอารมณ์ที่เปลี่ยนระหว่างคุยไม่ทัน Aure วิเคราะห์ทั้งเสียงต้นฉบับและข้อความที่แปลอยู่ตลอดเวลา จึงพาน้ำเสียง การเน้นคำ ความเร็วในการพูด และอารมณ์ประชดไปอยู่ในเสียงภาษาปลายทางได้ ใช้ได้อัตโนมัติในการประชุมออนไลน์ การคุยต่อหน้า และผ่าน API ตอนเปิดตัวรองรับ 8 ภาษา คือ อังกฤษ เยอรมัน สเปน ฝรั่งเศส อิตาลี ญี่ปุ่น โปรตุเกส และเกาหลี (ยังไม่มีภาษาไทย)",
+    "category": "product",
+    "importance": "normal",
+    "url": "https://the-decoder.com/with-its-new-voice-model-deepl-voice-now-translates-intonation-and-speaking-speed-into-other-languages-as-well/"
+  },
+  {
+    "source": "The Decoder",
+    "title_th": "OpenAI รายได้รายไตรมาสทะลุ 1 หมื่นล้านดอลลาร์เป็นครั้งแรก แต่ยังตามหลัง Anthropic",
+    "summary_th": "ตามรายงานของ WSJ และ The Information ไตรมาส 3 OpenAI มีรายได้ราว 1 หมื่นล้านดอลลาร์ โตราว 50% จากไตรมาสก่อน ส่วนใหญ่มาจากลูกค้าองค์กรที่รายได้โตเท่าตัว แต่ยังขาดทุนจากการดำเนินงานราว 1.09 หมื่นล้านดอลลาร์ ChatGPT มีผู้ใช้ต่อสัปดาห์ 1.2 พันล้านคน และมีคนจ่ายเงิน 100 ล้านคน ส่วนไตรมาสเดียวกัน Anthropic มีรายได้ 1.7 หมื่นล้านดอลลาร์ และขาดทุนแค่ 567 ล้านดอลลาร์ ทั้งสองบริษัทจึงห่างกันมากทั้งเรื่องรายได้และความคุ้มทุน",
+    "category": "funding",
+    "importance": "normal",
+    "url": "https://the-decoder.com/enterprise-sales-push-openais-quarterly-revenue-to-10-billion-though-it-still-trails-anthropic/",
+    "context_th": "ออกมาไม่กี่วันหลัง Anthropic ตั้งช่วงราคา IPO ที่หุ้นละ 70-78 ดอลลาร์ (ข่าว 11 พ.ย.)"
+  },
+  {
+    "source": "Anthropic (via The Decoder)",
+    "title_th": "Anthropic เผยให้ AI ย้าย Claude ไปรันบนชิป AMD ได้ในราว 3 วัน จากปกติที่ใช้ 6-12 เดือน",
+    "summary_th": "Tom Brown ผู้ร่วมก่อตั้ง Anthropic บอกว่าตอนนี้ Claude ฝึกและรันบนชิป 4 ตระกูล ได้แก่ AWS Trainium, Google TPU, Nvidia GPU และ AMD GPU โดยถือรวมเป็นกองประมวลผลเดียวที่สลับกันใช้ได้ ตอนย้ายไป AMD MI355X ครั้งแรก โมเดล Mythos เป็นผู้เขียนหรือพอร์ต kernel แทบ 100% ใช้เวลาราว 3 วันและแทบไม่ต้องใช้คน ซึ่งแปลว่าข้อได้เปรียบจากซอฟต์แวร์ CUDA ที่เคยผูกลูกค้าไว้กับ Nvidia อาจไม่แน่นหนาเท่าเดิม ตัวเลขเหล่านี้มาจากเอกสารนำเสนอนักลงทุนของ Anthropic และยังไม่มีใครตรวจสอบแยกต่างหาก",
+    "category": "research",
+    "importance": "normal",
+    "url": "https://the-decoder.com/anthropic-says-ai-is-eroding-nvidias-cuda-lead-cutting-an-amd-chip-switch-from-months-to-three-days/"
+  },
+  {
+    "source": "TechCrunch",
+    "title_th": "Fractile สตาร์ทอัพชิป AI จากอังกฤษระดมทุน 720 ล้านดอลลาร์ ทำชิปที่ช่วยให้รันโมเดลถูกลง",
+    "summary_th": "Fractile ได้ทุน Series C 720 ล้านดอลลาร์ โดยมี Thrive Capital, Founders Fund, Lightspeed และ Redpoint นำ และกองทุน Sovereign AI ของรัฐบาลอังกฤษร่วมลงด้วย มูลค่าบริษัทราว 7 พันล้านดอลลาร์ ชิปของบริษัททำมาเพื่อ \"รัน\" โมเดล (inference) ไม่ใช่ฝึกโมเดล โดยวาง DRAM ซ้อนบนตัวชิปเพื่อให้รันโมเดลใหญ่ที่ทำงานต่อเนื่องหลายขั้นแบบเอเจนต์ได้เร็วและถูกลง บริษัทตั้งเป้าส่งมอบชิปและระบบชุดแรกในปี 2027",
+    "category": "funding",
+    "importance": "normal",
+    "url": "https://techcrunch.com/2026/11/11/with-720m-round-britains-fractile-gets-a-leg-up-in-the-race-for-ai-chips/"
+  },
+  {
+    "source": "The Decoder",
+    "title_th": "แอปที่สร้างด้วย Grok Build เปิดโล่งเกือบ 95% ข้อมูลผู้ป่วยและรหัสผ่านหลุดให้คนนอกเห็น",
+    "summary_th": "บริษัทความปลอดภัย Claroc ตรวจแอปที่สร้างด้วย Grok Build และยังออนไลน์อยู่ 37,571 แอป พบว่า 35,578 แอปเปิดดูได้โดยไม่ต้องล็อกอิน สาเหตุคือหน้าเผยแพร่ตั้งค่าเริ่มต้นเป็น \"ทุกคนที่มีลิงก์\" ข้อมูลที่หลุดออกมามีทั้งค่าแล็บผู้ป่วย ICU รายชื่อพนักงานโรงพยาบาลกว่า 3,500 คน บัญชีพร้อมรหัสผ่านแบบไม่เข้ารหัส และเอกสารการขายภายในของ SpaceXSI เองด้วย Claroc ประเมินว่ามี 650-800 แอปที่เก็บข้อมูลส่วนตัว ฝั่ง SpaceXSI ปิดแอปของพนักงานไป 24 แอป แต่ยังไม่ได้ปิดแอปอื่นที่เปิดอยู่ ใครใช้เครื่องมือสร้างแอปด้วย AI ควรเช็กการตั้งค่าการแชร์ทุกครั้ง",
+    "category": "other",
+    "importance": "normal",
+    "url": "https://the-decoder.com/grok-built-apps-exposed-patient-data-plaintext-passwords-and-spacexsis-own-sales-pipeline/"
+  },
+  {
+    "source": "NASA",
+    "title_th": "Voyager 1 กำลังจะไกลจากโลก \"1 วันแสง\" ในวันที่ 18 พ.ย. NASA ชวนคนทั่วโลกส่งสัญญาณไฟหา",
+    "summary_th": "วันที่ 18 พ.ย. 2026 ยาน Voyager 1 จะอยู่ห่างโลกกว่า 25,900 ล้านกิโลเมตร ไกลจนสัญญาณที่ส่งด้วยความเร็วแสงต้องใช้เวลาเต็ม 24 ชั่วโมงกว่าจะไปถึง นี่คือวัตถุที่มนุษย์สร้างซึ่งอยู่ไกลที่สุด และเดินทางมาเกือบ 50 ปีตั้งแต่ปล่อยเมื่อปี 1977 คืนวันที่ 17 พ.ย. NASA ชวนให้คนทั่วโลกใช้ไฟฉายมือถือกะพริบรหัสมอร์ส \"VGR\" ซึ่งเป็นสัญญาณเรียกขานของยาน ให้เป็นวงแสงรอบโลก และวันที่ 19 พ.ย. จะมีเสวนาที่ JPL ถ่ายทอดสดทาง nasa.gov/live",
+    "category": "space",
+    "importance": "normal",
+    "url": "https://www.nasa.gov/news-release/nasa-invites-media-public-to-join-voyager-1-one-light-day-activities/",
+    "context_th": "ต่อจากข่าวที่ Voyager 1 ปิดระบบบางส่วนเพื่อประหยัดพลังงานและแก้ปัญหาการสื่อสารที่ขาดหายไปช่วงสั้นๆ ได้ (ข่าว 29 ต.ค.)"
+  }
+]
