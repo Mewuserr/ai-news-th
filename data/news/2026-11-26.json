@@ -1,0 +1,85 @@
+[
+  {
+    "source": "The Decoder",
+    "title_th": "Nvidia สั่งหยุดส่งเซิร์ฟเวอร์ไปไทย มาเลเซีย สิงคโปร์ และอินโดนีเซีย หลังสหรัฐฯ คุมเข้มการส่งออกชิป",
+    "summary_th": "ตามรายงานของ Financial Times, Nvidia แจ้งพาร์ตเนอร์อย่าง Dell และ Supermicro ให้หยุดส่งเซิร์ฟเวอร์ไป 4 ประเทศอาเซียนรวมถึงไทย หลังกระทรวงพาณิชย์สหรัฐฯ ออกกฎใหม่สกัดไม่ให้บริษัทจีนเช่าพลังประมวลผลผ่านคลาวด์ต่างประเทศ ผู้ให้บริการคลาวด์ในภูมิภาคมีเวลา 90 วันขอใบอนุญาตและพิสูจน์ว่าไม่มีลูกค้าที่ถูกจำกัด ผู้บริหารรายหนึ่งเรียกสถานการณ์ว่า 'โกลาหล' และมีรายงานว่าธนาคารระงับเงินกู้ราว 500 ล้านดอลลาร์ของผู้ให้บริการคลาวด์ในสิงคโปร์ที่วางแผนให้ ByteDance เช่าเครื่อง — กระทบแผนศูนย์ข้อมูล AI ในไทยโดยตรง",
+    "category": "policy",
+    "importance": "major",
+    "url": "https://the-decoder.com/nvidia-halts-server-shipments-to-malaysia-singapore-thailand-and-indonesia-after-tighter-us-export-controls/",
+    "context_th": "สืบเนื่องจากที่สหรัฐฯ คุมเข้มการส่งออกชิป AI เพื่อกันบริษัทจีนเช่าพลังประมวลผลจากระยะไกล โดยระบุไทยเป็นหนึ่งในประเทศที่ต้องขอใบอนุญาต (ข่าว 18 พ.ย.)"
+  },
+  {
+    "source": "Spaceflight Now",
+    "title_th": "FCC อนุมัติ SpaceX ส่งดาวเทียม 'Starmind' ศูนย์ข้อมูลในอวกาศได้ถึง 1 ล้านดวง",
+    "summary_th": "คณะกรรมการกำกับกิจการสื่อสารสหรัฐฯ (FCC) อนุญาตให้ SpaceX สร้างกลุ่มดาวเทียมสำหรับศูนย์ข้อมูลในวงโคจรได้สูงสุด 1 ล้านดวง แต่ละดวงกำลังไฟราว 250 กิโลวัตต์ เทียบเท่าตู้แร็กคอมพิวเตอร์หนึ่งตู้ ปีกกว้าง 75 เมตร จับกลุ่มละ ~10 ดวงเชื่อมกันด้วยเลเซอร์ความเร็วราว 10 เทราบิต เงื่อนไขคือต้องส่งดวงแรกภายในปี 2033 และครบทั้งหมดภายในปี 2040 ขณะที่ Musk คาดว่าจะปล่อยชุดแรกได้ช่วงไตรมาส 3 ปี 2027 ด้านสมาคมดาราศาสตร์อเมริกัน (AAS) คัดค้านเพราะห่วงผลกระทบต่อการสังเกตท้องฟ้า",
+    "category": "space",
+    "importance": "major",
+    "url": "https://spaceflightnow.com/2026/11/26/fcc-green-lights-spacexs-plan-to-launch-1-million-starmind-data-center-satellites/"
+  },
+  {
+    "source": "The Decoder",
+    "title_th": "PrismML บีบโมเดลเขียนโค้ด 27B จาก 54 GB เหลือ 5.9 GB รันบนการ์ดจอเกมหรือ Mac ได้",
+    "summary_th": "PrismML ปล่อย Ternary Bonsai 2.5 27B (ต่อยอดจาก Qwen3.8-27B) ที่ลดน้ำหนักแต่ละค่าในโมเดลเหลือแค่ -1, 0 หรือ +1 ทำให้ขนาดเหลือ 5.9 GB จากเดิมราว 54 GB แต่ยังเก่งงานเอเจนต์ที่ต้องเรียกเครื่องมือต่อกันยาวๆ — ได้ 75.6% บน SWE-bench Verified (จาก 60.8%) และ 90.5% บน AppWorld บน RTX 4090 พิมพ์ได้ราว 204 โทเคน/วินาที เปิดน้ำหนักฟรีแบบ Apache 2.0 รันผ่าน llama.cpp บนการ์ด Nvidia/Intel หรือ MLX บน Mac, iPhone และ iPad ได้ แปลว่าใช้เป็นผู้ช่วยเขียนโค้ดแบบออฟไลน์ในเครื่องตัวเองได้จริง",
+    "category": "model_release",
+    "importance": "normal",
+    "url": "https://the-decoder.com/prismml-squeezes-an-agent-based-coding-model-with-27-billion-parameters-into-5-9-gb/"
+  },
+  {
+    "source": "TechCrunch",
+    "title_th": "ChatGPT เริ่มรวมแท็บ Chat กับ Work ใช้โควตาร่วมกัน คนใช้หนักอาจเจอลิมิตเร็วขึ้น",
+    "summary_th": "OpenAI เริ่มทยอยเปิดประสบการณ์ Chat และ Work แบบรวมเป็นหนึ่งให้ผู้ใช้ Pro กลุ่มเล็กก่อน โดยทั้งสองส่วนจะนับโควตาจากมิเตอร์เดียวกัน ส่วนการคุยด้วยโมเดล Instant ยังใช้ได้ไม่จำกัดและไม่นับโควตา แม้ใช้โควตาหมดก็ยังคุยกับ Instant ต่อได้ OpenAI บอกว่าผู้ใช้ส่วนใหญ่จะไม่รู้สึกต่าง แต่กลุ่มที่ใช้หนักที่สุดอาจชนลิมิตเร็วขึ้น และจะขยายระบบโควตาร่วมให้วงกว้างในเดือนธันวาคม",
+    "category": "product",
+    "importance": "normal",
+    "url": "https://techcrunch.com/2026/11/25/openai-says-heavy-chatgpt-users-may-hit-limits-sooner-as-it-merges-chat-and-work/",
+    "context_th": "เป็นขั้นต่อจากที่ OpenAI ประกาศว่าจะรวมแท็บ Chat กับ Work ของ ChatGPT และอาจทำให้บางคนต้องรอโควตารีเซ็ตบ่อยขึ้น (ข่าว 3 พ.ย.)"
+  },
+  {
+    "source": "The Decoder",
+    "title_th": "OpenAI ทดลอง 'Private Inference' ให้บริษัทใช้โมเดลตัวท็อปได้โดยที่ OpenAI เองมองไม่เห็นข้อมูล",
+    "summary_th": "Sam Altman เผยว่า OpenAI กำลังนำร่องบริการ Private Inference กับลูกค้าองค์กรกลุ่มแรก ให้ส่งงานอ่อนไหวเข้าโมเดลที่ทรงพลังที่สุดได้ โดยประมวลผลบนฮาร์ดแวร์แยกพิเศษที่ตรวจสอบความปลอดภัยจากภายนอกได้ และ OpenAI เข้าถึงข้อมูลไม่ได้ นอกจากนี้ยังมี Private Safety Processing ที่สแกนหาการใช้งานผิดวัตถุประสงค์โดยไม่เก็บข้อมูลลูกค้า เนื้อหาที่ถูกแจ้งเตือนจะเข้ารหัสเก็บไว้ในคลาวด์ของลูกค้าเอง ยังไม่มีราคาหรือวันเปิดตัวจริง",
+    "category": "product",
+    "importance": "normal",
+    "url": "https://the-decoder.com/openai-wants-companies-to-trust-it-with-sensitive-work-by-promising-not-to-look-at-their-data/"
+  },
+  {
+    "source": "TechCrunch",
+    "title_th": "อัยการสูงสุด 42 รัฐค้านแผน Character.AI ประมูลขายแชตส่วนตัวผู้ใช้ 21 ล้านบัญชี",
+    "summary_th": "กลุ่มอัยการสูงสุด 42 รัฐของสหรัฐฯ เข้าแทรกแซงคดีล้มละลายของ Character.AI เพื่อหยุดการขายข้อมูลผู้ใช้ ซึ่งรวมประวัติแชตจากกว่า 21 ล้านบัญชีในสหรัฐฯ โดยกว่า 2.1 ล้านบัญชีเป็นของผู้เยาว์ พร้อม IP และข้อมูลส่วนตัวอื่น ผู้เสนอซื้อรายเดียวที่เปิดเผยคือบริษัทในเดลาแวร์ที่เพิ่งตั้งเมื่อ 13 พ.ย. และการประมูลมีกำหนดวันที่ 1 ธ.ค. อัยการชี้ว่าผู้ซื้อไม่ต้องเคารพนโยบายความเป็นส่วนตัวเดิม ทั้งที่ Character.AI เคยบอกผู้ใช้ว่าจะไม่ขายข้อมูล",
+    "category": "policy",
+    "importance": "normal",
+    "url": "https://techcrunch.com/2026/11/25/state-ags-fight-character-ais-plan-to-auction-off-users-private-chats/"
+  },
+  {
+    "source": "The Decoder",
+    "title_th": "Microsoft เปิดโปงเฟรมเวิร์ก ARTEX ที่แฮกเกอร์รัฐใช้ให้เอเจนต์ AI โจมตีระบบเองแทบไม่ต้องมีคน",
+    "summary_th": "Microsoft Threat Intelligence รายงานว่ากลุ่มแฮกเกอร์ที่รัฐจีนและเกาหลีเหนือหนุนหลัง รวมถึงแก๊งอาชญากร นำ ARTEX มาใช้อย่างแพร่หลายตั้งแต่เปิดตัวเดือน ก.ค. มันสั่งเครื่องมืออย่าง Nmap, Sqlmap และ Metasploit ได้เองโดยแทบไม่ต้องมีคนคุม มีเอเจนต์วางแผน เอเจนต์ลงมือ และเอเจนต์ทำรายงาน และสลับโมเดลหรือ API key เองเมื่อติดลิมิต ในเคสหนึ่งเอเจนต์ใช้เวลาแค่ 5 นาทีหา credential ที่หลุดบน GitHub แล้วดูดข้อมูลจาก Azure Key Vault Microsoft แนะนำให้ป้องกันด้วยการหลอกล่อ เช่น honeypot และข้อความสำเร็จปลอมให้เอเจนต์หยุดเอง",
+    "category": "other",
+    "importance": "normal",
+    "url": "https://the-decoder.com/microsoft-details-how-state-backed-hackers-use-the-artex-ai-framework-to-automate-cyberattacks/"
+  },
+  {
+    "source": "TechCrunch",
+    "title_th": "Dario Amodei ตอกกลับข้อกล่าวหาว่า Anthropic อยากให้มนุษย์ยอมยกการควบคุมให้ AI ว่า 'ไร้สาระ'",
+    "summary_th": "ซีอีโอ Anthropic โพสต์ยาวบน X ว่าเขาสนับสนุนการกำกับดูแล AI แบบประชาธิปไตยมาตลอด และแยกให้เห็นว่าการให้ AI ทำงานเฉพาะอย่างแทนคน เช่น ขับรถ ออกแบบยารักษามะเร็ง หรือเขียนซอฟต์แวร์ทั้งระบบ ต่างจากการยอมสละอำนาจตัดสินใจของมนุษย์ เขาเสนอว่าเส้นที่ควรขีดคือการที่ AI พัฒนาตัวเองซ้ำๆ (recursive self-improvement) และบอกว่า Anthropic ไม่คิดว่าจะปลอดภัยถ้าให้ Claude สร้างโมเดลรุ่นถัดไปเองทั้งหมดโดยไม่มีมนุษย์ดูแลอย่างมีความหมาย",
+    "category": "policy",
+    "importance": "normal",
+    "url": "https://techcrunch.com/2026/11/25/anthropics-dario-amodei-calls-accusations-of-surrendering-human-control-to-ai-absurd/",
+    "context_th": "เกิดขึ้นหลัง METR ประเมินว่า Anthropic อาจข้ามเส้นเตือนภัยเรื่อง AI เร่งพัฒนาตัวเองของบริษัทไปแล้วตั้งแต่เดือน ก.ค. (ข่าว 7 พ.ย.)"
+  },
+  {
+    "source": "The Decoder",
+    "title_th": "DeepMind เผย เอเจนต์ AI คุมพลังประมวลผลบางส่วนในการทดลองสร้าง Gemini รุ่นถัดไปแล้ว",
+    "summary_th": "Koray Kavukcuoglu รองประธานฝ่ายวิจัยของ Google DeepMind เล่าในพอดแคสต์ว่าเอเจนต์ AI ได้คุมพลังประมวลผลส่วนหนึ่งที่ใช้รันการทดลองสำหรับ Gemini รุ่นถัดไป โดยเพื่อความปลอดภัย DeepMind ไม่ให้รางวัลกับกระบวนการคิดภายในของเอเจนต์ระหว่างเทรน เพื่อให้เหตุผลยังอ่านออกเป็นภาษาคนก่อนลงมือ แต่เขายืนยันว่ายังห่างไกลจากการที่ AI พัฒนาตัวเองได้เต็มรูปแบบ",
+    "category": "research",
+    "importance": "normal",
+    "url": "https://the-decoder.com/ai-agents-now-control-part-of-deepminds-compute-for-gemini-experiments-but-recursive-self-improvement-remains-distant/"
+  },
+  {
+    "source": "The Decoder",
+    "title_th": "งานวิจัย Anthropic: อุปสรรคใหญ่สุดของการใช้ AI ในที่ทำงานไม่ใช่การเรียนรู้เครื่องมือ แต่คือคนตรวจงานไม่ทัน",
+    "summary_th": "ทีมเศรษฐศาสตร์ของ Anthropic สัมภาษณ์ 58 บริษัทในสหรัฐฯ ครอบคลุมการใช้ AI เกือบ 300 โครงการ พบว่า 55% ได้ผลผลิตหรือคุณภาพดีขึ้น แต่ 19% ยังไม่สร้างคุณค่าทางธุรกิจเลย อุปสรรคอันดับต้นคือ AI ผลิตงานออกมามากเกินกว่าที่คนจะตรวจทัน ตามด้วยพนักงานต่อต้าน และการต้องให้ผู้เชี่ยวชาญรีวิว มีเพียง 2 บริษัทที่เลิกจ้างเพราะ AI โดยตรง แต่สองในสามบอกว่ารับคนน้อยลง (ข้อจำกัด: กลุ่มตัวอย่างเป็นลูกค้า Anthropic ทั้งหมด)",
+    "category": "research",
+    "importance": "normal",
+    "url": "https://the-decoder.com/anthropic-study-shows-the-hardest-part-of-adopting-ai-at-work-has-little-to-do-with-learning-the-tools/"
+  }
+]
