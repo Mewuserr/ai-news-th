@@ -1,0 +1,53 @@
+[
+  {
+    "source": "The Decoder",
+    "title_th": "OpenAI แก้บั๊กราคา GPT-6.2 — ผู้ใช้ Astra จะชนลิมิตเร็วขึ้น 40% แต่ได้สิทธิ์รีเซ็ตเพิ่ม",
+    "summary_th": "วิศวกร Codex ของ OpenAI ยอมรับว่าตอนปล่อย GPT-6.2 มีบั๊กคิดส่วนลดผิด ทำให้ผู้ใช้ส่วนใหญ่ได้โควตาเยอะเกินจริง หลังแก้แล้วโควตาจะหมดเร็วขึ้น 40% สำหรับ Astra และ 25% สำหรับ Sol เทียบกับสัปดาห์ก่อน เพื่อชดเชย ผู้ใช้แพ็กเกจ Go, Plus, Pro และ Business ได้สิทธิ์รีเซ็ตโควตาสำรองเพิ่มอีกหนึ่งครั้ง ส่วน Business ได้ใช้ Fast Mode ฟรีถึงสิ้นปี",
+    "category": "product",
+    "importance": "normal",
+    "url": "https://the-decoder.com/gpt-6-2-astra-users-now-hit-limits-40-faster-after-openai-patched-a-pricing-error/",
+    "context_th": "ต่อเนื่องจากข่าว 25 พ.ย. ที่ OpenAI เตือนว่าผู้ใช้หนักอาจชนลิมิตเร็วขึ้นเมื่อรวมโหมด Chat กับ Work"
+  },
+  {
+    "source": "The Decoder",
+    "title_th": "Z.AI เลื่อน GLM-5.5 ขนาด 3 ล้านล้านพารามิเตอร์ไปต้นปีหน้า — Moonshot หันไปใช้โมเดล Google/Meta ช่วยเทรน",
+    "summary_th": "อ้างอิงรายงานของ Reuters ว่า GLM-5.5 ของ Z.AI ที่วางแผนออกเดือนพฤศจิกายนน่าจะเลื่อนไปไตรมาสแรกปี 2027 แม้เพิ่งปล่อย GLM-5.4 ขนาด 750 พันล้านพารามิเตอร์เมื่อวันจันทร์ ส่วน Moonshot AI อาจต้องใช้เวลาพัฒนาโมเดลรุ่นถัดไปนานขึ้นเท่าตัวจาก 6 เป็น 12 เดือน ทำให้ Kimi K4 อาจเลื่อนไปกลางปี 2027 และหันไปดึงข้อมูลจากโมเดลของ Google และ Meta แทน หลัง OpenAI กับ Anthropic ปิดทางกลั่นข้อมูล (distillation) ก่อนหน้านี้ The Information ก็รายงานว่านักวิจัย DeepSeek ประเมินว่าช่องว่างกับโมเดลท็อปของสหรัฐฯ อาจถ่างจาก 3-6 เดือนเป็น 9 เดือน",
+    "category": "model_release",
+    "importance": "normal",
+    "url": "https://the-decoder.com/after-openai-and-anthropic-shut-the-door-on-their-data-a-chinese-ai-developer-is-turning-to-google-and-meta-instead/",
+    "context_th": "สืบเนื่องจากที่สหรัฐฯ คุมเข้มการเข้าถึงชิป AI จากระยะไกล (ข่าว 16 พ.ย.) ซึ่งทำให้ Nvidia ระงับส่งเซิร์ฟเวอร์ไปอาเซียนรวมถึงไทย (ข่าว 26 พ.ย.)"
+  },
+  {
+    "source": "The Decoder",
+    "title_th": "Scott Aaronson: สิ่งที่น่าตื่นเต้นไม่ใช่ตัวบทพิสูจน์ แต่คือ AI ทำงานคณิตศาสตร์ระดับนี้ได้แล้ว",
+    "summary_th": "Scott Aaronson นักทฤษฎีความซับซ้อนจาก UT Austin และอดีตนักวิจัย OpenAI เขียนบล็อกว่าแม้การพิสูจน์สมมติฐานรีมันน์อาจไม่เปลี่ยนชีวิตประจำวันใคร แต่การที่ AI ทำงานแบบนี้ได้มีนัยยะ \"มหาศาล\" เขายกตัวอย่างผลงานของ OpenAI ที่พิสูจน์ขอบล่างของการคูณเมทริกซ์ และหาวิธีแปลงฟูเรียร์ที่เร็วขึ้นพร้อมพิสูจน์ว่าเร็วกว่านี้ไม่ได้มาก เขาบอกว่า \"รู้สึกในกระดูก\" ว่าการพิสูจน์ P ≠ NP อยู่ไม่ไกล และเชื่อเกือบแน่นอนว่าแล็บ AI มี \"ระเบิด\" ด้านวิทยาการเข้ารหัสซ่อนอยู่",
+    "category": "research",
+    "importance": "normal",
+    "url": "https://the-decoder.com/former-openai-researcher-says-the-riemann-proof-matters-less-than-the-fact-that-an-ai-system-can-produce-it/"
+  },
+  {
+    "source": "The Decoder",
+    "title_th": "Amazon กับ Meta เจรจาปลดบล็อกเอเจนต์ช้อปปิ้ง Muse บนร้านค้า Amazon",
+    "summary_th": "Fortune รายงานว่าทั้งสองบริษัทกำลังคุยกันเรื่องให้ Muse เอเจนต์ AI ของ Meta กลับมาสั่งซื้อของใน Amazon ได้ หลังถูกบล็อกไปตั้งแต่กันยายน จุดที่ยังตกลงกันไม่ได้คือรายได้โฆษณา (ธุรกิจโฆษณาของ Amazon มีมูลค่าปีละ 68.6 พันล้านดอลลาร์) และการควบคุมผลการค้นหา ข้อมูลจาก Forter ชี้ว่า Muse มีผู้ใช้กว่า 10 ล้านคนในสหรัฐฯ และแคนาดา และครองคำสั่งซื้อผ่านเอเจนต์ถึง 51% ทิ้ง Grok (24%) และ ChatGPT (22%)",
+    "category": "other",
+    "importance": "normal",
+    "url": "https://the-decoder.com/amazon-and-meta-are-in-talks-to-end-the-block-on-metas-ai-shopping-agent-muse-in-amazons-online-store/",
+    "context_th": "ต่อเนื่องจากที่ Meta เพิ่งนำ Muse เข้าไปใน DM ของ Instagram (ข่าว 24 พ.ย.)"
+  },
+  {
+    "source": "TechCrunch",
+    "title_th": "X เพิ่มระบบควบคุมโดยผู้ปกครองครั้งแรก — ตั้งเวลาใช้ อนุมัติผู้ติดตาม คุม DM ของลูกวัยรุ่นได้",
+    "summary_th": "บัญชีอายุ 13-17 ปีบน X จะเข้า \"โหมดป้องกัน\" อัตโนมัติ บล็อกเนื้อหาอ่อนไหวและโฆษณาแบบเจาะกลุ่ม ผู้ปกครองดูเวลาใช้งานรายสัปดาห์ ตั้งลิมิตรายวัน อนุมัติผู้ติดตามใหม่ จำกัดฟีดให้เห็นแค่บัญชีที่ติดตาม กรองคำ และเลือกได้ว่าใครส่ง DM หาลูกได้บ้าง แต่จะอ่านข้อความส่วนตัวหรือดูประวัติการค้นหาไม่ได้ ฟีเจอร์นี้มาหลัง X โดนวิจารณ์หนักเรื่อง Grok ถูกใช้สร้างภาพทางเพศของเด็กและผู้หญิง",
+    "category": "product",
+    "importance": "normal",
+    "url": "https://techcrunch.com/2026/11/26/x-finally-gets-parental-controls-after-20-years/"
+  },
+  {
+    "source": "NASA",
+    "title_th": "ยานขนส่ง Progress 97 เทียบท่าสถานีอวกาศนานาชาติในวันขอบคุณพระเจ้า",
+    "summary_th": "ยานขนส่งสินค้า Progress 97 ของรัสเซียเชื่อมต่อกับโมดูล Rassvet ของ ISS เมื่อเวลา 7:08 น. ตามเวลาฝั่งตะวันออกสหรัฐฯ (ราว 19:08 น. เวลาไทย) ขนอาหาร เชื้อเพลิง และเสบียงราว 3 ตันมาให้ลูกเรือ Expedition 75 ยานจะจอดอยู่ราว 8 เดือน ก่อนบรรจุขยะแล้วปลดออกไปเผาไหม้ในชั้นบรรยากาศ",
+    "category": "space",
+    "importance": "normal",
+    "url": "https://www.nasa.gov/blogs/spacestation/2026/11/26/progress-cargo-craft-docks-to-station-on-thanksgiving-day/"
+  }
+]
