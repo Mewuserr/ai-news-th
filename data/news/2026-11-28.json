@@ -1,0 +1,77 @@
+[
+  {
+    "source": "The Decoder",
+    "title_th": "OpenAI ฟ้องกลับ Apple ข้อหาขโมยความลับทางการค้าและบีบซัพพลายเออร์ที่ทำงานให้ทั้งสองบริษัท",
+    "summary_th": "ตามรายงานของ Financial Times, OpenAI ยื่นฟ้อง Apple ต่อศาลในแคลิฟอร์เนียเมื่อวันศุกร์ กล่าวหาว่า Apple ขู่และกดดันซัพพลายเออร์ที่ทำงานให้ทั้งสองบริษัท และใช้อำนาจทางตลาดกีดกันคู่แข่ง นอกจากนี้ยังอ้างว่าอดีตพนักงานที่ย้ายจาก OpenAI กลับไป Apple ได้ส่งแผนผลิตภัณฑ์และข้อมูลซัพพลายเออร์ไปให้ คดีนี้เป็นการฟ้องกลับหลัง Apple ฟ้อง OpenAI ไปก่อนเมื่อเดือนกรกฎาคม 2026 ทำให้สองบริษัทซึ่งเคยเป็นพันธมิตรกันกลายเป็นคู่ขัดแย้งในศาลอย่างเต็มตัว",
+    "category": "policy",
+    "importance": "major",
+    "url": "https://the-decoder.com/openai-countersues-apple-over-trade-secret-theft-and-alleged-coercion-of-shared-suppliers/"
+  },
+  {
+    "source": "The Decoder",
+    "title_th": "Google DeepMind ออกชุดทดสอบ 'Humanity's First Exam' พบว่าโมเดลเก่งๆ ยังพลาดงานง่ายๆ เมื่อให้ทำซ้ำหลายรอบ",
+    "summary_th": "DeepMind ทดสอบความน่าเชื่อถือของโมเดล AI 18 ตัวด้วยงานพื้นฐานในชีวิตประจำวัน ผลคือโมเดลระดับท็อปทำได้แทบทุกประเภทงาน 'อย่างน้อยหนึ่งครั้ง' แต่พอสั่งให้ตอบถูกติดต่อกัน 16 ครั้ง แม้แต่ตัวนำอย่าง GPT-6.2 Astra ก็ยังพลาด ต้นเหตุส่วนใหญ่ (73%) มาจากการมองเห็นภาพผิด และการให้เวลาคิดมากขึ้นก็ไม่ช่วย ชุดทดสอบนี้ตั้งชื่อล้อกับ 'Humanity's Last Exam' ที่วัดโจทย์ยากสุดๆ — สื่อว่าปัญหาจริงตอนนี้คือความสม่ำเสมอ ไม่ใช่ความฉลาด",
+    "category": "research",
+    "importance": "normal",
+    "url": "https://the-decoder.com/google-deepminds-humanitys-first-exam-shows-top-ai-models-still-fail-simple-everyday-tasks-under-repeated-runs/",
+    "context_th": "สอดคล้องกับผลทดสอบที่ TechCrunch รายงานว่าเอเจนต์ AI ที่ดีที่สุดยังติดขัดกับงานในชีวิตประจำวัน (ข่าว 25 พ.ย.)"
+  },
+  {
+    "source": "The Decoder",
+    "title_th": "OpenAI กำลังสร้างแพลตฟอร์มข้อมูล 'Athena' ให้เอเจนต์ AI เข้าใจตัวเลขธุรกิจตรงกันและเดาน้อยลง",
+    "summary_th": "ตามรายงานของ The Information, Athena คือชื่อรหัสของแพลตฟอร์มที่ทำหน้าที่เหมือน 'พจนานุกรมกลาง' ของบริษัท กำหนดความหมายของตัวชี้วัดอย่าง 'รายได้' ให้ตรงกันทุกที่ เพื่อให้เอเจนต์วิเคราะห์ข้อมูลไม่ต้องเดาเองว่าตัวเลขไหนนับยังไง และยังให้เอเจนต์เก็บ จดบันทึก และอัปเดตกฎทางธุรกิจได้เอง ที่มาคือลูกค้าอย่างน้อยหนึ่งรายพบว่าเอเจนต์วิเคราะห์ข้อมูลใน ChatGPT Work ยังแม่นไม่พอ ตอนนี้ยังอยู่ช่วงพัฒนาแรกๆ ยังไม่มีกำหนดเปิดหรือราคา",
+    "category": "product",
+    "importance": "normal",
+    "url": "https://the-decoder.com/openai-is-building-athena-data-platform-to-cut-down-on-ai-agent-guesswork/"
+  },
+  {
+    "source": "The Decoder",
+    "title_th": "Embo สตาร์ทอัพหุ่นยนต์ระดมทุนรอบ Seed 110 ล้านดอลลาร์ สร้าง AI ที่เรียนโลกจากวิดีโอก่อนไปคุมหุ่นยนต์",
+    "summary_th": "Embo ได้เงินทุนรอบแรก 110 ล้านดอลลาร์ (ราว 3,800 ล้านบาท) นำโดย Andreessen Horowitz ร่วมกับ Khosla Ventures, DST Global และ Nvidia แนวทางคือให้โมเดลดูวิดีโอบนอินเทอร์เน็ตเพื่อเข้าใจว่าโลกจริงทำงานยังไง (world model) จากนั้นฝึกทักษะการเคลื่อนไหวในโลกจำลอง แล้วค่อยปรับจูนจากประสบการณ์จริงของฝูงหุ่นยนต์ฮิวแมนนอยด์ โดยบริษัทบอกว่าฝึกโมเดลตั้งแต่ศูนย์ด้วย reinforcement learning — ขนาดเงินระดับนี้สำหรับรอบ Seed สะท้อนว่านักลงทุนกำลังเทเงินให้หุ่นยนต์ AI หนักมาก",
+    "category": "funding",
+    "importance": "normal",
+    "url": "https://the-decoder.com/robotics-startup-embo-raises-110-million-in-seed-funding-to-build-world-model-ai-for-robots/"
+  },
+  {
+    "source": "The Decoder",
+    "title_th": "งานวิจัย 3 ชิ้นจาก Meta และ AMI Labs หนุนแนวคิด JEPA ของ Yann LeCun ที่ท้าทายโมเดลภาษาใหญ่",
+    "summary_th": "JEPA คือแนวทางที่ Yann LeCun ผลักดันมานาน ให้เครื่องมี 'แบบจำลองโลก' ในหัว เข้าใจเหตุและผลแทนการเดาคำถัดไปแบบ LLM งานวิจัยใหม่ 3 ชิ้นแสดงความคืบหน้าในการวางแผนการเคลื่อนไหวของหุ่นยนต์ การฝึกโมเดลให้ประหยัดขึ้น และการแก้ข้อผิดพลาดระหว่างทาง แต่บทความก็ระบุว่าชิ้นส่วนเหล่านี้ยังต้องถูกนำมาประกอบรวมกันอีก ยังไม่ใช่ระบบที่ใช้งานแทน LLM ได้ทันที",
+    "category": "research",
+    "importance": "normal",
+    "url": "https://the-decoder.com/three-studies-from-meta-and-ami-labs-back-yann-lecuns-bet-on-jepa-world-models-over-large-language-models/"
+  },
+  {
+    "source": "The Decoder",
+    "title_th": "พบชิป Nvidia Blackwell ที่ถูกห้ามส่งออก โผล่ในดาต้าเซ็นเตอร์เซี่ยงไฮ้ ถูกใช้ค้ำประกันเงินกู้ 14 ล้านดอลลาร์",
+    "summary_th": "Bloomberg ตรวจเอกสารที่ยื่นต่อหน่วยงานจีน พบว่าบริษัท Shanghai Shuoyao นำแร็ก GB300-NVL72 ไปค้ำเงินกู้ 96 ล้านหยวน (ราว 14 ล้านดอลลาร์) และอีกบริษัทในไซต์เดียวกันก็แจ้งว่ามีเซิร์ฟเวอร์ GB200 ทั้งที่การส่งชิปรุ่นนี้เข้าจีนโดยไม่มีใบอนุญาตสหรัฐฯ เป็นเรื่องผิดกฎ Bloomberg สืบย้อนแร็กไปถึงผู้ผลิต Gigabyte จากหมายเลขซีเรียลในฐานข้อมูลการรับประกัน และพบว่า Shuoyao เชื่อมโยงกับ Megaspeed บริษัทในสิงคโปร์ที่ Alice Huang ก่อตั้ง ซึ่งเพิ่งถูกสหรัฐฯ ขึ้นบัญชีดำเดือนนี้",
+    "category": "policy",
+    "importance": "normal",
+    "url": "https://the-decoder.com/banned-nvidia-blackwell-chips-turn-up-in-a-shanghai-data-center-linked-to-alice-huang-bloomberg-reports/",
+    "context_th": "ออกมาหลัง Nvidia สั่งพักส่งเซิร์ฟเวอร์ไปมาเลเซีย สิงคโปร์ ไทย และอินโดนีเซีย เพื่อตรวจการปฏิบัติตามกฎส่งออก (ข่าว 26 พ.ย.)"
+  },
+  {
+    "source": "The Decoder",
+    "title_th": "SAP เตรียมปลดพนักงานอย่างน้อย 10,000 ตำแหน่ง ขณะปรับองค์กรหันไปทาง AI",
+    "summary_th": "ตามแหล่งข่าวของ Bloomberg, SAP กำลังพิจารณาลดคนอย่างน้อย 10,000 ตำแหน่ง หรือราว 9% ของพนักงานกว่า 110,000 คน ทุกแผนกถูกสั่งให้หาทางลดต้นทุน โดยฝ่ายพัฒนาผลิตภัณฑ์ วิศวกรรม และฝ่ายขายโดนหนักสุด ตัวเลขสุดท้ายยังไม่นิ่งและต้องหารือกับตัวแทนพนักงานก่อน ส่วนในเยอรมนีซึ่งมีพนักงานราวหนึ่งในสี่ ยังมีข้อตกลงประกันการจ้างงานถึงปี 2028 — SAP ปฏิเสธให้ความเห็น",
+    "category": "other",
+    "importance": "normal",
+    "url": "https://the-decoder.com/sap-plans-to-cut-at-least-10000-jobs-as-it-pivots-to-ai/"
+  },
+  {
+    "source": "Space.com",
+    "title_th": "Rocket Lab ส่งดาวเทียมเรดาร์ของญี่ปุ่นขึ้นวงโคจรวันขอบคุณพระเจ้า ทำสถิติปล่อยจรวดมากสุดในปีเดียว",
+    "summary_th": "จรวด Electron ของ Rocket Lab ทะยานจากฐานในนิวซีแลนด์ พาดาวเทียม StriX ของบริษัท Synspective จากโตเกียวขึ้นไปที่ความสูง 569 กม. ดาวเทียมนี้ใช้เรดาร์ (SAR) ถ่ายภาพพื้นโลกได้แม้มีเมฆหรือตอนกลางคืน นี่เป็นการปล่อย Electron ครั้งที่ 22 ของปี 2026 ซึ่งเป็นสถิติใหม่ต่อปีของบริษัท และเป็นภารกิจที่ 14 ให้ Synspective ซึ่งจองเที่ยวบินไว้ทั้งหมด 47 เที่ยว",
+    "category": "space",
+    "importance": "normal",
+    "url": "https://www.space.com/space-exploration/launches-spacecraft/rocket-lab-sending-japanese-satellite-to-orbit-on-thanksgiving-day-launch-watch-it-live"
+  },
+  {
+    "source": "NASA",
+    "title_th": "NASA เตรียมส่งยานขนส่ง Cygnus XL พร้อมสัมภาระ 5 ตันไปสถานีอวกาศวันอาทิตย์นี้",
+    "summary_th": "ภารกิจ CRS-25 ของ Northrop Grumman จะใช้จรวด Falcon 9 ของ SpaceX ปล่อยยาน Cygnus XL จากแหลมคานาเวอรัล เวลา 10:47 น. วันอาทิตย์ที่ 29 พ.ย. ตามเวลาฝั่งตะวันออกสหรัฐฯ (ราว 22:47 น. เวลาไทย) บรรทุกสัมภาระราว 11,000 ปอนด์ (ราว 5 ตัน) รวมถึงตู้ปลูกพืช Ohalo III สำหรับศึกษาการเติบโตของพืชในสภาวะไร้น้ำหนัก พยากรณ์อากาศเบื้องต้นเป็นใจ 60% ถ้าเลื่อน โอกาสถัดไปคือวันจันทร์ที่ 30 พ.ย.",
+    "category": "space",
+    "importance": "normal",
+    "url": "https://www.nasa.gov/blogs/spacestation/2026/11/27/nasa-partners-preps-on-track-for-sunday-space-station-cargo-launch/",
+    "context_th": "เป็นเที่ยวส่งเสบียงต่อจากยาน Progress ของรัสเซียที่เพิ่งเชื่อมต่อกับ ISS ในวันขอบคุณพระเจ้า (ข่าว 27 พ.ย.)"
+  }
+]
